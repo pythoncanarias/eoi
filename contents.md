@@ -1,10 +1,10 @@
-# Entorno de desarrollo
+# 🔹 Entorno de desarrollo
 
 ## Instalación de Python
 ## Entornos virtuales
 ## Editores / IDEs
 
-# Lenguaje
+# 🔹 Lenguaje
 
 ## Tipos y operaciones
 ### Números
@@ -30,12 +30,12 @@
 
 ## Excepciones
 
-# Desarrollo web
+# 🔹 Desarrollo web
 
-# Administración de sistemas
+# 🔹 Administración de sistemas
 
-# Ciencia de datos
+# 🔹 Ciencia de datos
 
-# Gráficos por ordenador
+# 🔹 Gráficos por ordenador
 
-# Testing
+# 🔹 Testing
