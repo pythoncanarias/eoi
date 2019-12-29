@@ -35,6 +35,11 @@ SETTINGS = [
         # update version of reveal.js
         # https://cdnjs.com/libraries/reveal.js/3.7.0
         '3.7.0'
+    ),
+    (
+        r'(href=")custom.css',
+        # common css for all notebooks
+        '../custom.css'
     )
 ]
 
