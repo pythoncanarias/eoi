@@ -39,3 +39,8 @@ table tbody tr:hover {
 .slides table th {
     font-size: 15pt !important;
 }
+
+.slides img {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
