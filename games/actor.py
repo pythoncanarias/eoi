@@ -10,10 +10,11 @@ Los actores tienen todos las siguientes características comunes:
  - `name`: Nombre del actor
  - `next_action`: Ejemplo de otros atributos comunes
 
-Y acepta de forma opcional estos dos componentes:
+Y acepta de forma opcional estos componentes:
 
  - `brain`
  - `weapon`.
+ - `fly`.
 
 Si el actor tiene definido `brain` entonces puede ejectur la accion `think`, si no
 esta definido, `think` aun puede ser llamada pero no va a ejecutar
@@ -41,12 +42,29 @@ Para añadir un nuevo componente:
     
     O no definirlo, si preferimos llamar al metodo cualificando con el componente:
 
-        >>> hommer = Actor(10, 20, 'Hommer', brain=HommerBrain())  # Simple brain, no weapons
+        >>> hommer = Actor(10, 20, 'Hommer', brain=HommerBrain())  # Simple brain, no weapon
         >>> hommer.brain.think()
 
+3) Si el componente solo tiene un metodo, quiza mejor usar un componente que solo
+define el metodo __call__, para que pueda ser invocado directamente. Vease el ejemplo
+del componente Fly.
+
+
+Todos los componentes se derivan de la clase base Component para poder vincularlos
+con el actor con el que estan asociado.
 """
 
-class NullComponent:
+
+# Components
+
+
+class Component:
+
+    def __init__(self, owner=None):
+        self.owner = owner
+
+
+class NullComponent(Component):
     """Null Component. Allow us to call any method on this component
     but do nothing, return always `None`.
     """
@@ -58,11 +76,55 @@ class NullComponent:
         return
 
 
+# Brain components. We don't need common base class, just a `think` method
+
+class HommerBrain(Component):
+    
+    def think(self):
+        print('{} says Duh!'.format(self.owner.name))
+
+
+class SocratesBrain(Component):
+    
+    def think(self):
+        print("{} said: Conocete a ti mismo".format(self.owner.name))
+
+
+# Weapon components. Same as before, just need an `attack` method
+
+class Weapon(Component):
+
+    def __init__(self, power_level=10, owner=None):
+        super().__init__(owner=owner)
+        self.power_level = power_level
+
+
+class CryAsBaby(Weapon):
+
+    def attack(self):
+        print('{} cry with power {}'.format(self.owner.name, self.power_level))
+
+
+class Mjolnir(Weapon):
+
+    def attack(self):
+        print('{} use a sledgehammer with power {}'.format(self.owner.name, self.power_level))
+
+
+# Fly component
+
+
+class Fly(Component):
+    def __call__(self):
+        print('{} is flying now'.format(self.owner.name))
+        return True
+
+
 class Actor:
     """Una clase para poder tener diferentes tipos de agentes en un juego.
     """
 
-    __components__ = ['brain', 'weapon']
+    __components__ = ['brain', 'weapon', 'fly']
     __slots__ = ['x', 'y', 'name', 'next_action'] + __components__
     
     def __init__ (self, x, y, name, **components):
@@ -71,42 +133,26 @@ class Actor:
         self.name = name
         self.next_action = None
         for name in Actor.__components__:
-            setattr(self, name, components.get(name, NullComponent()))
+            if name in components:
+                component = components[name]
+                component.owner = self
+            else:
+                component = NullComponent(self)
+            setattr(self, name, component)
                 
     def __str__(self):
         return self.name
 
+    def set_component(self, tag, comp):
+        comp.owner = self
+        setattr(self, tag, comp)
+
     def think(self):
         self.brain.think()
         
-    def attack(self, level=10):
-        self.weapon.attack(level)
+    def attack(self):
+        self.weapon.attack()
 
-
-# Components
-
-# Brain components. We don't need common base class, just a `think` method
-
-class HommerBrain:
-    
-    def think(self):
-        print('Duh!')
-
-
-class SocratesBrain:
-    
-    def think(self):
-        print("Conocete a ti mismo")
-
-
-# Weapon components. Same as before, just need an `attack` method
-
-
-class CryAsBaby:
-    
-    def attack(self, power=10):
-        print('Cry with power {}'.format(power))
-        
 
 def main():
     
@@ -123,8 +169,24 @@ def main():
     trump.attack()  # Trump has a weapon, so he can attack. Output is "Cry with power 10"
 
     # Change componentes in the instance, in real time
-    hommer.brain = SocratesBrain()
+    hommer.set_component('brain', SocratesBrain())
     hommer.think()  #  must output "Conocete a ti mismo"
+
+    # Components can be single callables
+    angel = Actor(0, 0, 'Angel', fly=Fly())
+    angel.fly()
+    hommer.fly()  # Still not
+
+    # You can create an actor adding components in run time 
+    thor = Actor(10, 40, 'Thor')
+    thor.set_component('brain', SocratesBrain())
+    thor.set_component('weapon', Mjolnir(power_level=2500))
+    thor.set_component('fly', Fly())
+
+    thor.think()
+    thor.attack()
+    thor.fly()
+
 
 
 if __name__ == '__main__':
