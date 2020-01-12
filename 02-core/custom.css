@@ -44,3 +44,18 @@ table tbody tr:hover {
     margin-left: auto !important;
     margin-right: auto !important;
 }
+
+.slides blockquote {
+    margin: 0 !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    border-left: 5px solid lightgray !important;
+    color: #284d71 !important;
+    padding: 0 0 0 10px !important;
+    background-color: #f9f9f9 !important;
+    font-size: 20px !important;
+}
+
+.slides blockquote p {
+    margin: 10px 0 10px 0 !important;
+}
