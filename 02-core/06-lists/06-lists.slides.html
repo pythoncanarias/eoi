@@ -14825,16 +14825,6 @@ Egon Spengler
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#127919;-Ejercicio">&#127919; Ejercicio<a class="anchor-link" href="#&#127919;-Ejercicio">&#182;</a></h3><p>Conseguir la siguiente transformación:</p>
-<p><code>12/31/20</code> ➡️ <code>31-12-2020</code></p>
-<p>Utilizando <code>split()</code> y <code>print()</code></p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Obtener-un-elemento-indexado">Obtener un elemento indexado<a class="anchor-link" href="#Obtener-un-elemento-indexado">&#182;</a></h3><p>Igual que en el caso de las cadenas de texto podemos extraer un elemento de una lista especificando su <em>desplazamiento</em>:</p>
 
 </div>
@@ -19753,6 +19743,126 @@ Wednesday : drink beer -eat peach -enjoy pie
 </div>
 </div>
 
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#127919;-Ejercicios">&#127919; Ejercicios<a class="anchor-link" href="#&#127919;-Ejercicios">&#182;</a></h2>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Ejercicio-1">Ejercicio 1<a class="anchor-link" href="#Ejercicio-1">&#182;</a></h3><p>Conseguir la siguiente transformación:</p>
+<p><code>12/31/20</code> ➡️ <code>31-12-2020</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+<p><strong>📎 Posible solución:</strong> <a href="solutions/exercise1.py">solutions/exercise1.py</a></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Ejercicio-2">Ejercicio 2<a class="anchor-link" href="#Ejercicio-2">&#182;</a></h3><p>Determinar si una cadena de texto dada es un <em>isograma</em>, es decir, no se repite ninguna letra.</p>
+<p>Ejemplos válidos de isogramas:</p>
+<ul>
+<li><code>lumberjacks</code></li>
+<li><code>background</code></li>
+<li><code>downstream</code></li>
+<li><code>six-year-old</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+<p><strong>📎 Posible solución:</strong> <a href="solutions/exercise2.py">solutions/exercise2.py</a></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Ejercicio-3">Ejercicio 3<a class="anchor-link" href="#Ejercicio-3">&#182;</a></h3><p>Dadas las siguientes matrices:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[196]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>    <span class="c1"># 2 filas x 3 columnas</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>  <span class="c1"># 3 filas x 2 columnas</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Calcular el producto $\mathbb{P} = A \times B$ utilizando la <a href="https://www.superprof.es/apuntes/escolar/matematicas/algebralineal/matrices/producto-de-matrices.html">multiplicación de matrices</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$
+\mathbb{P}
+=
+\begin{pmatrix}
+6 &amp; 4 &amp; 2\\
+8 &amp; 9 &amp; 1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+3 &amp; 2\\1 &amp; 7\\
+9 &amp; 6
+\end{pmatrix}
+=\\
+\begin{pmatrix}
+6 \cdot 3  + 4 \cdot 1 + 2 \cdot 9 &amp; 6 \cdot 2  + 4 \cdot 7 + 2 \cdot 6\\
+8 \cdot 3  + 9 \cdot 1 + 1 \cdot 9 &amp; 8 \cdot 2  + 9 \cdot 7 + 1 \cdot 6
+\end{pmatrix}
+=
+\begin{pmatrix}
+40 &amp; 52\\
+42 &amp; 85
+\end{pmatrix}
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+<p><strong>📎 Posible solución:</strong> <a href="solutions/exercise3.py">solutions/exercise3.py</a></p>
+
+</div>
+</div>
 </div></section></section>
 </div>
 </div>
