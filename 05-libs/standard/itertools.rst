@@ -22,8 +22,9 @@ Algunas de las funciones de este módulo son:
   parámetro opcional ``step`` ( por omisión, 1)::
 
     >>> for i in itertools.count(10, -1):
-    ...     print(i) ...     if i == 0: break; ...  10 9 8 7 6 5 4 3 2
-    1 0
+    ...     print(i)
+    ...     if i == 0: break;
+    ...  10 9 8 7 6 5 4 3 2 1 0
 
 .. index:: cycle
 
@@ -32,10 +33,10 @@ Algunas de las funciones de este módulo son:
   Iterador infinito. Empieza devolviendo los elementos de la
   secuencia ``s``, y cuando termina, vuelve a empezar::
 
-    >>> color = itertools.cycle(['red', 'green', 'blue']) for i in
-    >>> range(7):
-    ...     print(color.next()) ...  red green blue red green blue
-    red
+    >>> color = itertools.cycle(['red', 'green', 'blue'])
+    >>> for i in range(7):
+    ...     print(color.next())
+    ...  red green blue red green blue red
     >>>
 
 .. index:: chain
@@ -58,17 +59,19 @@ Algunas de las funciones de este módulo son:
   grupo a aquellos elementos que devuelven el mismo resultado. El
   resultado es un iterador que retorna duplas (tuplas de dos
   elementos) formadas por el resultado de la función y un iterador de
-  todos los elementos correspondientes a ese resultado::
+  todos los elementos correspondientes a ese resultado.
 
-    >>> l = ['Donatello', 'Leonardo', 'Michelangelo', 'Raphael'] f
-    >>> = lambda x: x[-1] for (letra, s) in itertools.groupby(l,
-    >>> f):
-    ...     print(letra) ...     for i in s: print(' -', i) ...  o
-    - Donatello
-    - Leonardo
-    - Michelangelo l
-    - Raphael
-    >>>
+Ejercicio: Dada la lista ``l`` con los nombres de las tortugas ninja, listarlas agrupadas por la última letra de su nombre.
+
+Solución::
+
+    l = ['Donatello', 'Leonardo', 'Michelangelo', 'Raphael']
+    f = lambda x: x[-1]
+    for (letra, s) in itertools.groupby(l, f):
+        print(letra)
+        for i in s:
+            print(' -', i)
+
 
 .. index:: product
 
@@ -104,9 +107,19 @@ Algunas de las funciones de este módulo son:
   elementos serán considerados únicos en base a su posición, no
   por su valor, así que si cada elemento es único, no habra
   repeticiones dentro de cada combinación. El número de
-  combinaciones retornadas sera de ``n! / r! / (n-r)!``, donde
-  ``r ∈ [0, 1, ..., n]``. Si ``r`` es mayor que ``n``, no se
-  devuelve ningún valor.
+  combinaciones retornadas será de:
+
+  .. math::
+  
+     \frac{n!}{r!(n-r)!}
+
+  Donde:
+
+  .. math::
+     
+     r \in [0, 1, ..., n]
+  
+  Si ``r`` es mayor que ``n``, no se devuelve ningún valor.
 
     >>> for i in itertools.combinations('ABCD', 1): print(''.join(i))
     ...
@@ -188,6 +201,6 @@ Algunas de las funciones de este módulo son:
     7 8 56
     8 9 72
 
-  .. note:: Ejercicio: calcular la suma de los tres números sucesivos, desde el cero
+.. note:: Ejercicio: calcular la suma de los tres números sucesivos, desde el cero
       hasta el 99, es decir, el primer termino es 0+1+2 = 3, el segundo es
       1*2*3 = 6, ... hasta el ultimo 97+98+99 = 294

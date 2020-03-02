@@ -5,7 +5,7 @@ Programa de formación en Python financiado por la Escuela de Organización Indu
 
 
 Contenidos
-______________
+^^^^^^^^^^^^^^
 - Entorno de desarrollo
 - Lenguaje
 - Testing
@@ -18,3 +18,5 @@ ______________
 - Internet de las cosas
 - Videojuegos
 - Empleabilidad
+
+Since Pythagoras, we know that :math:`a^2 + b^2 = c^2`.

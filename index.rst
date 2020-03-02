@@ -1,24 +1,26 @@
-.. El Herpetomicom - El pequeño libro de Python documentation master file, created by
+.. Curso EOI de especialización en Python, created by
    sphinx-quickstart on Sun Mar  1 22:03:39 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to El Herpetomicom - El pequeño libro de Python
+Curso EOI de especialización en Python
 ========================================================================
 
 .. toctree::
-   :maxdepth: 4
-   :caption: Contents:
+   :maxdepth: 3
+   :caption: Índice
 
    intro
    04-patterns/command
+   05-libs/standard/heapq
+   05-libs/standard/re
    05-libs/standard/itertools
    05-libs/standard/timeit
    05-libs/standard/os
    biblio
 
 
-Indices and tables
+Índices y tablas
 ==================
 
 * :ref:`genindex`

@@ -19,7 +19,7 @@ Algunas de las funciones y atributos de este módulo son:
 
 .. index:: name (os)
 
-- ``os.name`` : El nombre del sistema operativo sobre el que se está ejecutando python. Algunos
+- ``os.name`` : El nombre del sistema operativo sobre el que se está ejecutando Python. Algunos
   valores posibles son `posix`, `nt` y `java`. Si se desea más información de este tipo, véase
   también ``sys.platform`` y ``os.uname``
 

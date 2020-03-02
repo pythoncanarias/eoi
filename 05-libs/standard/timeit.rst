@@ -35,16 +35,19 @@ para reducir al mínimo el desvío o error causado por el inicio y finalización
 
 .. index:: Timer
 
-El módulo solo define una clase, ``Timer``. El constructor de la clase espera como primer
-parámetro o bien un *callable* (Una función, por ejemplo) que se pueda invocar sin ningún parámetro,
-o una o más líneas de código para ser medidas. Como segundo parámetro, opcional, una o varias líneas
-de inicialización o *setup*, normalmente usadas para inicializar valores. Una vez creado un objeto
-de la clase `Timer`, podemos medir su tiempo de ejecución medio usando el método `timeit`, al cual
-le podemos pasar como parámetro opcional el número de bucles o iteraciones que queremos repetir para
+El módulo solo define una clase, ``Timer``. El constructor de la clase espera como primer parámetro
+o bien un *callable* (Una función, por ejemplo) que se pueda invocar sin ningún parámetro, o una o
+más líneas de código para ser medidas. Como segundo parámetro, opcional, una o varias líneas de
+inicialización o *setup*, normalmente usadas para inicializar valores. Una vez creado un objeto de
+la clase `Timer`, podemos medir su tiempo de ejecución medio usando el método `timeit`, al cual le
+podemos pasar como parámetro opcional el número de bucles o iteraciones que queremos repetir para
 prevenir errores esstadísticosi (Aunque generalmente es buena idea dejarle esa desición al propio
 módulo).
 
-..aside:: Uso de ``timeit`` como un *one-liner*.
+.. note:: Uso de ``timeit`` como un *one-liner*.
+   podemos invocar timeit desde la linea de comando con::
+     python -m timeit "<Code to be timed>"
+
 
 En el siguiente ejemplo
 usamos ``timeit`` desde la línea de comandos para comprobar si el método ``join`` de las
