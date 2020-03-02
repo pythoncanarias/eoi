@@ -11,6 +11,7 @@ Welcome to El Herpetomicom - El pequeño libro de Python
    :caption: Contents:
 
    intro
+   04-patterns/command
    05-libs/standard/itertools
    05-libs/standard/timeit
    05-libs/standard/os
