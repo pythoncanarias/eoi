@@ -1,2 +1,4 @@
 jupyter
 rise
+Sphinx
+aafigure
