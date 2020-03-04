@@ -17,8 +17,10 @@ Curso EOI de especialización en Python
    05-libs/standard/itertools
    05-libs/standard/timeit
    05-libs/standard/os
-   biblio
-
+   05-libs/external/arrow
+   05-libs/external/requests
+   AA-annexes/biblio
+   AA-annexes/answers
 
 Índices y tablas
 ==================
