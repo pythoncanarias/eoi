@@ -12,6 +12,7 @@ Curso EOI de especialización en Python
 
    intro
    04-patterns/command
+   04-patterns/antipatterns
    05-libs/standard/heapq
    05-libs/standard/re
    05-libs/standard/itertools
