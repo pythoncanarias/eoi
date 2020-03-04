@@ -13,7 +13,7 @@ permite construir herramientas más especializadas de forma suscinta y eficiente
 
 Algunas de las funciones de este módulo son:
 
-.. index:: count
+.. index:: count (itertools)
 
 * ``count(start, [step])``
 
@@ -26,7 +26,7 @@ Algunas de las funciones de este módulo son:
     ...     if i == 0: break;
     ...  10 9 8 7 6 5 4 3 2 1 0
 
-.. index:: cycle
+.. index:: cycle (itertools)
 
 * ``cycle(s)``
 
@@ -39,7 +39,7 @@ Algunas de las funciones de este módulo son:
     ...  red green blue red green blue red
     >>>
 
-.. index:: chain
+.. index:: chain (itertools)
 
 * ``chain(s1, s2, ... ,sn)``
 
@@ -50,7 +50,7 @@ Algunas de las funciones de este módulo son:
     ['A', 'B', 'C', 'D', 'E', 'F']
     >>>
 
-.. index:: groupby
+.. index:: groupby (itertools)
 
 * ``groupby(s, f)``
 
@@ -73,7 +73,7 @@ Solución::
             print(' -', i)
 
 
-.. index:: product
+.. index:: product (itertools)
 
 * ``product(p, q, ...)``
 
@@ -98,7 +98,7 @@ Solución::
       B 2
       >>>
 
-.. index:: combinations
+.. index:: combinations (itertools)
 
 * ``combinations(s, n)``
 
@@ -145,7 +145,7 @@ Solución::
     ABCD
     >>>
 
-.. index:: tee
+.. index:: tee (itertools)
 
 * ``tee(iterable[, n=2])``
 
