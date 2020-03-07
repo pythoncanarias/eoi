@@ -1,4 +1,4 @@
 build/
+*.pyc
 .vscode
-*checkpoint*.ipynb
 .DS_Store
