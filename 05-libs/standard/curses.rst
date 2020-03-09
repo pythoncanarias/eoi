@@ -210,7 +210,7 @@ de la ventana. Se puede usar de dos maneras:
     window.addstr(y, x, str[, attr])
 
 2) Sin indicar la posición, en cuyo caso se usara la posición actual
-  del cursor. La *signatura* del método es, en este caso::
+   del cursor. La *signatura* del método es, en este caso::
 
     window.addstr(str[, attr])
    
@@ -418,32 +418,29 @@ Para más información
 Si estás interesado en estos temas, estos enlaces pueden ser de utilidad para
 profundizar:
 
-- `Writing Programs with NCURSES`: a lengthy tutorial for C programmers.
+- `Curses Programming with Python`_: La mayor parte del contenido de esta
+  sección está sacado de aquí, pero en el original se tratan más opciones y y
+  con más profundidad.
 
-The ncurses man page
+- `Writing Programs with NCURSES`_: Un tutorial bastante extenso para
+  programar desde ``C``.
 
-The ncurses FAQ
+- `The ncurses man page`_: Páginas del manual de ``ncurses``
 
-“Use curses… don’t swear”: video of a PyCon 2013 talk on controlling terminals using curses or Urwid.
+- `The ncurses FAQ`_: Preguntas frequentes sobre ``ncurses``
 
-“Console Applications with Urwid”: video of a PyCon CA 2012 talk demonstrating some applications written using Urwid.
+- `Use curses… don’t swear`_: vídeo de una charla en la PyCon 2013 acerca de
+  controlar terminales usando ``curses`` y ``Urwind``.
 
+- `Console Applications with Urwid`_: vídeo de una charla en la PyCon CA 2012 mostrando
+  algunas aplicaciones hechas con ``Urwind``.
 
-from curses import wrapper
-
-def main(stdscr):
-    # Clear screen
-    stdscr.clear()
-
-    # This raises ZeroDivisionError when i == 10.
-    for i in range(0, 11):
-        v = i-10
-        stdscr.addstr(i, 0, '10 divided by {} is {}'.format(v, 10/v))
-
-    stdscr.refresh()
-    stdscr.getkey()
-
-wrapper(main)
 
 .. _urwind: http://urwid.org/
 .. _unicurses: https://pypi.org/project/UniCurses/
+.. _Curses Programming with Python: https://docs.python.org/3/howto/curses.html
+.. _Writing Programs with NCURSES: http://invisible-island.net/ncurses/ncurses-intro.html
+.. _The ncurses man page: https://linux.die.net/man/3/ncurses
+.. _The ncurses FAQ: http://invisible-island.net/ncurses/ncurses.faq.html
+.. _Use curses… don’t swear: https://www.youtube.com/watch?v=eN1eZtjLEnU
+.. _Console Applications with Urwid: http://www.pyvideo.org/video/1568/console-applications-with-urwid
