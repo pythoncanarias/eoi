@@ -1,6 +1,9 @@
 El framework web ``flask``
 ---------------------------------------
 
+.. index:: flask
+
+
 El *Hola, mundo* en flask::
 
     from flask import Flask
@@ -14,6 +17,9 @@ El *Hola, mundo* en flask::
 Para ejecutar esta aplicacion web debemos hacer::
 
     $ FLASK_APP=main.py flask run
+
+LA salida debería ser similar a esto::
+
     * Serving Flask app "main.py"
     * Environment: production
     WARNING: This is a development server. Do not use it in a production deployment.
@@ -29,16 +35,42 @@ se menciona en la salida: ``http://127.0.0.1:5000`` para ver el resultado.
 JSON Web Tokens y Flask
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-En el desarrollo web es muy común, especialmente en aplicaciones de tipo SPA_ (Single Page
-Application) se ha popularizado mucho el uso de un estándar llamado JWT_ (*JSON Web Tokens*)
-para el tema de la autorizacion y seguridad de la comunicación entre la SPA y el
-servidor remoto. En este apartado vamos a construir una aplicacion Flask usando autorizacion JWT.
+
+En el desarrollo web, especialmente en aplicaciones de tipo SPA_ (*Single Page
+Application*), se ha popularizado mucho el uso de un estándar llamado JWT_ (*JSON Web Tokens*)
+para resolver el problema de la autorización y seguridad de la comunicación entre la SPA y el
+servidor remoto. En este apartado vamos a construir una aplicacion Flask usando autorización JWT.
+
+Vamos a empezar implementado una api de estado que nos informe simplemente de la version
+actual de la api. Esto se puede hacer (sin seguridad) muy fácilmente, solo hay que
+usar la propia rutina ``jsonify`` incluida en Flask::
 
 
+    from flask import Flask
+    from flask import jsonify
 
-(JWT) are very popular nowadays. Modern web-development is aimed at
-building Single Page Applications (SPA) using latest JavaScript libraries such as Angular, React or
-Vue. Because of that reason, JWT becomes a standard of authorization and communication between SPAs
-and web servers. In this article, I want to build a Flask web server with JWT authorization.
+    app = Flask(__name__)
+
+    
+
+    @app.route('/api/v1/stats')
+    def test():
+        return {
+            "active": True,
+            "version": "v1",
+        }
+
+Si salvamos el ejemplo anterior en un fichero llamado ``api.py`` y lo ejecutamos
+con::
+
+    FLASK_APP=api.py flask run
+
+Si ahora apuntamos un navegador a la dirección ``http://127.0.0.1:5000/api/v1/status``
+deberiamos obtener un resultado como este::
+
+    {"active":true,"version":"v1"}
+
+
 
 .. _SPA: https://es.wikipedia.org/wiki/Single-page_application
+.. _JWT: https://es.wikipedia.org/wiki/JSON_Web_Token

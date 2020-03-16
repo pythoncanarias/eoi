@@ -11,9 +11,12 @@ Curso EOI de especialización en Python
    :caption: Índice
 
    intro
+   04-patterns/intro
+   04-patterns/observer
    04-patterns/command
    04-patterns/antipatterns
    05-libs/standard/heapq
+   05-libs/standard/curses
    05-libs/standard/re
    05-libs/standard/itertools
    05-libs/standard/timeit
@@ -21,6 +24,7 @@ Curso EOI de especialización en Python
    05-libs/standard/sqlite3
    05-libs/external/arrow
    05-libs/external/requests
+   06-web/flask
    AA-annexes/biblio
    AA-annexes/answers
 
