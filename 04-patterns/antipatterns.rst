@@ -1,6 +1,17 @@
 Antipatrones
 ----------------------------
 
+Usar el * al importaar
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It import (into the current namespace) whatever names the module (or package) lists in its __all__ attribute -- missing such an attribute, all names that don't start with _.
+
+It's mostly intended as a handy shortcut for use only in interactive interpreter sessions: as other answers suggest, don't use it in a program.
+
+My recommendation, per Google's Python style guide, is to only ever import modules, not classes or functions (or other names) from within modules. Strictly following this makes for clarity and precision, and avoids subtle traps that may come when you import "stuff from within a module".
+
+Importing a package (or anything from inside it) intrinsically loads and executes the package's __init__.py -- that file defines the body of the package. However, it does not bind the name __init__ in your current namespace (so in this sense it doesn't import that name).
+
 Usar el operador ``is`` en vez de ``==``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
