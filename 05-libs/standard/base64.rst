@@ -8,7 +8,7 @@ solo permitan codificar como texto, como sistemas de correo electronico, ser
 parte de los contenidos de una URL. dentro de una peticion POST en la web,
 e incluso imprimiendolos en papel.
 
-Se incluyen diversos sistemas, todos ellos definidos en el `RFC 3549`_, conocidos
+Se incluyen diversos sistemas, todos ellos definidos en el `RFC 3548`_, conocidos
 como **Base16**, **Base32** y **Base64** (Este último es de largo el más
 utilizado por ser el más eficiente). También se implementan en esta librería
 los estándares de facto **Ascii85** y **Base85**. más raramente usados.
@@ -71,7 +71,7 @@ Ejercicio: Codificar la cadena de bytes `Hola, mundo!` usando base64
   (explicaremos esto más adelante) la función elevaría la exceptción
   ``binascii.Error``. 
 
-  Por ultimo, el tercer parametro, ``validate``, por defecto puesto a
+  Por ultimo, el tercer parámetro, ``validate``, por defecto puesto a
   ``False``, comprueba si los caracteres usados corresponden con la tabla
   de valores permitidos por base64. Copn el valor ``False`` asignado por
   defecto, cualquera de esos valores es simplemente descartado. Sin embargo, si
@@ -93,12 +93,7 @@ encriptarla. Todo contenido codificado en base64 (o sus primos) es, a todos los
 efectos, pública.
 
 
-
-.. _RFC 3594: https://tools.ietf.org/html/rfc3548.html
-
-.. _protocolo Buffer: https://docs.python.org/3/c-api/buffer.html
-
-Otras funciones utiles en este modulo son
+Otras funciones útiles en este múdulo son las siguientes:
 
 
 - ``standard_b64encode(s)``
@@ -122,3 +117,8 @@ Otras funciones utiles en este modulo son
 [TODO explicar code32 y code16]
 
 [TODO Ejercicio molon]
+
+
+.. _RFC 3548: https://tools.ietf.org/html/rfc3548.html
+
+.. _protocolo Buffer: https://docs.python.org/3/c-api/buffer.html
