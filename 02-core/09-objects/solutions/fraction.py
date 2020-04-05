@@ -1,8 +1,8 @@
 class Fraction:
     def __init__(self, numerator, denominator):
-        mcd = Fraction.mcd(numerator, denominator)
-        self.numerator = numerator // mcd
-        self.denominator = denominator // mcd
+        gcd = Fraction.gcd(numerator, denominator)
+        self.numerator = numerator // gcd
+        self.denominator = denominator // gcd
 
     def __add__(self, other):
         new_numerator = (self.numerator * other.denominator +
@@ -30,7 +30,7 @@ class Fraction:
         return f'{self.numerator} / {self.denominator}'
 
     @staticmethod
-    def mcd(a, b):
+    def gcd(a, b):
         '''Euclid's Algorithm'''
         while b > 0:
             a, b = b, a % b
