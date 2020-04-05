@@ -16,6 +16,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+# https://pygments.org/demo/#try
+PYGMENTS_STYLE = 'tango'
+
 # list of modifications to be made after generating the html slides
 # each tuple has the form: (pattern, replacement) as regex
 SETTINGS = [
@@ -49,7 +52,9 @@ def notebook_to_slides(ipynbfile_path):
     notebook_path = Path(ipynbfile_path)
     html_path = notebook_path.parent.joinpath(notebook_path.stem +
                                               '.slides.html')
-    cmd = shlex.split(f'jupyter nbconvert {notebook_path} --to slides')
+    cmd = shlex.split(f'''
+        jupyter nbconvert {notebook_path}
+        --to slides --CSSHTMLHeaderPreprocessor.style={PYGMENTS_STYLE}''')
     subprocess.run(cmd)
     return html_path
 
