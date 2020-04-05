@@ -16,8 +16,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+from prettyconf import config
+
 # https://pygments.org/demo/#try
-PYGMENTS_STYLE = 'tango'
+PYGMENTS_STYLE = config('PYGMENTS_STYLE', default='default')
 
 # list of modifications to be made after generating the html slides
 # each tuple has the form: (pattern, replacement) as regex
