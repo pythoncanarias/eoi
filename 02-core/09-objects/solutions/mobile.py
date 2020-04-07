@@ -16,13 +16,15 @@ class MobilePhone:
         self.apps.append(app)
 
     def uninstall_app(self, app):
-        del self.apps[app]
+        self.apps.remove(app)
 
 
 huawei = MobilePhone('Huawei', 5.3, 8)
 huawei.power_on()
 print(huawei.status)
 huawei.install_app('Twitter')
+print(huawei.apps)
+huawei.uninstall_app('Twitter')
 print(huawei.apps)
 huawei.power_off()
 print(huawei.status)
