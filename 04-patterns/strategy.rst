@@ -52,7 +52,8 @@ Obviamente, estos cambios de estrategia tienen que hacerse en tiempo
 real, y dependiendo del estado del juego: Salud del enemigo, armamento,
 posición del jugador, etc.
 
-## Ejercicio 1: Sistema de pedidos
+Ejercicio 1: Sistema de pedidos
+-------------------------------
 
 Vamos a ver un código que implementa una parte de una sistema de venta y
 gestión de pedido. En nuestro -muy, muy simplificado- sistema de
@@ -124,6 +125,9 @@ Esta nueva empresa tiene, por supuesto, otro sistema de cobro
 Pero tiene un **número mínimo de items**, asi que cualquier cantidad de
 5 o menos items cuesta 5 euros. A partir de ahí, se cobra un euro
 adicional por cada item.
+
+Ejercicio 2: Nuevo transportista
+--------------------------------
 
 El ejercicio es cambiar el codigo anterior para trabajar con esta nueva
 empresa

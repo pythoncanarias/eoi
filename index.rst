@@ -11,7 +11,9 @@ Curso EOI de especialización en Python
    :caption: Índice
 
    intro
+   04-patterns/introduction
    04-patterns/intro
+   04-patterns/strategy
    04-patterns/observer
    04-patterns/command
    04-patterns/antipatterns
