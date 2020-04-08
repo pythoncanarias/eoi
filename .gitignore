@@ -1,4 +1,7 @@
 build/
+.ipynb_checkpoints
 *.pyc
 .vscode
+.swp
+.swo
 .DS_Store
