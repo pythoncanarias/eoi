@@ -1,12 +1,12 @@
 El framework web ``flask``
----------------------------------------
+-----------------------------------------------------------------------
 
 .. index:: flask
 
 
 
 El *Hola, mundo* en Flask
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Este podria ser el programa más sencillo posible en flask::
 
@@ -89,8 +89,7 @@ valores solo determinan si la *cookie* llega al servidor o no.
 
 
 JSON Web Tokens y Flask
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 En el desarrollo web, especialmente en aplicaciones de tipo SPA_ (*Single Page
 Application*), se ha popularizado mucho el uso de un estándar llamado JWT_ (*JSON Web Tokens*)
@@ -106,8 +105,6 @@ usar la propia rutina ``jsonify`` incluida en Flask::
     from flask import jsonify
 
     app = Flask(__name__)
-
-    
 
     @app.route('/api/v1/stats')
     def test():
@@ -126,21 +123,64 @@ deberiamos obtener un resultado como este::
 
     {"active":true,"version":"v1"}
 
-Autenticaci'on de las peticiones
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Autenticación de las peticiones
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-el usuario ingresa sus credenciales con éxito, obtiene como resultado un **JSON Web Token**, que
-debe almacenar localmente.Vemos que en este modelo, no es en principio necesario crear una sesion en
-el lado servidor y luego enviar una clave de sesion en una cookie.
+el usuario ingresa sus credenciales con éxito, obtiene como resultado un **JSON
+Web Token**, que debe almacenar localmente.Vemos que en este modelo, no es en
+principio necesario crear una sesion en el lado servidor y luego enviar una
+clave de sesion en una cookie.
 
-Ahora, cada vez que se quiere acceder a una ruta protegida o recurso, el cliente tiene que enviar el
-JWT, generalmente en el encabezamiento de ``Authorization`` utilizando el esquema ``Bearer``. El
-contenido del encabezado HTTP se ve de la siguiente forma::
+Ahora, cada vez que se quiere acceder a una ruta protegida o recurso, el cliente
+tiene que enviar el JWT, generalmente en el encabezamiento de ``Authorization``
+utilizando el esquema ``Bearer``. El contenido del encabezado HTTP se ve de la
+siguiente forma::
 
     Authorization: Bearer eyJhbGci...<snip>...yu5CSpyHI
 
-Este mecanismo de autenticación se denomina *stateless* o sin estado, ya qu ela información
-relativa al usuario no se guarda en el servidor. Cada vez que se accede a un recurso protegido,
+Este mecanismo de autenticación se denomina *stateless* o sin estado, ya que la
+información relativa al usuario no se guarda en el servidor. Cada vez que se
+accede a un recurso protegido, se debe incluir el token, que será verificado en
+cada petición.
+
+
+La variable ``request``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. index:: request (flask)
+
+La variable **request** [1]_ almacena los datos relativos a una solicitud web.
+En vez de pasar este objeto a cada función que deba responder a la solicitud,
+Flask automáticamente introduce el objeto `request` dentro del entorno de la
+función vista, manejadores de error y otras funciones que se ejecuten durante la
+petición, de forma que tienen acceso al mismo como si fuera una variable global.
+
+Cuando la aplicación Flask empieza a responder a una petición, en primer lugar
+crea un objeto de la clase ``Request``, basándose en los datos que le
+proporciona el servidor WSGI. Como cada *worker* (Ya sea un *thread*, un proceso
+o una corutina) solo maneja una única petición, los datos de la petición se
+pueden considerar globales para él, durante la vida de la petición.
+
+.. index:: before_request (flask)
+
+Antes de crear el objeto *request*, Flask llama a las funciónes definides con
+``before_request()``. Si alguna de estas funciones devuelve un valor distinto de
+``None``, el resto de funciones (si las hubiera) s descartan y el valor retornado 
+se convertira en una respuesta (un objeto de la clase *Response*) y se usará
+como resultado final. La vista tampoco será invocada.
+
+.. index:: after_request (flask)
+
+De igual manera, todas las funciones registradas con ``after_request`` recibiran
+como parámetro de entrada la respuesta, y devolveran un objeto ``Response``, que
+podrá ser el mismo que se acepta como parametro, el mismo pero modificado o
+incluso un objeto totalmente nuevo de la clase ``Response``.
+
+Al final del proceso de respuesta, el objeto `Request` es eliminado de memoria.
+Pero si el servidor está siendo ejecutado en modo desarrollo (La
+variable de entorno ``FLASK_ENV`` está definida como ``development``), el objeto
+``Request`` no se destruye y puede ser inspeccionado en el *debugger*
+interactivo, y eso puede resultar muy útil.
 
 
 Blueprints
@@ -176,26 +216,28 @@ Los *Blueprints* pueden ser útiles para los siguentes casos:
 - Registrar un *blueprint* para que sirva de código de inicialización de una
   extensión.
 
-Los *blueprints* no se deben considerar como aplicaciones completes, que podemos
-*enchufar" directamente en Flask, porque no son real,ente una aplicacion; son un
-conjunto de operaciones que pueden ser registradas en una aplicacioj, incluso
-varias vaces. Por qué no usamos multiples aplicacioones? Esto se puede hacer,
-peor cada aplicacion tendra una configueracion diferenete y sera gestionada en
-en nivel WSGI, lo que dificulta la comunicacion entre ellas.
+Los *blueprints* no se deben considerar como aplicaciones completas, que podemos
+*enchufar* directamente en Flask, porque no son realmente una aplicación sino un
+conjunto de operaciones que pueden ser registradas en una aplicación, incluso
+varias veces. Por qué, en vez de usar *blueprints*, no usamos múltiples
+aplicaciones? Se puede hacer, pero cada aplicación tendrá una
+configueración diferente y será gestionada en el nivel WSGI, lo que dificulta
+la comunicación entre ellas.
 
 Con *blueprints*, por el contrario, se proporciona separación a nivel de Flask,
-comparten la configuracion, y pueden realizar cambios globales a la
+comparten la configuración, y pueden realizar cambios globales a la
 aplicación,si es necesario, al registrarse. La desventaja es que no se puede
-desregistrar una aplicacion una vez que la aplicacion ha sido creada y
-registrada, para eso necesitamos destruir y volver a crear la aplicacion, es
-decir, reiniciar el servicio.
+desregistrar un *blueprint* una vez que la aplicación ha sido creada; para eso
+necesitamos destruir y volver a crear la aplicacion, es decir, reiniciar el
+servicio.
 
 El Concepto de los *Blueprints*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 El concepto básico es que losa blueprints permiten añadir operaciones que pueden
-ser ejecutaras cuando se registran en la aplicacion. Flask asocia vistas con *blueprints* cuando está sirviendo peticiones
-y generando URLs de un *endpoint* a otro.
+ser ejecutaras cuando se registran en la aplicacion. Flask asocia vistas con
+*blueprints* cuando está sirviendo peticiones y generando URLs de un *endpoint*
+a otro.
 
 Mi Primer Blueprint
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -224,7 +266,7 @@ cuando se registre en un moomento posterior. Además, añadira como prefijo el
 constructor (En este caso, también ``simple_page``). El nombre del *blueprint*
 no modifica la URL, solo el *endpoint*.
 
-Ahorqa, cómo registramos este blueprint? asi::
+Ahora, cómo registramos este blueprint? así::
 
     from flask import Flask
     from yourapplication.simple_page import simple_page
@@ -244,9 +286,21 @@ JWT
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Authorization: Bearer eyJhbGci...<snip>...yu5CSpyHI
-Este es un mecanismo de autenticación sin estado - stateless- ya que la sesión del usuario nunca se guarda en el proveedor de identidad o en el proveedor del servicio. Los recursos protegidos siempre comprobaran si existe un JWT válido en cada pedido de acceso. Si el token esta presente y es válido, el proveedor del servicio otorga accesos a los recursos protegidos. Como los JWTs contienen toda la información necesaria en sí mismos, se reduce la necesidad de consultar la base de datos u otras fuentes de información múltiples veces. 
+
+Este es un mecanismo de autenticación sin estado - stateless- ya que la sesión
+del usuario nunca se guarda en el proveedor de identidad o en el proveedor del
+servicio. Los recursos protegidos siempre comprobaran si existe un JWT válido en
+cada pedido de acceso. Si el token esta presente y es válido, el proveedor del
+servicio otorga accesos a los recursos protegidos. Como los JWTs contienen toda
+la información necesaria en sí mismos, se reduce la necesidad de consultar la
+base de datos u otras fuentes de información múltiples veces. 
+
+.. [5] Se usan *proxies* para acceder tanto al objeto ``request`` como a
+    ``session``.  De forma similar a la variable de aplicación (normalmente `app`)
+    que almacena el contexto general a nivel de aplicación, y al que también se
+    accede a través de un *proxy*. Para más información, vease el patron Proxie.
+
 
 .. _Blueprints: https://flask.palletsprojects.com/en/1.1.x/blueprints/
-
 .. _SPA: https://es.wikipedia.org/wiki/Single-page_application
 .. _JWT: https://es.wikipedia.org/wiki/JSON_Web_Token
