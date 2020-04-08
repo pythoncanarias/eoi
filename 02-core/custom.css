@@ -59,3 +59,7 @@ table tbody tr:hover {
 .slides blockquote p {
     margin: 10px 0 10px 0 !important;
 }
+
+.slides ul, .slides ol {
+    margin-top: 0 !important;
+}
