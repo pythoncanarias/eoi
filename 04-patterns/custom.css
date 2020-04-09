@@ -1,0 +1,62 @@
+/* title of columns */
+table thead th {
+    font-size: 1.2em !important;
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+    text-align: left !important;
+}
+
+/* title of rows */
+table tbody th {
+    font-size: 1.2em !important;
+    background: rgba(199, 199, 199, 0.356) !important;
+    border: 1px solid black !important;
+    text-align: left !important;
+}
+
+/* style for each cell */
+table td {
+    font-size: 1.15em !important;
+    border: 1px solid black !important;
+    text-align: left !important;
+}
+
+/* disable zebra-style */
+table tbody tr {
+    background: white !important;
+}
+
+/* row color on hover */
+table tbody tr:hover {
+    background: rgba(43, 137, 226, 0.144) !important;
+}
+
+/* SLIDES */
+.slides table td {
+    font-size: 15pt !important;
+}
+
+.slides table th {
+    font-size: 15pt !important;
+}
+
+.slides img {
+    float: right;
+    /*margin-left: auto !important;*/
+    /*margin-right: auto !important;*/
+}
+
+.slides blockquote {
+    margin: 0 !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    border-left: 5px solid lightgray !important;
+    color: #284d71 !important;
+    padding: 0 0 0 10px !important;
+    background-color: #f9f9f9 !important;
+    font-size: 20px !important;
+}
+
+.slides blockquote p {
+    margin: 10px 0 10px 0 !important;
+}
