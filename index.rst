@@ -17,6 +17,7 @@ Curso EOI de especialización en Python
    04-patterns/observer
    04-patterns/command
    04-patterns/antipatterns
+   05-libs/standard/zlib
    05-libs/standard/base64
    05-libs/standard/heapq
    05-libs/standard/curses
