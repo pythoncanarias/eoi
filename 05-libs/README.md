@@ -6,7 +6,7 @@
  - Collections: OrderedDict, defaultdict, namedtuple,
  - Ejecución concurrente: threading, subprocess, queue, sched
  - File formats: json, csv, xml, zip
- - base64, uuid
+ - [base64](base64.md), uuid
  - Functools
  - heapq, bisect, array
  - Interfaces gráficas de usuario: tkinter
