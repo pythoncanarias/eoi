@@ -2,7 +2,7 @@
 
 - **Librería Estándar**
 
- - argparse, logging, timeit, trace, cmd, trace, configparser
+ - [argparse](argparse.ipynb), logging, timeit, trace, cmd, trace, configparser
  - Collections: OrderedDict, defaultdict, namedtuple,
  - Ejecución concurrente: threading, subprocess, queue, sched
  - File formats: json, csv, xml
@@ -11,7 +11,7 @@
  - Functools
  - heapq, bisect, array
  - Interfaces gráficas de usuario: tkinter
- - Itertools
+ - [Itertools](itertools.ipynb)
  - Matemáticas: numbers, math, cmath, decimal, fractions, random, statistics
  - mmap
  - operator
