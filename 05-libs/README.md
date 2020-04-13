@@ -2,7 +2,8 @@
 
 - **Librería Estándar**
 
- - [argparse](argparse.ipynb), logging, timeit, trace, cmd, trace, configparser
+ - [argparse](argparse.ipynb), [logging](logging.ipynb), [timeit](timeit.ipynb),
+   [traceback](traceback.ipynb), cmd, trace, configparser
  - Collections: OrderedDict, defaultdict, namedtuple,
  - Ejecución concurrente: threading, subprocess, queue, sched
  - File formats: json, csv, xml
