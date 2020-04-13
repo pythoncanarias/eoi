@@ -7,7 +7,7 @@
  - Collections: OrderedDict, defaultdict, namedtuple,
  - Ejecución concurrente: threading, subprocess, queue, sched
  - File formats: json, csv, xml
- - Compresión de datos: [zlib](zlib.ipynb), [gzip](gzip.ipynb), zip
+ - Compresión de datos: [zlib](zlib.ipynb), [gzip](gzip.ipynb), [zipfile](zipfile.ipynb)
  - [base64](base64.md), uuid
  - Functools
  - heapq, bisect, array
@@ -16,7 +16,7 @@
  - Matemáticas: numbers, math, cmath, decimal, fractions, random, statistics
  - mmap
  - operator
- - pdb (Debug)
+ - [pdb](pdb.ipynb) (Debug)
  - Sistema operativo: sys, os, shutil, glob
 
 - **Librerías externas**
