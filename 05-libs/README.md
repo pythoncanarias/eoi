@@ -5,7 +5,8 @@
  - argparse, logging, timeit, trace, cmd, trace, configparser
  - Collections: OrderedDict, defaultdict, namedtuple,
  - Ejecución concurrente: threading, subprocess, queue, sched
- - File formats: json, csv, xml, zip
+ - File formats: json, csv, xml
+ - Compresión de datos: [zlib](zlib.ipynb), [gzip](gzip.ipynb), zip
  - [base64](base64.md), uuid
  - Functools
  - heapq, bisect, array
