@@ -3,7 +3,7 @@
 - **Librería Estándar**
 
  - [argparse](argparse.ipynb), [logging](logging.ipynb), [timeit](timeit.ipynb),
-   [traceback](traceback.ipynb), cmd, trace, configparser
+   [traceback](traceback.ipynb), cmd, configparser
  - Collections: OrderedDict, defaultdict, namedtuple,
  - Ejecución concurrente: threading, subprocess, queue, sched
  - File formats: json, csv, xml
@@ -31,5 +31,10 @@
  - Redis
  - Requests
  - SQLAlchemy
- - Watchdog
- - ZeroMQ
+ - [Watchdog](https://pythonhosted.org/watchdog/)
+ - [ZeroMQ](https://zeromq.org/)
+
+- **Librerias comentadas (pero que no veremos en detalle)
+
+ - [ipdb IPython pdb](https://pypi.org/project/ipdb/)
+ - [More itertools](https://pypi.org/project/more-itertools/)
