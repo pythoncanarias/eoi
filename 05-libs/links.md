@@ -1,4 +1,6 @@
 
+https://raw.githubusercontent.com/euribates/python-curso-IAC/master/source/librerias_estandar.rst
+
 https://pythonspeed.com/articles/dont-need-kubernetes
 
 [One liners](https://github.com/euribates/python-curso-IAC/blob/master/source/apendice_02.rst)
