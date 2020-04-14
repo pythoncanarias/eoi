@@ -17,13 +17,18 @@
  - mmap
  - operator
  - [pdb](pdb.ipynb) (Debug)
- - Sistema operativo: sys, os, shutil, glob
+ - Sistema operativo: [sys](sys.ipynb), [os](os.ipynb), shutil, glob
 
 - **Librerías externas**
 
- - Arrow
- - Begins
- - hug
+ - [Arrow](https://arrow.readthedocs.io/en/latest/) Arrow is a Python library that
+   offers a sensible and human-friendly approach to creating, manipulating,
+   formatting and converting dates, times and timestamps.
+
+ - [Begins](ihttps://begins.readthedocs.io/en/latest/) Command line programs for lazy humans.
+
+ - [hug](https://www.hug.rest/) Design and develop your API once, then expose it however your clients need to consume it
+ 
  - Pillow
  - pycrypto
  - psutils
