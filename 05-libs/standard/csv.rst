@@ -21,13 +21,13 @@ ficheros,
 El módulo csv permite escribir y leer estos archivos. El programador
 puede especificar, por ejemplo, "escribe este archivo en el formato
 preferido por excel", o "lee este fichero como fuera de excel, pero
-usando el carácter ``:`` como separador de campos". También nos
+usando el carácter `:` como separador de campos". También nos
 permite definir nuestros propios formatos de uso particular, que el
 módulo denomina "dialectos".
 
-Las funciones ``reader()`` y ``writer()`` leen y escriben secuencias.
+Las funciones `reader()` y `writer()` leen y escriben secuencias.
 
-Un ejemplo sencillo de lectura::
+Un ejemplo sencillo de lectura:
 
     import csv
     with open('some.csv', 'r') as f:
@@ -35,7 +35,7 @@ Un ejemplo sencillo de lectura::
         for row in reader:
             print row
 
-Y uno de escritura::
+Y uno de escritura:
 
     import csv
     datos = [
