@@ -27,3 +27,15 @@ Concurrency](https://realpython.com/python-concurrency/)
 [Threaded Asynchronous Magic and How to Wield It](https://hackernoon.com/threaded-asynchronous-magic-and-how-to-wield-it-bba9ed602c32)
 
 [Howdoi – Instant Coding Answers via the Command Line](https://blog.gleitzman.com/post/43330157197/howdoi-instant-coding-answers-via-the-command)
+
+Bash script
+
+- [Bash Scripting Tutorial for Beginners](https://linuxconfig.org/bash-scripting-tutorial-for-beginners)
+
+- [The Shell Scripting Tutorial](https://www.shellscript.sh/)
+
+Git y GitHub
+
+- [Pro Git book, by Scott Chacon](https://git-scm.com/book/en/v2)
+
+
