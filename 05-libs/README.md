@@ -13,7 +13,7 @@
  - heapq, bisect, array
  - Interfaces gráficas de usuario: tkinter
  - [Itertools](itertools.ipynb)
- - Matemáticas: numbers, math, cmath, decimal, fractions, random, statistics
+ - Matemáticas: numbers, math, cmath, decimal, fractions, random, [statistics](statistics.ipynb)
  - mmap
  - operator
  - [pdb](pdb.ipynb) (Debug)
@@ -29,7 +29,8 @@
 
  - [hug](https://www.hug.rest/) Design and develop your API once, then expose it however your clients need to consume it
  
- - Pillow
+ - [Pillow](https://pillow.readthedocs.io/en/stable/) Pillow is the friendly PIL fork, the Python Imaging Library by Fredrik Lundh and Contributors.
+ 
  - pycrypto
  - psutils
  - RabbitMQ
