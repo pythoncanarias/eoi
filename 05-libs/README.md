@@ -21,7 +21,7 @@
 
 - **Librerías externas**
 
- - [Arrow](https://arrow.readthedocs.io/en/latest/) Arrow is a Python library that
+ - [Arrow](./arrow/arrow.ipynb) (https://arrow.readthedocs.io/en/latest/) Arrow is a Python library that
    offers a sensible and human-friendly approach to creating, manipulating,
    formatting and converting dates, times and timestamps.
 
