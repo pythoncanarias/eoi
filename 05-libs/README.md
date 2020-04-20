@@ -13,7 +13,9 @@
  - heapq, bisect, array
  - Interfaces gráficas de usuario: tkinter
  - [Itertools](itertools.ipynb)
- - Matemáticas: numbers, math, cmath, decimal, fractions, random, [statistics](statistics.ipynb)
+ - Matemáticas: numbers, math, cmath, decimal, fractions,
+     [random](./external/random/random.ipynb),
+   [statistics](statistics.ipynb)
  - mmap
  - operator
  - [pdb](pdb.ipynb) (Debug)
