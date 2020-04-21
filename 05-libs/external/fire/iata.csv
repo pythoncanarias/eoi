@@ -1,0 +1,265 @@
+Aeropuerto	País	Código de IATA	Código de ICAO
+Tirana Airport	Albania	TIA	LATI
+Algovia Airport Memmingen	Alemania	FMM	EDJA
+Berlín Brandeburgo Airport	Alemania	BER	EDDB
+Berlín Schönefeld Airport	Alemania	SXF	EDDB
+Berlín Tegel Airport	Alemania	TXL	EDDT
+Bremen Airport	Alemania	BRE	EDDW
+Colonia Bonn Airport	Alemania	CGN	EDDK
+Dortmund Airport	Alemania	DTM	EDLW
+Dresde Airport	Alemania	DRS	EDDC
+Dusseldorf Airport	Alemania	DUS	EDDL
+Frankfurt Airport	Alemania	FRA	EDDF
+Friedrichshafen Airport	Alemania	FDH	EDNY
+Hahn Airport	Alemania	HHN	EDFH
+Hamburgo Airport	Alemania	HAM	EDDH
+Hanóver Airport	Alemania	HAJ	EDDV
+Karlsruhe Baden-Baden Airport	Alemania	FKB	EDSB
+Leipzig Halle Airport	Alemania	LEJ	EDDP
+Múnich Airport	Alemania	MUC	EDDM
+Münster Osnabrück Airport	Alemania	FMO	EDDG
+Núremberg Airport	Alemania	NUE	EDDN
+Paderborn Lippstadt Airport	Alemania	PAD	EDLP
+Stuttgart Airport	Alemania	STR	EDDS
+Weeze Airport	Alemania	NRN	EDLV
+Ereván Zvartnots Airport	Armenia	EVN	UDYZ
+Graz Airport	Austria	GRZ	LOWG
+Innsbruck Airport	Austria	INN	LOWI
+Klagenfurt Airport	Austria	KLU	LOWK
+Linz Airport	Austria	LNZ	LOWL
+Salzburgo Airport	Austria	SZG	LOWS
+Viena Airport	Austria	VIE	LOWW
+Bakú Airport	Azerbaiyán	GYD	UBBB
+Amberes Airport	Bélgica	ANR	EBAW
+Bruselas Airport	Bélgica	BRU	EBBR
+Charleroi Airport	Bélgica	CRL	EBCI
+Lieja Airport	Bélgica	LGG	EBLG
+Ostende Brujas Airport	Bélgica	OST	EBOS
+Minsk Airport	Bielorrusia	MSQ	UMMS
+Sarajevo Airport	Bosnia y Herzegovina	SJJ	LQSA
+Tuzla Airport	Bosnia y Herzegovina	TZL	LQTZ
+Burgas Airport	Bulgaria	BOJ	LBBG
+Sofía Airport	Bulgaria	SOF	LBSF
+Varna Airport	Bulgaria	VAR	LBWN
+Lárnaca Airport	Chipre	LCA	LCLK
+Pafos Airport	Chipre	PFO	LCPH
+Dubrovnik Airport	Croacia	DBV	LDDU
+Pula Airport	Croacia	PUY	LDPL
+Split Airport	Croacia	SPU	LDSP
+Zadar Airport	Croacia	ZAD	LDZD
+Zagreb Airport	Croacia	ZAG	LDZA
+Aalborg Airport	Dinamarca	AAL	EKYT
+Aarhus Airport	Dinamarca	AAR	EKAH
+Billund Airport	Dinamarca	BLL	EKBI
+Copenhague Airport	Dinamarca	CPH	EKCH
+Vágar Airport	Dinamarca	FAE	EKVG
+Bratislava Airport	Eslovaquia	BTS	LZIB
+Košice Airport	Eslovaquia	KSC	LZKZ
+Liubliana Airport	Eslovenia	LJU	LJLJ
+Alicante Airport	España	ALC	LEAL
+Almería Airport	España	LEI	LEAM
+Asturias Airport	España	OVD	LEAS
+Barcelona Airport	España	BCN	LEBL
+Bilbao Airport	España	BIO	LEBB
+Fuerteventura Airport	España	FUE	GCFV
+Girona Airport	España	GRO	LEGE
+Gran Canaria Airport	España	LPA	GCLP
+Granada-Jaén Airport	España	GRX	LEGR
+Ibiza Airport	España	IBZ	LEIB
+Jerez Airport	España	XRY	LEJR
+La Palma Airport	España	SPC	GCLA
+Lanzarote Airport	España	ACE	GCRR
+Madrid Barajas Airport	España	MAD	LEMD
+Málaga Airport	España	AGP	LEMG
+Mallorca Airport	España	PMI	LEPA
+Menorca Airport	España	MAH	LEMH
+Región de Murcia Airport	España	RMU	LEMI
+Reus Airport	España	REU	LERS
+Santander Airport	España	SDR	LEXJ
+Santiago de Compostela Airport	España	SCQ	LEST
+Sevilla Airport	España	SVQ	LEZL
+Tenerife Norte Airport	España	TFN	GCXO
+Tenerife Sur Airport	España	TFS	GCTS
+Valencia Airport	España	VLC	LEVC
+Zaragoza Airport	España	ZAZ	LEZG
+Tallin Airport	Estonia	TLL	EETN
+Helsinki Vantaa Airport	Finlandia	HEL	EFHK
+Oulu Airport	Finlandia	OUL	EFOU
+Rovaniemi Airport	Finlandia	RVN	EFRO
+Tampere Airport	Finlandia	TMP	EFTP
+Turku Airport	Finlandia	TKU	EFTU
+Vaasa Airport	Finlandia	VAA	EFVA
+Ajaccio Airport	Francia	AJA	LFKJ
+Bastia Airport	Francia	BIA	LFKB
+Bergerac Airport	Francia	EGC	LFBE
+Biarritz Airport	Francia	BIQ	LFBZ
+Brest Bretaña Airport	Francia	BES	LFRB
+Burdeos Airport	Francia	BOD	LFBD
+Estrasburgo Airport	Francia	SXB	LFST
+Figari Sud Corse Airport	Francia	FSC	LFKF
+Lille Airport	Francia	LIL	LFQQ
+Lyon-Saint Exupéry Airport	Francia	LYS	LFLL
+Marsella Airport	Francia	MRS	LFML
+Montpellier Airport	Francia	MPL	LFMT
+Nantes Airport	Francia	NTE	LFRS
+Niza Airport	Francia	NCE	LFMN
+París Beauvais Airport	Francia	BVA	LFOB
+París Charles de Gaulle Airport	Francia	CDG	LFPG
+París Orly Airport	Francia	ORY	LFPO
+Rennes Bretaña Airport	Francia	RNS	LFRN
+Réunion Roland Garros Airport	Francia	RUN	FMEE
+Toulon-Hyères Airport	Francia	TLN	LFTH
+Toulouse Blagnac Airport	Francia	TLS	LFBO
+Kutaisi Airport	Georgia	KUT	UGKO
+Tiflis Airport	Georgia	TBS	UGTB
+Atenas Airport	Grecia	ATH	LGAV
+Corfú Airport	Grecia	CFU	LGKR
+Cos Airport	Grecia	KGS	LGKO
+Heraklion Airport	Grecia	HER	LGIR
+La Canea Airport	Grecia	CHQ	LGSA
+Mykonos Airport	Grecia	JMK	LGMK
+Rodas Airport	Grecia	RHO	LGRP
+Santorini Airport	Grecia	JTR	LGSR
+Tesalónica Airport	Grecia	SKG	LGTS
+Zante Airport	Grecia	ZTH	LGZA
+Budapest Airport	Hungría	BUD	LHBP
+Debrecen Airport	Hungría	DEB	LHDC
+Cork Airport	Irlanda	ORK	EICK
+Dublín Airport	Irlanda	DUB	EIDW
+Irlanda Oeste Airport Knock	Irlanda	NOC	EIKN
+Kerry Airport	Irlanda	KIR	EIKY
+Shannon Airport	Irlanda	SNN	EINN
+Keflavík Airport	Islandia	KEF	BIKF
+Alguer Airport	Italia	AHO	LIEA
+Ancona Airport	Italia	AOI	LIPY
+Bari Airport	Italia	BRI	LIBD
+Bérgamo Airport	Italia	BGY	LIME
+Bolonia Airport	Italia	BLQ	LIPE
+Brindisi Airport	Italia	BDS	LIBR
+Cagliari Airport	Italia	CAG	LIEE
+Catania Fontanarossa Airport	Italia	CTA	LICC
+Comiso Airport	Italia	CIY	LICB
+Florencia Airport	Italia	FLR	LIRQ
+Génova Airport	Italia	GOA	LIMJ
+Lamezia Terme Airport	Italia	SUF	LICA
+Milán Linate Airport	Italia	LIN	LIML
+Milán Malpensa Airport	Italia	MXP	LIMC
+Nápoles Airport	Italia	NAP	LIRN
+Olbia Costa Smeralda Airport	Italia	OLB	LIEO
+Palermo Airport	Italia	PMO	LICJ
+Perugia Airport	Italia	PEG	LIRZ
+Pescara Airport	Italia	PSR	LIBP
+Pisa Airport	Italia	PSA	LIRP
+Roma Ciampino Airport	Italia	CIA	LIRA
+Roma Fiumicino Airport	Italia	FCO	LIRF
+Trapani Airport	Italia	TPS	LICT
+Treviso Airport	Italia	TSF	LIPH
+Turín Airport	Italia	TRN	LIMF
+Venecia Airport	Italia	VCE	LIPZ
+Verona Airport	Italia	VRN	LIPX
+Almatý Airport	Kazajistán	ALA	UAAA
+Astaná Airport	Kazajistán	TSE	UACC
+Pristina Airport	Kosovo	PRN	BKPR
+Riga Airport	Letonia	RIX	EVRA
+Kaunas Airport	Lituania	KUN	EYKA
+Vilnius Airport	Lituania	VNO	EYVI
+Luxemburgo Airport	Luxemburgo	LUX	ELLX
+Skopje Airport	Macedonia del Norte	SKP	LWSK
+Malta Airport	Malta	MLA	LMML
+Chisináu Airport	Moldavia	KIV	LUKK
+Podgorica Airport	Montenegro	TGD	LYPG
+Tivat Airport	Montenegro	TIV	LYTV
+Ålesund Airport	Noruega	AES	ENAL
+Bergen Airport	Noruega	BGO	ENBR
+Bodø Airport	Noruega	BOO	ENBO
+Haugesund Airport	Noruega	HAU	ENHD
+Kristiansand Airport	Noruega	KRS	ENCN
+Oslo Airport Gardermoen	Noruega	OSL	ENGM
+Sandefjord Airport Torp	Noruega	TRF	ENTO
+Stavanger Airport	Noruega	SVG	ENZV
+Tromsø Airport	Noruega	TOS	ENTC
+Trondheim Airport	Noruega	TRD	ENVA
+Ámsterdam Airport Schiphol	Países Bajos	AMS	EHAM
+Eindhoven Airport	Países Bajos	EIN	EHEH
+Groninga Airport Eelde	Países Bajos	GRQ	EHGG
+Maastricht Aachen Airport	Países Bajos	MST	EHBK
+Róterdam La Haya Airport	Países Bajos	RTM	EHRD
+Breslavia Airport	Polonia	WRO	EPWR
+Cracovia Airport	Polonia	KRK	EPKK
+Gdansk Airport	Polonia	GDN	EPGD
+Katowice Airport	Polonia	KTW	EPKT
+Modlin Airport	Polonia	WMI	EPMO
+Poznan Airport	Polonia	POZ	EPPO
+Szczecin-Goleniów Airport	Polonia	SZZ	EPSC
+Varsovia Airport	Polonia	WAW	EPWA
+Faro Airport	Portugal	FAO	LPFR
+Lisboa Airport	Portugal	LIS	LPPT
+Madeira Airport	Portugal	FNC	LPMA
+Oporto Airport	Portugal	OPO	LPPR
+Ponta Delgada Airport	Portugal	PDL	LPPD
+Aberdeen Airport	Reino Unido	ABZ	EGPD
+Belfast City Airport	Reino Unido	BHD	EGAC
+Belfast International Airport	Reino Unido	BFS	EGAA
+Birmingham Airport	Reino Unido	BHX	EGBB
+Bristol Airport	Reino Unido	BRS	EGGD
+Cardiff Airport	Reino Unido	CWL	EGFF
+Doncaster Sheffield Airport	Reino Unido	DSA	EGCN
+East Midlands Airport	Reino Unido	EMA	EGNX
+Edimburgo Airport	Reino Unido	EDI	EGPH
+Exeter Airport	Reino Unido	EXT	EGTE
+Glasgow Airport	Reino Unido	GLA	EGPF
+Glasgow Prestwick Airport	Reino Unido	PIK	EGPK
+Humberside Airport	Reino Unido	HUY	EGNJ
+Jersey Airport	Reino Unido	JER	EGJJ
+Leeds Bradford Airport	Reino Unido	LBA	EGNM
+Liverpool Airport	Reino Unido	LPL	EGGP
+Londres City Airport	Reino Unido	LCY	EGLC
+Londres Gatwick Airport	Reino Unido	LGW	EGKK
+Londres Heathrow Airport	Reino Unido	LHR	EGLL
+Londres Luton Airport	Reino Unido	LTN	EGGW
+Londres Southend Airport	Reino Unido	SEN	EGMC
+Londres Stansted Airport	Reino Unido	STN	EGSS
+Mánchester Airport	Reino Unido	MAN	EGCC
+Newcastle Airport	Reino Unido	NCL	EGNT
+Southampton Airport	Reino Unido	SOU	EGHI
+Brno Airport	República Checa	BRQ	LKTB
+Praga Airport	República Checa	PRG	LKPR
+Bucarest Henri Coanda Airport	Rumania	OTP	LROP
+Cluj-Napoca Airport	Rumania	CLJ	LRCL
+Iasi Airport	Rumania	IAS	LRIA
+Timisoara Airport	Rumania	TSR	LRTR
+Koltsovo Airport	Rusia	SVX	USSS
+Krasnodar Airport	Rusia	KRR	URKK
+Moscú Domodédovo Airport	Rusia	DME	UUDD
+Moscú Sheremetyevo Airport	Rusia	SVO	UUEE
+Moscú Vnúkovo Airport	Rusia	VKO	UUWW
+Moscú Zhukovsky Airport	Rusia	ZIA	UUBW
+Novosibirsk Tolmachevo Airport	Rusia	OVB	UNNT
+San Petersburgo Púlkovo Airport	Rusia	LED	ULLI
+Sochi Airport	Rusia	AER	URSS
+Belgrado Nikola Tesla Airport	Serbia	BEG	LYBE
+Niš Airport	Serbia	INI	LYNI
+Estocolmo Arlanda Airport	Suecia	ARN	ESSA
+Estocolmo Bromma Airport	Suecia	BMA	ESSB
+Estocolmo Skavsta Airport	Suecia	NYO	ESKN
+Estocolmo Västerås Airport	Suecia	VST	ESOW
+Gotemburgo Landvetter Airport	Suecia	GOT	ESGG
+Malmö Airport	Suecia	MMX	ESMS
+Basilea Mulhouse Friburgo Airport	Suiza	BSL	LFSB
+Berna Airport	Suiza	BRN	LSZB
+Ginebra Airport	Suiza	GVA	LSGG
+Zúrich Airport	Suiza	ZRH	LSZH
+Adana Airport	Turquía	ADA	LTAF
+Ankara Esenboga Airport	Turquía	ESB	LTAC
+Antalya Airport	Turquía	AYT	LTAI
+Dalaman Airport	Turquía	DLM	LTBS
+Esmirna Adnan Menderes Airport	Turquía	ADB	LTBJ
+Estambul New Airport	Turquía	IST	LTFM
+Estambul Sabiha Gökcen Airport	Turquía	SAW	LTFJ
+Milas-Bodrum Airport	Turquía	BJV	LTFE
+Trebisonda Airport	Turquía	TZX	LTCG
+Kharkiv Airport	Ucrania	HRK	UKHH
+Kiev Boryspil Airport	Ucrania	KBP	UKBB
+Kiev Zhuliany Airport	Ucrania	IEV	UKKK
+Lviv Airport	Ucrania	LWO	UKLL
+Odesa Airport	Ucrania	ODS	UKOO
