@@ -3,7 +3,7 @@
 import sys
 import random
 import pygame
-from pygame.locals import QUIT*
+from pygame.locals import QUIT
 
 WIDTH = 600
 HEIGHT = 489
