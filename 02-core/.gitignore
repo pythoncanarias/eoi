@@ -1,5 +1,8 @@
+.env
 oops.txt
 *checkpoint*.ipynb
 *.slides.html
-11-miniproject/solution
-.env
+# solution to miniproject
+*miniproject/solution
+# deliveries of miniproject from students
+*miniproject/deliveries
