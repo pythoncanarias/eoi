@@ -164,7 +164,7 @@ Solución::
                 yield mydeque.popleft()
         return tuple(gen(d) for d in deques)
 
-  Una vez que ``tee`` ha empesado, el iterador original no deberia ser usado más,
+  Una vez que ``tee`` ha empezado, el iterador original no deberia ser usado más,
   porque se corre el riesgo de que el iterador avanze sin que los iteradores
   derivados sean informados.
 
