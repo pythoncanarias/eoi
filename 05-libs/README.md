@@ -2,24 +2,72 @@
 
 - **Librería Estándar**
 
- - [argparse](argparse.ipynb), [logging](logging.ipynb), [timeit](timeit.ipynb),
-   [traceback](traceback.ipynb), cmd, configparser
- - Collections: OrderedDict, defaultdict, namedtuple,
- - Ejecución concurrente: threading, subprocess, queue, sched
- - File formats: json, csv, xml
- - Compresión de datos: [zlib](zlib.ipynb), [gzip](gzip.ipynb), [zipfile](zipfile.ipynb)
- - [base64](base64.md), uuid
- - Functools
- - heapq, bisect, array
- - Interfaces gráficas de usuario: tkinter
- - [Itertools](itertools.ipynb)
- - Matemáticas: numbers, math, cmath, decimal, fractions,
-     [random](./external/random/random.ipynb),
-   [statistics](statistics.ipynb)
- - mmap
- - operator
- - [pdb](pdb.ipynb) (Debug)
- - Sistema operativo: [sys](sys.ipynb), [os](os.ipynb), shutil, glob
+ - [argparse](./standar/argparse/argparse.ipynb)
+ - cmd
+ - configparser
+ - [Collections](./standard/collections/collections.ipynb)
+ - [datetime](./standard/datetime/datetime.ipynb)
+ - [time](./standard/time/time.ipynb)
+
+ - Ejecución concurrente:
+
+   - [threading](./standard/threading/threading.ipynb)
+   - subprocess
+   - queue
+   - sched
+
+ - Formatos de intercambio de datos:
+
+   - [base64](./standard/base64/base64.md)
+   - [json](./standard/json/json.ipynb)
+   - [csv](./standard/csv/csv.ipynb)
+   - xml
+
+ - Compresión de datos:
+
+   - [zlib](./standard/zlib/zlib.ipynb)
+   - [gzip](./standard/gzip/gzip.ipynb)
+   - [zipfile](./standard/zipfile/zipfile.ipynb)
+
+ - uuid
+ 
+ - Programación funcional:
+
+    - functools
+    - [Itertools](./standard/itertools/itertools.ipynb)
+    - mmap
+    - operator
+ 
+ - heapq
+ - [re (Expresiones regulares](./standard/re/re.ipynb)
+ - bisect
+ - array
+ 
+ - Interfaces gráficas de usuario:
+ 
+   - [curses](./standard/curses/curses.ipynb)
+   - tkinter
+
+ - Matemáticas:
+   - math
+   - cmath
+   - decimal
+   - fractions
+   - [random](./standard/random/random.ipynb),
+   - [statistics](./standard/statistics/statistics.ipynb)
+
+ - Ayudas al desarrollo:
+
+   - [pdb](./standard/pdb/pdb.ipynb) (Debug)
+   - [logging](./standard/logging/logging.ipynb)
+   - [timeit](./standard/timeit/timeit.ipynb)
+   - [traceback](./standard/traceback/traceback.ipynb)
+
+ - Sistema operativo:
+   - [sys](./standard/sys/sys.ipynb)
+   - [os](./standard/os/os.ipynb)
+   - shutil
+   - glob
 
 - **Librerías externas**
 
