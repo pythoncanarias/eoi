@@ -87,7 +87,9 @@
  - Redis
  - Requests
  - SQLAlchemy
- - [Watchdog](https://pythonhosted.org/watchdog/)
+ 
+ - [Watchdog](https://pythonhosted.org/watchdog/) Python API library and shell utilities to monitor file system events.
+
  - [ZeroMQ](https://zeromq.org/)
 
 - **Librerias comentadas (pero que no veremos en detalle)
