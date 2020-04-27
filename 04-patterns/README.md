@@ -2,15 +2,14 @@
 
 - **Patrones creacionales**
 
- - Singleton
- - Builder
- - Dependency Injection
- - Lazy initialization
- - Object pool
-
+ - [Singleton](./01-Singleton.ipynb)
+ - [Prototype](./02-Prototype.ipynb)
+ - [Factory](./03-Factory.ipynb)
+ - [Builder](./04-Builder.ipynb)
+ 
 - **Patrones estructurales**
 
- - Adapter
+ - [Adapter](./05-Adapter.ipynb)
  - Bridge
  - Composite
  - Decorator
