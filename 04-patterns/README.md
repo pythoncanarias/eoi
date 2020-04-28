@@ -13,7 +13,7 @@
  - [Bridge](./06-Bridge.ipynb)
  - Composite
  - Decorator
- - Facade
+ - [Façade](./09-Facade.ipynb)
  - Flyweight
  - Proxy
  
