@@ -14,12 +14,13 @@
  - Composite
  - Decorator
  - [Façade](./09-Facade.ipynb)
- - Flyweight
+ - [Flyweight](./10-Flyweight.ipynb)
  - Proxy
  
 - **Patrones de comportamiento**
 
- - [Strategy][./strategy.ipynb]
+ - [Strategy][./12-Strategy.ipynb]
+ - State
  - Chain of Responsibility
  - Command
  - Iterator
@@ -27,6 +28,5 @@
  - Mediator
  - Memento
  - Observer
- - State
  - Template Method
  - Visitor
