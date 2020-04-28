@@ -10,7 +10,7 @@
 - **Patrones estructurales**
 
  - [Adapter](./05-Adapter.ipynb)
- - Bridge
+ - [Bridge](./06-Bridge.ipynb)
  - Composite
  - Decorator
  - Facade
