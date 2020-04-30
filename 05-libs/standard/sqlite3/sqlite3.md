@@ -28,198 +28,153 @@ y la almacena en el fichero indicado; en este ejemplo `database.db`.
 
 Ejercicio: Crear una base de datos llamada `ejemplo.db`
 
-[Revisar a aprtir de aqui]
-
 ### Cursores
 
-Para ejecutar sentencias de SQLite en Python, necesita un objeto cursor. Puedes crearlo utilizando el método cursor().
+Para ejecutar sentencias de SQLite en Python, necesita un objeto `cursor`. Puedes
+crearlo utilizando el método `cursor()` de la conexion.
 
-El SQLite3 cursor es un método del objeto de conexión. Para ejecutar sentencias de SQLite3, primero se establece una conexión y luego se crea un objeto cursor utilizando el objeto de conexión de la siguiente manera:
+Para ejecutar sentencias de SQLite3, primero se establece una conexión y luego
+se crea un objeto cursor utilizando el objeto de conexión de la siguiente
+manera:
 
-    con = sqlite3.connect('database.db')
+    con = sqlite3.connect('ejemplo.db')
     cursor = con.cursor()
 
-Ahora podemos usar el objeto cursor para llamar al método execute () para ejecutar cualquier consulta SQL.
+Ahora podemos usar el objeto `cursor` para llamar a su método `execute()`
+para ejecutar cualquier consulta SQL.
 
-Crear una base de datos en RAM
+#### Crear una base de datos en RAM
 
 Cuando creas una conexión con SQLite, un archivo de base de datos se crea
 automáticamente si no existe ya. Este archivo de base de datos se crea en el
 disco, ademas, también podemos crear una base de datos en la RAM usando el
-nombre
-especial `:memory:`
-como parametro de la función de conexión. Esta base de datos se llama base de datos en memoria.
+nombre especial `:memory:` como parametro de la función de conexión. Esta base
+de datos se llama base de datos en memoria.
 
-Considera el código a continuación en el que hemos creado una base de datos con los bloques try, except y finally para manejar cualquier excepción:
+### Crear una tabla
 
-import sqlite3
-
-def get_connection():
-    try:
-        con = sqlite3.connect(':memory:')
-        print("Conectando con base de datos en memoria RAM")
-    except Execption as err:
-        print(err)
-    finally:
-        con.close()
-
-sql_connection()
-Primero, se importa el módulo sqlite3, luego se define una función llamada sql_connection. Dentro de la función, tenemos un bloque try donde la función connect () está devolviendo un objeto de conexión después de establecer la conexión.
-
-Luego tenemos un bloque except, que en caso de excepciones, imprime el mensaje de error. Si no hay errores, se establecerá la conexión y se mostrará un mensaje de la siguiente manera.
-
-Conectar a la base de datos SQLite3
-Después de eso, cerramos nuestra conexión en el bloque finally. Cerrar una conexión es opcional, pero es una buena práctica de programación, de esta forma liberas la memoria de los recursos no utilizados.
-
-
-Crear una tabla
-Para crear una tabla en SQLite3, puede usar la consulta CREATE TABLE en el método execute (). Considera los siguientes pasos:
-
-
-Se crea el objeto de conexión.
-El objeto cursor se crea utilizando el objeto de conexión
-Usando el objeto del cursor, se ejecuta el método execute con la consulta CREATE TABLE como parámetro
-Vamos a crear empleados con los siguientes atributos:
-
-employees (id, name, salary, department, position, hireDate)
-El código es el siguiente:
+Para crear una tabla en SQLite3, puede usar la sentencia `CREATE TABLE` en el
+método `execute()`. 
+Veamos el siguiente ejemplo:
 
 import sqlite3
 
-from sqlite3 import Error
-
-def sql_connection():
-
-    try:
-
-        con = sqlite3.connect('mydatabase.db')
-
-        return con
-
-    except Error:
-
-        print(Error)
-
-def sql_table(con):
-
-    cursorObj = con.cursor()
-
-    cursorObj.execute("CREATE TABLE employees(id integer PRIMARY KEY, name text, salary real, department text, position text, hireDate text)")
-
+    con = sqlite3.connect('ejemplo.db')
+    cur = con.cursor()
+    cur.execute("""
+        CREATE TABLE employee (
+            id integer PRIMARY KEY,
+            name text,
+            salary real
+        """)
     con.commit()
 
-con = sql_connection()
 
-sql_table(con)
-En el código anterior, definimos dos métodos, el primero establece una conexión y el segundo método crea un objeto cursor para ejecutar la sentencia de create table.
+Para verificar si nuestra tabla está creada, puedes utilizar el navegador de la
+base de datos de sqlite para ver tu tabla. Abre tu archivo `ejemplo.db` con
+este programa y deberías ver tu tabla:
 
-El método commit () guarda todos los cambios que hacemos. Al final, se llaman ambos métodos.
-
-Para verificar si nuestra tabla está creada, puedes utilizar el navegador de la base de datos de sqlite para ver tu tabla. Abre tu archivo mydatabase.db con este programa y deberías ver tu tabla:
-
-
-[Imagen de algin gestor de sqlite]
 
 ### Insertar en una tabla
-Para insertar datos en una tabla, usamos la sentencia INSERT INTO. Ten en cuenta la siguiente línea de código:
 
-cursorObj.execute("INSERT INTO employees VALUES(1, 'John', 700, 'HR', 'Manager', '2017-01-04')")
+Para insertar datos en una tabla, usamos la sentencia `INSERT INTO`.
 
-con.commit()
-Para verificar si los datos están insertados, haz clic en Browse Data en el navegador de base de datos:
-
-
-También podemos pasar valores / argumentos a las sentencias INSERT en el método execute (). Puedes usar el signo de interrogación (?) Como argumento para cada valor. La sintaxis de INSERT se vera de la siguiente forma::
-
-cursorObj.execute('''INSERT INTO employees(id, name, salary, department, position, hireDate) VALUES(?, ?, ?, ?, ?, ?)''', entities)
-Donde las entidades contienen los valores para los argumentos de la siguiente manera:
-
-entities = (2, 'Andrew', 800, 'IT', 'Tech', '2018-02-06')
-El código completo es el siguiente:
-
-import sqlite3
-
-con = sqlite3.connect('mydatabase.db')
-
-def sql_insert(con, entities):
-
-    cursorObj = con.cursor()
-    
-    cursorObj.execute('INSERT INTO employees(id, name, salary, department, position, hireDate) VALUES(?, ?, ?, ?, ?, ?)', entities)
-    
+    con = sqlite3.connect('ejemplo.db')
+    cur = con.cursor()
+    cur.execute("""
+        INSERT INTO employee (id, name, salary)
+        VALUES (1, 'John Smith', 1200)
+        """)
     con.commit()
 
-entities = (2, 'Andrew', 800, 'IT', 'Tech', '2018-02-06')
+Podemos verificar que se han insertado los datos con el navegador.
 
-sql_insert(con, entities)
-SQL insert result
- 
+### Pasar argumentos a la sentencia SQL
 
+Podemos pasar valores / argumentos a las sentencias INSERT en el método `execute ()`. 
+Se usa el signo de interrogación como un indicador por posicion de cada argumento. Luego
+hay que añadir como segundo parametro, sdespues de la sentencia SQL, una tupla
+con tantos valores como argumentos hayamos declarado en la sentencia.
 
-Actualizar una tabla
-Para actualizar la tabla simplemente crea una conexión, luego crea un objeto cursor utilizando la conexión y finalmente utiliza la sentencia UPDATE dentro del método execute ().
+Como siempre, se ve mejor con un ejemplo:
 
-Supongamos que queremos actualizar el nombre de un empleado cuyo Id es igual a 2. Para actualizarlo, utilizaremos la sentencia UPDATE y para el empleado cuya identificación es igual a 2. Usaremos la sentencia WHERE como condición para seleccionar a este empleado.
-
-Observa el siguiente código:
-
-import sqlite3
-
-con = sqlite3.connect('mydatabase.db')
-
-def sql_update(con):
-
-    cursorObj = con.cursor()
-
-    cursorObj.execute('UPDATE employees SET name = "Rogers" where id = 2')
-
+    con = sqlite3.connect('ejemplo.db')
+    cur = con.cursor()
+    user_id = 2
+    user_name = "Robert Mill"
+    user_salary = 1400
+    cur.execute("""
+        INSERT INTO employee (id, name, salary)
+        VALUES (?, ?, ?)
+        """, (user_id, user_name, user_salary))
     con.commit()
 
-sql_update(con)
-El código anterior, cambiará el nombre de Andrew a Rogers de la siguiente manera:
 
-Actualizar una tabla
-Sentencia SELECT
-La sentencia de select se utiliza para seleccionar datos de una tabla en particular. Si deseas seleccionar todas las columnas de los datos de una tabla, puede usar el asterisco (*). La sintaxis para esto seria la siguiente:
+### Actualizar una tabla
+
+Para actualizar valores en una tabla se usa la
+sentencia `UPDATE` dentro del método `execute()`.
+
+Supongamos que queremos actualizar el nombre del empleado cuyo Id es igual a 2 y que
+insertamos en el ejemplo amnteror. **Importante** Tenemos que usaren la sentencia
+un `WHERE` como condición para seleccionar a este empleado, si no, se
+modificarían todos los empleados de la tabla.
+
+Veamos el ejemplo:
+
+    con = sqlite3.connect('ejemplo.db')
+    cur = con.cursor()
+    user_id = 2
+    new_name = "Robert Millhouse"
+    cur.execute("""
+        UPDATE employee
+           SET name = ?
+         WHERE id = ?
+        """, (new_name, user_id))
+    con.commit()
+
+### Hacer consultas
+
+#### La Sentencia `SELECT`
+
+La sentencia `SELECT` se usa para seleccionar datos de una tabla en particular.
+Si deseas seleccionar todas las columnas de los datos de una tabla, puede usar
+el asterisco (*). La sintaxis para esto seria la siguiente:
 
 
-select * from table_name
-En SQLite3, la instrucción SELECT se ejecuta dentro del método execute del objeto cursor. Por ejemplo, selecciona todas las columnas de la tabla de empleados, ejecuta el siguiente código:
+    SELECT * FROM <table_name>
 
-cursorObj.execute('SELECT * FROM employees ')
-Si deseas seleccionar algunas columnas de una tabla solamente, especifica las columnas de la siguiente manera:
 
-select column1, column2 from tables_name
-Por ejemplo,
+En SQLite3, ejecutamos la instrucción `SELECT` usando el método `execute` del 
+cursor. Por ejemplo para obtener todas las columnas de la tabla de empleados,
+ejecutariamos el siguiente código:
 
-cursorObj.execute('SELECT id, name FROM employees')
-La sentencia select selecciona los datos requeridos de la tabla de la base de datos y si desea obtener los datos seleccionados, utiliza el método fetchall () del objeto del cursor. Esto se demuestra en la siguiente sección.
+    SELECT * FROM employee
 
- 
+Si deseas seleccionar algunas columnas de una tabla solamente, especifica las
+columnas de la siguiente manera:
 
-Obtener todos los datos
-Para obtener los datos de una base de datos, ejecutaremos la sentencia SELECT y luego usaremos el método fetchall() del objeto cursor para almacenar los valores en una variable. Después de eso, recorreremos la variable e imprimiremos todos los valores.
+    SELECT <column1>[, <column2>] FROM <table_name>
 
-El código será el siguiente:
+Por ejemplo:
 
-import sqlite3
+    SELECT id, name FROM employee
 
-con = sqlite3.connect('mydatabase.db')
 
-def sql_fetch(con):
+La sentencia select realiza la búsqueda de los datos requeridos desde la 
+tabla de la base de datos y a continuación, para obtener los datos 
+seleccionados, podemos utilizar el método `fetchall()` del cursor, que nos
+devolvería todos los registros encontrador (En este caso, como no hay clausula
+`WHERE`, todos). Veamos el siguiente eejmplo:
 
-    cursorObj = con.cursor()
-
-    cursorObj.execute('SELECT * FROM employees')
-
-    rows = cursorObj.fetchall()
-
+    con = sqlite3.connect('ejemplo.db')
+    cur = con.cursor()
+    cur.execute('SELECT * FROM employee')
+    rows = cur.fetchall()
     for row in rows:
-
         print(row)
 
-sql_fetch(con)
-El código anterior imprimirá los registros de nuestra base de datos como se muestra a continuación:
+
 
 Obtener todos los datos
 También puede usar el fetchall () en una línea de la siguiente manera:
