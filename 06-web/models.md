@@ -4,8 +4,8 @@ Cuando queremos almacenar y recuperar imformación sobre
 nuestras entidades, en Django definimos modelos.
 
 Si venimos de un diagrama E/R, entonces probablemente
-cada entidad se representara con un modelo, ypara cada
-modelo definiremos una seride de campos (*fields*), que
+cada entidad se representara con un modelo, y para cada
+modelo definiremos una serie de de campos (*fields*), que
 equivalen a los atributos del modelo E/R.
 
 Las relaciones, si son especialmente importantes
@@ -18,7 +18,6 @@ Vamos a implementar nuestro primer modelo. Viendo el diagrama
 de E/R que desarrollamos, hay una entidad que parace bastante
 sencilla: los poderes. No tienen muchos atributos 
 y son sencillos de entender.
-
 
 Vamos a crear nuestro primer modelo basado en esta entidad.
 Vamos a llamar al modelo `Power`. La convencion es usar la
@@ -43,8 +42,6 @@ definición aterior. El fichero debería quedar así:
     class Power(models.Model):
         name = models.CharField(max_length=32)
         description = models.CharField(max_length=120)
-
-
 
 Ahora podemos ejecutar el comando de manage `check` para ver si todo 
 ha ido bien. Si todo va bien, el siguiente paso ahora
@@ -90,7 +87,7 @@ Y deberiamos obtener algo como:
 Vemos ahí que tenemos aplicadas todas las migraciones, y vemos que nos aparece
 nuestras apps `commons` y `metas`, pero sin ninguna migración. (Si no aparece
 `commons` o `metas`, es que nos hemos despistado de incluirlas en la variable
-`APPLICATIONS` del fichero de ajustes `settings.py`).
+`INSTALLED_APPS` del fichero de ajustes `settings.py`).
 
 El caso es que hemos creado el modelo, y para que ese cambio se refleje en la
 base de datos, el método más cómodo es usar migraciones (La otra opcion es
