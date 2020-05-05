@@ -17,12 +17,17 @@ class Team(models.Model):
 
 
 class Power(models.Model):
+
+    class Meta:
+        verbose_name = "Poder"
+        verbose_name_plural = "Poderes"
+
     name = models.CharField(max_length=32)
     description = models.CharField(max_length=300)
     level = models.IntegerField(default=50)
 
     def __str__(self):
-        return f'{self.name}: {self.description}'
+        return self.name
 
 
 COUNTRIES = [
@@ -33,7 +38,13 @@ COUNTRIES = [
     ('OT', "Others"),
     ]
 
+
 class MetaHuman(models.Model):
+
+    class Meta:
+        verbose_name = "Metahumano"
+        verbose_name_plural = "Metahumanos"
+
     name = models.CharField(max_length=42)
     country = models.CharField(max_length=2, choices=COUNTRIES)
     level = models.IntegerField(default=10)
