@@ -29,6 +29,7 @@ COUNTRIES = [
     ('US', 'United states'),
     ('ES', 'Spain'),
     ('UK', 'United Kingdom'),
+    ('PL', 'Polonia'),
     ('OT', "Others"),
     ]
 
