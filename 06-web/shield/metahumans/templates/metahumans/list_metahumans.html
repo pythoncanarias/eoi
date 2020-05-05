@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} Listado de metahumanos conocidos {% endblock %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Nivel de amenaza</th>
+            <th>Equipo</th>
+        </tr>
+    </thead>
+
+    {% for mh in items %}
+    <tr>
+        <td> {{ mh.name }} </td>
+        <td> {{ mh.level }} </td>
+        <td> {{ mh.team }} </td>
+    </tr> 
+    {% endfor %}
+</table>
+
+{% endblock content %}

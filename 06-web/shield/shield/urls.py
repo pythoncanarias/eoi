@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 
 import commons.views
+import metahumans.views
 
 urlpatterns = [
     path('', commons.views.homepage),
     path('admin/', admin.site.urls),
+    path('metahumans/', metahumans.views.list_all_metahumans), 
 ]
