@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load leaflet_tags %}
 
+{% block js %}{% leaflet_js %}{% endblock %}
+{% block css %}{% leaflet_css %}{% endblock %}
+
 {% block title %}SHIELD Homepage{% endblock title %}
 
 

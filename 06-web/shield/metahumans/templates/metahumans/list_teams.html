@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %} Listado de equipos conocidos {% endblock %}
+
+{% block content %}
+
+{% for team in items  %}
+    <h2>{{ team.name }}</h2> 
+{% endfor %}
+
+{% endblock content %}
