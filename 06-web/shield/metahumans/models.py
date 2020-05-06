@@ -11,6 +11,7 @@ class Team(models.Model):
     name = models.CharField(max_length=220)
     description = models.TextField(max_length=4000)
     headquarter =  models.CharField(max_length=100)
+    slug = models.SlugField(unique=True)
 
     def __str__(self):
         return self.name
