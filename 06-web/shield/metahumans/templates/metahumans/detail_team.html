@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load shield_filters %}
+
+{% block title %}
+    {{ team.name }}
+{% endblock title %}
+
+{% block content %}
+
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+          {{ team.name }}
+      </h1>
+      <h2 class="subtitle">
+         {{ team.description }} 
+      </h2>
+      <p><b>Base de operaciones</b>: {{ team.headquarter }}</p>
+    </div>
+  </div>
+</section>
+
+<h2 class="title">Componentes
+    <span class="label">{{ team.metahuman_set.all.count }}</span>
+</h2>
+
+<table class="table is-fullwidth is-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Nivel de amenaza</th>
+            <th>Poderes</th>
+        </tr>
+    </thead>
+
+    {% for mh in team.metahuman_set.all %}
+    <tr>
+        <td> {{ mh.name }} </td>
+        <td> {{ mh.level|danger_level }} </td>
+        <td> 
+            {% for power in mh.powers.all %}
+                {{ power }}
+            {% endfor %}
+        </td>
+    </tr> 
+    {% endfor %}
+</table>
+
+
+{% endblock content %}

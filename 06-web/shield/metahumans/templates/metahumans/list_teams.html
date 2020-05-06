@@ -1,11 +1,21 @@
 {% extends "base.html" %}
+{% load shield_filters %}
 
 {% block title %} Listado de equipos conocidos {% endblock %}
 
 {% block content %}
-
+<div class="columns is-mobile is-multiline">
 {% for team in items  %}
-    <h2>{{ team.name }}</h2> 
+  <div class="column is-half">
+    <div class="box">
+        <h2 class="title">
+            <a href="/teams/{{ team.slug }}/">  
+            {{ team.name }}
+            </a>
+        </h2> 
+    </div>
+  </div>  
 {% endfor %}
+</div>
 
 {% endblock content %}

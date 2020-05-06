@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load leaflet_tags %}
+{% load static %}
 
 {% block js %}{% leaflet_js %}{% endblock %}
 {% block css %}{% leaflet_css %}{% endblock %}
@@ -9,11 +10,25 @@
 
 {% block content %}
 
+<div class="hero">
+  <div class="hero-body>
+          
     <h1 class="title">SHIELD</h1>
     <h2 class="subtitle">Strategic Homeland Intervention, Enforcement, and Logistics Division</h2>
 
-    <p>Welcome to our webpage!</p>
+    <p class="is-size-1 has-text-right">Welcome to our webpage!</p>
 
-    {% leaflet_map "globalmap" %}
+  </div>    
+</div>
+
+<div class="columns">
+    <div class="column is-one-third">
+        <img src="{% static 'logo.png' %}">
+    </div>
+    <div class="column">
+        {% leaflet_map "globalmap" %}
+    </div>
+</div>
+
 
 {% endblock content %}
