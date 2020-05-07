@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<section class="hero is-primary">
+<section class="hero is-info">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
@@ -21,8 +21,10 @@
   </div>
 </section>
 
-<h2 class="title">Componentes
-    <span class="label">{{ team.metahuman_set.all.count }}</span>
+<h2 class="title">
+    {{ team.metahuman_set.all.count }}
+    Componentes
+    </span>
 </h2>
 
 <table class="table is-fullwidth is-striped">

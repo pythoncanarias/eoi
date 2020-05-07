@@ -22,6 +22,7 @@ class Power(models.Model):
     class Meta:
         verbose_name = "Poder"
         verbose_name_plural = "Poderes"
+        ordering = ['name']
 
     name = models.CharField(max_length=32)
     description = models.CharField(max_length=300)
@@ -36,6 +37,9 @@ COUNTRIES = [
     ('ES', 'Spain'),
     ('UK', 'United Kingdom'),
     ('PL', 'Polonia'),
+    ('WK', 'Wakanda'),
+    ('LV', 'Lavteria'),
+    ('RU', 'Rusia'),
     ('OT', "Others"),
     ]
 
