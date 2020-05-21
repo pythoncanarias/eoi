@@ -1,0 +1,15 @@
+- hosts: shield_vms
+  user: paco
+  tasks:
+    - name: ensure nginx is at the latest version
+      apt:
+        name: nginx
+        state: latest
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
+    - name: change nginx welcome page
+      copy:
+        src: ./index.nginx-debian.html
+        dest: /var/www/html/index.nginx-debian.html
