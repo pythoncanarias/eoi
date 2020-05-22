@@ -8,6 +8,19 @@ window.setWindowTitle("PyNotepad")
 window.setCentralWidget(editor)
 
 file_menu = window.menuBar().addMenu("&File")
+
+def show_open_dialog():
+    filename, _ = QFileDialog.getOpenFileName(window, 'Open...')
+    if filename:
+        file_contents = ""
+        with open(filename, 'r') as f:
+            file_contents = f.read()
+        editor.setPlainText(file_contents)
+
+open_action = QAction("&Open file...")
+open_action.triggered.connect(show_open_dialog)
+file_menu.addAction(open_action)
+
 close_action = QAction("&Close")
 close_action.triggered.connect(window.close)
 file_menu.addAction(close_action)
@@ -21,6 +34,7 @@ def show_about_dialog():
         <p>Version 0.0.1</p>
     """
     QMessageBox.about(window, "About PyNotepad", text)
+
 
 help_menu = window.menuBar().addMenu("&Help")
 about_action = QAction("&About")
