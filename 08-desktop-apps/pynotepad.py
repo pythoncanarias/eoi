@@ -23,6 +23,16 @@ open_action.triggered.connect(show_open_dialog)
 open_action.setShortcut(QKeySequence.Open)
 file_menu.addAction(open_action)
 
+def show_save_dialog():
+    filename, _ = QFileDialog.getSaveFileName(window, 'Save as...')
+    if filename:
+        with open(filename, 'w') as f:
+            f.write(editor.toPlainText())
+
+save_action = QAction("&Save as...")
+save_action.triggered.connect(show_save_dialog)
+file_menu.addAction(save_action)
+
 close_action = QAction("&Close")
 close_action.triggered.connect(window.close)
 file_menu.addAction(close_action)
