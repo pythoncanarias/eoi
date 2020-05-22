@@ -1,3 +1,4 @@
+from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
 app = QApplication([])
@@ -19,6 +20,7 @@ def show_open_dialog():
 
 open_action = QAction("&Open file...")
 open_action.triggered.connect(show_open_dialog)
+open_action.setShortcut(QKeySequence.Open)
 file_menu.addAction(open_action)
 
 close_action = QAction("&Close")
