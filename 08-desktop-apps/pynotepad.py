@@ -9,28 +9,41 @@ window.setWindowTitle("PyNotepad")
 window.setCentralWidget(editor)
 
 file_menu = window.menuBar().addMenu("&File")
+file_path = None
 
 def show_open_dialog():
+    global file_path
     filename, _ = QFileDialog.getOpenFileName(window, 'Open...')
     if filename:
         file_contents = ""
         with open(filename, 'r') as f:
             file_contents = f.read()
         editor.setPlainText(file_contents)
+        file_path = filename
 
 open_action = QAction("&Open file...")
 open_action.triggered.connect(show_open_dialog)
+# open_action.hovered.connect(lambda : print("me han hovereado"))
 open_action.setShortcut(QKeySequence.Open)
 file_menu.addAction(open_action)
 
-def show_save_dialog():
-    filename, _ = QFileDialog.getSaveFileName(window, 'Save as...')
-    if filename:
-        with open(filename, 'w') as f:
+def save():
+    if file_path is None:
+        show_save_dialog()
+    else:
+        with open(file_path, 'w') as f:
             f.write(editor.toPlainText())
 
-save_action = QAction("&Save as...")
-save_action.triggered.connect(show_save_dialog)
+def show_save_dialog():
+    global file_path
+    filename, _ = QFileDialog.getSaveFileName(window, 'Save as...')
+    if filename:
+        file_path = filename
+        save()
+
+save_action = QAction("&Save")
+save_action.triggered.connect(save)
+save_action.setShortcut(QKeySequence.Save)
 file_menu.addAction(save_action)
 
 close_action = QAction("&Close")
