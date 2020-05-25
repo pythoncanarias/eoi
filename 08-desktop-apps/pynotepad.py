@@ -13,7 +13,8 @@ class MyMainWindow(QMainWindow):
                 "You have unsaved changes. Are you sure you want to exit?", 
                 QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
         if answer == QMessageBox.Save:
-            save()
+            if not save():
+                e.ignore()
         elif answer == QMessageBox.Cancel:
             e.ignore()
 
@@ -42,10 +43,12 @@ file_menu.addAction(open_action)
 
 def save():
     if file_path is None:
-        show_save_dialog()
+        return show_save_dialog()
     else:
         with open(file_path, 'w') as f:
             f.write(editor.toPlainText())
+        editor.document().setModified(False)
+        return True
 
 def show_save_dialog():
     global file_path
@@ -53,6 +56,9 @@ def show_save_dialog():
     if filename:
         file_path = filename
         save()
+        return True
+    return False
+
 
 save_action = QAction("&Save")
 save_action.triggered.connect(save)
