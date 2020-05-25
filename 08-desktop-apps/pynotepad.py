@@ -5,13 +5,17 @@ app = QApplication([])
 app.setApplicationName("PyNotepad")
 editor = QPlainTextEdit()
 
+def ask_for_confirmation():
+    answer = QMessageBox.question(window, "Confirm closing",
+                "You have unsaved changes. Are you sure you want to exit?", 
+                QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
+    return answer
+
 class MyMainWindow(QMainWindow):
     def closeEvent(self, e):
         if not editor.document().isModified():
             return
-        answer = QMessageBox.question(window, "Confirm closing",
-                "You have unsaved changes. Are you sure you want to exit?", 
-                QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
+        answer = ask_for_confirmation()
         if answer == QMessageBox.Save:
             if not save():
                 e.ignore()
@@ -25,6 +29,23 @@ window.setCentralWidget(editor)
 file_menu = window.menuBar().addMenu("&File")
 file_path = None
 
+def new_document():
+    global file_path
+    if editor.document().isModified():
+        answer = ask_for_confirmation()
+        if answer == QMessageBox.Save:
+            if not save():
+                return
+        elif answer == QMessageBox.Cancel:
+            return
+    editor.clear()
+    file_path = None
+
+
+new_action = QAction("&New document")
+new_action.triggered.connect(new_document)
+new_action.setShortcut(QKeySequence.New)
+file_menu.addAction(new_action)
 
 def show_open_dialog():
     global file_path
