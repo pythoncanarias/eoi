@@ -1,15 +1,29 @@
-from PyQt5.QtGui import *
+from PyQt5.QtGui import QKeySequence, QTextDocument
 from PyQt5.QtWidgets import *
 
 app = QApplication([])
 app.setApplicationName("PyNotepad")
 editor = QPlainTextEdit()
-window = QMainWindow()
+
+class MyMainWindow(QMainWindow):
+    def closeEvent(self, e):
+        if not editor.document().isModified():
+            return
+        answer = QMessageBox.question(window, "Confirm closing",
+                "You have unsaved changes. Are you sure you want to exit?", 
+                QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
+        if answer == QMessageBox.Save:
+            save()
+        elif answer == QMessageBox.Cancel:
+            e.ignore()
+
+window = MyMainWindow()
 window.setWindowTitle("PyNotepad")
 window.setCentralWidget(editor)
 
 file_menu = window.menuBar().addMenu("&File")
 file_path = None
+
 
 def show_open_dialog():
     global file_path
@@ -23,7 +37,6 @@ def show_open_dialog():
 
 open_action = QAction("&Open file...")
 open_action.triggered.connect(show_open_dialog)
-# open_action.hovered.connect(lambda : print("me han hovereado"))
 open_action.setShortcut(QKeySequence.Open)
 file_menu.addAction(open_action)
 
