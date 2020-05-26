@@ -91,6 +91,7 @@ file_menu.addAction(save_action)
 
 close_action = QAction("&Close")
 close_action.triggered.connect(window.close)
+close_action.setShortcut(QKeySequence.Quit)
 file_menu.addAction(close_action)
 
 def show_about_dialog():
