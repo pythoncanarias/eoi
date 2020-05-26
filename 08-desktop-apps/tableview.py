@@ -1,4 +1,5 @@
 import csv
+import sys
 from os.path import expanduser
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import (
@@ -29,21 +30,39 @@ class MyTableModel(QAbstractTableModel):
             return QVariant()
         return headers[section]
 
-def on_cell_clicked(index):
-    print("clicked", index.row(), index.column())
-
-def on_cell_entered(index):
-    print("entered", index.row(), index.column())
+selected_origin = [0,0]
 
 def on_cell_pressed(index):
-    print("pressed", index.row(), index.column())
+    global selected_origin
+    selected_origin[0] = index.row()
+    selected_origin[1] = index.column()
+
+def on_cell_entered(index):
+    global selected_origin
+    x = sorted((selected_origin[0], index.row()))
+    y = sorted((selected_origin[1], index.column()))
+    data_array = [x[0],y[0]],[x[1],y[1]]
+    print(data_array)
+    return data_array
+
+def extract_data():
+    indexes = view.selectedIndexes()
+    for index in indexes:
+        print(index.data())
 
 app = QApplication([])
 model = MyTableModel()
 view = QTableView()
 view.setModel(model)
-view.clicked.connect(on_cell_clicked)
 view.pressed.connect(on_cell_pressed)
 view.entered.connect(on_cell_entered)
-view.show()
+button = QPushButton("Extract data")
+button.clicked.connect(extract_data)
+
+window = QWidget()
+layout = QVBoxLayout()
+layout.addWidget(view)
+layout.addWidget(button)
+window.setLayout(layout)
+window.show()
 app.exec()
