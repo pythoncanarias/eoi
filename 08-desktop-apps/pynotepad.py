@@ -1,9 +1,12 @@
-from PyQt5.QtGui import QKeySequence, QTextDocument
+from PyQt5.QtGui import (QKeySequence,
+                         QTextDocument,
+                         QFont)
 from PyQt5.QtWidgets import *
 
 app = QApplication([])
 app.setApplicationName("PyNotepad")
 editor = QPlainTextEdit()
+editor.document().setDefaultFont(QFont("monospace"))
 
 def ask_for_confirmation():
     answer = QMessageBox.question(window, "Confirm closing",
