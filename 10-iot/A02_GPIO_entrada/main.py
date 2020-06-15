@@ -4,7 +4,7 @@ import utime
 
 led = machine.Pin(2, machine.Pin.OUT)
 # inicializamos otro pin, esta vez el 0 que es donde esta conectado el boton, y en modo entrada (IN)
-boton = machine.Pin(0, machine.Pin.IN)
+boton = machine.Pin(0, machine.Pin.IN)  # cambiar IN por PULL_UP para activar resistencia de pull-up
 
 while True:  # bucle infinito
     # NOTA tal y como esta conectado el boton, pondra la linea a 0v si se pulsa y 3,3v si se libera
