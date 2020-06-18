@@ -1,0 +1,157 @@
+{
+    "consolidated_weather": [{
+            "id": 5678799951757312,
+            "weather_state_name": "Heavy Cloud",
+            "weather_state_abbr": "hc",
+            "wind_direction_compass": "NNE",
+            "created": "2020-06-17T14:17:53.554198Z",
+            "applicable_date": "2020-06-17",
+            "min_temp": 20.595,
+            "max_temp": 24.525,
+            "the_temp": 21.23,
+            "wind_speed": 4.4220166229221345,
+            "wind_direction": 27.0,
+            "air_pressure": 1021.0,
+            "humidity": 81,
+            "visibility": 9.999726596675416,
+            "predictability": 71
+        },
+        {
+            "id": 6358785482293248,
+            "weather_state_name": "Light Cloud",
+            "weather_state_abbr": "lc",
+            "wind_direction_compass": "N",
+            "created": "2020-06-17T14:17:57.245069Z",
+            "applicable_date": "2020-06-18",
+            "min_temp": 20.22,
+            "max_temp": 23.9,
+            "the_temp": 22.11,
+            "wind_speed": 6.516726318301121,
+            "wind_direction": 349.5,
+            "air_pressure": 1019.0,
+            "humidity": 74,
+            "visibility": 9.90527817545534,
+            "predictability": 70
+        },
+        {
+            "id": 6587853670711296,
+            "weather_state_name": "Showers",
+            "weather_state_abbr": "s",
+            "wind_direction_compass": "NE",
+            "created": "2020-06-17T14:17:59.846763Z",
+            "applicable_date": "2020-06-19",
+            "min_temp": 20.189999999999998,
+            "max_temp": 23.450000000000003,
+            "the_temp": 21.93,
+            "wind_speed": 8.404647856517936,
+            "wind_direction": 43.0,
+            "air_pressure": 1021.0,
+            "humidity": 76,
+            "visibility": 9.960580211564464,
+            "predictability": 73
+        },
+        {
+            "id": 5010079113805824,
+            "weather_state_name": "Heavy Cloud",
+            "weather_state_abbr": "hc",
+            "wind_direction_compass": "NNE",
+            "created": "2020-06-17T14:18:02.549787Z",
+            "applicable_date": "2020-06-20",
+            "min_temp": 20.255000000000003,
+            "max_temp": 23.11,
+            "the_temp": 21.12,
+            "wind_speed": 9.412952358227948,
+            "wind_direction": 22.000000000000004,
+            "air_pressure": 1022.0,
+            "humidity": 75,
+            "visibility": 9.999726596675416,
+            "predictability": 71
+        },
+        {
+            "id": 5252963138273280,
+            "weather_state_name": "Heavy Cloud",
+            "weather_state_abbr": "hc",
+            "wind_direction_compass": "NNE",
+            "created": "2020-06-17T14:18:05.750199Z",
+            "applicable_date": "2020-06-21",
+            "min_temp": 20.11,
+            "max_temp": 23.365000000000002,
+            "the_temp": 21.38,
+            "wind_speed": 9.83621053050187,
+            "wind_direction": 26.499999999999996,
+            "air_pressure": 1022.0,
+            "humidity": 77,
+            "visibility": 9.927026167183648,
+            "predictability": 71
+        },
+        {
+            "id": 6378863045115904,
+            "weather_state_name": "Heavy Cloud",
+            "weather_state_abbr": "hc",
+            "wind_direction_compass": "NNE",
+            "created": "2020-06-17T14:18:08.561889Z",
+            "applicable_date": "2020-06-22",
+            "min_temp": 20.205,
+            "max_temp": 23.16,
+            "the_temp": 21.58,
+            "wind_speed": 9.171692316869482,
+            "wind_direction": 13.0,
+            "air_pressure": 1019.0,
+            "humidity": 76,
+            "visibility": 9.429307842201542,
+            "predictability": 71
+        }
+    ],
+    "time": "2020-06-17T17:29:30.097902+02:00",
+    "sun_rise": "2020-06-17T08:07:33.353764+02:00",
+    "sun_set": "2020-06-17T22:04:43.257647+02:00",
+    "timezone_name": "LMT",
+    "parent": {
+        "title": "Spain",
+        "location_type": "Country",
+        "woeid": 23424950,
+        "latt_long": "39.894890,-2.988310"
+    },
+    "sources": [{
+            "title": "BBC",
+            "slug": "bbc",
+            "url": "http://www.bbc.co.uk/weather/",
+            "crawl_rate": 360
+        },
+        {
+            "title": "Forecast.io",
+            "slug": "forecast-io",
+            "url": "http://forecast.io/",
+            "crawl_rate": 480
+        },
+        {
+            "title": "HAMweather",
+            "slug": "hamweather",
+            "url": "http://www.hamweather.com/",
+            "crawl_rate": 360
+        },
+        {
+            "title": "OpenWeatherMap",
+            "slug": "openweathermap",
+            "url": "http://openweathermap.org/",
+            "crawl_rate": 360
+        },
+        {
+            "title": "Weather Underground",
+            "slug": "wunderground",
+            "url": "https://www.wunderground.com/?apiref=fc30dc3cd224e19b",
+            "crawl_rate": 720
+        },
+        {
+            "title": "World Weather Online",
+            "slug": "world-weather-online",
+            "url": "http://www.worldweatheronline.com/",
+            "crawl_rate": 360
+        }
+    ],
+    "title": "Santa Cruz de Tenerife",
+    "location_type": "City",
+    "woeid": 773692,
+    "latt_long": "28.46163,-16.267059",
+    "timezone": "Europe/Madrid"
+}
