@@ -4,6 +4,7 @@ from juego import Juego
 from credenciales import ssid, password
 import utime
 import uos
+from apds9930 import APDS9930
 
 
 def conectar_wifi():
@@ -21,16 +22,14 @@ def conectar_wifi():
     led.value(1)  # apagamos led para indicar que ya estamos conectados
 
 
-from apds9930 import APDS9930
-
-
 i2c=I2C(sda=Pin(4), scl=Pin(5))  # instanciamos y configuramos bus I2C en los pines sda y scl
 try:
     sensor = APDS9930(i2c)  # creamos una instancia del sensor y le pasamos el manejador del i2c
     sensor.activar_proximidad()  # este metodo modifica un registro interno del APDS9930 para activar el sensor de proximidad
 except Exception as e:
+    print("No se ha podido iniciar el sensor APDS9930. El juego funcionará con el boton. Error:"
+    print(e)
     sensor = None
- 
 
 conectar_wifi()
 juego = Juego("Dani")  # instanciamos el juego pasandole el nombre del jugador

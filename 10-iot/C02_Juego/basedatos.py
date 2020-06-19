@@ -10,18 +10,18 @@ class Basedatos:
         self.db = btree.open(self.fichero)
     
     def nuevo_registro(self, nombre, nuevo_tiempo):
-        registro = self.db.get(nombre.encode())
+        mejor_tiempo = self.db.get(nombre.encode())  # saca el mejor tiempo de ese jugador (o None si no existe)
         # print(registro)
-        if registro is None:  # en caso de un nuevo jugador
-            self.db[nombre.encode()] = str(nuevo_tiempo)
-            self.db.flush()
+        if mejor_tiempo is None:  # en caso de un nuevo jugador, guardamos el registro
+            self.db[nombre.encode()] = str(nuevo_tiempo)  # la "key" tiene que ser bytearray y el valor siempre string
             print("Nuevo jugador!")
-        else:  # un jugador existente
-            tiempo_anterior = int(registro)
-            if nuevo_tiempo < tiempo_anterior:
+        else:  # un jugador existente, guardamos solo cuando es record
+            if nuevo_tiempo < int(mejor_tiempo):  # cuidado, mejor tiempo es bytearray, pasarlo a entero
                 print("Nuevo record!".format(nombre, nuevo_tiempo))
-                self.db[nombre.encode()] = str(nuevo_tiempo) 
-                self.db.flush()
+                self.db[nombre.encode()] = str(nuevo_tiempo)
+            else:
+                return  # jugador existente pero no hay record, salimos sin tocar la base de datos
+        self.db.flush()  # la base de datos trabaja en memoria, y es aqui cuando guarda los cambios al fichero
 
     def get_mejores_puntuaciones(self):
         # {b'Fulanito': b'222', b'Pepito': b'111', b'Menganito': b'334'}
