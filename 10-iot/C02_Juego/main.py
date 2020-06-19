@@ -27,7 +27,7 @@ try:
     sensor = APDS9930(i2c)  # creamos una instancia del sensor y le pasamos el manejador del i2c
     sensor.activar_proximidad()  # este metodo modifica un registro interno del APDS9930 para activar el sensor de proximidad
 except Exception as e:
-    print("No se ha podido iniciar el sensor APDS9930. El juego funcionará con el boton. Error:"
+    print("No se ha podido iniciar el sensor APDS9930. El juego funcionará con el boton. Error:")
     print(e)
     sensor = None
 
