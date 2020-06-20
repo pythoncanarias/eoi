@@ -7,4 +7,5 @@ Pygame es un conjunto de módulos para desarrollo de videojuegos y aplicaciones 
 Instalación:
 
 python3 -m pip install -U pygame --user
+
 python3 -m pygame.examples.aliens
