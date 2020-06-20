@@ -111,3 +111,7 @@ dmypy.json
 # vim
 *~
 .*.swp
+
+# dani
+credenciales.py
+pymakr.conf
