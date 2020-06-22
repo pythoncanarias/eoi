@@ -20,7 +20,6 @@ class Game:
     def reset(self):
         """Prepare sprite groups and main entities: player and in a near future, the map"""
         self.all_sprites = pygame.sprite.Group()
-        self.walls = pygame.sprite.Group()
         self.player = Player(self, 10, 10)
 
     def run(self):
@@ -76,13 +75,8 @@ class Game:
         if keystate[pygame.K_ESCAPE]:
             self.quit()
 
-    def show_start_screen(self):
-        """At some point we'll create a SplashScreen, Main Menu, Ending Screen..."""
-        pass
-
 
 game = Game()
-game.show_start_screen()
 
 while True:
     game.reset()
