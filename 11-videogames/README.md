@@ -9,3 +9,10 @@ Instalación:
 python3 -m pip install -U pygame --user
 
 python3 -m pygame.examples.aliens
+
+## Motores de juegos con Python
+
+- [Panda3D](https://www.panda3d.org/features/)
+- [Pyglet](http://pyglet.org/)
+- [Kivi](https://kivy.org/)
+- [Pygame](https://www.pygame.org/)
