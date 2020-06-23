@@ -11,4 +11,4 @@
 
 - Instalar pygame si no lo tenemos ya
 - Visual Code
-- Crear un primer esqueleto en el que podemos mover un personaje con el teclado.
+- Crear un primer esqueleto en el que podemos mover un personaje con el teclado
