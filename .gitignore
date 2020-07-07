@@ -115,3 +115,9 @@ dmypy.json
 # dani
 credenciales.py
 pymakr.conf
+
+# las cosas de MAC
+.DS_Store
+
+# local configs VSCODE
+.vscode
