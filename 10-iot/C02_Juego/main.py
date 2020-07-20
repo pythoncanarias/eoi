@@ -5,6 +5,7 @@ from credenciales import ssid, password
 import utime
 import uos
 from apds9930 import APDS9930
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
 def conectar_wifi():

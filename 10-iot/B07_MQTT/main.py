@@ -2,6 +2,8 @@ from machine import Pin, reset, unique_id
 import utime
 from umqtt.simple import MQTTClient
 from ubinascii import hexlify
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
+
 
 # la conexion a wifi la hacemos en boot.py
 # los pines (led y boton) los configuramos en boot.py

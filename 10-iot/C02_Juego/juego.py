@@ -3,6 +3,7 @@ import utime
 import urandom
 from mimqtt import Mimqtt
 from basedatos import Basedatos
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
 class Juego:

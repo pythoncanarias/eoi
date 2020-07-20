@@ -1,5 +1,7 @@
 import usocket as socket
 import network
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
+
 
 class Corneto:
     def __init__(self):

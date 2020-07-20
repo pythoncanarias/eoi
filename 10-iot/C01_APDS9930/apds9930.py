@@ -2,6 +2,7 @@ import utime
 from micropython import const
 
 
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 # NOTA esto no es una libreria completa, es un ejemplo parcial para ilustrar lo que es el protocolo I2C
 # se puede encontrar una libreria mas completa y funcional aqui:
 # https://github.com/micropython-Chinese-Community/mpy-lib/tree/master/sensor/APDS9930

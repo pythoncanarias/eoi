@@ -18,3 +18,7 @@ upip.install("micropython-urequests")
 upip.install("micropython-umqtt.simple")
 ```
 NOTA: la placa tiene que estar conectada a internet para descargar las librerias
+
+
+# Atribuciones
+Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)

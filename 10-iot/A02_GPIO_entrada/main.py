@@ -1,5 +1,6 @@
 import machine
 import utime
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
 led = machine.Pin(2, machine.Pin.OUT)

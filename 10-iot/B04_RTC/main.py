@@ -1,5 +1,6 @@
 from machine import RTC
 from utime import sleep
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
 # la conexion a wifi la hace en boot.py

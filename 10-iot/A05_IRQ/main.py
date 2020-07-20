@@ -1,5 +1,6 @@
 from machine import Pin
 import utime
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
 # VARIABLES GLOBALES

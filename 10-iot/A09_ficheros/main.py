@@ -1,4 +1,6 @@
 import uos
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
+
 
 print("En el sistema de archivos FAT de nuestro dispositivo, tenemos los siguientes ficheros:")
 print(uos.listdir())

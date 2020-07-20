@@ -3,6 +3,8 @@ import network
 import utime
 from credenciales import ssid, password
 from corneto import Corneto
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
+
 
 # estas credenciales tienen que estar en un fichero credenciales.py
 #ssid = "mi_wifi"

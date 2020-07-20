@@ -1,5 +1,6 @@
 import machine
 import utime
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
 # inicializamos el pin 2 (donde esta conectado el led azul de la placa) configurandolo como salida (OUT)
