@@ -1,5 +1,6 @@
 from machine import Pin, I2C
 import utime
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
 i2c=I2C(sda=Pin(4), scl=Pin(5))  # instanciamos y configuramos bus I2C en los pines sda y scl

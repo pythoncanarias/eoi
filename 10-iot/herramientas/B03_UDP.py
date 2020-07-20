@@ -1,4 +1,6 @@
 import socket
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
+
 
 UDP_PORT = 5000
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

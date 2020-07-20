@@ -1,6 +1,7 @@
 from machine import Pin
 import network
 import usocket as socket
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
 def web_page(estado_led_str):

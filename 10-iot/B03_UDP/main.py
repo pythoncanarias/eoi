@@ -4,6 +4,7 @@ import network
 import usocket as socket
 from errno import ETIMEDOUT
 from credenciales import ssid, password
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
 # Constantes

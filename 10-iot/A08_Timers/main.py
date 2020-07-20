@@ -1,5 +1,6 @@
 from machine import Timer
 import utime
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
 tim1 = Timer(-1)  # -1 para timer virtual (basado en RTOS)

@@ -3,6 +3,7 @@ import utime
 from umqtt.simple import MQTTClient
 from ubinascii import hexlify
 import ujson as json
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
 class Mimqtt:

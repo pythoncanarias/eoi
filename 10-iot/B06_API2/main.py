@@ -2,6 +2,7 @@ from machine import reset
 from utime import sleep
 import urequests as requests
 import ujson as json
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
 # la conexion a wifi la hacemos en boot.py

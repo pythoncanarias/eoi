@@ -2,6 +2,7 @@ from machine import Pin
 import utime
 import micropython
 micropython.alloc_emergency_exception_buf(100)
+# Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
 FILTRO_RUIDO = 100  # milisegundos que tiene que estar el boton presionado para considerarse pulsación válida
