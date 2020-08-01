@@ -23,7 +23,7 @@ seguridad a lo mejor es un poco más laxa:
     from smtplib import SMTP
 
     gmail_user = 'tuusuario@gmail.com'
-    gmail_password = 'tu contraseña'
+    gmail_password = 'tu password'
 
     # Creamos el mensaje
     msg = Message()
