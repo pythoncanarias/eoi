@@ -14,7 +14,7 @@
 
 Durante este curso trabajaremos con python3. Para evitar confusiones entre si hay que poner python o python3, vamos a crear un alias para poder utilizar ambas formas indistintamente, para eso hay que editar un fichero llamado .bashrc
 
- ```  
+```  
 cd  # esto nos asegura que estamos en el directorio home/usuario
 nano .bashrc
 ```
