@@ -10,6 +10,10 @@ __pycache__/
 # C extensions
 *.so
 
+# Jupyter
+.ipynb_checkpoints/
+
+
 # Distribution / packaging
 .Python
 build/
