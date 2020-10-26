@@ -8,4 +8,5 @@ y += 80
 rect = (x-55, y-55, x+55, y+55)
 draw = ImageDraw.Draw(leon)
 draw.ellipse(rect, fill=(255, 0, 0), width=3)
-leon.show()
+leon.thumbnail((250, 350))
+leon
