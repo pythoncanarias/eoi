@@ -1,4 +1,4 @@
-## Modelos en Django
+## Modelos en Django
 
 Cuando queremos almacenar y recuperar imformación sobre
 nuestras entidades, en Django definimos modelos.

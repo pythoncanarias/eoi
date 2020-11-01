@@ -1,11 +1,12 @@
-Introducción
----------------
+================
+Curso Python EOI
+================
+
 
 Programa de formación en Python financiado por la Escuela de Organización Industrial (EOI)
 
-
 Contenidos
-^^^^^^^^^^^^^^
+
 - Entorno de desarrollo
 - Lenguaje
 - Testing
@@ -19,4 +20,3 @@ Contenidos
 - Videojuegos
 - Empleabilidad
 
-Since Pythagoras, we know that :math:`a^2 + b^2 = c^2`.

@@ -1,21 +1,21 @@
 El patrón Bridge (Puente)
-========================================================================
+-------------------------
 
 .. index:: Bridge (Puente)
 
 Propósito
-------------------------------------------------------------------------
+^^^^^^^^^
 
 Desacopla una abstracción de su implementación, de modo que ambas puedan
 variar de forma independiente.
 
 También conocido como
-------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 *Handle/Body* (Manejador/Cuerpo)
 
 Motivación
-------------------------------------------------------------------------
+^^^^^^^^^^
 
 Cuando una abstracción o interfaz puede tener varias implementaciones
 posibles, la forma más habitual de implementarlas es la herencia.
@@ -112,7 +112,7 @@ puente o *bridge* que une ambos aspectos, pero dejandoles libertad para
 variar independientemente.
 
 Aplicabilidad
-------------------------------------------------------------------------
+^^^^^^^^^^^^^
 
 Puedes usar el patrón Bridge cuando:
 
@@ -126,7 +126,7 @@ Puedes usar el patrón Bridge cuando:
   extenderlas independientemente.
 
 Consecuencias
-------------------------------------------------------------------------
+^^^^^^^^^^^^^
 
 El patrón Bridge tiene las siguientes consecuencias:
 
@@ -148,7 +148,7 @@ El patrón Bridge tiene las siguientes consecuencias:
    mecanismo de conteo de referencias (si es que hay alguno).
 
 Implementación
-------------------------------------------------------------------------
+^^^^^^^^^^^^^^
 
 Al aplicar el patrón Bridge hemos de tener en cuenta las siguientes
 casos:
@@ -179,13 +179,13 @@ implementación. La fábrica sabe qué tipo de objeto ``Implementation``
 crear para la plataforma en uso.
 
 Ejercicios
-------------------------------------------------------------------------
+^^^^^^^^^^
 
 **Ejercicio**: Aquí tenemos una simulación de las clases ``Vectorz`` y
 dos versiones simuladas de implementación, ``PillowImp`` y
 ``PyGameImp``.
 
-1) Ejecuta todas las celdas y comprueba que funciona::
+1) Ejecuta todas las celdas y comprueba que funcionan.
 
 
 Primero la clase ``PillowImp``::

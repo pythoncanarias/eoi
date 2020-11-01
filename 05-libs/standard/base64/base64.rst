@@ -1,5 +1,5 @@
 El módulo base64
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------
 
 El proposito de este módulo es proporcionar un sistema que permita codificar
 y decodificar información binaria usando solo caracteres ASCII imprimibles. De
@@ -15,7 +15,7 @@ los estándares de facto **Ascii85** y **Base85**. más raramente usados.
 
 
 Codificar/Decodificar en base64
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 En base64 se usan un subconjunto de ASCII de 65 caracteres, todos ellos
 imprimibles. Para la codificación en si se usan 64 de los caracteres, mientras

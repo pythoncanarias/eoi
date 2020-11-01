@@ -13,7 +13,7 @@ En este modelo se trabajan con los siguientes conceptos
 - Relaciones
 
 
-### Entidad
+### Entidad
 
 Una __entidad__ Representa un  objeto o concepto del mundo real, con existencia independiente, es decir, se diferencia de otro objeto o cosa, incluso siendo del mismo tipo.
 

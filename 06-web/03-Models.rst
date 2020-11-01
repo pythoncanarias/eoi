@@ -1,5 +1,5 @@
 Modelos en Django
-========================================================================
+=================
 
 Cuando queremos almacenar y recuperar imformación sobre nuestras
 entidades, en Django definimos modelos.
@@ -12,7 +12,7 @@ Las relaciones, si son especialmente importantes o tiene atributos,
 tambien pueden ser implementadas con modelos.
 
 Nuestro primer modelo
-------------------------------------------------------------------------
+---------------------
 
 Vamos a implementar nuestro primer modelo. Viendo el diagrama de E/R que
 desarrollamos, hay una entidad que parace bastante sencilla: los
@@ -244,14 +244,14 @@ opcionales.
   este campo.
 
 Tipos de campos disponibles
-------------------------------------------------------------------------
+---------------------------
 
 Django viene con un conjunto de tipos de campos bastante extenso,
 veremos con más detalle cada uno de ellos. Los agruparemos según el tipo
 de datos que usará la base de datos subyacente para almacenarlos:
 
 Para almacenar números
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 -  IntegerField
 -  AutoField
@@ -315,21 +315,23 @@ Los campos ``PositiveIntegerField`` y ``PositiveSmallIntegerField`` son como
 solo aceptaran valores positivos
 
 Para almacenar valores lógicos (booleanos)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  ``BooleanField``
--  ``NullBooleanField``
 
-La diferencia entre estos dos campos es que el primero solo acepta los
-valores ``True`` o ``False``, mientras que el segundo también acepta un
-``None``.
+Si queremos que acepte, además de ``True`` y ``False``, el valor `None`, tendremos
+que incluir el argumento ``null=True``. Anteriormente habia una clase 
+``NullBooleanField``, pero esta obsoleta y no desaconseja su uso desde
+la versión $2.1$ de Django.
+
 
 Para almacenar fechas y tiempos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  DateField
--  DateTimeField
--  TimeField
+- ``DateField``
+- ``DateTimeField``
+- ``TimeField``
+- ``DurationField``
 
 Estos campos se usan para añadir a nuestro modelos fechas, tiempos o
 marcas temporales (fecha+tiempo). Hay dos parámetros que se suelen usar
@@ -355,16 +357,35 @@ vez que se modifica un registro.
 Recuerda que debes:
 
 -  Modificar el modelo
+
 -  Comprobar que no hay errores (``manage.py check``)
+
 -  Crear la migración (``manage.py makemigrations``)
--  Opcionalmente, comprobar que la migración existe pero no esta
-   aplicada (``manage.py showmigrations``)
+
+-  Opcionalmente, comprobar que la migración existe pero no esta aplicada
+  (``manage.py showmigrations``)
+
 -  Aplicar la migración (``manage.py migrate``)
--  Opcionalmente, comprobar que la aplicacion ha sido aplicada
-   (``manage.py showmigrations``)
+
+-  Opcionalmente, comprobar que la aplicacion ha sido aplicada (``manage.py
+  showmigrations``)
+
+Para almacenar ficheros
+~~~~~~~~~~~~~~~~~~~~~~~
+
+- ``FileField``
+- ``FilePathField``
+- ``ImageField``
+
+El campo ``FileField`` permite almacenar archivos en la base de datos. Con
+``FilePathField`` podemos guardar, en vez del contenido binario de un archivo,
+la ruta en el sistema de archivo. ``ImageField`` es una especialización de
+``FileField`` que permite almacenar imágenes. Si la libreria ``Pillow`` está
+instalada, esto nos da acceso a posibilidades adicionales, como por ejemplo
+acceder a la anchura y altura en pixels de la imagen.
 
 Para almacenar textos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 -  CharField
 -  TextField

@@ -502,8 +502,7 @@ para que arrow lo lea del sistema.
 **Miniproyecto**: Calcular el número total de viernes y 13 en el año
 2020
 
-**Pistas**:
------------
+Pistas:
 
 1. Obtén una fecha para el primer día del año, es decir, a 1 de enero de
    2020. Puedes usar cualquier nombre para esta variable, en estas

@@ -1,28 +1,38 @@
-Recursos para profundizar en Django
-========================================================================
+Recursos para profundizar en Desarrollo web
+-------------------------------------------
 
-Tutoriales
-------------------------------------------------------------------------
+HTML y CSS
+~~~~~~~~~~
+
+- `Best HTML courses in 2020 <https://hackr.io/blog/best-html-courses>`__
+
+- `12 HTML Tags You Don't Know <https://jatinrao.dev/12-html-tags-you-dont-know>`__
+
+- `HTML Reference <https://htmlreference.io/>`__ Es una referencia muy buena y
+  fácil de consultar de todas las etiquetas HTML.
+
+- `41 Free HTML and CSS ebooks <https://freefrontend.com/html-css-books/>`__
+
 
 Tutorial oficial de Django
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-La página oficial proporciona un tutorial bastante completo, dovidido en
+La página oficial proporciona un tutorial bastante completo, dividido en
 7 partes:
 
--  Part 1: `Requests and
+-  Parte 1: `Requests and
    responses <https://docs.djangoproject.com/en/3.0/intro/tutorial01/>`__
--  Part 2: `Models and the admin
+-  Parte 2: `Models and the admin
    site <https://docs.djangoproject.com/en/3.0/intro/tutorial02/>`__
--  Part 3: `Views and
+-  Parte 3: `Views and
    templates <https://docs.djangoproject.com/en/3.0/intro/tutorial03/>`__
--  Part 4: `Forms and generic
+-  Parte 4: `Forms and generic
    views <https://docs.djangoproject.com/en/3.0/intro/tutorial04/>`__
--  Part 5:
+-  Parte 5:
    `Testing <https://docs.djangoproject.com/en/3.0/intro/tutorial05/>`__
--  Part 6: `Static
+-  Parte 6: `Static
    files <https://docs.djangoproject.com/en/3.0/intro/tutorial06/>`__
--  Part 7: `Customizing the admin
+-  Parte 7: `Customizing the admin
    site <https://docs.djangoproject.com/en/3.0/intro/tutorial07/>`__
 
 Tambien tiene estos dos tutoriales avanzados:
@@ -59,7 +69,7 @@ Una colección de tutoriales de nivel intermedio a avanzado, por la gente
 de `RealPython <https://realpython.com/>`__, que también son una
 referencia muy buena en Pyhon en general.
 
--  `Real Python Django tutotials <>`__
+-  `Real Python Django tutorials <https://realpython.com/>`__
 
 Recursos
 ------------------------------------------------------------------------

@@ -1,5 +1,5 @@
-El patrón ``Command``
--------------------------
+El patrón Command
+-----------------
 
 .. index:: command (Pattern)
 
@@ -32,7 +32,7 @@ un documento, cuando el spooler quiera imprimirlo solo tiene que llamar al méto
 objeto *Command* y el documento se imprime con las preferencias predefinidas.
 
 Ventajas y desventajas
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~
 
 Entre las ventajas de este patrón se pueden destacar las siguientes:
 

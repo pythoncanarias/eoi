@@ -1,5 +1,5 @@
-El paquete xml
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+La librería xml
+---------------
 
 Los diferentes módulos de Python para trabajar con ficheros XML están
 agrupados en el paquete ``xml``.

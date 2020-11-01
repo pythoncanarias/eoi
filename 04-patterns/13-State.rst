@@ -1,19 +1,19 @@
 El patrón State (Estado)
-========================================================================
+------------------------
 
 Propósito
-------------------------------------------------------------------------
+^^^^^^^^^
 
 Permite que un objeto modifique su comportamiento cada vez que cambie su
 estado interno. Parecerá que cambia la clase del objeto.
 
 También conocido como
-------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 Objects for States (Estados como Objetos)
 
 Motivación
-------------------------------------------------------------------------
+^^^^^^^^^^
 
 Pensemos en una clase ``Conexion`` que representa una conexión entre dos
 ordenadores. Un objeto ``Conexion`` puede encontrarse en uno de los
@@ -60,7 +60,7 @@ personaje de un juego de plataformas. Queremos que al pulsar la tecla
 
 Funciona, pero tiene un fallo. ¿Puedes descubrir cual es?
 
-.. figure:: ./img/superman.png
+.. figure:: img/superman.gif
    :alt: Superman!
 
    Superman!
@@ -92,11 +92,11 @@ ataque, facilisimo::
             if key_press == 'C':
                 self.graphic = Image(HERO_DIVE)
 
-Ves el fallo ahora?
+¿Ves el fallo ahora?
 
-Si pulsamos C durante un salto, la imagen cambia a la de agachado.
+Si pulsamos `C` durante un salto, la imagen cambia a la de agachado.
 
-Hay que arreglarlo con otro if::
+Hay que arreglarlo con otro ``if``::
 
     class Hero:
         ...
