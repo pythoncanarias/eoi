@@ -75,7 +75,7 @@ Ejercicio: ¿Notan algo raro en el ejemplo anterior?
 .. figure:: ../img/emosido.jpg
    :alt: El mensaje comprimido ocupa más que el mensaje sin descomprimir
 
-   El mensaje comprimido ocupa más que el mensaje sin descomprimir
+   ¡El mensaje comprimido ocupa más que el mensaje sin descomprimir!
 
 Efectivamente ¡El mensaje comprimido ocupa más que el mensaje sin
 descomprimir! Justo lo contrario de lo que deberia pasar! Esto es por

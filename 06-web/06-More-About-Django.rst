@@ -71,11 +71,9 @@ referencia muy buena en Pyhon en general.
 
 -  `Real Python Django tutorials <https://realpython.com/>`__
 
-Recursos
-------------------------------------------------------------------------
 
 Django packages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 Django packages es un directorio de *apps* reutilizables, herramientas,
 añadidos y librerías utilizables en tus proyectos Django.
@@ -83,13 +81,13 @@ añadidos y librerías utilizables en tus proyectos Django.
 -  `Djangopackages.org <https://djangopackages.org/>`__
 
 Django en producción
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
 
 -  `A tour of Django server
    setups <https://mattsegal.dev/django-prod-architectures.html>`__
 
 Awesome Django
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~
 
 Recopilatorio de todo tipo de recursos para Django
 

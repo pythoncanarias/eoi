@@ -6,7 +6,7 @@ responsable de procesar una petición de usuario y de devolver un resultado.
 Desde un punto de vista de desarrollo, una vista es una función o una clase de
 python normal, pero que debe cumplir estos dos requisitos:
 
--  tiene que admite como primer parámetro una variable de tipo ``HttpRequest``.
+- Tiene que admitir como primer parámetro una variable de tipo ``HttpRequest``.
   La función puede aceptar más de un parámetro, pero la variable de tipo
   ``HttpRequest`` ha de ser obligatoriamente la primera.
 
@@ -16,7 +16,7 @@ La respuesta puede ser de cualquier tipo, aunque normalmente es HTML, pero
 también puede ser una redirección, un error 404, una documento JSON, una
 imagen, o cualquier otro contenido.
 
-Aunque el códido de las vistas puede estar en cualquier parte, la práctica
+Aunque el código de las vistas puede estar en cualquier parte, la práctica
 recomendada es ponerlas en un fichero ``views.py``.
 
 Nuestra primera vista
