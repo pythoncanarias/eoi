@@ -6,15 +6,56 @@ file_path = None
 
 app = QApplication([])
 app.setApplicationName("CLM Pad")
+
+def dialogo_confirmacion():
+    return QMessageBox.question(
+        window, "Confirmación",
+        "Tienes cambios sin guardar. Estás segur@?",
+        QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel,
+        QMessageBox.Save)
+
+def save_if_modified():
+    if text.document().isModified():
+        answer = dialogo_confirmacion()
+        if answer == QMessageBox.Save:
+            guardar()
+            return False
+        elif answer == QMessageBox.Cancel:
+            return False
+    return True
+
+
+class MyMainWindow(QMainWindow):
+    def closeEvent(self, evt):
+        if text.document().isModified():
+            answer = dialogo_confirmacion()
+            if answer == QMessageBox.Save:
+                guardar()
+            elif answer == QMessageBox.Cancel:
+                evt.ignore()
+
 text = QPlainTextEdit()
-window = QMainWindow()
+window = MyMainWindow()
 window.setCentralWidget(text)
 barra_de_menus = window.menuBar()
 
 menu_archivo = barra_de_menus.addMenu("&Archivo")
 
+def nuevo():
+    global file_path
+    if save_if_modified():
+        text.clear()
+        file_path = None
+
+accion_nuevo = QAction("&Nuevo")
+accion_nuevo.setShortcut(QKeySequence.New)
+accion_nuevo.triggered.connect(nuevo)
+menu_archivo.addAction(accion_nuevo)
+
 def mostrar_dialogo_abrir():
     global file_path
+    if not save_if_modified():
+        return
     filename, _ = QFileDialog.getOpenFileName(window,
                     "Abrir fichero...",
                     os.getcwd(),
@@ -34,6 +75,8 @@ def guardar():
     if file_path:
         with open(file_path, 'w') as f:
             f.write(text.toPlainText())
+        text.document().setModified(False)
+        print(text.document().isModified())
     else:
         mostrar_dialogo_guardar()
 
@@ -47,6 +90,8 @@ def mostrar_dialogo_guardar():
     if filename: 
         with open(filename, 'w') as f:
             f.write(text.toPlainText())
+        text.document().setModified(False)
+        print(text.document().isModified())
         file_path = filename
 
 accion_guardar = QAction("&Guardar")
@@ -54,6 +99,10 @@ accion_guardar.setShortcut(QKeySequence.Save)
 accion_guardar.triggered.connect(guardar)
 menu_archivo.addAction(accion_guardar)
 
+accion_guardar_como = QAction("G&uardar como...")
+accion_guardar_como.setShortcut(QKeySequence.SaveAs)
+accion_guardar_como.triggered.connect(mostrar_dialogo_guardar)
+menu_archivo.addAction(accion_guardar_como)
 
 accion_cerrar = QAction("&Cerrar")
 accion_cerrar.triggered.connect(window.close)
