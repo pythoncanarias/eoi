@@ -41,13 +41,18 @@ En la consola de linux, escribiremos:
 
 ## Uso
 
+
+Actualizar la propio gestor
+
+`pip install --upgrade pip`
+
 Para instalar una librería, escribiremos:
 
-`pip3 install nombredelalibreria`
+`pip install nombredelalibreria`
 
 Si la librería ya la tenemos y queremos actualizarla:
 
-`pip3 install nombredelalibreria --upgrade`
+`pip install nombredelalibreria --upgrade`
 
 **IMPORTANTE** Las librerías estarán disponibles en todo el sistema. Si quereos instalar librerías solo para un entorno virtual (entorno aislado) deberemos asegurarnos de que estamos dentro de ese entorno. Sabremos que estamos dentro de ese entorno si vemos el prefijo (.venv), algo así:
 
