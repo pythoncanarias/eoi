@@ -8,6 +8,7 @@
   - [Windows](#windows)
 - [Instalar extension de VSCode](#instalar-extension-de-vscode)
 - [Como usar los ejemplos](#como-usar-los-ejemplos)
+- [Referencias](#referencias)
 - [Atribuciones](#atribuciones)
 
 
@@ -36,18 +37,20 @@ Para poder trabajar con microcontrolaores, debemos flashear (instalar) el interp
 ```
 pip install esptool
 ```
-descargar el interprete de micropython en [micropython.org](https://micropython.org/download/) de tu placa (ESP8266 o ESP32)
+Ahora necesitamos el interprete de micropython para el chip de nuestra placa (ESP8266 o ESP32) aqui: [micropython.org](https://micropython.org/download/)
 
-La ultima version estable a dia de hoy es 
+La ultima version estable a dia de hoy para la placa Atom Lite (ESP32) es 
 
 [esp32-idf3-20200902-v1.13](https://micropython.org/resources/firmware/esp32-idf3-20200902-v1.13.bin)
 
-ahora para subir este firmware a la placa, dependera de tu sistema operativo:
+Y por subiremos el interprete a la placa. Esto dependerá de tu sistema operativo:
 
 
 ## Linux
 
+Conecta tu placa ESP al ordenador
 ```
+cd Downloads  # o donde hayas descargado el archivo bin
 esptool.py --port /dev/ttyUSB0 erase_flash
 esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 115200 write_flash -z 0x1000 esp32-idf3-20200902-v1.13.bin
 ```
@@ -59,16 +62,16 @@ Conecta tu placa ESP al ordenador, toca la tecla de windows para buscar y abre `
 
 Despliega `Puertos (COM y LPT)` y te apareceran los puertos COM de los dispositivos conectados a tu ordenador, recuerda el numero asignado (8 en el ejemplo)
   
-![administrador_dispositivos](imgs\administrador_dispositivos.png)
+<img src="imgs\administrador_dispositivos.png" alt="administrador_dispositivos" title="administrador_dispositivos" />
 
-Si no te aparece este apartado, el equipo no ha reconocido el dispositivo. Esto puede ser normalmente porque te falta el driver, o por que el cable no sea el adecuado (solo tenga alimentacion y no datos) prueba con otro cable.
+Si no te aparece este apartado, el equipo no ha reconocido el dispositivo. Esto puede ser normalmente porque te falta el driver [solucionar_problema_driver_Atom_Lite](solucionar_problema_driver_Atom_Lite.md), o por que el cable no sea el adecuado (solo tenga alimentacion y no datos) prueba con otro cable.
 
 Abre `PowerShell`  y escribe:
 
 ```
 cd Downloads  # o donde hayas descargado el archivo bin
-esptool.py --port COM8 erase_flash
-esptool.py --chip esp32 --port COM8 --baud 115200 write_flash -z 0x1000 esp32-idf3-20200902-v1.13.bin
+python -m esptool --chip esp32 --port COM3 erase_flash
+python -m esptool --chip esp32 --port COM3 --baud 115200 write_flash -z 0x1000 esp32-idf3-20200902-v1.13.bin
 
 ```
 <em>NOTA cambia el numero del puerto COM por el de tu placa, y el nombre del archivo bin por la version que has descargado</em>
@@ -99,6 +102,12 @@ upip.install("micropython-urequests")
 upip.install("micropython-umqtt.simple")
 ```
 NOTA: la placa tiene que estar conectada a internet para descargar las librerias
+
+
+# Referencias
+
+- [Documentación MicroPython](https://docs.micropython.org/en/latest/)
+- [Documentación Atom Lite](https://docs.m5stack.com/#/en/core/atom_lite)
 
 
 # Atribuciones
