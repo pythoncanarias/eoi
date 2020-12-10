@@ -3,7 +3,7 @@ import network
 # Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
-class Corneto:
+class Kappa:
     def __init__(self):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.bind(('0.0.0.0', 80))
@@ -15,15 +15,16 @@ class Corneto:
         ip = network.WLAN().ifconfig()[0]
         print("Abre un navegador y entra en 'http://{}/'".format(ip))
         while True:
+            print("Esperando peticion del cliente...")
             conn, addr = self.sock.accept()
             print(addr)
             request = conn.recv(1024)
             request_str = request.decode()
             print(request_str)
             try:
-                partes = request_str.split()
-                tipo = partes[0]
-                ruta = partes[1]
+                partes = request_str.split(' ')
+                tipo = partes[0]  # lo primero que tiene la peticion es el tipo (GET, POST, UPDATE)
+                ruta = partes[1]  # lo segundo es la ruta 
             except Exception as e:
                 print("Error al extraer ruta")
                 vista = None
@@ -40,16 +41,17 @@ class Corneto:
                 conn.send('HTTP/1.1 200 OK\n')
                 conn.send('Content-Type: text/html\n')
                 conn.send('Connection: close\n\n')
-                conn.sendall(self.get_plantilla(plantilla, contexto))
+                conn.sendall(self.get_html(plantilla, contexto))
             conn.close()
 
     def add_view(self, ruta, vista):
         self.vistas[ruta] = vista
 
-    def get_plantilla(self, plantilla, contexto):
-        with open(plantilla, 'r') as f:
-            contenido = f.read()
+    @staticmethod
+    def get_html(plantilla, contexto):
+        with open("templates/" + plantilla, 'r') as f:
+            html = f.read()
         # sustituimos todas las marcas tipo {{variable}} en la plantilla por su valor
         for key, value in contexto.items():
-            contenido = contenido.replace("{{"+key+"}}", value)
-        return contenido
+            html = html.replace("{{"+key+"}}", str(value))
+        return html

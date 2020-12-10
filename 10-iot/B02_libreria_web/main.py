@@ -1,31 +1,11 @@
-from machine import Pin
-import network
 import utime
-from credenciales import ssid, password
-from corneto import Corneto
+from kappa import Kappa
+from miscelanea import LedRGB, Boton
 # Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
-# estas credenciales tienen que estar en un fichero credenciales.py
-#ssid = "mi_wifi"
-#password = "gsdfsdfgds"
-
-# Configurar hardware
-led = Pin(2, Pin.OUT)
-
-# Conexion wifi
-led.value(0)  # encendemos el led para indicar el tiempo que tarda en conectarse
-print("\nConectandose a wifi...", end='')
-red = network.WLAN(network.STA_IF)
-red.active(True)
-red.connect(ssid, password)
-while not red.isconnected():  # Espera hasta que este conectado
-    utime.sleep(0.1)
-print("conectado!")
-print(red.ifconfig())
-led.value(1) # apagamos el led mara indicar que ya estamos conectados
-
-web = Corneto()
+led = LedRGB()
+web = Kappa()
 
 def home(x):
     contexto = {
@@ -34,12 +14,12 @@ def home(x):
     return("index.html", contexto)
 
 def led_encender(x):
-    led.value(0)
+    led.encender()
     contexto = {}
     return("luz.html", contexto)
 
 def led_apagar(x):
-    led.value(1)
+    led.apagar()
     contexto = {}
     return("luz.html", contexto)
 

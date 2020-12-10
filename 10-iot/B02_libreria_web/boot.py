@@ -1,9 +1,17 @@
 # This file is executed on every boot (including wake-boot from deepsleep)
-import esp
-esp.osdebug(None)
-# import uos
-# uos.dupterm(None, 1) # disable REPL on UART(0)
-import gc
+#import esp
+#esp.osdebug(None)
 #import webrepl
 #webrepl.start()
-gc.collect()
+import network
+import utime
+from credenciales import ssid, password
+
+red = network.WLAN(network.STA_IF)
+red.active(True)
+red.connect(ssid, password)
+
+while not red.isconnected():
+    utime.sleep_ms(100)
+
+print(red.ifconfig())

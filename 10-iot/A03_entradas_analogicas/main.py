@@ -1,11 +1,11 @@
 import machine
-import utime
+import time
 # Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
-adc = machine.ADC(0)
+adc = machine.ADC(machine.Pin(0))
 
-def remapear(x,in_min, in_max, out_min, out_max):
+def remapear(x, in_min, in_max, out_min, out_max):
     # esto es la implementacion de la funcion "map" de arduino
     # https://www.arduino.cc/reference/en/language/functions/math/map/
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
@@ -17,4 +17,4 @@ while True:
     # convertimos ese valor en voltaje
     voltaje = remapear(valor, 0, 1023, 0, 3.3)
     print("Valor: {}\tvoltaje: {:.3f}v".format(valor, voltaje))
-    utime.sleep_ms(100)
+    time.sleep_ms(100)
