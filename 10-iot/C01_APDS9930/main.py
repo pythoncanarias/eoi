@@ -4,6 +4,8 @@ import utime
 
 
 i2c=I2C(sda=Pin(4), scl=Pin(5))  # instanciamos y configuramos bus I2C en los pines sda y scl
+# i2c=I2C( sda=Pin(26), scl=Pin(32) )  # El conector grove de la placa Atom Lite utiliza estos pines
+
 dispositivos_conectado = i2c.scan()  # manda mensajes por el bus i2c a todas las direcciones para ver que dispositivos contestan
 # devuelve un listado de dispositivos conectados
 print(dispositivos_conectado)  # NOTA las direcciones las muestra en decimal, normalmente usaremos hexadecimal para trabajar con el i2c

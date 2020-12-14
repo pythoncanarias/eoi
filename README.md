@@ -15,6 +15,6 @@ Orden | Módulo
 7 | Administración de sistemas
 8 | Aplicaciones de escritorio
 9 | Ciencia de datos
-10 | Internet de las cosas
+10 | [Internet de las cosas](10-iot\README.md)
 11 | Videojuegos
 12 | Empleabilidad
