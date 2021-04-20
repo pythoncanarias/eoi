@@ -12,6 +12,8 @@
 
 # Requisitos previos del entorno
 
+## Linux
+
 Durante este curso trabajaremos con python3. Para evitar confusiones entre si hay que poner python o python3, vamos a crear un alias para poder utilizar ambas formas indistintamente, para eso hay que editar un fichero llamado .bashrc
 
 ```  
@@ -69,6 +71,7 @@ En la consola de linux, escribiremos:
 
 ## Uso
 
+## Linux
 Para crear un entorno virtual, usamos el comando cd para movernos a la carpeta raiz de nuestro proyecto, y desde ahí escribimos:
 
 `python -m venv .venv`
@@ -84,3 +87,5 @@ Sabremos que estamos dentro de ese entorno si vemos el prefijo (.venv)
 para salir del entorno:
 
 `deactivate`
+
+## Windows
