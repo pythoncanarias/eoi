@@ -49,9 +49,12 @@ Curso EOI de especialización en Python
    06-web/03-Models.rst
    06-web/04-Templates.rst
    06-web/05-Recomendations.rst
-   06-web/06-More-About-Django.rst
-   06-web/07-Microservices
-   06-web/08-Flask.rst
+   06-web/06-Migrations.rst
+   06-web/07-More-About-Django.rst
+   06-web/08-Microservices
+   06-web/09-Flask.rst
+   06-web/10-Learn-More.rst
+   06-web/12-Recomendations.rst
 
    AA-annexes/biblio
    AA-annexes/answers

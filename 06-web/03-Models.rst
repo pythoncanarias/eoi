@@ -1,39 +1,42 @@
 Modelos en Django
 =================
 
-Cuando queremos almacenar y recuperar imformación sobre nuestras
-entidades, en Django definimos modelos.
+.. index:: model
+
+Cuando queremos almacenar y recuperar imformación sobre nuestras entidades, en
+Django definimos **modelos**.
 
 Si venimos de un diagrama E/R, entonces probablemente cada entidad se
-representara con un modelo, y para cada modelo definiremos una serie de
-de campos (*fields*), que equivalen a los atributos del modelo E/R.
+representará con un modelo, y para cada modelo definiremos una serie de
+de **campos** (*fields*), que equivalen a los atributos del modelo E/R.
 
 Las relaciones, si son especialmente importantes o tiene atributos,
 tambien pueden ser implementadas con modelos.
+
 
 Nuestro primer modelo
 ---------------------
 
 Vamos a implementar nuestro primer modelo. Viendo el diagrama de E/R que
-desarrollamos, hay una entidad que parace bastante sencilla: los
-poderes. No tienen muchos atributos y son sencillos de entender.
+desarrollamos, hay una entidad que parace bastante sencilla: los poderes. No
+tienen muchos atributos y son sencillos de entender.
 
-Vamos a crear nuestro primer modelo basado en esta entidad. Vamos a
-llamar al modelo ``Power``. La convención es usar la inicial en
-mayúsculas, porque es una clase, y se recomienda usar siempre la forma
-singular (Es decir, mejor ``Power`` que ``powers``)
+Vamos a crear nuestro primer modelo basado en esta entidad. Vamos a llamar al
+modelo ``Power``. La convención es usar la inicial en mayúsculas, porque es una
+clase, y se recomienda usar siempre la forma singular (Es decir, mejor
+``Power`` que ``powers``)
 
-Básicamente para este modelos solo son necesarios dos atributos, nombre
-y descripción. Así que este es nuestro primer modelo::
+Básicamente para este modelos solo son necesarios dos atributos, el nombre y la
+descripción del poder. Así que este es nuestro primer modelo::
 
    class Power(models.Model):
        name = CharField(max_length=32)
        description = CharField(max_length=120)
 
-Vamos a crear el fichero ``models.py`` dentro de la carpeta
-``metahumans``. Dentro del fichero importamos ``django.models`` para
-poder tener acceso a la clase base ``models.Model`` y pegamos la
-definición aterior. El fichero debería quedar así::
+Vamos a crear el fichero ``models.py`` dentro de la carpeta ``metahumans``.
+Dentro del fichero importamos ``django.models`` para poder tener acceso a la
+clase base ``models.Model`` y pegamos la definición aterior. El fichero debería
+quedar así::
 
    from django import models
 
@@ -41,74 +44,72 @@ definición aterior. El fichero debería quedar así::
        name = models.CharField(max_length=32)
        description = models.CharField(max_length=120)
 
-Ahora podemos ejecutar el comando de manage ``check`` para ver si todo
-ha ido bien::
+Ahora podemos ejecutar el comando de manage ``check`` para ver si todo ha ido
+bien::
 
     ./manage.py check
 
-El siguiente paso, si no hay errores, es crear una migración para crear
-tablas en la base de datos que sirvan para el almacenamiento de este
-modelo.
+El siguiente paso, si no hay errores, es crear una migración para crear tablas
+en la base de datos que sirvan para el almacenamiento de este modelo.
 
-Para ello se usa el comando de manage ``migrate``, normalmente indicando
-la app sobre la que queremos generar las migraciones. Pero primero
-veamos las migraciones que tenemos actualmente reconocidas por el
-sistema. Hagamos::
+Para ello se usa el comando de manage ``migrate``, normalmente indicando la app
+sobre la que queremos generar las migraciones. Pero primero veamos las
+migraciones que tenemos actualmente reconocidas por el sistema. Hagamos::
 
-   manage.py showmigrations
+    manage.py showmigrations
 
-Y deberiamos obtener algo como::
+Y deberiamos obtener algo parecido a esto::
 
-   admin
-   [X] 0001_initial
-   [X] 0002_logentry_remove_auto_add
-   [X] 0003_logentry_add_action_flag_choices
-   auth
-   [X] 0001_initial
-   [X] 0002_alter_permission_name_max_length
-   [X] 0003_alter_user_email_max_length
-   [X] 0004_alter_user_username_opts
-   [X] 0005_alter_user_last_login_null
-   [X] 0006_require_contenttypes_0002
-   [X] 0007_alter_validators_add_error_messages
-   [X] 0008_alter_user_username_max_length
-   [X] 0009_alter_user_last_name_max_length
-   [X] 0010_alter_group_name_max_length
-   [X] 0011_update_proxy_permissions
-   commons
-   (no migrations)
-   contenttypes
-   [X] 0001_initial
-   [X] 0002_remove_content_type_name
-   metahumans
-   (no migrations)
-   sessions
-   [X] 0001_initial
+    admin
+    [X] 0001_initial
+    [X] 0002_logentry_remove_auto_add
+    [X] 0003_logentry_add_action_flag_choices
+    auth
+    [X] 0001_initial
+    [X] 0002_alter_permission_name_max_length
+    [X] 0003_alter_user_email_max_length
+    [X] 0004_alter_user_username_opts
+    [X] 0005_alter_user_last_login_null
+    [X] 0006_require_contenttypes_0002
+    [X] 0007_alter_validators_add_error_messages
+    [X] 0008_alter_user_username_max_length
+    [X] 0009_alter_user_last_name_max_length
+    [X] 0010_alter_group_name_max_length
+    [X] 0011_update_proxy_permissions
+    commons
+    (no migrations)
+    contenttypes
+    [X] 0001_initial
+    [X] 0002_remove_content_type_name
+    metahumans
+    (no migrations)
+    sessions
+    [X] 0001_initial
 
-Vemos ahí que tenemos aplicadas todas las migraciones, y vemos que nos
-aparece nuestras apps ``commons`` y ``metahumans``, pero sin ninguna
+La salida muestra que tenemos aplicadas todas las migraciones. Vemos también
+que nos aparece nuestras apps ``commons`` y ``metahumans``, pero sin ninguna
 migración. (Si no aparece ``commons`` o ``metahumans``, es que nos hemos
-despistado de incluirlas en la variable ``INSTALLED_APPS`` del fichero
-de ajustes ``settings.py``).
+despistado de incluirlas en la variable ``INSTALLED_APPS`` del fichero de
+ajustes ``settings.py``).
 
 El caso es que hemos creado el modelo, y para que ese cambio se refleje
 en la base de datos, el método más cómodo es usar migraciones (La otra
 opcion es reflejar el cambio nosotros a mano en la base de datos).
 
-Para que django cree la migracion, lo que hace es comprobar la
-diferencia entre el ultimo estado de la base de datos y la configuracion
+Para que django cree la migración, lo que hace es comprobar la
+diferencia entre el último estado de la base de datos y la configuración
 actual de los modelos.
 
 Si no coinciden -como es el caso, ya que hay una nueva entidad y por
 tanto se necesita una nueva tabla- se crea una nueva migración, marcada
-como sin aplicar”.
+como "sin aplicar".
 
 Para crear la migración, se usa la orden ``makemigrations``, como se
-dijo anteriormente::
+explicó anteriormente::
 
     python manage.py makemigrations metas
 
-Deberíamos obtener algo como::
+Deberíamos obtener una salida similar a::
 
     Migrations for 'metahumans':
     metahumans/migrations/0001_initial.py
@@ -147,13 +148,15 @@ Ahora podemos aplicarla con ``migrate``::
 
     python manage.py migrate metahumans
 
-Despues de aplicada, ``showmigrations`` indica con una ‘X’
-que esa migración ya ha sido aplicado. Podemos hacer el ``migrate`` de
-nuevo, y ahora no hará nada, porque el sistema es lo suficientemente
-listo como para saber que no debe aplicar la misma migración dos veces.
+Ahora ``showmigrations`` indica con ``[X]`` que esa migración ya ha sido
+aplicado. Podemos hacer el ``migrate`` de nuevo. Esta segunda vez no hará nada,
+porque el sistema es lo suficientemente listo como para saber que no debe
+aplicar la misma migración dos veces. Podemos hacer la operación de migrate
+todas las veces que queramos, solo se ejecura realmente en la primera llamada.
+
 
 Opciones comunes para todos los campos
-------------------------------------------------------------------------
+--------------------------------------
 
 Los siguientes campos estan disponibles para todos los campos. Todos son
 opcionales.
@@ -253,47 +256,51 @@ de datos que usará la base de datos subyacente para almacenarlos:
 Para almacenar números
 ~~~~~~~~~~~~~~~~~~~~~~
 
--  IntegerField
--  AutoField
--  BigIntegerField
--  DecimalField
--  FloatField
--  PositiveIntegerField
--  PositiveSmallIntegerField
--  SmallIntegerField
+- ``IntegerField``
 
-El campo ``IntegerField`` es un campo para lamacenar un número entero.
-Dependiendo de la base de datos que se esté utilizando, el rango de
-valores posibles puede variar, pero el rango desde :math:`-2147483648`
-hasta :math:`2147483647` es soportado por todas las bases de datos que
-Django soporta.
+- ``AutoField``
 
-El tipo ``AutoField`` es el que se utiliza de forma automática para las
-claves primarias si no lo hemos hecho al definir el modelo. Es un campo
-numérico similar a ``IntegerField``, pero que aumentará de valor
-automaticamente cada vez que añadamos un nuevo registro o fila a la
-tabla.
+- ``BigIntegerField``
 
-El campo ``BigIntegerField`` almacena enteros pero garantiza que el
-rango será mayor (Internamente fuerza a usar 64 bits), así que el rango
-de valores que puede almacenar va desde :math:`-9223372036854775808` to
+- ``DecimalField``
+
+- ``FloatField``
+
+- ``PositiveIntegerField``
+
+- ``PositiveSmallIntegerField``
+
+- ``SmallIntegerField``
+
+El campo ``IntegerField`` es un campo que podemos usar para almacenar números
+enteros.  Dependiendo de la base de datos que se esté utilizando, el rango de
+valores posibles puede variar, pero el rango desde :math:`-2147483648` hasta
+:math:`2147483647` es soportado por todas las bases de datos que Django
+soporta.
+
+El tipo ``AutoField`` Es un campo numérico similar a ``IntegerField``, pero con
+la diferencia de que aumentará de valor automáticamente cada vez que añadamos
+un nuevo registro o fila a la tabla. Es el que se utiliza de forma automática
+para las claves primarias si no lo hemos hecho al definir el modelo.
+
+El campo ``BigIntegerField`` almacena enteros tambiém, pero garantiza que el
+rango de valores posibles será mayor (Internamente fuerza a usar 64 bits), así
+que los valores que puede almacenar van desde :math:`-9223372036854775808` a
 :math:`9223372036854775807`.
 
-Tanto el campo ``FloatField`` como ``DecimalField`` permiten almacenar
-valores numéricos decimales, es decir, los que tienen una parte
-*decimal*. La diferencia es que ``FloatField`` almacena esta informacion
-usando el formato de coma flotante, que es util para almacenar con la
-maxima precisión que la máquina nos pueda dar. ``DecimalField``, por
-otro lado, limita expresamente la candida de dígitos que podemos
-representar despues de la coma.
+Tanto el campo ``FloatField`` como ``DecimalField`` permiten almacenar valores
+numéricos decimales, es decir, los que tienen una parte *decimal*. La
+diferencia es que ``FloatField`` almacena esta información usando el formato de
+coma flotante, que es útil para almacenar con la máxima precisión que la
+máquina nos pueda dar. ``DecimalField``, por otro lado, limita expresamente la
+cantidad de dígitos que podemos representar despues de la coma.
 
-El uso de ``DecimalField`` es, por tanto, especialmente indicado para
-almacenar valores de monedas, en las cuales las subdivisiones llegan
-solo hasta un determinado nivel. Por ejemplo, :math:`3.45` euros tiene
-sentido (3 euros y 45 céntimos) pero :math:`3.449` euros no tiene
-sentido, no existen subdivisiones del céntimo. Usaremos ``FloatField``
-cuando queremos mantener la precisión más alta posible, para cálculos
-precisos.
+El uso de ``DecimalField`` es, por tanto, especialmente indicado para almacenar
+valores de monedas, en las cuales las subdivisiones llegan solo hasta un
+determinado nivel. Por ejemplo, :math:`3.45` euros tiene sentido (3 euros y 45
+céntimos) pero :math:`3.449` euros no tiene sentido, no existen subdivisiones
+del céntimo. Usaremos ``FloatField`` cuando queremos mantener la precisión más
+alta posible, para cálculos precisos.
 
 .. code:: ipython3
 
@@ -304,20 +311,20 @@ precisos.
     -1.1102230246251565e-16
 
 
-
-Un campo ``SmallIntegerField`` almacena enteros en el rango inferior al
-de ``IntegerField``. Este rango depende de la base de datos usada, pero
-podemos asumir como seguro el rango desde :math:`-32768` a
-:math:`32767`.
+Un campo ``SmallIntegerField`` almacena enteros, pero el rango de valores
+posibles es inferior al de ``IntegerField``. Los límites del rango dependen de
+la base de datos usada, pero podemos asumir como seguro el rango de
+:math:`-32768` a :math:`32767`.
 
 Los campos ``PositiveIntegerField`` y ``PositiveSmallIntegerField`` son como
-``IntegerField`` y ``SmallIntegerField`` pero con la limitación de que
-solo aceptaran valores positivos
+``IntegerField`` y ``SmallIntegerField``, pero con la limitación de que solo
+aceptan valores positivos.
+
 
 Para almacenar valores lógicos (booleanos)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  ``BooleanField``
+- ``BooleanField``
 
 Si queremos que acepte, además de ``True`` y ``False``, el valor `None`, tendremos
 que incluir el argumento ``null=True``. Anteriormente habia una clase 
@@ -356,22 +363,23 @@ vez que se modifica un registro.
 
 Recuerda que debes:
 
--  Modificar el modelo
+- Modificar el modelo
 
--  Comprobar que no hay errores (``manage.py check``)
+- Comprobar que no hay errores (``manage.py check``)
 
--  Crear la migración (``manage.py makemigrations``)
+- Crear la migración (``manage.py makemigrations``)
 
--  Opcionalmente, comprobar que la migración existe pero no esta aplicada
+- Opcionalmente, comprobar que la migración existe pero no esta aplicada
   (``manage.py showmigrations``)
 
--  Aplicar la migración (``manage.py migrate``)
+- Aplicar la migración (``manage.py migrate``)
 
--  Opcionalmente, comprobar que la aplicacion ha sido aplicada (``manage.py
+- Opcionalmente, comprobar que la aplicacion ha sido aplicada (``manage.py
   showmigrations``)
 
-Para almacenar ficheros
-~~~~~~~~~~~~~~~~~~~~~~~
+
+Campos para almacenar ficheros
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - ``FileField``
 - ``FilePathField``
@@ -384,61 +392,62 @@ la ruta en el sistema de archivo. ``ImageField`` es una especialización de
 instalada, esto nos da acceso a posibilidades adicionales, como por ejemplo
 acceder a la anchura y altura en pixels de la imagen.
 
-Para almacenar textos
-~~~~~~~~~~~~~~~~~~~~~
+Campos para almacenar textos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  CharField
--  TextField
--  EmailField
--  GenericIPAddressField
--  URLField
--  SlugField
+- ``CharField``
 
-Los campos ``CharField`` y ``TextField`` son ambos utiles para guardar
-textos. La diferencia estriba en el tamaño.
+- ``TextField``
 
-Se espera que CharField sea para campos de texto relativamente prqueños
-(Por ejemplo, el nombre del puesto en una oferta de trabajo, algo como
-``Python Developer``)
+- ``EmailField``
 
-Mientras que en TextField se espera guardar cantidades de texto mayores
-(De nuevo con el ejemplo de una oerta de empleo, la descripción completa
-del puesto, incluyendo deberes y responsabilidades). La app ``admin``
+- ``GenericIPAddressField``
+
+- ``URLField``
+
+- ``SlugField``
+
+Los campos ``CharField`` y ``TextField`` son ambos utiles para guardar textos.
+La diferencia estriba en el tamaño.
+
+Se espera que ``CharField`` sea para campos de texto relativamente pequeños
+(Por ejemplo, el nombre del puesto en una oferta de trabajo, algo como ``Python
+Developer``), mientras que en ``TextField`` se espera guardar cantidades de
+texto mayores (De nuevo con el ejemplo de una oerta de empleo, la descripción
+completa del puesto, incluyendo deberes y responsabilidades). La app ``admin``
 reconoce esta diferencia y usa controles diferentes para cada campo.
 
-Los campos ``EmailField``, ``GenericIPAddressField`` y ``URLField`` son
-campos de texto especializados en cada uno de los valores indicados por
-su nombre. Se realizan automaticamente validaciones para cada uno de
-estos campos.
+Los campos ``EmailField``, ``GenericIPAddressField`` y ``URLField`` son campos
+de texto especializados en cada uno de los valores indicados por su nombre. Se
+realizan validaciones de forma automática para cada uno de estos campos.
 
-Por último, ``SlugField`` es un termino traido de los periodicos. Es una
-etiqueta corta, que se usa normalmente para identificar o discriminar, y
-que contiene solo letras, números y los símbolos ``_`` y ``-``. Se usan
-generalente para formar parte de un URL. Una entrada de un blog, por
-ejemplo, podria usar un *slug* basado en el titulo para crear una URL
-permanente que apunta a dicha entrada.
+Por último, ``SlugField`` es un término traido de los periodicos. Es una
+etiqueta corta, que se usa normalmente para identificar o discriminar, y que
+contiene solo letras, números y los símbolos ``_`` y ``-``. No pueden contener
+espacios, por ejemplo. Esto hace que se usan generalente para formar parte de
+un URL. Una entrada de un blog, por ejemplo, podria usar un *slug* basado en el
+titulo para crear una URL permanente que apunta a dicha entrada.
 
 Igual que un ``CharField``, podemos especificar una longitud máxima. Por
-defecto es :math:`50`. A nivel de base de datos, se creara también un
-índice, lo que en la práctica impide usar valores duplicados y
-conviderte al *slug* en una clave candidata o al menos en parte de una
-clave candidata.
+defecto es :math:`50`. A nivel de base de datos, se creara también un índice,
+lo que en la práctica impide usar valores duplicados y convierte al *slug* en
+una clave candidata o al menos en parte de una clave candidata.
 
-A menudo es útil precalcular o establecer un valor inicial de forma
-automática al campo *slug* basandonos en otros campos. Se puede definir
-esto automaticamente en el admin usando la propiedad
-``prepopulated_fields``.
+A menudo es útil precalcular o establecer un valor inicial de forma automática
+al campo *slug* basandonos en otros campos. Se puede definir esto
+automaticamente en el admin usando la propiedad ``prepopulated_fields``.
 
-Si especificamos ``allow_unicode`` como ``True`` (Por defecto es
-``False``) el campo aceptará tambien letras ``unicode``, como ``á``, en
-vez de limitarse a letras ASCII.
+Si especificamos ``allow_unicode`` como ``True`` (Por defecto es ``False``) el
+campo aceptará tambien letras ``unicode``, como ``á``, en vez de limitarse a
+letras ASCII.
 
-Para almacenar ficheros
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Los ficheros, en realidad, se almacenan en la base de datos en un campo
-de texto variable, pero tiene unas cuantas particularidades que
-aconsejan explicarlos aparte
+Campos para almacenar ficheros
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los ficheros, en realidad, se almacenan en la base de datos en un campo de
+texto variable, pero tiene unas cuantas particularidades que aconsejan
+explicarlos aparte.
 
 - ``FileField``
 
@@ -446,37 +455,38 @@ aconsejan explicarlos aparte
 
 - ``ImageField``
 
-Cuando usamos un campo de tipo ``FileField`` o ``ImageField``, el
-archivo que subimos es almacenado por el servidor en el sistema de
-ficheros, y lo que se guarda en la base de datos es una *ruta parcial*
-al mismo, en un campo de texto variable.
+Cuando usamos un campo de tipo ``FileField`` o ``ImageField``, el archivo que
+subimos es almacenado por el servidor en el sistema de ficheros, y lo que se
+guarda en la base de datos es una *ruta parcial* al mismo, en un campo de texto
+variable.
 
-La ruta absoluta en el sistema de ficheros (accesible mediante el
-atributo ``path`` del campo) se compone a partir de varios elementos:
+La ruta absoluta en el sistema de ficheros (accesible mediante el atributo
+``path`` del campo) se compone a partir de varios elementos:
 
 - En primer lugar, el valor que se haya almacenado en la variable
   ``MEDIA_ROOT``, definida en el fichero ``settings.py``. Si no se ha
-  modificado, el valor por defecto de esta variable es una cadena de
-  texto vacía, que viene a significar el directorio de trabajo actual.
+  modificado, el valor por defecto de esta variable es una cadena de texto
+  vacía, que viene a significar el directorio de trabajo actual.
 
 - En segundo lugar, la ruta que se obtiene de evaluar el parámetro
-  ``upload_to`` con el que se define el campo. Podemos usar códigos de
-  formateo como los que usamos en ``strftime()``; por ejemplo, usando
-  ``%Y`` conseguimos que en la ruta se sustituya ese código por el año
-  del día es que se ha realizado la carga
+  ``upload_to`` con el que se define el campo. Podemos usar códigos de formateo
+  como los que usamos en ``strftime()``; por ejemplo, usando ``%Y`` conseguimos
+  que en la ruta se sustituya ese código por el año del día es que se ha
+  realizado la carga.
 
-- En tercer lugar, el nombre original del fichero
+- En tercer lugar, el nombre original del fichero.
 
-Por ejemplo, si la variable ``MEDIA_ROOT`` se definió como
-``/var/media``, el campo de tipo ``FileField`` o ``ImageField`` se
-definió con el parámetro ``upload_to`` igual a ``fotos/%Y/%m/%d`` y el
-nombre del fichero original era ``mifoto.jpg``, la ruta final (Si se
-hubiera subido el 27 de julio de 2019) sería::
+Por ejemplo, si la variable ``MEDIA_ROOT`` se definió como ``/var/media``, el
+campo de tipo ``FileField`` o ``ImageField`` se definió con el parámetro
+``upload_to`` igual a ``fotos/%Y/%m/%d`` y el nombre del fichero original era
+``mifoto.jpg``, la ruta final (Si se hubiera subido el 27 de julio de 2019)
+sería::
 
     /var/media/fotos/2019/07/27/mifoto.jpg
 
-Para definir las relaciones
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Campos para definir las relaciones
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Django también define una serie de campos para reflejar las relaciones
 entre modelos.
@@ -484,53 +494,51 @@ entre modelos.
 La mas usade es ``ForeignKey``, que se usa para representar una relacion
 uno a muchos (:math:`1` a :math:`N`). Requiere obligatoriamente al menos
 dos parámetros: La clase con la que se quiere relacionar el modelo y un
-parámetro llamado ``on_delete`` que explicaremos mas adelante.
+parámetro llamado ``on_delete`` que explicaremos más adelante.
 
-Vamos a crear la relacion 1 a N que teniamos en nuestro diagrama E/R
-entre un superheroe (O supervillano) y un equipo. En nuestro analisis no
-se permitia que un metahumano fuera parte de mas de un equipo, pero si
-se permitia que fuera por solitario, es decir, que podia no pertener a
-ningun grupo.
+Vamos a crear la relación 1 a N que teniamos en nuestro diagrama E/R entre un
+superheroe (O supervillano) y un equipo. En nuestro análisis no se permitía que
+un metahumano fuera parte de más de un equipo, pero si se permitía que fuera
+por solitario, es decir, que podia no pertener a ningun grupo.
 
-Lo primero que tenemos que hacer es crear el nuevo módelo para el
-equipo, vamos a llamarlo ``Team``, y por ahora solo nos interesan tres
-campos, el nombre del supergrupo, una descripción y el nombre de su base
-o cuartel general. Algo como esto:
+Lo primero que tenemos que hacer es crear el nuevo módelo para el equipo, vamos
+a llamarlo ``Team``, y por ahora solo nos interesan tres campos, el nombre del
+supergrupo, una descripción y el nombre de su base o cuartel general. Algo como
+esto::
 
-class Team(models.Model):
+    class Team(models.Model):
 
-::
+        class Meta:
+            verbose_name = "Equipo"
+            verbose_name_plural = "Equipos"
 
-   class Meta:
-       verbose_name = "Equipo"
-       verbose_name_plural = "Equipos"
+        name = models.CharField(max_length=220)
+        description = models.TextField(max_length=4000)
+        headquarter = models.CharField(max_length=100)
 
-   name = models.CharField(max_length=220)
-   description = models.TextField(max_length=4000)
-   headquarter = models.CharField(max_length=100)
+        def __str__(self):
+            return self.name
 
-   def __str__(self):
-       return self.name
+.. note:: Uso de la clase Meta
+    Una cosa nueva que hemos usado en este modelo ``Team`` es una clase definida
+    dentro del modelo llamado ``Meta``. Esta es una convención que usa Django
+    para añadir meta-informacion sobre el modelo. En este caso estamos
+    añadiendo información acerca de cual es el nombre con el que nos referimos
+    coloquialmente a esta entidad, en dos versiones, para singular "equipo"
+    y el plural "equipos".
 
 Añadimos esta definición al fichero ``metahumans/models.py``. Al añadir
-esta nueva clase, nuestra base de datos ya no esta en sintonía con
-nuestro modelos, asi que habra que crear y aplicar una migracion para
+esta nueva clase, nuestra base de datos ya no está en sintonía con
+nuestro modelos, asi que habrá que crear y aplicar una migración para
 crear esta tabla.
 
-Vamos a incluir este nuevo modelo en el admin, edita el fichero
-``metahumans/admin.py`` y añade las siguientes líneas:
+Vamos a incluir este nuevo modelo en el *admin*, edita el fichero
+``metahumans/admin.py`` y añade las siguientes líneas::
 
-class TeamAdmin(admin.ModelAdmin): list_display = (‘name’,
-‘headquarter’)
+    class TeamAdmin(admin.ModelAdmin):
+        list_display = (‘name’, ‘headquarter’)
 
-admin.site.register(models.Team, TeamAdmin)
-
-Una cosa nueva que hemos usado en el modelo ``Team`` es una clase
-definida dentro del modelo llamado ``Meta``. Esta es una convención que
-usa Django para añadir meta-informacion sobre el modelo. En este caso
-estamos añadiendo información acerca de cual es el nombre con el que nos
-referimos coloquialmente a esta entidad, en dos versiones, para singular
-“El equipo” y el plurar “Los equipos”.
+    admin.site.register(models.Team, TeamAdmin)
 
 Una vez creado el nuevo modelo, podemos dar de alta, usando el admin, a
 los vengadores, por ejemplo. Puedes usar esta informacion para crearlo:
@@ -543,9 +551,7 @@ Ahora, para reflejar la relación 1 a N entre el equipo y los miembros,
 tenemos que modificar la clase ``MetaHuman``, incluyendo una referencia
 a la clase ``Team``.
 
-Modifiquemos ``MetaHuman`` para que queda algo asi:
-
-::
+Modifiquemos ``MetaHuman`` para que queda algo así::
 
    class MetaHuman(models.Model):
        name = models.CharField(max_length=42)
@@ -565,11 +571,11 @@ Modifiquemos ``MetaHuman`` para que queda algo asi:
        def __str__(self):
            return self.name
 
-En el campo ``team`` hemos creado una referencia al modelo ``Team``. Las
-opciones ``blank``, ``null`` y ``default`` nos permiten incluir la
-posibilidad de que el metahumano pertenezca a un grupo o no. La opción
-``on_delete``, que es obligatoria, esta ajustada en este caso a
-``PROTECT``. Veremos más posibilidades para este parámetro.
+En el campo ``team`` hemos creado una referencia al modelo ``Team`` usando un
+campo de tipo ``ForeignKey``. Las opciones ``blank``, ``null`` y ``default``
+nos permiten incluir la posibilidad de que el metahumano pertenezca a un grupo
+o no. La opción ``on_delete``, que es obligatoria, esta ajustada en este caso a
+``PROTECT``. Veremos más adelante otras posibilidades para este parámetro.
 
 Por ahora, lo que nos interesa saber sobre el valor de ``on_delete`` es
 que nos permite definir el comportamiento del sistema si se borra una
@@ -577,194 +583,169 @@ entidad de la clase referenciada; en nuestro caso, que hacemos con los
 metahumanos que pertenencen a un grupo si dicho grupo se borra.
 
 El valor ``PROTECT`` significa: Si el grupo que quieres borrar tiene
-algun metahumano asignado, impide el borrado. Es decir, solo se permite
+algún metahumano asignado, impide el borrado. Es decir, solo se permite
 el borrado si ningun metahumano esta asignado a este grupo.
 
 Se crea un índice de forma automática para cada clave foranea o
 ``ForeignKey``. Podemos desabilitar esto usando el parámetro
 ``db_index`` a ``False``.
 
-Que está pasando a nivel de base de datos? django añade un campo con el
-nombre del campo que hemos indicado (en nuestro caso, ``team``) pero
-añadiendole ``_id``, de forma que a nivel de base de datos, en la table
-de MetaHuman se habrá creado un nuevo campo ``team_id``. En ese campo se
-guardará el valor de la clave primaría del equipo, cuando se asigne este
-superheroe al mismo.
+¿Qué está pasando a nivel de base de datos? django añade un campo con el nombre
+que hemos indicado (en nuestro caso, ``team``) pero añadiendole ``_id``, de
+forma que a nivel de base de datos, en la tabla se crea un nuevo campo
+``team_id``. En ese campo se guardará el valor de la clave primaría del equipo,
+cuando se asigne este superheroe al mismo.
 
-Pero Normalmente, no tenemos que preocuparnos de este campo, a no ser
-que estemos trabajando directamente al nivel de base de datos. Si usamos
-el ORM, siempre trabajaremos directamente con el atribute ``team``.
+Pero normalmente, no tenemos que preocuparnos de este campo, a no ser que
+estemos trabajando directamente al nivel de base de datos. Si usamos el ORM,
+siempre trabajaremos directamente con el atribute ``team``.
 
-Vamos a asignar uno de nuestros superheroes a nuestro recien creado
-grupo de Los Vengadores, pero no lo vamos a hacer con el admin, vamos a
-hacerlo directamente desde Python
+Vamos a asignar uno de nuestros superheroes a nuestro recien creado grupo de
+Los Vengadores, pero no lo vamos a hacer con el admin, vamos a hacerlo
+directamente desde Python.
 
-Vamos a ejecutar un nuevo comando de ``manage.py``, ``shell``:
+Vamos a ejecutar un nuevo comando de ``manage.py``, ``shell``::
 
-::
+    python manage.py shell
 
-   python manage.py shell
+Esto nos abrira un shell de Python, como el normal que tenemos instalado, pero
+con la diferencia de que Django se ha inicializado previamente, de forma que
+podemos acceder a los modelos. Lo primero que vamos a hacer es importar
+``Team`` y ``MetaHuman``::
 
-Esto nos abrira un shell de Python, como el normal que tenemos
-instalado, pero con la diferencia de que Django se ha inicializado
-previamente, de forma que podemos acceder a los modelos. Lo primero que
-vamos a hacer es importar ``Team`` y ``MetaHuman``.
+    >>> from metahumans.models import Team, MetaHuman
 
-::
+Una vez obtenido acceso a los modelos, vamos a pedirle al modelo ``Team`` que
+nos devuelve un objeto de este tipo. En principio el primero que encuentre,
+pero como solo hemos creado uno, debería devolvernos el de Los vengadores::
 
-   >>> from metahumans.models import Team, MetaHuman
-
-Una vez obtenido acceso a los modelos, vamos a pedirle al modelo
-``Team`` que nos devuelve un objeto de este tipo. En principio el
-primero que encuentre, pero como solo hemos creado uno, debería
-devolvernos el de Los vengadores.
-
-::
-
-   >>> avengers = Team.objects.first()
-   >>> print(avengers)
-   Vengadores
+    >>> avengers = Team.objects.first()
+    >>> print(avengers)
+    Vengadores
 
 Dentro de cada modelo hay un gestor, que por defecto tiene el nombre de
-``objects`` que nos permite realizar operaciones con el modelo como
-hacer búsquedas o filtros por determinados valores (una consulta o
-*query* en la jerga de base de datos).
+``objects`` que nos permite realizar operaciones con el modelo como hacer
+búsquedas o filtros por determinados valores (una consulta o *query* en la
+jerga de base de datos).
 
-En este caso concreto, le hemos pedido que nos devuelve el primero, asi
-que el resultado es una instancia concreta de ``Team``. Lo mas normel
-con los metodos de ``objects``, sin embargo, es que no devuelvan
-objetos, sino un tipo especial de datos llamado ``queryset``, que
-representa un conjunto de instancias y que, entre otras cosas, podemos
-iterar (es decir, usar en en for)
+En este caso concreto, le hemos pedido que nos devuelve el primero, asi que el
+resultado es una instancia concreta de ``Team``. Lo mås normal con los métodos
+de ``objects``, sin embargo, es que no devuelvan objetos, sino un tipo especial
+de datos llamado ``queryset``, que representa un conjunto de instancias y que,
+entre otras cosas, podemos *iterar* (es decir, usar en en for).
 
-Vamos ahora a obtener un heroe cualquiera. Si no has creado ninguno
-todavía, crea uno ahora usando el admin. Vamos a conseguir este heroe de
-la misma manera que conseguimos el equipo: pidiendole al gestor
-``objects`` que nos de el primero que encuentre:
+Vamos ahora a obtener un heroe cualquiera. Si no has creado ninguno todavía,
+crea uno ahora usando el admin. Vamos a conseguir este heroe de la misma manera
+que conseguimos el equipo: pidiendole al gestor ``objects`` que nos de el
+primero que encuentre::
 
-::
-
-   >>> hero = MetaHuman.objects.first()
-   >>> print(hero)
-   Spiderman
+    >>> hero = MetaHuman.objects.first() >>> print(hero) Spiderman
 
 Ya tenemos un heroe (en la variable ``hero``) y un equipo en la variable
-``avengers``). Para asignar a este heroe a este equipo, solo hay que
-usar el nuevo atributo ``team`` que definimos en la clase ``MetaHuman``:
+``avengers``). Para asignar a este heroe a este equipo, solo hay que usar el
+nuevo atributo ``team`` que definimos en la clase ``MetaHuman``::
 
-::
+    >>> hero.team = avengers
+    >>> hero.save()
 
-   hero.team = avengers
-   hero.save()
+Es importante la llamada al metodo ``save``. Los cambios que se hagan en los
+modelos en nuestro programa solo existen en la memoria RAM del ordenador. No se
+almacenan en la base de datos hasta que no se llame al método ``save``.
 
-Es importante la llamada al metodo ``save``. Los cambios que se hagan en
-los modelos en nuestro programa solo existen en la memoria RAM del
-ordenador. No se reflejan en la base de datos hasta que no se llame al
-método ``save``.
-
-Podemos usar ahora el admin para buscar al heroe en cuestion y verificar
-que esta, efectivamente, asignado al equipo de Los Vengadores.
+Podemos usar ahora el admin para buscar al heroe en cuestion y verificar que
+esta, efectivamente, asignado al equipo de Los Vengadores.
 
 El argumento ``on_delete``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cuando se borra un objeto que esta referenciado por una ``ForeignKey``,
-django sigue un comportamiento que esta copiado del comportamiento
-equivalente en las bases de datos relacionales. Estas son las opciones
-disponibles.
+Cuando se borra un objeto que esta referenciado por una ``ForeignKey``, django
+sigue un comportamiento que está copiado del comportamiento equivalente en las
+bases de datos relacionales. Estas son las opciones disponibles:
 
--  ``CASCADE``: Viene de la expresion *Borrado en cascada*. Significa
-   que, si el modelo referencia se borra, se deben borrar tambián las
-   entidades que estan asociadas.
+- ``CASCADE``: Viene de la expresion *Borrado en cascada*. Significa que, si
+  el modelo referencia se borra, se deben borrar tambián las entidades que
+  estan asociadas.
 
-   En nuestro caso no tiene mucho sentido, porque el equipo puede
-   desaparecer y los heroes, obviamente, seguir existiendo.
+  En nuestro caso no tiene mucho sentido, porque el equipo puede desaparecer y
+  los heroes, obviamente, seguir existiendo.
 
-Pero, por ejemplo, si tenemos el típico modelo Factura - Linea de
-factura, donde una (1) factura esta compuesta por (N) varias lineas, una
-por cada producto, si que podria tener sentido. Al borrar una factura,
-que se borren también todas las líneas de la misma, porque no tiene
-sentido la existencia de una línea de factura existiendo de forma
-independiente a una factura.
+  Pero, por ejemplo, si tenemos el típico modelo Factura / Línea de factura,
+  donde una (1) factura esta compuesta por (N) varias lineas, una por cada
+  producto, si que podria tener sentido. Al borrar una factura, que se borren
+  también todas las líneas de la misma, porque no tiene sentido la existencia
+  de una línea de factura existiendo de forma independiente a una factura.
 
--  ``PROTECT``: El que hemos usado. En nuestro caso, para poder borrar
-   un equipo, debemos desasignar todos los miembros que tenga. Solo
-   cuando no haya ninguna referencia al equipo podrá borrarse.
+- ``PROTECT``: El que hemos usado. En nuestro caso, para poder borrar un
+  equipo, debemos desasignar todos los miembros que tenga. Solo cuando no haya
+  ninguna referencia al equipo podrá borrarse.
 
--  ``SET_NULL``: Poner el campo de referencia a ``NULL``. Tambien podría
-   tener sentido en nuestro caso, vendria a decir que si el equipo se
-   borra, entonces todos sus componentes pasana a ser *lobos
-   solitarios*. Obviamente, para poder usar esta opcion, el campo debe
-   admitir la posibilidad de ser nulo.
+- ``SET_NULL``: Poner el campo de referencia a ``NULL``. Tambien podría tener
+  sentido en nuestro caso, vendria a decir que si el equipo se borra, entonces
+  todos sus componentes pasan a a ser *lobos solitarios*. Obviamente, para poder
+  usar esta opción, el campo debe admitir la posibilidad de ser nulo.
 
--  ``SET_DEFAULT``: Similar al anterior, pero en vez de asignar
-   ``NULL``, se asigna a una especie de grupo pr defecto. Para poder
-   usar esto hay que especificar el parámetro ``default``.
+- ``SET_DEFAULT``: Similar al anterior, pero en vez de asignar ``NULL``, se
+  asigna a una especie de grupo pr defecto. Para poder usar esto hay que
+  especificar el parámetro ``default``.
 
--  ``SET()``: Se asigna al valor de ``Foreignkey`` en el modelo el valor
-   que se le pase como parámetro a ``SET``. Se puede pasar un valor o
-   bien un *callable*, cuyo valor devuelto se usara como clave foranea.
+- ``SET``: Se asigna al valor de ``Foreignkey`` en el modelo el valor que se
+  le pase como parámetro a ``SET``. Se puede pasar un valor o bien un
+  *callable*, cuyo valor devuelto se usara como clave foranea.
 
-Por ejemplo, se podria buscar que grupo tiene el minimo numero de
-componentes y asigar los heroes del equipo borrado a este. O elegir un
-equipo al azar, o elegir un equipo dependiendo del día de la semana, o
-cualquier otra posibilidad que se nos ocurra.
+Por ejemplo, se podria buscar que grupo tiene el mínimo numero de componentes y
+asigar los heroes del equipo borrado a este. O elegir un equipo al azar, o
+elegir un equipo dependiendo del día de la semana, o cualquier otra posibilidad
+que se nos ocurra.
 
--  ``DO_NOTHING``: Como su nombre indica, no hace nada. Se usa cuando
-   queremos dejar que la propia base de datos resuelvas el problema con
-   sus propios mecanismos.
+- ``DO_NOTHING``: Como su nombre indica, no hace nada. Se usa cuando queremos
+  dejar que la propia base de datos resuelvas el problema con sus propios
+  mecanismos.
 
-Un parámetro interesante es la opcion ``limit_choices_to``. En nuestro
-caso, por ejemplo, si queremos asignar heroes a un grupo seria deseable
-que solo me dejara seleccionar heroes que actualmente no están asociados
-a ninguno. Se puede usar un diccionario, un modelo ``Q``\ (que veremos
-mas adelante) o directamente un *callable* que devuelva un diccionario o
-un objeto ``Q``.
+Un parámetro interesante es la opcion ``limit_choices_to``. En nuestro caso,
+por ejemplo, si queremos asignar heroes a un grupo seria deseable que solo me
+dejara seleccionar heroes que actualmente no están asociados a ninguno. Se
+puede usar un diccionario, un modelo ``Q`` (Que veremos más adelante) o
+directamente un *callable* que devuelva un diccionario o un objeto ``Q``.
 
-Una cosa que hay que destacar, especialmente porque tiene asociado una
-cierta “magia”, es que al incluir el campo en el modelo ``MetaHuman``,
-haciendo referencia al modelo ``Team``, es que hemos modificado, en
-realidad, ambos modelos.
+Una cosa que hay que destacar, especialmente porque tiene asociado una cierta
+"magia", es que al incluir el campo en el modelo ``MetaHuman``, haciendo
+referencia al modelo ``Team``, es que hemos modificado, en realidad, ambos
+modelos.
 
-Por un lado, obviamente, el modelo ``MetaHuman`` tiene ahora un nuevo
-atributo ``team``, que sera ``None`` si el personaje no esta asociado a
-ningun equipo, o una instancia del equipo al que está asignado.
+Por un lado, obviamente, el modelo ``MetaHuman`` tiene ahora un nuevo atributo
+``team``, que sera ``None`` si el personaje no esta asociado a ningun equipo, o
+una instancia del equipo al que está asignado.
 
-Por otro lado, el modelo ``Team`` tiene ahora un atributo, que nosotros
-no hemos declarado explicitamente, que le permite realizar la relacion
-inversa, es decir, le permite obtener los personajes que estan asociados
-al equipo.
+Por otro lado, el modelo ``Team`` tiene ahora un atributo, que nosotros no
+hemos declarado explicitamente, que le permite realizar la relacion inversa, es
+decir, le permite obtener los personajes que estan asociados al equipo.
 
-El nombre de este atributo “magico” se forma con el nombre del modelo
-que realizo el enlace, sequido de ``_set`` todo en minusculas. En
-nuestro caso, ``Team`` tiene un atributo ahora llamado
-``metahuman_set``. Este atributo es un objeto tipo ``query_set``, es
-decir, una representacion de los modelos que referencian a team.
+El nombre de este atributo "magico" se forma con el nombre del modelo que
+realizó el enlace, sequido de ``_set`` todo en minúsculas. En nuestro caso,
+``Team`` tiene un atributo ahora llamado ``metahuman_set``. Este atributo es un
+objeto tipo ``query_set``, es decir, una representación de los modelos que
+referencian a team.
 
-Vamos a asignar en el admin dos o tres superheroes mas al grupo de los
+Vamos a asignar en el admin dos o tres superheroes más al grupo de los
 vengadores, y luego vamos a ejecutar el shell para comprobar el
-contenido de este atributo, haremos:
+contenido de este atributo, haremos::
 
-::
+    python manage.py shell
 
-   python manage.py shell
+Y una vez dentro de Python::
 
-Y una vez dentro de Python:
-
-::
-
-   >>> from metahumans.models import Team, MetaHuman
-   >>> avengers = Team.objects.first()
-   >>> for hero in avengers.metahuman_set.all():
-   ...     print(hero)
-   Spiderman
-   Iron Man
+    >>> from metahumans.models import Team, MetaHuman
+    >>> avengers = Team.objects.first()
+    >>> for hero in avengers.metahuman_set.all():
+    ...     print(hero)
+    Spiderman
+    Iron Man
 
 Dentro del bucle for, la variable ``hero`` no es simplemente en nombre
-del su0erheroe, es un objeto de tipo MetaHuman completo.
+del superheroe, es un objeto de tipo ``MetaHuman`` completo.
 
 Definir tu propio tipo de campo de datos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Si estos tipos de campos no son suficientes, podemos definir nuestros
 propios tipos. Los detalles son un poco más complicados, pero en esencia
@@ -775,7 +756,7 @@ el dato original.
 
 
 Usar los modelos para hacer consultas y trabajar con la base de datos
-------------------------------------------------------------------------
+---------------------------------------------------------------------
 
 El acceso a los modelos almacenados en la base de datos se realiza
 mediante un objeto de tipo ``Manager`` o controlador. Un *manager* es la
@@ -788,21 +769,22 @@ manager** para cada modelo que definamos.
 Por defecto, al crear un modelo se crea un manager asociado a la tabla
 correspondiente y se le pone como nombre ``objects``::
 
-   python manage.py shell
+    python manage.py shell
 
-   >>> from metahumans import models 
-   >>> print(models.Team.objects)
-   <django.db.models.manager.Manager object at 0x7f8b4710dc50\> 
-   ...
+    >>> from metahumans import models 
+    >>> print(models.Team.objects)
+    <django.db.models.manager.Manager object at 0x7f8b4710dc50\> 
+    ...
 
 
 Guardar en la base de datos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Podemos salvar un objeto instanciado de un modelo en la base de datos,
 simplemente llamando al método ``save``. Django es lo suficientemente
 listo como para distinguir si debe hacer un ``INSERT`` (Crear un
-registro nuevo) o un ``UPDATE`` (modificar un registro ya existente)::
+registro nuevo) o un ``UPDATE`` (modificar un registro ya existente) en
+la base de datos::
 
     from metahumans import models
 
@@ -815,8 +797,9 @@ Para reflejar un cambio del modelo en la base de datos, también usamos
     4f.description = 'La primera familia de superhéroes'
     4f.save()
 
+
 Recuperar de la base de datos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Para recuperar objetos desde la base de datos, el *manager* puede
 devolvernos en algunos casos el propio objeto (por ejemplo, véase el
@@ -887,8 +870,9 @@ un álias de la clave primaria del modelo::
 
    >>> capi = models.SuperHero.objects.get(pk=3)
 
+
 Consultas avanzadas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 Podemos hacer consultas más potentes, usando una notación especial para
 los parámetros: separando con un **doble caracter subrayado** el campo y
@@ -950,7 +934,7 @@ Por ejemplo::
     MetaHuman.objects.filter(team__name='Los Vengadores')
 
 Consultas con SQL Crudo
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 En algunos casos las consultas que podemos hacer con los modelos pueden
 ser más complicadas que su equivalente en SQL. Existen unos objetos,
@@ -963,14 +947,14 @@ como parámetro una sentencia SQL y nos devuelve, como es habitual, un
 Por ejemplo, obtengamos usando ``raw`` los equipos, con un atributo
 añadido indicando cuantos miembros tiene asignados::
 
-   teams = Team.objects.raw('''
-       SELECT T.id, T.name, count(*) AS num_members 
-         FROM mh_team T
-         LEFT JOIN mh_superhero SH ON T.id = SH.team_id
-        GROUP BY T.id, T.Name
-       ''')
-   for t in teams:
-       print t.name, t.num_members
+    teams = Team.objects.raw('''
+        SELECT T.id, T.name, count(*) AS num_members 
+          FROM mh_team T
+          LEFT JOIN mh_superhero SH ON T.id = SH.team_id
+         GROUP BY T.id, T.Name
+        ''')
+    for t in teams:
+        print t.name, t.num_members
 
 Este **no es el método recomendado** para hacer esta consulta. Es mejor
 limitar las consultas hechas con SQL puro, ya que suelen depender mucho
@@ -990,8 +974,9 @@ definida por defecto::
     cursor = connection.cursor()
     cursor.execute("UPDATE mh_superhero SET active = 1")
 
+
 Limitar el tamaño del resultado
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Podemos modificar un ``QuerySet`` para que solo devuelva un número
 máximo de resultados, o los resultados comprendidos entre un rango de
