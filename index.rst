@@ -27,6 +27,10 @@ Curso EOI de especialización en Python
    04-patterns/13-State.rst
    04-patterns/14-Antipatterns.rst
 
+   05-libs/standard/01-sys/sys
+   05-libs/standard/time/time
+   05-libs/standard/datetime/datetime
+   05-libs/standard/sched/sched
    05-libs/standard/base64/base64.rst
    05-libs/standard/curses/curses.rst
    05-libs/standard/heapq/heapq.rst

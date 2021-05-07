@@ -6,10 +6,14 @@ Tema 5: Librerías
    :maxdepth: 2
    :caption: Contents:
 
+   ./standard/01-sys/sys
+   ./standard/02-os/os
+   ./standard/time/time
+   ./standard/datetime/datetime
+   ./standard/sched/sched
    ./standard/statistics/statistics
    ./standard/curses/curses
-   .../standard/smtplib
-   ./standard/datetime/datetime
+   ./standard/smtplib
    ./standard/argparse/argparse
    ./standard/hashlib/hashlib
    ./standard/heapq
