@@ -13,9 +13,10 @@ Tema 5: Librerías
    ./standard/05-logging/logging
    ./standard/06-sched/sched
    ./standard/07-hashlib/hashlib
+   ./standard/08-argparse/argparse
+   ./standard/09-csv/csv
    ./standard/statistics/statistics
    ./standard/curses/curses
-   ./standard/argparse/argparse
    ./standard/heapq/heapq
    ./standard/urllib/urllib
    ./standard/base64/base64
@@ -23,7 +24,6 @@ Tema 5: Librerías
    ./standard/xml/xml
    ./standard/sqlite3/sqlite3
    ./standard/smtplib/smtplib
-   ./standard/csv/csv
    ./standard/itertools/itertools
    ./standard/http_server
    ./standard/difflib
