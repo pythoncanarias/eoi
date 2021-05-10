@@ -1,5 +1,5 @@
-El módulo ``os``: Llamadas al sistema operativo
---------------------------------------------------
+``os``: Llamadas al sistema operativo
+=====================================
 
 Este módulo da acceso a llamadas del sistema operativo sobre el que se está ejecutando el intérprete
 de Python. A nivel de diseño, las llamadas que funcionana en todos los sistemas usan y devuelven la

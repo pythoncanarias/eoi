@@ -1,5 +1,5 @@
 La libreria requests
---------------------
+====================
 
 Requests es una librería para HTTP escrita en Python, para seres
 humanos.
@@ -64,7 +64,7 @@ lo que no compensaría añadir otra dependencia.
 
 
 Realizar un petición GET
-^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
 Realizar una petición en Requests muy sencillo.
 
@@ -119,7 +119,7 @@ los verbos HTTP:
 código ``200``?
 
 Pasar parámetros en URLs
-^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
 Con frecuencia, debes enviar algún tipo de información en el query
 string de la URL. Si estuvieses creando la URL a mano, esta información
@@ -152,7 +152,7 @@ Nota: cualquier llave del diccionario cuyo valor es ``None`` no será
 agregada al *query string* del URL.
 
 Contenido de respuesta
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 Podemos leer el contenido de la respuesta del servidor. Usemos el
 listado de eventos de GitHub nuevamente:
@@ -200,7 +200,7 @@ r.encoding:
 
 
 Contenido de respuesta JSON
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
 
 Hay un decodificador de JSON incorporado en Requests:
 
@@ -213,7 +213,7 @@ Hay un decodificador de JSON incorporado en Requests:
 
 
 Cabeceras personalizadas
-^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
 Si quieres agregar cabeceras HTTP a una petición, simplemente pasa un
 dict al parámetro headers.
@@ -228,7 +228,7 @@ content-type::
    r = requests.post(url, data=json.dumps(payload), headers=headers)
 
 Peticiones POST más complicadas
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
 
 Típicamente, quieres enviar información en forma de formulario, como un
 formulario HTML. Para hacerlo, pasa un diccionario al parámetro
@@ -244,7 +244,7 @@ otra terminal, con ``python -m http.server``).
     r = requests.post("http://localhost:8000/post", data=payload)
 
 Cabeceras de respuesta
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 Podemos ver las cabeceras de respuesta del servidor utilizando un
 diccionario::
@@ -270,7 +270,7 @@ minúsculas::
 
 
 Cookies
-^^^^^^^
+-------
 
 Si una respuesta contiene Cookies, puedes acceder a ellas rápidamente::
 
@@ -291,7 +291,7 @@ Debería devolver::
    '{"cookies": {"cookies_are": "working"}}'
 
 Historial y Redireccionamiento
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------
 
 Requests realizará redireccionamiento para peticiones para todos los
 verbos, excepto ``HEAD``.
@@ -330,7 +330,7 @@ misma manera::
 con redireccionamiento
 
 Timeouts
-^^^^^^^^
+--------
 
 Con el parámetro timeout puedes indicarle a Requests que deje de esperar
 por una respuesta luego de un número determinado de segundos.
@@ -340,7 +340,7 @@ no se produce la respuesta dentro de ese periodo se elevará una
 excepcion.
 
 La clase Session
-^^^^^^^^^^^^^^^^
+----------------
 
 Los objetos de tipo Session permiten reusar y compartir determinados
 valores y *cookies* entre peticiones que se realizan con esa sesión.
@@ -368,7 +368,7 @@ mismo host comparten las cookies::
 
 
 Soluciones
-^^^^^^^^^^
+----------
 
 Versión final del programa de chequeo de web, usando ``head`` y con el
 parametro ``allow_redirecs``::

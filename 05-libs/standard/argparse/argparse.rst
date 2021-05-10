@@ -1,5 +1,5 @@
-Argparse
-========================================================================
+``argparse``: Procesar argumentos
+=================================
 
 El módulo **argparse** es la librería oficialmente recomendada para interpretar
 los parámetros pasados por linea de comandos.
@@ -9,7 +9,7 @@ una es `getopt`, una versión equivalente a la función `getopt()` del lenguaje 
 y otrea la librería ya discontinuada `optparse`. 
 
 Conceptos
-------------------------------------------------------------------------
+---------
 
 Unos cuantos conceptos sobre el uso de opciones en entornos de línea de
 comandos.
@@ -20,10 +20,10 @@ comandos.
   un listado de los ficheros en el directorio actual.
 
 - Algunas opciones son **argumentos posicionales**. Se llaman así porque el
-  programa espera identificarlos solo por su posición en la línea de
-  comandos. Por ejemplo, la orden `cp` espera dos parámetros
-  posicionales, el primero sera el fichero origen y el segundo el
-  fichero de destino
+  programa espera identificarlos solo por su posición en la línea de comandos.
+  Por ejemplo, la orden `cp` (copiar un fichero) espera dos
+  parámetros posicionales, el primero será el fichero origen y el segundo el
+  fichero o directorio de destino.
 
 - Hay también **argumentos opcionales**, que modifican o condicionan la
   forma en que el programa hace su trabajo. Estos parámetros opcionales
@@ -40,7 +40,7 @@ comandos.
   que opciones tiene.
 
 Uso básico
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------
 
 Empezaremos con un breve ejemplo, que practicamente no hace nada::
 
@@ -82,9 +82,9 @@ un mensaje de error bastante claro, también "gratis".
 
 
 Añadir parámtros posicionales
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
 
-Vamos a añadir un parametro posicional, que llamaremos `target`
+Vamos a añadir un parametro posicional, que llamaremos `target`::
 
     import argparse
     parser = argparse.ArgumentParser()
@@ -119,7 +119,7 @@ Vamos también que `parse_args()` nos devuelve los datos sobre las opciones que
 hemos especificado, es este caso, `target`. EL nombre es el mismo que hemos
 usado para definir el parámetro.
 
-Fijate que el meensaje de ayuda hace referencia al nuevo parámetro, pero la
+Fijate que el mensaje de ayuda hace referencia al nuevo parámetro, pero la
 verdad es que se limita a decir que ese valor es necesarioo; no dice para
 que sirve ni lo que hace. Podemos mejorar esto usando el parámetro `help`
 de `add_argument`::
@@ -150,7 +150,7 @@ Ahora mejor::
     funciona
 
 **Ejercicio**: Modificar el programa para que haga algo con el texto que
-le pasamos; por ejemplo, que lo imprima pero en mayúsculas
+le pasamos; por ejemplo, que lo imprima pero en mayúsculas.
 
 **Solucion**::
 
@@ -203,11 +203,11 @@ de error será más claro::
     lab-argparse-06.py: error: argument num: invalid int value: 'hola'
 
 Argumentos opcionales
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 Vamos a definir un parámetro pocional para que nos muestre, si asi lo pedimos,
-los cálculos previos realizado. Es tan sencillo como
-definirlos con uno o dos guiones en el nombre.
+los cálculos previos realizado. Es tan sencillo como definirlos con uno o dos
+guiones en el nombre.
 
 Como es opcional, no es necesario especificarlo. si no lo hacemos, cuando
 intentemos leer su valor, este será `None`.
@@ -244,11 +244,11 @@ Veamos si funciona::
     $ python lab-argparse-07.py 1024
     1048576
 
-Una cosa que podemos mejorar es que, para este caso, realmente no
-debería ser necesario especificar ningun valor, es mas bien una
-opcion de tipo lógico, booleano. Podemos modificar esto para que
-el argumento `--explicacion` no requiera ningún valor. Para ello
-usarmos un parámetro del método add_argument llamado `action`:
+Una cosa que podemos mejorar es que, para este caso, realmente no debería ser
+necesario especificar ningun valor, es mas bien una opción de tipo lógico,
+booleano. Podemos modificar esto para que el argumento ``--explicacion`` no
+requiera ningún valor. Para ello usaremos un parámetro del método
+``add_argument`` llamado ``action``::
 
     %file ../examples/lab-argparse-08.py
     import argparse
@@ -294,7 +294,7 @@ facil, solo hay que indicar las dos opciones como primeros parametros de
         action='store_true',
         )
 
-Ejercicio: Añadir la opción abreviada. Probar que funciona.
+.. note:: **Ejercicio**: Añadir la opción abreviada. Probar que funciona.
 
 El módulo `argparse` ofrece muchas más opciones para controlar
 los argumentos que acepta nuestro programa. Con el parámetro
@@ -312,28 +312,28 @@ un espacio vacio.
 
 Es decir, si hacemos `python tabla.py 7`, la salida deberia ser algo como::
 
-    7 x  1 = 7
-    7 x  2 = 14
-    7 x  3 = 21
-    7 x  4 = 28
-    7 x  5 = 35
-    7 x  6 = 42
-    7 x  7 = 49
-    7 x  8 = 56
-    7 x  9 = 63
+    7 x 1 = 7
+    7 x 2 = 14
+    7 x 3 = 21
+    7 x 4 = 28
+    7 x 5 = 35
+    7 x 6 = 42
+    7 x 7 = 49
+    7 x 8 = 56
+    7 x 9 = 63
     7 x 10 = 70
 
-Pero si usamos la opción `--examen` o `-e` la salida debería parecerse a:
+Pero si usamos la opción `--examen` o `-e` la salida debería parecerse a::
 
-    7 x  1 = [    ]
-    7 x  2 = [    ]
-    7 x  3 = [    ]
-    7 x  4 = [    ]
-    7 x  5 = [    ]
-    7 x  6 = [    ]
-    7 x  7 = [    ]
-    7 x  8 = [    ]
-    7 x  9 = [    ]
+    7 x 1 = [    ]
+    7 x 2 = [    ]
+    7 x 3 = [    ]
+    7 x 4 = [    ]
+    7 x 5 = [    ]
+    7 x 6 = [    ]
+    7 x 7 = [    ]
+    7 x 8 = [    ]
+    7 x 9 = [    ]
     7 x 10 = [    ]
 
 Un punto extra si se usa la opcion `choices` para evitar que se puedan imprimir

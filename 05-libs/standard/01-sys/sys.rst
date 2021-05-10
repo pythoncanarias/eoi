@@ -1,5 +1,5 @@
-sys: Configuración específica del sistema
-=========================================
+``sys``: Configuración específica del sistema
+=============================================
 
 Este módulo porporciona acceso a algunas variables usadas o mantenidas
 por el propio interprete de Python. Siempre está disponible:
@@ -63,4 +63,4 @@ La variable ``sys.modules``
 
 Un mapa de nombres de moduos -> modulos cargados actualmente en el entorno de
 ejecucion.
-
+✗

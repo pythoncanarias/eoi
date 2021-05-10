@@ -19,7 +19,7 @@ Curso EOI de especialización en Python
    04-patterns/04-Builder.rst
    04-patterns/05-Adapter.rst
    04-patterns/06-Bridge.rst
-   04-patterns/07-Command.rst
+   04-patterns/07-Command
    04-patterns/08-Observer.rst
    04-patterns/09-Facade.rst
    04-patterns/10-Flyweight.rst
@@ -27,25 +27,7 @@ Curso EOI de especialización en Python
    04-patterns/13-State.rst
    04-patterns/14-Antipatterns.rst
 
-   05-libs/standard/01-sys/sys
-   05-libs/standard/time/time
-   05-libs/standard/datetime/datetime
-   05-libs/standard/sched/sched
-   05-libs/standard/base64/base64.rst
-   05-libs/standard/curses/curses.rst
-   05-libs/standard/heapq/heapq.rst
-   05-libs/standard/itertools/itertools.rst
-   05-libs/standard/os/os.rst
-   05-libs/standard/re/re.rst
-   05-libs/standard/smtplib/smtplib.rst
-   05-libs/standard/sqlite3/sqlite3.rst
-   05-libs/standard/statistics/statistics.rst
-   05-libs/standard/timeit/timeit.rst
-   05-libs/standard/zlib/zlib.rst
-   
-   05-libs/external/arrow/arrow.rst
-   05-libs/external/requests/requests.rst
-   05-libs/external/numpy/numpy.rst
+   05-libs/index.rst
    
    06-web/00-Introduction.rst
    06-web/01-Django.rst

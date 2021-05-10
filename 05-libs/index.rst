@@ -8,33 +8,31 @@ Tema 5: Librerías
 
    ./standard/01-sys/sys
    ./standard/02-os/os
-   ./standard/time/time
-   ./standard/datetime/datetime
+   ./standard/03-time/time
+   ./standard/04-datetime/datetime
+   ./standard/05-logging/logging
    ./standard/sched/sched
    ./standard/statistics/statistics
    ./standard/curses/curses
-   ./standard/smtplib
    ./standard/argparse/argparse
    ./standard/hashlib/hashlib
-   ./standard/heapq
+   ./standard/heapq/heapq
    ./standard/urllib/urllib
    ./standard/base64/base64
    ./standard/timeit/timeit
    ./standard/xml/xml
-   ./standard/time/time
-   ./standard/sys/sys
    ./standard/sqlite3/sqlite3
+   ./standard/smtplib/smtplib
    ./standard/csv/csv
    ./standard/itertools/itertools
    ./standard/http_server
-   ./standard/os/os
    ./standard/difflib
    ./standard/random/random
    ./standard/collections/collections
-   ./standard/logging/logging
    ./standard/pdb/pdb
    ./standard/traceback/traceback
    ./standard/re/re
+   ./standard/zlib/zlib
 
 
    ./external/arrow/arrow
@@ -48,6 +46,9 @@ Tema 5: Librerías
    ./external/matplotlib/matplotlib
    ./external/pandas/pandas
 
+   glossary
+   links
+   exercises
 
 Indices and tables
 ==================

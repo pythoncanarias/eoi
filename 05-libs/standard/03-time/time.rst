@@ -28,8 +28,6 @@ Algunas funciones definidas en este módulo:
 
 Devuelve el tiempo en segundos, en forma de número de coma flotante.
 
-.. note:: **Ejercicio**: Averiguar el día de la semana en que nacieron -O
-    cualquier otra fecha que les interese-.
 
 ``time.gmtime([secs])``
 -----------------------
@@ -55,12 +53,11 @@ La inversa de ``localtime()``. Su argumento es una tupla de 9 elementos (Como
 el valor final es obligatorio, se puede poner -1 para indicar que no lo
 sabemos). Devuelve un número de segundos unix.
 
+.. note:: **Ejercicio**: Averiguar el día de la semana en que nacieron -O
+    cualquier otra fecha que les interese-.
 
 ``time.sleep(secs)``
 --------------------
 
 Suspender la ejecución del programa durante el tiempo en segundos indicado como
 parámetro.
-
-.. note:: **Ejercicio**: Averiguar el día de la semana en que nacieron -O
-    cualquier otra fecha que les interese-.

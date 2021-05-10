@@ -1,5 +1,5 @@
-sched - Programador de eventos
-==============================
+``sched``: Programador de eventos
+=================================
 
 Para algunas aplicaciones (como los *bots* o herramientas de monitorización, por
 ejemplo) se necesita ejecutar determinadas acciones en momentos determinados o

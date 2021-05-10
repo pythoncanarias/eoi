@@ -1,5 +1,5 @@
 El módulo ``curses``
---------------------------------------
+====================
 
 El módulo ``curses`` nos permite pintar en la pantalla, así como gestinar
 eventos del teclado, en terminales basadas en texto. Estas terminales y sus
@@ -7,8 +7,8 @@ emulaciones disponen de operaciones como mover el cursor, hacer *scroll* de
 pantalla, borrar áreas, usar colores, etc... 
 
 Diferentes terminales usan diferentes funciones para cada una de estas
-operaciones, ``curses`` nos permite usarlas con una interfaz común, de forma que
-no tenemos que preocuparnos por estas diferencias.
+operaciones, ``curses`` nos permite usarlas con una interfaz común, de forma
+que no tenemos que preocuparnos por estas diferencias.
 
 Claro que, ¿por qué preocuparnos por esto? Seguro que en pleno siglo XXI, con
 interfaces graficas, realidad virtual y teléfonos inteligentes no hay necesidad
@@ -25,7 +25,7 @@ remotas, en las que la conexion sea lenta o, por las razones que sea, solo se
 pueda acceder con *ssh* y una terminal.
 
 Como usar ``curses``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 La librería proporciona una funcionalidad muy básica, que permite al programador
 trabajar con una abstrabción de la pantalla dividida en regiones diferentes, que
@@ -47,8 +47,8 @@ usamos la función ``initscr()``, que determinará el tipo de terminal en uso,
 llamará a cualquier código que el terminal necesite y creara variables y
 estructuras internas que se usaran más adelante. Si tiene éxito, devolverá un
 objeto que representa la pantalla completa de la terminal. Normalmente se
-almacena este valor en una variable llamada ``stdsrc``, imitando el nombre de la
-variable correcpondiente en el código en ``C``.
+almacena este valor en una variable llamada ``stdsrc``, imitando el nombre de
+la variable correcpondiente en el código en ``C``.
 
 Veamos un primer ejemplo::
 
@@ -62,7 +62,7 @@ afecten directamente a la pantalla. Para hacer eso llamamos a la función
 
     curses.noecho()
 
-También querras reaccionar ente pulsaciones de las techas, sin esperar a que el
+También querrás reaccionar ente pulsaciones de las techas, sin esperar a que el
 usuario pulse la tecla *enter*. Esto se conoce como ``cbreak mode``. Puedes
 activarlo con::
 
@@ -98,7 +98,7 @@ de los desarolladores están de acuerdo en que teclear a ciegas no favorece la
 depuración del código. En Python es muy fácil evitar esta situación usando la
 funcion ``wrapper``. Su uso se explica con el siguiente ejemplo:
 
-.. literalinclude:: curses/initialization.py
+.. literalinclude:: initialization.py
 
 La función ``wrapper`` acepta como parámetro un objeto llamable (Una funcion,
 por ejemplo, como en esta caso) y realiza primero todos los pasos de

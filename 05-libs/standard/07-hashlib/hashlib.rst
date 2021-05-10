@@ -1,5 +1,5 @@
 hashlib - hashes y códigos de verificación e integridad
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=======================================================
 
 El módulo ``hashlib`` define una interfaz común a una serie de
 algoritmos conocidos como *funciones de hash criptográficos* o
@@ -22,16 +22,15 @@ es equivalente a::
 Durante cualquier momento del proceso se puede pedir el código de
 *hash*. Por ejemplo, para obtener el *hash* criptográfico de la frase
 "Su teoría es descabellada, pero no lo suficente para ser correcta.",
-podemos hacer:
+podemos hacer::
 
-.. literalinclude:: ../ejemplos/hash_md5.py
-    :lines: 9-18
+.. include:: partial_hash.py
+   :start: 4
 
-El código obtenido depende de los datos suministrados, de forma que
-cualquier alteración, por mínima que sea, en el texto original,
-provocará una alteración enorme en el código de salida. Por ejemplo,
-veamos como cambia el resultado simplemente cambiando una coma de lugar
-[#]_::
+El código obtenido depende de los datos suministrados, de forma que cualquier
+alteración, por mínima que sea, en el texto original, provocará una alteración
+enorme en el código de salida. Por ejemplo, veamos como cambia el resultado
+simplemente cambiando una coma de lugar ::
 
     >>> from hashlib import md5
     >>> print(md5('Perdón imposible, ejecutar prisionero').hexdigest())
