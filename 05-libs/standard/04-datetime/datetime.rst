@@ -1,5 +1,5 @@
-datetime - Gestión de fechas, horas y *timestamps*
-==================================================
+``datetime``: Gestión de fechas, horas y *timestamps*
+=====================================================
 
 El módulo ``datetime`` continua donde lo deja ``time``. Proporciona
 clases para trabajar con fechas y tiempos, soportando por

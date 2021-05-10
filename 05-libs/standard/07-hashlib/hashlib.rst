@@ -1,5 +1,5 @@
-hashlib - hashes y códigos de verificación e integridad
-=======================================================
+``hashlib``: hashes y códigos de verificación e integridad
+==========================================================
 
 El módulo ``hashlib`` define una interfaz común a una serie de
 algoritmos conocidos como *funciones de hash criptográficos* o
@@ -22,10 +22,10 @@ es equivalente a::
 Durante cualquier momento del proceso se puede pedir el código de
 *hash*. Por ejemplo, para obtener el *hash* criptográfico de la frase
 "Su teoría es descabellada, pero no lo suficente para ser correcta.",
-podemos hacer::
+podemos hacer:
 
 .. include:: partial_hash.py
-   :start: 4
+   :lines: 4-
 
 El código obtenido depende de los datos suministrados, de forma que cualquier
 alteración, por mínima que sea, en el texto original, provocará una alteración
@@ -36,4 +36,10 @@ simplemente cambiando una coma de lugar ::
     >>> print(md5('Perdón imposible, ejecutar prisionero').hexdigest())
     eafd88022b53be13af86520a6a221024
     >>> print(md5('Perdón, imposible ejecutar prisionero').hexdigest())
-    2b4360dbca5fd7b7b5df3fc4af7bab24
+    2b4360dbca5fd7b7b5df3fc4af7bab24a
+
+
+.. note:: Hacer un programa similar al ``dir`` o al ``ls``, es decir, que
+   muestra los ficheros dentro de una determinada carpeta. pero que incluya el
+   nombre del fichero, el tamaño, el tiempo de la ultima modificación y el hash
+   del contenido del fichero.

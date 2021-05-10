@@ -11,11 +11,11 @@ Tema 5: Librerías
    ./standard/03-time/time
    ./standard/04-datetime/datetime
    ./standard/05-logging/logging
-   ./standard/sched/sched
+   ./standard/06-sched/sched
+   ./standard/07-hashlib/hashlib
    ./standard/statistics/statistics
    ./standard/curses/curses
    ./standard/argparse/argparse
-   ./standard/hashlib/hashlib
    ./standard/heapq/heapq
    ./standard/urllib/urllib
    ./standard/base64/base64

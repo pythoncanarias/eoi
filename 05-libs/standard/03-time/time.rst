@@ -1,5 +1,5 @@
-time - Gestión básica del tiempo
-================================
+``time``: Gestión básica del tiempo
+===================================
 
 Esté modulo proporciona funciones para trabajar con tiempos y fechas.
 La mayoría de las funciones realizan llamadas al Sistema operativo.

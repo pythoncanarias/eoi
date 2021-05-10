@@ -1,5 +1,5 @@
-logging
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``logging``: Registro de actividad
+==================================
 
 El módulo ``logging`` define un sistema flexible y homogeneo
 para añadir un sistema de registro de eventos o :term:log a
