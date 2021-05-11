@@ -28,3 +28,12 @@ Glosario
       estructura jerárquica del XML. XPath fue creado para su uso en el
       estándar XSLT, en el que se usa para seleccionar y examinar la estructura
       del documento de entrada de la transformación.
+
+   CSV
+      **Comma-spearated values** Los archivos CSV son un tipo de documento en
+      formato abierto, sencillo, que se puede utilizar para representar datos
+      en forma de tabla, en las que las columnas se separan por comas (o 
+      punto y coma, o tabuladores, tec.) y las filas por saltos de línea.
+      El formato es muy sencillo y no indica un conjunto de caracteres
+      concreto, ni cómo van situados los bytes, ni el formato para el salto
+      de línea.
