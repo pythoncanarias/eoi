@@ -22,14 +22,14 @@ scheduler = sched.scheduler(timefunc=time.time)  # (2)
 today = datetime.date.today()  # (3)
 year, month, day = today.year, today.month, today.day
 
-t_first_backup = datetime.datetime(year, month, day, 11, 33, 0)  # (4)
+t_first_backup = datetime.datetime(year, month, day, 17, 37, 0)  # (4)
 scheduler.enterabs(
     t_first_backup.timestamp(),
     priority=0,
     action=backup,
     argument=('/home/jileon/',),
 )
-t_last_backup = datetime.datetime(year, month, day, 11, 34, 0)  # (5)
+t_last_backup = datetime.datetime(year, month, day, 17, 38, 20)  # (5)
 scheduler.enterabs(
     t_last_backup.timestamp(),
     priority=0,
