@@ -14,7 +14,7 @@ Tema 5: Librerías
    ./standard/06-sched/sched
    ./standard/07-hashlib/hashlib
    ./standard/08-argparse/argparse
-   ./standard/09-csv/csv
+   ./standard/10-csv/csv
    ./standard/statistics/statistics
    ./standard/curses/curses
    ./standard/heapq/heapq
