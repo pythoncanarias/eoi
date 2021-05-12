@@ -6,7 +6,7 @@ los parámetros pasados por linea de comandos.
 
 Existen otros dos módulos en la librería estándar que tienen el mismo objetivo,
 una es `getopt`, una versión equivalente a la función `getopt()` del lenguaje C,
-y otrea la librería ya discontinuada `optparse`. 
+y otra la librería ya discontinuada `optparse`. 
 
 Conceptos
 ---------
@@ -16,7 +16,7 @@ comandos.
 
 - normalmente nos interesa que las opciones tengan unos **valores por
   defecto** razonables y que hagan el programa útil incluso sin ningún
-  parámetro. Por ejemplo la orden `ls` sin ningún parametro muestra
+  parámetro. Por ejemplo la orden `ls` sin ningún parámetro muestra
   un listado de los ficheros en el directorio actual.
 
 - Algunas opciones son **argumentos posicionales**. Se llaman así porque el
@@ -27,29 +27,29 @@ comandos.
 
 - Hay también **argumentos opcionales**, que modifican o condicionan la
   forma en que el programa hace su trabajo. Estos parámetros opcionales
-  suelen usar el caracter `-` como prefijo. Por ejemplo, la orden
-  `ls -l` muestra un listado más completo del que mostraria la orden
+  suelen usar el carácter `-` como prefijo. Por ejemplo, la orden
+  `ls -l` muestra un listado más completo del que mostraría la orden
   `ls` sola.
 
 - Los argumentos opcionales a veces se pueden especificar de dos maneras,
   la forma abreviada, que vimos antes, usa un solo guion con prefijo y
   una o dos letras a lo sumo, y la forma extendida, que usa dos
   guiones y normalmente una o dos palabras. En muchos casos tenemos
-  la opcion abreviada `-h` y la opcion extendida `--help`, ambas
+  la opción abreviada `-h` y la opción extendida `--help`, ambas
   usadas para obtener una descripción de que hace un programa y
   que opciones tiene.
 
 Uso básico
 ----------
 
-Empezaremos con un breve ejemplo, que practicamente no hace nada::
+Empezaremos con un breve ejemplo, que prácticamente no hace nada::
 
     import argparse
     parser = argparse.ArgumentParser()
     parser.parse_args()
 
 Nota: No podemos ejecutar este programa dentro de Jupyter, porque
-ya estamos dentro de un programa. Hay quue ejecutar este
+ya estamos dentro de un programa. Hay que ejecutar este
 código desde una consola.
 
 Si lo ejecutamos, deberíamos obtener algo parecido a esto::
@@ -61,8 +61,8 @@ Si lo ejecutamos, deberíamos obtener algo parecido a esto::
     optional arguments:
       -h, --help  show this help message and exit
 
-Vemos que `argparse` ha definido por nosotros la opcion `-h/--help`. Pero
-Si intentamos usar otros parametros, no definidos, `argparse` nos
+Vemos que `argparse` ha definido por nosotros la opción `-h/--help`. Pero
+Si intentamos usar otros parámetros, no definidos, `argparse` nos
 indicará el error::
 
     $ python prog.py --verbose
@@ -72,19 +72,19 @@ indicará el error::
     usage: prog.py [-h]
     prog.py: error: unrecognized arguments: foo
 
-Vemos aqui una de las ventajas de `argparse`; tenemos una pantalla de ayuda sin
+Vemos aquí una de las ventajas de `argparse`; tenemos una pantalla de ayuda sin
 necesidad de hacer nada. Veremos mas adelante que a medida que añadimos más
-opciones, estas apareceran automáticamente en la página de ayuda.
+opciones, estas aparecerán automáticamente en la página de ayuda.
 
 La opción de ayuda `-h/--help` es la única que incluye `argparse` por su
 cuenta, pero si se especifican opciones que no hemos incluido, obtendremos
 un mensaje de error bastante claro, también "gratis".
 
 
-Añadir parámtros posicionales
+Añadir parámetros posicionales
 -----------------------------
 
-Vamos a añadir un parametro posicional, que llamaremos `target`::
+Vamos a añadir un parámetro posicional, que llamaremos `target`::
 
     import argparse
     parser = argparse.ArgumentParser()
@@ -110,7 +110,7 @@ Si ejecutamos este código, obtenemos algo como::
     foo
 
 Usando el método `add_argument()` hemos especificado que nuestro programa acepta
-un parámetro posicional, que en esta ocasion hemos llamado `target`. Como este
+un parámetro posicional, que en esta ocasión hemos llamado `target`. Como este
 nuevo parámetro no tiene un valor por defecto, es obligatorio, por lo que
 ejecutar el programa sin él, este fallará y nos informara de que necesita ese
 parámetro.
@@ -119,8 +119,8 @@ Vamos también que `parse_args()` nos devuelve los datos sobre las opciones que
 hemos especificado, es este caso, `target`. EL nombre es el mismo que hemos
 usado para definir el parámetro.
 
-Fijate que el mensaje de ayuda hace referencia al nuevo parámetro, pero la
-verdad es que se limita a decir que ese valor es necesarioo; no dice para
+Fíjate que el mensaje de ayuda hace referencia al nuevo parámetro, pero la
+verdad es que se limita a decir que ese valor es necesario; no dice para
 que sirve ni lo que hace. Podemos mejorar esto usando el parámetro `help`
 de `add_argument`::
 
@@ -179,9 +179,9 @@ Desgraciadamente, no funciona::
     TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'int'
 
 Esto es porque `argparse` nos pasa todos los valores como cadenas de texto.
-Podriamos solucionarlo convirtiendo nosotros ese texto a entero, pero hay
-una forma mejor; podemos usar el parametro `type` para indicarle una
-función transformadora que nos pase del valor en string del argumento al 
+Podríamos solucionarlo convirtiendo nosotros ese texto a entero, pero hay
+una forma mejor; podemos usar el parámetro `type` para indicarle una
+función transformadora que nos pase del valor en texto del argumento al 
 tipo de variable que nosotros queremos. Para esta caso, la función `int`
 es perfecta::
 
@@ -225,7 +225,7 @@ parametro `default`::
     parser.add_argument(
         "--explicacion",
         help="Muestra los pasos previos",
-        type=int,
+        type=int,7 x 1 = 7
         default=0,
         )
     options = parser.parse_args()
@@ -305,10 +305,10 @@ excluyentes, etc.
 Para aprender más, podemos consultar la [documentación
 ofical de `argparse`](https://docs.python.org/2/howto/argparse.html).
 
-Miniproyecto: Hacer un script que imprima una tabla de multiplicar, con
-un parametro obligatorio para indicar que tabla queremos. Si indicamos
-el parametro opcional `--examen`, en vez de imprimir los ersultados, que deje
-un espacio vacio.
+Miniproyecto: Hacer un script que imprima una tabla de multiplicar, con un
+parametro obligatorio para indicar que tabla queremos. Si indicamos el
+parametro opcional `--examen`, en vez de imprimir los resultados, que deje un
+espacio vacio.
 
 Es decir, si hacemos `python tabla.py 7`, la salida deberia ser algo como::
 
@@ -323,7 +323,7 @@ Es decir, si hacemos `python tabla.py 7`, la salida deberia ser algo como::
     7 x 9 = 63
     7 x 10 = 70
 
-Pero si usamos la opción `--examen` o `-e` la salida debería parecerse a::
+Pero si usamos la opción `python tabla.py 7 --examen` la salida debería parecerse a::
 
     7 x 1 = [    ]
     7 x 2 = [    ]

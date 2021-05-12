@@ -138,7 +138,7 @@ Spock", que muestre uno de estos cinco elementos al azar cada vez que se le
 llama::
 
     def juego():
-        item = ['piedra','papel','tijera', 'lagarto', 'spock']
+        item = ['piedra','papel','tijera']
         return random.choice(item)
 
     print(juego())

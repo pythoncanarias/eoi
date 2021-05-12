@@ -24,11 +24,11 @@ class Card:
     def get_value_name(self):
         if self.value == 1:
             return "As"
-        elif self.values == 11:
+        elif self.value == 11:
             return "Sota"
-        elif self.values == 12:
+        elif self.value == 12:
             return "Reina"
-        elif self.values == 13:
+        elif self.value == 13:
             return "Rey"
         else:
             return str(self.value)
