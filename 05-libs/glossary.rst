@@ -12,6 +12,12 @@ Glosario
        de los documentos HTML y XML, que es para lo que se diseñó
        principalmente.
 
+   JSON
+     **JavaScript Object Notation**, es un formato de texto ligero para el
+     intercambio de datos. JSON es un subconjunto de la notación literal de
+     objetos de JavaScript aunque hoy, debido a su amplia adopción como
+     alternativa a XML, se considera un formato de lenguaje independiente.
+
    SAX
       **Simple API for XML** (API simplificada para XML) es una API orientada a
       eventos, alternativa a DOM, para el tratamiento de ficheros XML. Mientras

@@ -218,7 +218,7 @@ Solución::
             alineacion = row[4]
             publicacion = row[-1]
             print(
-                f"{nombre} ({alineacion}) publicado por primera",
+                f"{nombre} ({alineacion}) publicado por primera"
                 f" vez en {publicacion}"
                 )
             if i > 25:
