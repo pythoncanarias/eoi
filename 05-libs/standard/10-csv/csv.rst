@@ -19,7 +19,7 @@ diferencias entre los datos producidos o consumidos por diferentes
 aplicaciones. Por esta razón, trabajar con distinto ficheros CVS provinientes
 de distintas fuentes suele dar más de un dolor de cabeza. A pesar de estas
 divergencias (empezando por que caracter usar como separador de campos), es
-posible escribir un módulo que pueda maniputar de forma eficiente estos datos,
+posible escribir un módulo  que pueda maniputar de forma eficiente estos datos,
 ocultado al programador los detalles específicos de leer o escribir estos
 ficheros,
 
@@ -81,13 +81,20 @@ inicialmente::
     import csv
 
     datos = [
-        ('Leonardo', 'Azul', 1452),
+        ('Leonardo', 'Azul', 1452)1452),
+        ('Raphael', 'Rojo', 1483),
+        ('Michelangelo', 'Naranja', 1475),
+        ('Donatello', 'Violeta', ,
         ('Raphael', 'Rojo', 1483),
         ('Michelangelo', 'Naranja', 1475),
         ('Donatello', 'Violeta', 1386),
         ]
+
     with open('some.csv', 'w', encoding='utf-8') as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f)1452),
+        ('Raphael', 'Rojo', 1483),
+        ('Michelangelo', 'Naranja', 1475),
+        ('Donatello', 'Violeta', 
         writer.writerows(datos)
 
 **Ejercicio**: Incluir un campo adicional, incluyendo una cuarta columna con 
@@ -138,7 +145,10 @@ Con este primer vistazo ya podemos deducir varias cosas:
    ``page_id``, podemos suponer que se trata de un identificador único de cada
    personaje. La onceava columna tiene el nombre de ``FIRST APPEARANCE``, que
    se podría traducir como primera vez que fue publicado, y parece una
-   combinación de mes y año. La doceava se titula ``Year``. Si analizamos los
+   combinación de mes y año. La d1452),
+        ('Raphael', 'Rojo', 1483),
+        ('Michelangelo', 'Naranja', 1475),
+        ('Donatello', 'Violeta', oceava se titula ``Year``. Si analizamos los
    datos, veremos que en realidad es el año de la primera publicación;
    *Spiderman* fue publicado por primera vez en 1962, el Capitán América en
    1941.
@@ -261,26 +271,26 @@ Con este dialecto, el resultado de reader es mucho más limpio::
     with open('marvel-wikia-data.csv', 'r') as f:
         reader = csv.reader(f, dialect='marvel')
         for i, row in enumerate(reader):
-            print(row)
+                print(row)
             if i > 10:
                 break
 
 
-**Ejercicio**:  Usar el codigo del ejemplo anterior y listar todos los personajes de marvel creados en la decada de los 70 (De 1971 a 1980)
+**Ejercicio**:  Usar el codigo del ejemplo anterior y listar todos los personajes de marvel creados en el año de tu nacimiento.
 
-import csv
+**Solución**::
 
-csv.register_dialect('marvel', delimiter=',', quoting=csv.QUOTE_NONE, escapechar="\\")
-filename = "marvel-wikia-data.csv"
-with open(filename, 'r') as f:
-    reader = csv.reader(f, dialect="marvel")
-    next(reader)  # Ignorar la primera linea
-    for i, row in enumerate(reader):
-        year = int(row[-1] if row[-1] else 0)
-        if 1972 <= year <= 197https://raw.githubusercontent.com/pythoncanarias/eoi/master/05-libs/standard/10-csv/marvel-wikia-data.csv4:
-            print(row[1], year)
-        if i == 24:
-            break
+    import csv
+
+    csv.register_dialect('marvel', delimiter=',', quoting=csv.QUOTE_NONE, escapechar="\\")
+    filename = "marvel-wikia-data.csv"
+    with open(filename, 'r') as f:
+        reader = csv.reader(f, dialect="marvel")
+        next(reader)  # Ignorar la cabecera
+        for row in reader:
+            year = int(row[-1] if row[-1] else 0)
+            if year == 1972:
+                print(row[1])
 
 
 .. _marvel-wikia-data.csv: https://raw.githubusercontent.com/pythoncanarias/eoi/master/05-libs/standard/10-csv/marvel-wikia-data.csv

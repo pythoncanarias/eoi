@@ -16,6 +16,8 @@ Tema 5: Librerías
    ./standard/08-argparse/argparse
    ./standard/09-random/random
    ./standard/10-csv/csv
+   ./standard/11-json/json
+   ./standard/12-re/re
    ./standard/statistics/statistics
    ./standard/curses/curses
    ./standard/heapq/heapq
@@ -31,7 +33,6 @@ Tema 5: Librerías
    ./standard/collections/collections
    ./standard/pdb/pdb
    ./standard/traceback/traceback
-   ./standard/re/re
    ./standard/zlib/zlib
 
 
