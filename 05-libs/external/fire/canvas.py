@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import fire
 
 class BinaryCanvas(object):
@@ -14,6 +17,14 @@ class BinaryCanvas(object):
 
     def show(self):
         print(self)
+        return self
+
+    def block(self, x0, y0, x1, y1):
+        for x in range(x0, x1+1):
+            for y in range(y0, y1+1):
+                self._row = x
+                self._col = y
+                self.set(1)
         return self
 
     def move(self, row, col):

@@ -894,55 +894,51 @@ flappy bird está en ``ejemplos/flappy_03.py``.
 Sonidos
 =======
 
-La librería de sonido de PyGame nos da la posibilidad de hacer
-reproducir sonidos a partir de ficheros de audio. En los juegos, los
-sonidos se usan sobre todo para dos cosas, para añadir música de fondo o
-para añadir efectos de sonido.
+La librería de sonido de PyGame nos da la posibilidad de hacer reproducir
+sonidos a partir de ficheros de audio. En los juegos, los sonidos se usan sobre
+todo para dos cosas, para añadir música de fondo o para añadir efectos de
+sonido.
 
-Los formatos más usados para almacenar audio son el .WAV, que
-normalmente reservaremos para los efectos de sonido, porque es un
-formato sin compresión, y los formatos .ogg o .mp3 que se suelen
-utilizar para canciones o sonidos de más largos, ya que ambos incluyen
-conpresión.
+Los formatos más usados para almacenar audio son el .WAV, que normalmente
+reservaremos para los efectos de sonido, porque es un formato sin compresión, y
+los formatos .ogg o .mp3 que se suelen utilizar para canciones o sonidos de más
+largos, ya que ambos incluyen conpresión.
 
-Lo primero que tenemos que hacer para poder usar el sistema de sonido de
-PyGame es inicializar el mezclador o **mixer**. Normalmente esta es una
-de las cosas de las que se ancarga automáticamente el ominipresente
-``pygame.init()``, asi que no nos preocuparemos por ello, a menos que
-queramos cambiar alguna de los parámetros de configuración del
-mezclador. Si fuera este el caso, tenemos que llamar a la función
-``pygame.mixer.pre_init()`` con los parámetros que deseemos, y hacerlo
-antes de la llamada a ``pygame.init()``.
+Lo primero que tenemos que hacer para poder usar el sistema de sonido de PyGame
+es inicializar el mezclador o **mixer**. Normalmente esta es una de las cosas
+de las que se ancarga automáticamente el ominipresente ``pygame.init()``, asi
+que no nos preocuparemos por ello, a menos que queramos cambiar alguna de los
+parámetros de configuración del mezclador. Si fuera este el caso, tenemos que
+llamar a la función ``pygame.mixer.pre_init()`` con los parámetros que
+deseemos, y hacerlo antes de la llamada a ``pygame.init()``.
 
-Para poder usar un fichero de música en nuestro juego, primero debemos
-cargarlo en memoria. Normalmente hacemos esto antes de empezar el juego,
-para evitar atrasos y pausas innecesarias. Para cargar un fichero de
-música usaremos la función ``pygame.mixer.music.load``, a la que
-pasaremos como parámetro la ruta del fichero de audio. Esta llamada solo
-carga el fichero, la música no empieza todavía.
+Para poder usar un fichero de música en nuestro juego, primero debemos cargarlo
+en memoria. Normalmente hacemos esto antes de empezar el juego, para evitar
+atrasos y pausas innecesarias. Para cargar un fichero de música usaremos la
+función ``pygame.mixer.music.load``, a la que pasaremos como parámetro la ruta
+del fichero de audio. Esta llamada solo carga el fichero, la música no empieza
+todavía.
 
-Una vez cargada la música, podemos dar la orden de que empieze a sonar,
-con ``pygame.mixer.music.play()``. Esta función acepta dos parámetros,
-el primero es el número de veces que queremos repetir la canción; si
-indicamos, por ejemplo, 5, la canción se tocará 6 veces (1 vez y 5
-repeticiones) y luego parará automáticamente. El valor por defecto de
-este parámetro es 0, que significa que la música se reproducirá una sola
-vez. Si indicamos ``-1``, la música estará reproduciendose en un bucle
-sin fin (o hasta que se llame a ``pygame.mixer.music.stop()``). El
-segundo parámetro indica en que momento de la canción queremos empezar
-la reprodución, medido en segundos. El valor por defecto es 0.0, es
-decir, desde el principio.
+Una vez cargada la música, podemos dar la orden de que empieze a sonar, con
+``pygame.mixer.music.play()``. Esta función acepta dos parámetros, el primero
+es el número de veces que queremos repetir la canción; si indicamos, por
+ejemplo, 5, la canción se tocará 6 veces (1 vez y 5 repeticiones) y luego
+parará automáticamente. El valor por defecto de este parámetro es 0, que
+significa que la música se reproducirá una sola vez. Si indicamos ``-1``, la
+música estará reproduciendose en un bucle sin fin (o hasta que se llame a
+``pygame.mixer.music.stop()``). El segundo parámetro indica en que momento de
+la canción queremos empezar la reprodución, medido en segundos. El valor por
+defecto es 0.0, es decir, desde el principio.
 
 Podemos controlar el volumen de la música con las funciones
-``pygame.mixer.music.set_volume()`` y
-``pygame.mixer.music.get_volume()``. El valor del volumen es un número
-fraccionario comprendido entre 0.0 y 1.0.
+``pygame.mixer.music.set_volume()`` y ``pygame.mixer.music.get_volume()``. El
+valor del volumen es un número fraccionario comprendido entre 0.0 y 1.0.
 
 Tambien podemos ordenar a la canción que pare, bien con la llamada a
-``pygame.mixer.sound.stop()``, que parará inmediatamente el sonido, o
-con la llamada a ``pygame.mixer.sound.fadeout()``, que primero irá
-bajando gradualmente el volumén del sonido, durante los milisengundos
-que le indiquemos, y finalmente parará la reproducción. Las llamadas a
+``pygame.mixer.sound.stop()``, que parará inmediatamente el sonido, o con la
+llamada a ``pygame.mixer.sound.fadeout()``, que primero irá bajando
+gradualmente el volumén del sonido, durante los milisengundos que le
+indiquemos, y finalmente parará la reproducción. Las llamadas a
 ``pygame.mixer.music.pause()`` y ``pygame.mixer.sound.unpause()`` hacen
 exactamamente lo que parece.
 

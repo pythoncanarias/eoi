@@ -37,7 +37,7 @@ Tema 5: Librerías
 
 
    ./external/arrow/arrow
-   .../external/pygame/pygame
+   ./external/pygame/pygame
    ./external/numpy/numpy
    ./external/qrcode/qrcode
    ./external/requests/requests

@@ -25,6 +25,7 @@ ficheros,
 
 El módulo ``csv`` nos permite escribir y leer estos archivos. El programador
 puede especificar, por ejemplo, "escribe este archivo en el formato preferido
+      [   ]csv.rst
 por excel", o "lee este fichero como si fuera de excel, pero usando el carácter
 `:` como separador de campos". También nos permite definir nuestros propios
 formatos de uso particular, que el módulo denomina "dialectos".
@@ -99,6 +100,7 @@ inicialmente::
 
 **Ejercicio**: Incluir un campo adicional, incluyendo una cuarta columna con 
 el arma favorita de cada quelonio. (Pista para los *no-tan-friquis*: Espadas para
+      [   ]csv.rst
 Leonardo, Nunchakus para Michelangelo, bastón Bo para Donatello y Sai para Raphael.
 **Bonus extra**: Si usas un delimitar diferente, por ejemplo, ``;`` o ``|``.
 **Bonus extra plus**: Incluye una primera fila con los nombres de las columnas.
@@ -170,6 +172,7 @@ Con este primer vistazo ya podemos deducir varias cosas:
        "Wolverine (James \""Logan\"" Howlett)"
 
     
+      [   ]csv.rst
    La siguiente columna se denomina ``urlslug``. Es parte de la URL que podemos
    usar para acceder a la página web de cada personaje. En este campo se
    escapan las barras (``/``), de forma que el valor del ``slugurl`` original::
