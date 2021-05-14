@@ -20,4 +20,4 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 watch:
-	watchmedo shell-command --patterns="*.rst" --recursive --command="make clean && make html"
+	watchmedo shell-command --patterns="*.rst" --recursive --command="make html"
