@@ -1,3 +1,6 @@
+---
+title: Modelo de Entidad/Relacion (E/R)
+---
 ## Modelo de Entidad/Relación
 
 Un modelo entidad-relación es una herramienta para el modelo de datos, la cual
@@ -15,7 +18,7 @@ En este modelo se trabajan con los siguientes conceptos
 
 ### Entidad
 
-Una __entidad__ Representa un  objeto o concepto del mundo real, con existencia independiente, es decir, se diferencia de otro objeto o cosa, incluso siendo del mismo tipo.
+Una __entidad__ Representa un  objeto o concepto del mundo real, con existencia independiente, es decir, se diferencia de otro objeto o cosa, incluso siendo del mismo tipo. En un diagrama E/R se representa con un **rectangulo**.
 
 Algunos ejemplos:
 
@@ -37,7 +40,9 @@ Género, Estatura, Peso, Fecha de nacimiento...
 
 Los **atributos** son las características que definen o identifican a una
 entidad. Estas pueden ser muchas, y el diseñador utiliza o implementa las
-que considere relevantes.
+que considere relevantes. En un diagrama de E/R se representan con una
+**circunferencia** o una **elipsis**. Los atributos se unen con líneas
+a las entidades a las que correspondan.
 
 En un conjunto de entidades del mismo tipo, cada entidad tiene valores
 específicos asignados para cada uno de sus atributos, de esta forma, es posible
@@ -58,11 +63,12 @@ demás por el valor de sus atributos. Nótese que dos o más entidades diferente
 pueden tener los mismos valores para algunos de sus atributos, pero nunca para
 todos.
 
-En particular, los __atributos identificativos__ son aquellos que permiten
-diferenciar a una instancia de la entidad de otra distinta. En este ejemplo, el
-atributo identificativo que distingue a un alumno de otro es su número de id.
+En particular, los **atributos identificativos** son aquellos que permiten
+diferenciar a una instancia de la entidad de otra distinta. Cualquier atrubuto
+o conjunto de atributos que permita diferenciar cualquier entidad del resto de
+ellas se denomina **clave candidata**.
 
-Para cada atributo, existe un __dominio__ del mismo, este hace referencia al
+Para cada atributo, existe un **dominio** del mismo, este hace referencia al
 tipo de datos que será almacenado a restricciones en los valores que el atributo
 puede tomar (cadenas de caracteres, números, solo dos letras, solo números
 mayores que cero, solo números enteros...).
@@ -73,8 +79,9 @@ existe o porque no se sabe nada al respecto del mismo.
 
 ### Relaciones
 
-Una __relación__ 
-Consiste en una colección, o conjunto, de relaciones de la misma naturaleza.
+Una __relación__ Consiste en una colección, o conjunto, de relaciones de la
+misma naturaleza. las relaciones se representan en los diagramas de E/R con un
+**rombo**.
 
 Ejemplo:
 
@@ -89,14 +96,19 @@ participación. En el ejemplo anterior los conjuntos de entidades "Habitación" 
 Se llama grado del conjunto de relaciones a la cantidad de conjuntos de
 entidades participantes en la relación.
 
-Restricciones
+Es importante hacer notar que todas las relaciones entre modelos deben
+representarse con relaciones, y por tanto nunca sera posible tener
+una línea que una directamente a un modelo con otro, siempre habrá de pasar
+por una relación intermedia.
+
+### Restricciones
 
 Son reglas que deben respetar las entidades y relaciones almacenadas en la base
 de datos.
 
-Correspondencia de cardinalidades Dado un conjunto de relaciones en el que
+**Correspondencia de cardinalidad**: Dado un conjunto de relaciones en el que
 participan dos o más conjuntos de entidades, la cardinalidad de la
-correspondencia indica el número de entidades con las que puede estar
+correspondencia indica el **número de entidades** con las que puede estar
 relacionada una entidad dada.
 
 Dado un conjunto de relaciones binarias y los conjuntos de entidades A y B, las
@@ -124,13 +136,13 @@ Chen propuso las siguientes reglas informales para mapear
 descripciones en lenguaje natural a los conceptos usados en
 los diagramas E/R.
 
-| estructura gramatical     | Conepto E/R |
-|--------------------------:|-------------|
-| Sustantivo                | Entidad     |
-| Verbo transitivo          | Relación    |
-| Verbo intransitivo        | Atributo    |
-| Adjetivo                  | Atributo (De una entidad) |
-| Adverbio                  | Atributo (De una relacion) |
+| estructura gramatical     |     | Concepto E/R                 |
+|--------------------------:|:---:|------------------------------|
+| Sustantivo                |  ⇆  | Entidad  ☐                   |
+| Verbo transitivo          |  ⇆  | Relación ◊                   |
+| Verbo intransitivo        |  ⇆  | Atributo ◯                   |
+| Adjetivo                  |  ⇆  | Atributo ◯ (De una entidad)  |
+| Adverbio                  |  ⇆  | Atributo ◯ (De una relacion) |
 
 Ejemplo actores / actuacion / cine
 
