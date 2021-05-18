@@ -28,6 +28,15 @@ Introducción al desarrollo de aplicaciones de escritorio
 
 - pyside
 
+Bibliografía
+------------
+
+- wxPython 2.8 Application Development Cookbook, Cody Precord (Packt
+  Publishing)
+  - [Packt
+  Publishing](https://www.packtpub.com/product/wxpython-2-8-application-development-cookbook/9781849511780)
+  - [Amazon](https://www.amazon.es/Wxpython-2-8-Application-Development-Cookbook/dp/1849511780)
+
 Enlaces
 -------
 
