@@ -144,5 +144,15 @@ los diagramas E/R.
 | Adjetivo                  |  ⇆  | Atributo ◯ (De una entidad)  |
 | Adverbio                  |  ⇆  | Atributo ◯ (De una relacion) |
 
-Ejemplo actores / actuacion / cine
+### Ejemplo 
+
+![Shield](img/shield.svg)
+
+![Nick Fury](img/nick-fury.jpg)
+
+Primera mision: Una página web con un listado de nombres de supers
+y su nivel de peligro.
+
+[superheroes.csv](superheroes.csv)
+
 
