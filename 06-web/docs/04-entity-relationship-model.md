@@ -155,4 +155,20 @@ y su nivel de peligro.
 
 [superheroes.csv](superheroes.csv)
 
+```csv
 
+nombre;identidad;nivel;equipo;cuartel;poderes
+Angel;Warren Kenneth Worthington III;18;Patrulla X;Academia Xavier para Jóvenes Dotados;vuelo
+Antorcha Humana;Johnny Storm;34;Cuatro fantásticos;Edificio Baxter;vuelo,pirokinesis
+Aurora;Jeanne-Marie Beaubier;31;Alpha Flight;Departamento H;supervelocidad,descarga de energía
+Banshee;Sean Cassidy;23;Patrulla X;Academia Xavier para Jóvenes Dotados;vuelo,estallido sónico
+...
+```
+
+- Delimitador: punto y coma
+- primera fila con combres de las columnas
+- columna 1: nombre
+- columna 3: nivel (de peligro)
+
+
+Crear proyecto 
