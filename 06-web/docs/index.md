@@ -10,7 +10,7 @@
 - [Más finformación sobre Django](07-more-about-django.md)
 - [Microservicios](08-microservices.md)
 - [Anexo 1: HTML](A1-html.md)
-- Anexos 2: CSS
+- [Anexo 1: Hojas de estilo CSS](A2-css.md)
 - [Anexo 3: Miniproyecto](A3-miniproject.md)
 
 
