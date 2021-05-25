@@ -9,3 +9,4 @@ title: Tema 5: Librerías
 - [`os`](standard/02-os/os.md) Llamadas al Sistema Operativo
 - [`time`](standard/03-time/time.md) Gestión básica del tiempo
 - [`datetime`](standard/04-datetime/datetime.md) Gestión de fechas, horas y *timestamps*
+- [`logging`](standard/05-logging/logging.md) Registro de actividad
