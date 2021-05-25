@@ -55,18 +55,14 @@ Veamos cómo se haría usando estilos en línea:
 
 ```html
 <html>
-<head>
-    <style>
-    p {
-        
-    }
-    </style>
-</head>
-<body>
-    <p style="color: green; font-size: 25px; font-family: 'Trebuchet MS', sans-serif;">
+ <head>
+  <title>Ejemplo de CSS</title>
+ </head>
+ <body>
+  <p style="color: green; font-size: 25px; font-family: 'Trebuchet MS', sans-serif;">
     Hello CSS World
-    </p>
-</body>
+  </p>
+ </body>
 </html>
 ```
 
@@ -101,7 +97,6 @@ dentro de la sección `<head>` del documento.
   <style>
     p {
         color: green;
-        text-decoration: underline;
         font-size: 25px;
         font-family: 'Trebuchet MS', sans-serif;
     }
@@ -110,21 +105,6 @@ dentro de la sección `<head>` del documento.
  <body>
   <p>Hello CSS World</p>
  </body>
-    <html>
-    <head>
-     <style>
-       p {
-         color: green;
-         text-decoration: underline;
-         font-size: 25px;
-         font-family: 'Trebuchet MS', sans-serif;
-       }
-     </style>
-    </head>
-    <body>
-     <p>Hello CSS World</p>
-    </body>
-    </html>
 </html>
 ```
 

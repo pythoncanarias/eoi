@@ -1,3 +1,7 @@
+---
+title: Para aprender más de Django
+topic: Desarrollo Web
+---
 ## Para aprender más de Django
 
 
@@ -240,7 +244,7 @@ Igual que recomiendo nombrar explicitamente las tablas, sugiero usar tu propio
 enteros, cadenas de texto o lo que sea, siempre será mejor que depender de un
 número asignado al azar por el framework.
 
-#### Sobre las migraciones
+### Sobre las migraciones
 
 A partir de Django 1.7, si usas una base de datos, es muy probable que uses el
 sistema de migraciones de la base de datos para modificar el esquema de la
@@ -277,15 +281,15 @@ no solo hace mas lentos los desplieges, también ralentiza construir entornos de
 desarrollo, de pruebas, etc.
 
 Una solucion para esto es hacer periodicamente una limpieza y consolidar el
-estado actual de la aplicacion. Esto se puede hacer usando el propio
-sistema de gestion de Django o directamente a mano: Borrar todo el
-contenido de la tabla `django_migrations`, borrar todos los ficheros de
-migracion, y ejecutar `manage.py makemigrations` para crear una nuevas
-migración inicial, unica y con el estado actual de la base de datos.
+estado actual de la aplicacion. Esto se puede hacer usando el propio sistema de
+gestion de Django o directamente a mano: Borrar todo el contenido de la tabla
+`django_migrations`, borrar todos los ficheros de migracion, y ejecutar
+`manage.py makemigrations` para crear una nuevas migración inicial, unica y con
+el estado actual de la base de datos.
 
 Si puedes, haz que las migraciones sean reversibles.
 
-#### Evita modelos demasiado grandes
+### Evita modelos demasiado grandes
 
 Django promueve la idea de usar modelos grandes, añadiendo la lógica de negocio
 dentro de los modelos. Aunque puede ser conveniente, sobre todo al principio,
@@ -344,7 +348,7 @@ personalizada antes o después de los cambios en la base de datos. Además,
 desacopla un poco tu aplicación de la interfaz del modelo Django, lo que
 facilitaria usar otro ORM distinto en el futuro.
 
-#### Cuidado al cachear instancias de modelos
+### Cuidado al cachear instancias de modelos
 
 Si cacheas instancia de modelos, recuerda que si se cambia el esquema de los
 modelos estos cambios no se reflejarán en la cache. Asegurate de usar unos
@@ -363,8 +367,7 @@ la cache de una instancia cada vez que moditicas los datos de la misma.
 - [12 HTML Tags You Don\'t Know](https://jatinrao.dev/12-html-tags-you-dont-know)
 - [HTML Reference](https://htmlreference.io/) Es una referencia muy
     buena y fácil de consultar de todas las etiquetas HTML.
-- [41 Free HTML and CSS
-    ebooks](https://freefrontend.com/html-css-books/)
+- [41 Free HTML and CSS ebooks](https://freefrontend.com/html-css-books/)
 
 #### Tutorial oficial de Django
 

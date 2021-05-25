@@ -15,9 +15,9 @@ Algunas consideraciones y terminología:
   durante parte del año. Las reglas de los DST son, en la práctica, pura
   magia (dependen de las leyes locales) y pueden cambiar de año a año,
 
-Los valores de tiempo devueltos por ``gmtime()``, ``localtime()`` y
-``strptime()``, y aceptados por ``asctime()``, ``mktime()`` y
-``strftime()`` son tuplas (En realidad, ``namedtuple``) de 9 enteros:
+Los valores de tiempo devueltos por `gmtime()`, `localtime()` y
+`strptime()`, y aceptados por `asctime()`, `mktime()` y
+`strftime()` son tuplas (En realidad, `namedtuple`) de 9 enteros:
 año, mes, día, horas, minutos, segundos, día de la semana, día dentro
 del año y un indicador de si se aplica o no el horario de verano.
 

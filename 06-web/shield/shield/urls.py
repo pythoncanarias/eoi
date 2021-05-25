@@ -1,7 +1,7 @@
 """shield URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.0/topics/http/urls/
+    https://docs.djangoproject.com/en/3.1/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,14 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
-import commons.views
 import metahumans.views
 
 urlpatterns = [
-    path('', commons.views.homepage, name="homepage"),
     path('admin/', admin.site.urls),
-    path('activos/', metahumans.views.list_all_metahumans, name='metahumans'),
-    path('equipos/', metahumans.views.list_all_teams, name='teams'),
-    path('equipos/<slug>/', metahumans.views.detail_team, name='team_detail'),
-]
+    path('listado/', metahumans.views.listado_metahumans),
+    path('ejemplo/', metahumans.views.css_ejemplo),
+] 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

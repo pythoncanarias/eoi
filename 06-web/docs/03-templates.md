@@ -128,7 +128,7 @@ Vamos a realizar un par de ejercicios de ejemplo
 negrita o de color rojo (o cualquier otra cosa que sirva para
 destacarlos) si su nivel es de 5 o superior y verde si es 4 o inferior
 
-Vamos a sacar la lista del fichero [superheros.csv](superheros.csv)
+Vamos a sacar la lista del fichero [superheroes.csv](superheroes.csv)
 
 Para ello vamos a necesitar dos etiquetas nuevas: `for` e `if`.
 

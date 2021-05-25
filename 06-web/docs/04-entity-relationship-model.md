@@ -1,24 +1,31 @@
 ---
 title: Modelo de Entidad/Relacion (E/R)
+topic: Desarrollo Web
 ---
 ## Modelo de Entidad/Relación
 
 Un modelo entidad-relación es una herramienta para el modelo de datos, la cual
 facilita la representación de entidades de una base de datos. Fue definido por
-Peter Chen en 1976.
+[Peter Chen](https://es.wikipedia.org/wiki/Peter_Chen) en 1976.
 
-En este modelo se trabajan con los siguientes conceptos
+En este modelo se trabajan con los siguientes conceptos:
 
-- Entidades
+- Entidades (Representadas con rectángulo)
 
-- Atributos
+- Atributos (Representados con elipses o circunferencias)
 
-- Relaciones
+- Relaciones (Representadas por rombos)
 
+Este es un ejemplo de un diagrama E/R:
+
+![Diagrama E/R extendido](img/ejemplo-diagrama-e-r.png)
 
 ### Entidad
 
-Una __entidad__ Representa un  objeto o concepto del mundo real, con existencia independiente, es decir, se diferencia de otro objeto o cosa, incluso siendo del mismo tipo. En un diagrama E/R se representa con un **rectangulo**.
+Una __entidad__ Representa un objeto o concepto que queremos modelar, con
+existencia independiente, es decir, se diferencia de otro objeto o cosa,
+incluso siendo del mismo tipo. En un diagrama E/R se representa con un
+**rectangulo**.
 
 Algunos ejemplos:
 
@@ -28,21 +35,23 @@ Algunos ejemplos:
 
 - Una casa: aunque sea exactamente igual a otra, aún se diferenciará en su dirección.
 
-Una entidad puede ser un objeto con existencia física (una persona, una máquina, una estrella, etc. (entidad concreta); o un objeto con existencia conceptual (Un puesto de trabajo, una asignatura de clases, una
-habilidad, etc. (entidad abstracta).
+Una entidad puede ser un objeto con existencia física, como una persona, una
+máquina, una estrella, etc. (entidad concreta); o un objeto con existencia
+conceptual, como un cargo en una empresa, una asignatura, una habilidad, etc.
+(entidad abstracta).
 
-Una entidad está descrita y se representa por sus características o atributos. 
-Por ejemplo, una entidad Persona puede tener como características: Nombre, Apellido,
-Género, Estatura, Peso, Fecha de nacimiento...
-
+Una entidad está descrita y se representa por sus características o atributos.
+Por ejemplo, una entidad Persona puede tener como características: Nombre,
+Apellido, Género, Estatura, Peso, Fecha de nacimiento... Nosotros como
+analistas seleccionaremos los atributos que queremos modelar.
 
 ### Atributos
 
 Los **atributos** son las características que definen o identifican a una
-entidad. Estas pueden ser muchas, y el diseñador utiliza o implementa las
-que considere relevantes. En un diagrama de E/R se representan con una
-**circunferencia** o una **elipsis**. Los atributos se unen con líneas
-a las entidades a las que correspondan.
+entidad. Estas pueden ser muchas, y el diseñador utiliza o implementa las que
+considere relevantes. En un diagrama de E/R se representan con una
+**circunferencia** o una **elipsis**. Los atributos se unen con líneas a las
+entidades a las que correspondan.
 
 En un conjunto de entidades del mismo tipo, cada entidad tiene valores
 específicos asignados para cada uno de sus atributos, de esta forma, es posible
@@ -86,8 +95,8 @@ misma naturaleza. las relaciones se representan en los diagramas de E/R con un
 Ejemplo:
 
 Dados los conjuntos de entidades "Habitación" y "Huésped", todas las relaciones
-de la forma habitación-huésped, permiten obtener la información de los huéspedes
-y sus respectivas habitaciones.
+de la forma habitación-huésped, permiten obtener la información de los
+huéspedes y sus respectivas habitaciones.
 
 La dependencia o asociación entre los conjuntos de entidades es llamada
 participación. En el ejemplo anterior los conjuntos de entidades "Habitación" y
@@ -97,14 +106,14 @@ Se llama grado del conjunto de relaciones a la cantidad de conjuntos de
 entidades participantes en la relación.
 
 Es importante hacer notar que todas las relaciones entre modelos deben
-representarse con relaciones, y por tanto nunca sera posible tener
-una línea que una directamente a un modelo con otro, siempre habrá de pasar
-por una relación intermedia.
+representarse con relaciones, y por tanto nunca sera posible tener una línea
+que una directamente a un modelo con otro, siempre habrá de pasar por una
+relación intermedia.
 
 ### Restricciones
 
-Son reglas que deben respetar las entidades y relaciones almacenadas en la base
-de datos.
+Son las condiciones que sobligatoriamente han de cumplir las entidades y
+relaciones de nuestro modelo.
 
 **Correspondencia de cardinalidad**: Dado un conjunto de relaciones en el que
 participan dos o más conjuntos de entidades, la cardinalidad de la
@@ -118,23 +127,22 @@ cardinalidades pueden ser:
   (ejemplo dos entidades, profesor y departamento: si un profesor solo puede ser jefe
   de un departamento y un departamento solo puede tener un jefe).
 
-* __Uno a Varios__: (1:N) Una entidad en A se relaciona con cero o más entidades
+* __Uno a N o Uno a Varios__: (1:N) Una entidad en A se relaciona con cero o más entidades
   B. Pero los registros de B solamente se relacionan con un registro en A.
   (ejemplo: dos entidades, vendedor y ventas: un vendedor puede tener muchas
   ventas pero una venta solo puede tener un vendedor).
 
-* __Varios a Uno__: (N:1) La inversa de la anterior. Una entidad A se relaciona
+* __N a 1 o Varios a 1__: (N:1) La inversa de la anterior. Una entidad A se relaciona
   exclusivamente con una entidad B. Pero una entidad en B se puede relacionar
   con 0 o más entidades en A (ejemplo empleado-centro de trabajo).
 
-- **Varios a Varios**: (N:M) Una entidad en A se puede relacionar con 0 o con
-  más entidades en B y viceversa (ejemplo asociaciones-ciudadanos, donde muchos
-ciudadanos pueden pertenecer a una misma asociación, y cada ciudadano puede
-pertenecer a muchas asociaciones distintas).
+- **N a N o Varios a Varios**: (N:N) Una entidad A se puede relacionar con 0 o
+  más entidades B, y viceversa. Por ejemplo la relación entre actores y
+  películas: Los actores trabajan normalmente en varias películas, y en una
+  película participan varios actores.
 
-Chen propuso las siguientes reglas informales para mapear
-descripciones en lenguaje natural a los conceptos usados en
-los diagramas E/R.
+Chen propuso las siguientes reglas informales para mapear descripciones en
+lenguaje natural a los conceptos usados en los diagramas E/R.
 
 | estructura gramatical     |     | Concepto E/R                 |
 |--------------------------:|:---:|------------------------------|
@@ -150,25 +158,74 @@ los diagramas E/R.
 
 ![Nick Fury](img/nick-fury.jpg)
 
-Primera mision: Una página web con un listado de nombres de supers
+Tu primera misión: Una página web con un listado de nombres de metahumanos
 y su nivel de peligro.
 
-[superheroes.csv](superheroes.csv)
+La parte buena es que tenemos esa información en un fichero CSV:
+Puedes descargar el fichero aquí: [superheroes.csv](superheroes.csv)
 
-```csv
+{{ read_csv('docs/superheroes.csv', delimiter=';') }}
 
-nombre;identidad;nivel;equipo;cuartel;poderes
-Angel;Warren Kenneth Worthington III;18;Patrulla X;Academia Xavier para Jóvenes Dotados;vuelo
-Antorcha Humana;Johnny Storm;34;Cuatro fantásticos;Edificio Baxter;vuelo,pirokinesis
-Aurora;Jeanne-Marie Beaubier;31;Alpha Flight;Departamento H;supervelocidad,descarga de energía
-Banshee;Sean Cassidy;23;Patrulla X;Academia Xavier para Jóvenes Dotados;vuelo,estallido sónico
-...
+Observando los datos del fichero, podemos sacar algunas conclusiones que nos
+serán de ayuda:
+
+- El delimitador es el carácter punto y coma
+
+- La primera fila consiste en los nombres de las columnas
+
+- En la primera columna tenemos el nombre
+
+- En la tercera columna tenemos el nivel (de peligro)
+
+
+**Ejercicio**: Crear un nuevo projecto django, llamado `shield`, y dentro de él
+una *app* para gestionar nuestro conocimiento de los metahumanos, llamada
+``metahumans``.
+
+Crear proyecto:
+
+```shell
+django-admin startproject shield
+cd shield
 ```
 
-- Delimitador: punto y coma
-- primera fila con combres de las columnas
-- columna 1: nombre
-- columna 3: nivel (de peligro)
+Una vez dentro de la carpeta principal del proyecto, haremos una comprobación
+para estar seguros de que todo está correcto:
 
+```shell
+python manage.py check
+```
 
-Crear proyecto 
+Ahora creamos una *app* para gestionar a estos superseres o metahumanos, la
+llamaremos `metahumans`:
+
+```shell
+python manage.py startapp metahumans
+```
+
+Vemos que se ha creado una carpeta `metahumans`, dentro de la cual tenemos el
+siguiente contenido:
+
+```
+metahumans
+├── admin.py
+├── apps.py
+├── __init__.py
+├── migrations
+│   ├── __init__.py
+├── models.py
+├── tests.py
+└── views.py
+```
+
+Como con `startproject`, lo único que ha hecho `startapp` es crearnos un
+esqueleto de los ficheros y carpetas que necesitaremos para la vista. Todos
+estos ficheros están vacios o con apenas una o dos líneas.
+
+Una cosa importante es que, aunque `startapp` nos haya creado el código mínimo
+para una *app*, esta es invisible para el proyecto Django en si, hasta que
+no se la incluya en la variable `INSTALLED_APPS` dentro del archivo
+`settings.py`.
+
+*Ejercicio*: Incluir `metahumans` en la lista de apps en uso del proyecto.
+Editar `shield/settings.py'.

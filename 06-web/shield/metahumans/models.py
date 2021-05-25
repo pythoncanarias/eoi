@@ -2,67 +2,48 @@ from django.db import models
 
 # Create your models here.
 
-class Team(models.Model):
 
-    class Meta:
-        verbose_name = "Equipo"
-        verbose_name_plural = "Equipos"
-
-    name = models.CharField(max_length=220)
-    description = models.TextField(max_length=4000)
-    headquarter =  models.CharField(max_length=100)
-    slug = models.SlugField(unique=True)
+class Equipo(models.Model):
+    id = models.AutoField(primary_key=True)  # No es estrictamente necesario
+    nombre = models.CharField(max_length=100)
+    cuartel = models.CharField(max_length=240, blank=True)  # blank=True significa opcional
 
     def __str__(self):
-        return self.name
+        return self.nombre
 
 
-class Power(models.Model):
-
-    class Meta:
-        verbose_name = "Poder"
-        verbose_name_plural = "Poderes"
-        ordering = ['name']
-
-    name = models.CharField(max_length=32)
-    description = models.CharField(max_length=300)
-    level = models.IntegerField(default=50)
+class Poder(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=80, unique=True)  # No puede haber nombres duplicados
 
     def __str__(self):
-        return self.name
+        return self.nombre
 
 
-COUNTRIES = [
-    ('US', 'United states'),
-    ('ES', 'Spain'),
-    ('UK', 'United Kingdom'),
-    ('PL', 'Polonia'),
-    ('WK', 'Wakanda'),
-    ('LV', 'Lavteria'),
-    ('RU', 'Rusia'),
-    ('OT', "Others"),
-    ]
-
-
-class MetaHuman(models.Model):
-
-    class Meta:
-        verbose_name = "Metahumano"
-        verbose_name_plural = "Metahumanos"
-
-    name = models.CharField(max_length=42)
-    country = models.CharField(max_length=2, choices=COUNTRIES)
-    level = models.IntegerField(default=10)
-    active = models.BooleanField(default=True)
-    powers = models.ManyToManyField(Power)
-    last_update = models.DateTimeField(auto_now=True)
-    team = models.ForeignKey(
-        Team,
-        on_delete=models.PROTECT,
+class Metahumano(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=100, unique=True)
+    identidad = models.CharField(max_length=100)
+    nivel = models.PositiveIntegerField(default=1)
+    equipo = models.ForeignKey(
+        Equipo,
         blank=True,
         null=True,
-        default=None,
+        on_delete=models.PROTECT,
+    )
+    poderes = models.ManyToManyField(Poder)
+    activo = models.BooleanField(default=True)
+    foto = models.ImageField(
+        blank=True,
+        null=True,
+        upload_to='metahumans',
     )
 
+    def peligroso(self):
+        return self.nivel >= 50
+
     def __str__(self):
-        return self.name
+        return f"{self.nombre} [{self.nivel}]"
+
+    def num_poderes(self):
+        return self.poderes.count()

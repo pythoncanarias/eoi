@@ -369,6 +369,9 @@ mucho con estos tipos de datos:
 Si usamos estas opciones, no podemos usar `default`, y viceversa, ya que
 entran en conflicto.
 
+![CSV no](img/nick-fury-csv-is-shit.png)
+
+
 **Ejercicio**: Añadir al modelo `MetaHuman` un campo, de uso interno,
 que llamaremos `last_update` para que se almacenen los cambios cada vez
 que se modifica un registro.
@@ -503,12 +506,41 @@ era `mifoto.jpg`, la ruta final (Si se hubiera subido el 27 de julio de
 
     /var/media/fotos/2019/07/27/mifoto.jpg
 
+**Ejercicio**: Añadir un campo foto para poder guardar la imagen de los
+superheroes: aqui tienes algunas para elegir:
+
+![img/angel.png](img/angel.png)
+![img/blackbolt.png](img/blackbolt.png)
+![img/black-panther.png](img/black-panther.png)
+![img/black-widow.png](img/black-widow.png)
+![img/captain-america.png](img/captain-america.png)
+![img/captain-marvel.png](img/captain-marvel.png)
+![img/cyclops.png](img/cyclops.png)
+![img/daredevil.png](img/daredevil.png)
+![img/dark-phoenix.png](img/dark-phoenix.png)
+![img/doctor-strange.png](img/doctor-strange.png)
+![img/falcon.png](img/falcon.png)
+![img/hulk.png](img/hulk.png)
+![img/human-torch.png](img/human-torch.png)
+![img/invisible-woman.png](img/invisible-woman.png)
+![img/ironman.png](img/ironman.png)
+![img/juggernaut.png](img/juggernaut.png)
+![img/magneto.png](img/magneto.png)
+![img/mr-fantastic.png](img/mr-fantastic.png)
+![img/shield.svg](img/shield.svg)
+![img/spiderman.png](img/spiderman.png)
+![img/spiderwoman.png](img/spiderwoman.png)
+![img/storm.png](img/storm.png)
+![img/the-thing.png](img/the-thing.png)
+![img/tim-barners-lee.jpg](img/tim-barners-lee.jpg)
+
+
 ### Campos para definir las relaciones
 
 Django también define una serie de campos para reflejar las relaciones
 entre modelos.
 
-La mas usade es `ForeignKey`, que se usa para representar una relacion
+La más usade es `ForeignKey`, que se usa para representar una relacion
 uno a muchos ($1$ a $N$). Requiere obligatoriamente al menos dos
 parámetros: La clase con la que se quiere relacionar el modelo y un
 parámetro llamado `on_delete` que explicaremos más adelante.
@@ -703,29 +735,32 @@ disponibles:
     no tiene sentido la existencia de una línea de factura existiendo de
     forma independiente a una factura.
 
--   `PROTECT`: El que hemos usado. En nuestro caso, para poder borrar un
-    equipo, debemos desasignar todos los miembros que tenga. Solo cuando
-    no haya ninguna referencia al equipo podrá borrarse.
--   `SET_NULL`: Poner el campo de referencia a `NULL`. Tambien podría
-    tener sentido en nuestro caso, vendria a decir que si el equipo se
-    borra, entonces todos sus componentes pasan a a ser *lobos
-    solitarios*. Obviamente, para poder usar esta opción, el campo debe
-    admitir la posibilidad de ser nulo.
--   `SET_DEFAULT`: Similar al anterior, pero en vez de asignar `NULL`,
-    se asigna a una especie de grupo pr defecto. Para poder usar esto
-    hay que especificar el parámetro `default`.
--   `SET`: Se asigna al valor de `Foreignkey` en el modelo el valor que
-    se le pase como parámetro a `SET`. Se puede pasar un valor o bien un
-    *callable*, cuyo valor devuelto se usara como clave foranea.
+- `PROTECT`: El que hemos usado. En nuestro caso, para poder borrar un
+  equipo, debemos desasignar todos los miembros que tenga. Solo cuando
+  no haya ninguna referencia al equipo podrá borrarse.
 
-Por ejemplo, se podria buscar que grupo tiene el mínimo numero de
-componentes y asigar los heroes del equipo borrado a este. O elegir un
-equipo al azar, o elegir un equipo dependiendo del día de la semana, o
-cualquier otra posibilidad que se nos ocurra.
+- `SET_NULL`: Poner el campo de referencia a `NULL`. Tambien podría
+  tener sentido en nuestro caso, vendria a decir que si el equipo se
+  borra, entonces todos sus componentes pasan a a ser *lobos
+  solitarios*. Obviamente, para poder usar esta opción, el campo debe
+  admitir la posibilidad de ser nulo.
 
--   `DO_NOTHING`: Como su nombre indica, no hace nada. Se usa cuando
-    queremos dejar que la propia base de datos resuelvas el problema con
-    sus propios mecanismos.
+- `SET_DEFAULT`: Similar al anterior, pero en vez de asignar `NULL`,
+  se asigna a una especie de grupo pr defecto. Para poder usar esto
+  hay que especificar el parámetro `default`.
+
+- `SET`: Se asigna al valor de `Foreignkey` en el modelo el valor que
+  se le pase como parámetro a `SET`. Se puede pasar un valor o bien un
+  *callable*, cuyo valor devuelto se usara como clave foranea.
+
+  Por ejemplo, se podria buscar que grupo tiene el mínimo numero de componentes
+  y asigar los heroes del equipo borrado a este. O elegir un equipo al azar, o
+  elegir un equipo dependiendo del día de la semana, o cualquier otra
+  posibilidad que se nos ocurra.
+
+- `DO_NOTHING`: Como su nombre indica, no hace nada. Se usa cuando
+  queremos dejar que la propia base de datos resuelvas el problema con
+  sus propios mecanismos.
 
 Un parámetro interesante es la opcion `limit_choices_to`. En nuestro
 caso, por ejemplo, si queremos asignar heroes a un grupo seria deseable
@@ -735,7 +770,7 @@ adelante) o directamente un *callable* que devuelva un diccionario o un
 objeto `Q`.
 
 Una cosa que hay que destacar, especialmente porque tiene asociado una
-cierta \"magia\", es que al incluir el campo en el modelo `MetaHuman`,
+cierta _magia_, es que al incluir el campo en el modelo `MetaHuman`,
 haciendo referencia al modelo `Team`, es que hemos modificado, en
 realidad, ambos modelos.
 
@@ -748,7 +783,7 @@ hemos declarado explicitamente, que le permite realizar la relacion
 inversa, es decir, le permite obtener los personajes que estan asociados
 al equipo.
 
-El nombre de este atributo \"magico\" se forma con el nombre del modelo
+El nombre de este atributo _mágico_ se forma con el nombre del modelo
 que realizó el enlace, sequido de `_set` todo en minúsculas. En nuestro
 caso, `Team` tiene un atributo ahora llamado `metahuman_set`. Este
 atributo es un objeto tipo `query_set`, es decir, una representación de
@@ -764,7 +799,7 @@ Y una vez dentro de Python:
 
     >>> from metahumans.models import Team, MetaHuman
     >>> avengers = Team.objects.first()
-    >>> for hero in avengers.metahuman_set.all():
+    >>> for hero in avengers.metahu\man_set.all():
     ...     print(hero)
     Spiderman
     Iron Man
@@ -803,7 +838,7 @@ correspondiente y se le pone como nombre `objects`:
     ...
 
 ### Guardar en la base de datos
-
+\
 Podemos salvar un objeto instanciado de un modelo en la base de datos,
 simplemente llamando al método `save`. Django es lo suficientemente
 listo como para distinguir si debe hacer un `INSERT` (Crear un registro
@@ -815,7 +850,7 @@ datos:
     4f = models.Team(name='Los Cuatro Fantásticos', slug='4f')
     4f.save()
 
-Para reflejar un cambio del modelo en la base de datos, también usamos
+P\ara reflejar un cambio del modelo en la base de datos, también usamos
 `save`:
 
     4f.description = 'La primera familia de superhéroes'
@@ -887,7 +922,7 @@ propio modelo:
 Normalmente el `get` se usa con la clave primaria para obtener el objeto
 que queremos, para eso podemos especificar el nombre de la clave
 primaria o, incluso más fácil, usar el parámetro `pk`, que siempre es un
-álias de la clave primaria del modelo:
+ál\ias de la clave primaria del modelo:
 
     >>> capi = models.SuperHero.objects.get(pk=3)
 
