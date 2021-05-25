@@ -5,5 +5,7 @@ title: Tema 5: Librerías
 
 ### Librerías estándar (incluidas junto con Python)
 
-- [`sys` - Configuración específica del sistema](standard/01-sys/sys.md)
-- [`os`](standard/02-os/os.md)
+- [`sys`](standard/01-sys/sys.md) Configuración específica del sistema
+- [`os`](standard/02-os/os.md) Llamadas al Sistema Operativo
+- [`time`](standard/03-time/time.md) Gestión básica del tiempo
+

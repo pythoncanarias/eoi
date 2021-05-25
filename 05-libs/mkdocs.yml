@@ -1,0 +1,22 @@
+site_name: Librerías
+repo_url: https://github.com/pythoncanarias/eoi/
+theme:
+  name: material
+
+plugins:
+  - search
+  - table-reader
+
+markdown_extensions:
+    - pymdownx.arithmatex:
+        generic: true
+    - mdx_math:
+        enable_dollar_delimiter: True #for use of inline $..$
+    - fenced_code
+    - codehilite
+    - footnotes
+
+extra_javascript:
+
+  - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML    
+  - javascripts/config.js
