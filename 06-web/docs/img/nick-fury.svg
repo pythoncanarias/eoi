@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="160mm"
+   height="89mm"
+   viewBox="0 0 160 89"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="nick-fury.svg"
+   inkscape:export-filename="/home/jileon/workarea/pythoncanarias/eoi/06-web/docs/img/nick-fury.png"
+   inkscape:export-xdpi="98.46067"
+   inkscape:export-ydpi="98.46067"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     width="160mm"
+     inkscape:zoom="1.1540873"
+     inkscape:cx="366.5234"
+     inkscape:cy="241.31623"
+     inkscape:window-width="1918"
+     inkscape:window-height="1024"
+     inkscape:window-x="131"
+     inkscape:window-y="99"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer2" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <image
+       width="160"
+       height="89"
+       preserveAspectRatio="none"
+       xlink:href="nick-fury.jpg"
+       id="image832"
+       x="0"
+       y="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Bocadillos">
+    <path
+       id="path859"
+       style="fill:#ffffff;stroke:#030101;stroke-width:3.77953;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+       d="m 502.64258,47.349609 c -51.91343,7.7e-5 -93.99762,24.055935 -93.99805,53.730471 0.0122,11.34367 6.3049,22.3941 17.97656,31.56836 -7.285,14.18503 -11.99569,20.30668 -24.79101,32.64062 25.3058,-0.55618 40.08927,-8.34675 51.42773,-18.50586 14.83943,5.24356 31.93895,8.02304 49.38477,8.02735 51.91419,5.4e-4 93.99957,-24.0555 94,-53.73047 -4.3e-4,-29.674972 -42.08581,-53.731009 -94,-53.730471 z"
+       transform="scale(0.26458333)"
+       sodipodi:nodetypes="cccccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="132.39661"
+       y="22.896414"
+       id="text6692"><tspan
+         sodipodi:role="line"
+         id="tspan6690"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="132.39661"
+         y="22.896414">Bienvenido a</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent Bold';text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="132.39661"
+         y="29.141783"
+         id="tspan6694">S.H.I.E.L.D.</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="132.39661"
+         y="35.38715"
+         id="tspan6696">novato</tspan></text>
+  </g>
+</svg>

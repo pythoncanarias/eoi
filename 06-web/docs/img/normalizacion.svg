@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="normalizacion.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="0.95119155"
+     inkscape:cx="442.0771"
+     inkscape:cy="216.57047"
+     inkscape:window-width="1920"
+     inkscape:window-height="1125"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:snap-global="false">
+    <sodipodi:guide
+       position="36.387416,264.93974"
+       orientation="0,-1"
+       id="guide20490" />
+    <sodipodi:guide
+       position="57.826489,256.8755"
+       orientation="0,-1"
+       id="guide20492" />
+    <sodipodi:guide
+       position="38.302289,24.768337"
+       orientation="1,0"
+       id="guide20494" />
+    <sodipodi:guide
+       position="76.118541,235.23974"
+       orientation="1,0"
+       id="guide20496" />
+    <sodipodi:guide
+       position="84.772846,220.2914"
+       orientation="1,0"
+       id="guide20500" />
+    <sodipodi:guide
+       position="123.32384,205.14636"
+       orientation="1,0"
+       id="guide20502" />
+    <sodipodi:guide
+       position="154.79404,205.73643"
+       orientation="1,0"
+       id="guide20504" />
+    <sodipodi:guide
+       position="99.515205,39.332895"
+       orientation="1,0"
+       id="guide164245" />
+    <sodipodi:guide
+       position="76.118539,280.31041"
+       orientation="0,-1"
+       id="guide25651" />
+    <sodipodi:guide
+       position="93.18356,264.93975"
+       orientation="0,-1"
+       id="guide25653" />
+    <sodipodi:guide
+       position="48.110226,274.48245"
+       orientation="0,-1"
+       id="guide25712" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="DotL"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="DotL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) translate(7.4, 1)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         id="path21300" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="marker21517"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path21515" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path21242" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="SquareL"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="SquareL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt"
+         d="M -5.0,-5.0 L -5.0,5.0 L 5.0,5.0 L 5.0,-5.0 L -5.0,-5.0 z "
+         id="path21309" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;stroke:#030101;stroke-width:0.2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000"
+       id="rect165943"
+       width="201.92558"
+       height="75.183784"
+       x="3.8038416"
+       y="85.42588" />
+    <g
+       id="g65438">
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+         x="86.528954"
+         y="150.30966"
+         id="text64860"><tspan
+           sodipodi:role="line"
+           id="tspan64858"
+           style="font-size:4.23333px;stroke-width:0.264583"
+           x="86.528954"
+           y="150.30966">Cuatro Fantásticos   Edificio Baxter </tspan></text>
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:0.260678;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+         id="rect64862"
+         width="78.261398"
+         height="8.0707569"
+         x="76.532639"
+         y="145.03661" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 123.73794,145.03531 v 8.06424"
+         id="path64864" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 85.108618,145.03531 v 8.06424"
+         id="path64866" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+         x="78.355995"
+         y="150.43373"
+         id="text64870"><tspan
+           sodipodi:role="line"
+           id="tspan64868"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Bold';stroke-width:0.264583"
+           x="78.355995"
+           y="150.43373">23</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 67.12158,100.97395 v 8.06424"
+       id="path38921" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 96.225765,100.97395 v 8.06424"
+       id="path38923" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 107.86746,100.97395 v 8.06424"
+       id="path38925" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.428156;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+       id="rect38941"
+       width="106.39887"
+       height="8.019516"
+       x="21.03142"
+       y="101.00085" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="30.695965"
+       y="106.04023"
+       id="text39044"><tspan
+         sodipodi:role="line"
+         id="tspan39042"
+         style="font-size:4.23333px;stroke-width:0.264583"
+         x="30.695965"
+         y="106.04023">Antorcha Humana   Johnny Storm     34</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 29.021557,100.97395 v 8.06424"
+       id="path42902" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="23.664061"
+       y="106.55592"
+       id="text42906"><tspan
+         sodipodi:role="line"
+         id="tspan42904"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Bold';stroke-width:0.264583"
+         x="23.664061"
+         y="106.55592">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="116.9388"
+       y="106.44421"
+       id="text57772"><tspan
+         sodipodi:role="line"
+         id="tspan57770"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';stroke-width:0.264583"
+         x="116.9388"
+         y="106.44421">23</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5875, 1.5875;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#SquareL);marker-end:url(#Arrow1Lend)"
+       d="m 118.06544,109.69613 c -0.0241,7.27196 -18.383391,18.13388 -35.539233,18.03105 -23.434185,-0.14046 -20.387305,23.00546 -6.407666,21.91342"
+       id="path64491"
+       sodipodi:nodetypes="csc" />
+    <rect
+       style="fill:#000000;stroke:#030101;stroke-width:0.2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000"
+       id="rect69513"
+       width="106.66235"
+       height="6.5817823"
+       x="21.026726"
+       y="94.395615" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;fill:#ffffff;stroke-width:0.264583"
+       x="22.815378"
+       y="99.465538"
+       id="text67703"><tspan
+         sodipodi:role="line"
+         id="tspan67701"
+         style="font-size:4.23333px;fill:#ffffff;stroke-width:0.264583"
+         x="22.815378"
+         y="99.465538"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Bold'"
+   id="tspan92629">id </tspan>   nombre                 identidad        nivel  id_equipo</tspan></text>
+    <rect
+       style="fill:#000000;stroke:#030101;stroke-width:0.171316;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000"
+       id="rect98292"
+       width="78.261398"
+       height="6.5817823"
+       x="76.532639"
+       y="138.45483" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;fill:#ffffff;stroke-width:0.264583"
+       x="78.817192"
+       y="143.09415"
+       id="text98477"><tspan
+         sodipodi:role="line"
+         id="tspan98475"
+         style="font-size:4.23333px;fill:#ffffff;stroke-width:0.264583"
+         x="78.817192"
+         y="143.09415"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Bold'"
+   id="tspan98473">id </tspan>   nombre                  cuartel</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="22.816849"
+       y="92.728699"
+       id="text103933"><tspan
+         sodipodi:role="line"
+         id="tspan103931"
+         style="font-size:3.52778px;stroke-width:0.264583"
+         x="22.816849"
+         y="92.728699">Metahumano</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="78.630074"
+       y="136.90526"
+       id="text104839"><tspan
+         sodipodi:role="line"
+         id="tspan104837"
+         style="font-size:3.52778px;stroke-width:0.264583"
+         x="78.630074"
+         y="136.90526">Equipo</tspan></text>
+    <g
+       id="g166868">
+      <g
+         id="g166634"
+         inkscape:export-filename="/home/jileon/workarea/pythoncanarias/eoi/06-web/docs/img/normalizacion-03.png"
+         inkscape:export-xdpi="77.911957"
+         inkscape:export-ydpi="77.911957">
+        <rect
+           style="fill:#ffffff;stroke:#030101;stroke-width:0.2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000"
+           id="rect165945"
+           width="201.8154"
+           height="122.37394"
+           x="3.8589318"
+           y="166.46515" />
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="109.61189"
+           y="272.53891"
+           id="text111013"><tspan
+             sodipodi:role="line"
+             id="tspan111011"
+             style="font-size:4.23333px;stroke-width:0.264583"
+             x="109.61189"
+             y="272.53891">vuelo</tspan></text>
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+           id="rect111015"
+           width="46.791203"
+           height="8.0707569"
+           x="99.615578"
+           y="267.26587" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 108.19156,267.26455 v 8.06424"
+           id="path111019" />
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="101.43893"
+           y="272.66296"
+           id="text111023"><tspan
+             sodipodi:role="line"
+             id="tspan111021"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Bold';stroke-width:0.264583"
+             x="101.43893"
+             y="272.66296">23</tspan></text>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 62.75634,196.60658 v 8.06424"
+           id="path111027" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 91.860525,196.60658 v 8.06424"
+           id="path111029" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 103.50222,196.60658 v 8.06424"
+           id="path111031" />
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.428156;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+           id="rect111033"
+           width="106.39887"
+           height="8.019516"
+           x="16.66618"
+           y="196.63348" />
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="26.330725"
+           y="201.67287"
+           id="text111037"><tspan
+             sodipodi:role="line"
+             id="tspan111035"
+             style="font-size:4.23333px;stroke-width:0.264583"
+             x="26.330725"
+             y="201.67287">Antorcha Humana   Johnny Storm     34</tspan></text>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 24.656317,196.60658 v 8.06424"
+           id="path111039" />
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="19.29882"
+           y="202.18855"
+           id="text111043"><tspan
+             sodipodi:role="line"
+             id="tspan111041"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Bold';stroke-width:0.264583"
+             x="19.29882"
+             y="202.18855">1</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="112.57355"
+           y="202.07684"
+           id="text111047"><tspan
+             sodipodi:role="line"
+             id="tspan111045"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';stroke-width:0.264583"
+             x="112.57355"
+             y="202.07684">23</tspan></text>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5875, 1.5875;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#SquareL);marker-end:url(#Arrow1Lend)"
+           d="m 38.302289,229.38005 c -5.830399,0.17784 -11.530292,-4.79772 -13.255508,-7.65731 -2.515572,-4.16963 -5.037714,-7.11816 -5.102004,-16.59404"
+           id="path111049"
+           sodipodi:nodetypes="csc" />
+        <rect
+           style="fill:#000000;stroke:#030101;stroke-width:0.2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000"
+           id="rect111051"
+           width="106.66235"
+           height="6.5817823"
+           x="16.661486"
+           y="190.02824" />
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;fill:#ffffff;stroke-width:0.264583"
+           x="18.450138"
+           y="195.09818"
+           id="text111057"><tspan
+             sodipodi:role="line"
+             id="tspan111055"
+             style="font-size:4.23333px;fill:#ffffff;stroke-width:0.264583"
+             x="18.450138"
+             y="195.09818"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Bold'"
+   id="tspan111053">id </tspan>   nombre                 identidad        nivel  id_equipo</tspan></text>
+        <rect
+           style="fill:#000000;stroke:#030101;stroke-width:0.132467;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000"
+           id="rect111059"
+           width="46.791203"
+           height="6.5817823"
+           x="99.615578"
+           y="260.68408" />
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;fill:#ffffff;stroke-width:0.264583"
+           x="101.90013"
+           y="265.32339"
+           id="text111065"><tspan
+             sodipodi:role="line"
+             id="tspan111063"
+             style="font-size:4.23333px;fill:#ffffff;stroke-width:0.264583"
+             x="101.90013"
+             y="265.32339"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Bold'"
+   id="tspan111061">id </tspan>   nombre</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:3.52778px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="18.451609"
+           y="188.36133"
+           id="text111069"><tspan
+             sodipodi:role="line"
+             id="tspan111067"
+             style="font-size:3.52778px;stroke-width:0.264583"
+             x="18.451609"
+             y="188.36133">Metahumano</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:3.52778px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="101.71301"
+           y="259.13452"
+           id="text111073"><tspan
+             sodipodi:role="line"
+             id="tspan111071"
+             style="font-size:3.52778px;stroke-width:0.264583"
+             x="101.71301"
+             y="259.13452">Poder</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="109.61189"
+           y="280.47629"
+           id="text132169"><tspan
+             sodipodi:role="line"
+             id="tspan132167"
+             style="font-size:4.23333px;stroke-width:0.264583"
+             x="109.61189"
+             y="280.47629">pirokinesis</tspan></text>
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+           id="rect132171"
+           width="46.791203"
+           height="8.0707569"
+           x="99.615578"
+           y="275.20325" />
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="101.43893"
+           y="280.60037"
+           id="text132175"><tspan
+             sodipodi:role="line"
+             id="tspan132173"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS Bold';stroke-width:0.264583"
+             x="101.43893"
+             y="280.60037">54</tspan></text>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 108.19156,275.2021 v 8.06424"
+           id="path136363" />
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+           id="rect136398"
+           width="62.500511"
+           height="8.0397968"
+           x="38.39534"
+           y="225.08592" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 72.869795,225.05392 v 8.06424"
+           id="path136400" />
+        <rect
+           style="fill:#000000;stroke:#030101;stroke-width:0.153067;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000"
+           id="rect136406"
+           width="62.671856"
+           height="6.5611825"
+           x="38.374935"
+           y="218.48375" />
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;fill:#ffffff;stroke-width:0.264583"
+           x="40.649189"
+           y="223.11276"
+           id="text136412"><tspan
+             sodipodi:role="line"
+             id="tspan136410"
+             style="font-size:4.23333px;fill:#ffffff;stroke-width:0.264583"
+             x="40.649189"
+             y="223.11276">metahumano_id   poder_id</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:3.52778px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="40.46207"
+           y="216.92387"
+           id="text136416"><tspan
+             sodipodi:role="line"
+             id="tspan136414"
+             style="font-size:3.52778px;stroke-width:0.264583"
+             x="40.46207"
+             y="216.92387">Metahumano_Poder</tspan></text>
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+           id="rect136422"
+           width="62.500511"
+           height="8.0397968"
+           x="38.39534"
+           y="232.99287" />
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="53.417171"
+           y="238.38974"
+           id="text136426"><tspan
+             sodipodi:role="line"
+             id="tspan136424"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';stroke-width:0.264583"
+             x="53.417171"
+             y="238.38974">1</tspan></text>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 72.869795,232.99147 v 8.06424"
+           id="path136428" />
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="53.417171"
+           y="230.45235"
+           id="text154286"><tspan
+             sodipodi:role="line"
+             id="tspan154284"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';stroke-width:0.264583"
+             x="53.417171"
+             y="230.45235">1</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="84.321068"
+           y="230.45235"
+           id="text154290"><tspan
+             sodipodi:role="line"
+             id="tspan154288"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';stroke-width:0.264583"
+             x="84.321068"
+             y="230.45235">23</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+           x="84.610992"
+           y="238.5119"
+           id="text156848"><tspan
+             sodipodi:role="line"
+             id="tspan156846"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';stroke-width:0.264583"
+             x="84.610992"
+             y="238.5119">54</tspan></text>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5875, 1.5875;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#SquareL);marker-end:url(#Arrow1Lend)"
+           d="m 38.302289,237.3577 c -5.830399,0.17784 -11.530292,-4.79772 -13.255508,-7.65731 -2.515572,-4.16963 -5.037714,-15.09581 -5.102004,-24.57169"
+           id="path162056"
+           sodipodi:nodetypes="csc" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5875, 1.5875;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#SquareL);marker-end:url(#Arrow1Lend)"
+           d="m 100.83296,228.73398 c 4.75423,0.39169 16.5535,5.00773 16.76998,13.75714 0.27156,10.97543 -32.830094,14.23571 -32.713338,21.67415 0.100657,6.41284 4.924348,7.02777 14.625603,6.91576"
+           id="path164243"
+           sodipodi:nodetypes="cssc" />
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5875, 1.5875;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#SquareL);marker-end:url(#Arrow1Lend)"
+           d="m 100.83296,236.0249 c 4.75423,0.39169 12.88037,1.28108 12.50064,6.95762 -0.52197,7.80279 -34.421593,11.29569 -34.193643,22.79522 0.173719,8.76375 10.673993,13.56669 20.375248,13.45468"
+           id="path164916"
+           sodipodi:nodetypes="cssc" />
+      </g>
+    </g>
+    <g
+       id="g32950"
+       inkscape:export-filename="/home/jileon/workarea/pythoncanarias/eoi/06-web/docs/img/normalizacion-01.png"
+       inkscape:export-xdpi="77.911957"
+       inkscape:export-ydpi="77.911957">
+      <rect
+         style="fill:#ffffff;stroke:#030101;stroke-width:0.2;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill;stop-color:#000000"
+         id="rect165740"
+         width="201.92558"
+         height="75.183784"
+         x="3.8038416"
+         y="4.6548829" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+         x="15.890226"
+         y="13.7503"
+         id="text6215"><tspan
+           sodipodi:role="line"
+           id="tspan6213"
+           style="font-size:4.23333px;stroke-width:0.264583"
+           x="15.890226"
+           y="13.7503">Antorcha Humana;Johnny Storm;34;Cuatro Fantásticos;Edificio Baxter;vuelo,pirokinesis</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+         x="11.21468"
+         y="40.757359"
+         id="text14827"><tspan
+           sodipodi:role="line"
+           id="tspan14825"
+           style="font-size:4.23333px;stroke-width:0.264583"
+           x="11.21468"
+           y="40.757359">Antorcha Humana   Johnny Storm   34   Cuatro Fantásticos   Edificio Baxter  vuelo,pirokinesis</tspan></text>
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+         id="rect19651"
+         width="184.27194"
+         height="8.0707569"
+         x="8.9970274"
+         y="35.765701" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 47.008608,35.76443 v 8.06424"
+         id="path20539" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 76.112793,35.76443 v 8.06424"
+         id="path20621" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 84.579465,35.76443 v 8.06424"
+         id="path20623" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 123.73795,35.76443 v 8.06424"
+         id="path20625" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 154.95898,35.76443 v 8.06424"
+         id="path20627" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+         x="11.21468"
+         y="66.686546"
+         id="text20711"><tspan
+           sodipodi:role="line"
+           id="tspan20709"
+           style="font-size:4.23333px;stroke-width:0.264583"
+           x="11.21468"
+           y="66.686546">Antorcha Humana   Johnny Storm   34   Cuatro Fantásticos   Edificio Baxter  vuelo,pirokinesis</tspan></text>
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill;stop-color:#000000"
+         id="rect20713"
+         width="184.27194"
+         height="8.0707569"
+         x="8.9970274"
+         y="61.694893" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 47.008608,61.693613 v 8.06424"
+         id="path20715" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 76.112793,61.693613 v 8.06424"
+         id="path20717" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 84.579465,61.693613 v 8.06424"
+         id="path20719" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 123.73795,61.693613 v 8.06424"
+         id="path20721" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 154.95898,61.693613 v 8.06424"
+         id="path20723" />
+      <path
+         style="fill:none;stroke:#a02c2c;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#DotL);marker-end:url(#marker21517)"
+         d="m 98.57643,59.401841 c 6.66182,-2.760865 12.51075,-3.77346 18.95567,-3.811566 6.8481,-0.04049 13.67455,1.603729 20.18799,3.811566"
+         id="path20758"
+         sodipodi:nodetypes="cac" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;fill:#a02c2c;stroke-width:0.264583"
+         x="95.036964"
+         y="53.298008"
+         id="text34151"><tspan
+           sodipodi:role="line"
+           id="tspan34149"
+           style="font-size:4.23333px;fill:#a02c2c;stroke-width:0.264583"
+           x="95.036964"
+           y="53.298008">Dependencia funcional</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;fill:#a02c2c;stroke-width:0.264583"
+         x="158.11798"
+         y="74.384521"
+         id="text36523"><tspan
+           sodipodi:role="line"
+           id="tspan36521"
+           style="font-size:4.23333px;fill:#a02c2c;stroke-width:0.264583"
+           x="158.11798"
+           y="74.384521">Multiples valores</tspan></text>
+      <path
+         id="rect25677"
+         style="fill:#cccccc;stroke:#030101;stroke-width:3.77953;stroke-linecap:round;paint-order:markers stroke fill;stop-color:#000000"
+         d="M 273.69141,63.078125 V 85.105469 H 144.76367 L 377.2168,112.94141 598.38867,85.105469 H 480.10547 V 63.078125 Z"
+         transform="scale(0.26458333)"
+         sodipodi:nodetypes="cccccccc" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+         x="77.285049"
+         y="21.478649"
+         id="text26798"><tspan
+           sodipodi:role="line"
+           id="tspan26796"
+           style="font-size:4.23333px;stroke-width:0.264583"
+           x="77.285049"
+           y="21.478649">CSV directo a una tabla</tspan></text>
+    </g>
+  </g>
+</svg>

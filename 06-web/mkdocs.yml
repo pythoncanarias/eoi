@@ -12,8 +12,8 @@ markdown_extensions:
         generic: true
     - mdx_math:
         enable_dollar_delimiter: True #for use of inline $..$
-    - fenced_code
-    - codehilite
+    - pymdownx.highlight
+    - pymdownx.superfences
     - footnotes
 
 extra_javascript:

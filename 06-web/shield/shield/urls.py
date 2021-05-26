@@ -23,8 +23,9 @@ import metahumans.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('listado/', metahumans.views.listado_metahumans),
-    path('ejemplo/', metahumans.views.css_ejemplo),
-] 
+    path('metahumano/<int:pk>/', metahumans.views.detalle),
+]
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

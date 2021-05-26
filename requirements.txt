@@ -8,3 +8,5 @@ mkdocs-material
 mkdocs-material-extensions
 pymdown-extensions
 python-markdown-math
+python-markdown-math
+mkdocs-macros-plugin

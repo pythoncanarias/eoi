@@ -70,7 +70,7 @@ Veamos cómo se haría usando estilos en línea:
 Comprueba que el estilo definido dentro del primer párrafo no se aplica al
 segundo.
 
-Esta forma sde especificar los estilos tieme varios problemas:
+Esta forma de especificar los estilos tieme varios problemas:
 
 - Tenemos que repetir todo la especificación del estilo cada vez que queramos
    usarlo
@@ -264,12 +264,14 @@ un formulariuo que tenga el foco, ':focus'.
 
 ### Selector por identidad
 
-Para especificadar el idnetiicador de un elemento en HTML se usa la propiedad
-ID. En el selector, como vimos antes, usariamos el prefijo `#`: 
+Para especificadar el identificador de un elemento en HTML se usa la propiedad
+`id`. En el selector, como vimos antes, usariamos el prefijo `#`: 
 
-    <div id="ejemplo">
-     <p>Esto es un texto de ejemplo</p>
-    </div>
+```html
+<div id="ejemplo">
+    <p>Esto es un texto de ejemplo</p>
+</div>
+```
 
 Que podria ser seleccionado con:
 
@@ -296,6 +298,10 @@ Algunas propiedades útiles:
 
  - `background-image: url(logotipo.png);`
 
+### Box model
+
+![Box model](img/box-model.png)
+
 #### Ajustes de tipografía
 
 Con `font` podemos definir casi todos los aspectos tipograficos: POdemos usar
@@ -312,4 +318,4 @@ por orden:
 
 
 
-
+![Usa bootstrap](img/use-bootstrap.svg)

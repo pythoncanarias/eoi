@@ -154,9 +154,7 @@ lenguaje natural a los conceptos usados en los diagramas E/R.
 
 ### Ejemplo 
 
-![Shield](img/shield.svg)
-
-![Nick Fury](img/nick-fury.jpg)
+![Nick Fury](img/nick-fury.png)
 
 Tu primera misión: Una página web con un listado de nombres de metahumanos
 y su nivel de peligro.
@@ -176,6 +174,71 @@ serán de ayuda:
 - En la primera columna tenemos el nombre
 
 - En la tercera columna tenemos el nivel (de peligro)
+
+Vamos a resolver los problamas de normalizacion. Si migraramos la tabla
+directamente a partir de la estructura del fichero CSV, obtendriamos algo como
+esto:
+
+![Una única tabla, no normalizada](img/normalizacion-01.png)
+
+Podemos apreciar dos problemas en esta tabla: El primero es la dependencia
+funcional entre el nombre del equipo y el cuartel general del mismo. Si
+comprobamos los datos, veríamos que para cada valor diferente del equipo
+(Patrulla X, Vengadores, Cuatro Fantásticos, etc.) tenemos exactamente el mismo
+valor en la columna de cuartel general. Esto es una consecuencia de que cada
+equipo tiene su propio cuartel general, como es lógico, y que el mismo equipo
+no puede tener dos cuarteles generales. Hay que romper esa dependencia
+funcional, ya que sabmos por experiencia que es una fuente de problemas
+futuros.
+
+El otro problema son los valores múltiples en la columna de los poderes. Esto
+rompe con la primera forma normal, que nos exige -entre otras cosas- valores
+únicos en cada atributo o columna.
+
+Vamos a resolver primero el tema de la dependencia funcional. La solución es
+**partir la tabla en dos**, de forma que tengamos una tabla para los metahumanos y otra
+para los equipos. Agregamos una **clave primaria** (_Primary Key_) a cada una
+de estas tablas, y para vincular a un metahumano a un equipo, añadimos una
+nueva columna, que en el diagrama hemos llamado `id_equipo`, que contendrá el
+valor de la clave primaria del equipo al que el heroe (o villano) está asociado. Cuando
+ponemos el valor de la clave primaria de una tabla en otra tabla, se la llema
+**clave foranea** (_Foreign Key_)
+
+![Rompemos la dependencia funcional](img/normalizacion-02.png)
+
+El segundo problema es un poco más complicado, porque tenemos una relación
+**N a N**: Un metahumano puede tener más de un poder, y un poder puede ser
+_compartido_ por varios metahumanos (O dicho de otra manera, varios metahumanos
+pueden tener el mismo poder). La solución en estos casos es también partir la
+tabla, crear una nueva tabla para los poderes, con su clave primaria, y luego
+**crear una nueva tabla intermedia**, que contendrá tanto la clave primaria del metahumano
+como la clave primaria del poder. 
+
+![Una relación N a N](img/normalizacion-03.png)
+
+Veamos como se van creando las tablas a medida que fueramos añadiendo entradas
+desde el fichero CSV. Si crearamos por ejemplo a la Antorcha Humana, tendriamos
+algo como:
+
+![Añadiendo la antorcha humana](img/normalizacion-ejemplo-01.png)
+
+Al añadir a El Ángel, nos vemos obligados a crear un nuevo equipo, pero
+reutilizamos el poder de volar que ya habíamos definido para la antorcha:
+
+![Añadiendo a El Ángel](img/normalizacion-ejemplo-02.png)
+
+Al añadir a _Spiderman_, como no está asociado a ningún equipo, podremos en su
+clave foránea de equipo el valor especial `NULL`, equivalente más o menos al
+`None` de Python pero en bases de datos. Eso si, tiene muchos poderes que no
+habíamos visto antes, así que tanto la tabla de `Poder` como la tabla
+intermedia `Metahumano_Poder` ganan nuevas entradas:
+
+![Añadiendo a Spiderman](img/normalizacion-ejemplo-03.png)
+
+Al añadir a _Daredevil_, tiene dos poderes, pero solo uno que no habíamos visto
+antes. Para los *supersentidos* usamos el que se creo previamente.
+
+![Añadiendo a Daredevil](img/normalizacion-ejemplo-04.png)
 
 
 **Ejercicio**: Crear un nuevo projecto django, llamado `shield`, y dentro de él
@@ -222,10 +285,10 @@ Como con `startproject`, lo único que ha hecho `startapp` es crearnos un
 esqueleto de los ficheros y carpetas que necesitaremos para la vista. Todos
 estos ficheros están vacios o con apenas una o dos líneas.
 
-Una cosa importante es que, aunque `startapp` nos haya creado el código mínimo
+Una cosa importante: **Aunque `startapp` nos haya creado el código mínimo
 para una *app*, esta es invisible para el proyecto Django en si, hasta que
 no se la incluya en la variable `INSTALLED_APPS` dentro del archivo
-`settings.py`.
+`settings.py`**.
 
 *Ejercicio*: Incluir `metahumans` en la lista de apps en uso del proyecto.
 Editar `shield/settings.py'.
