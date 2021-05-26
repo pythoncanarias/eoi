@@ -10,3 +10,4 @@ title: Tema 5: Librerías
 - [`time`](standard/03-time/time.md) Gestión básica del tiempo
 - [`datetime`](standard/04-datetime/datetime.md) Gestión de fechas, horas y *timestamps*
 - [`logging`](standard/05-logging/logging.md) Registro de actividad
+- [`sched`](standard/06-sched/sched.md) Programador de eventos

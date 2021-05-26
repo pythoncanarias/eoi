@@ -6,14 +6,15 @@ theme:
 plugins:
   - search
   - table-reader
+  - macros
 
 markdown_extensions:
     - pymdownx.arithmatex:
         generic: true
     - mdx_math:
         enable_dollar_delimiter: True #for use of inline $..$
-    - fenced_code
-    - codehilite
+    - pymdownx.highlight
+    - pymdownx.superfences
     - footnotes
 
 extra_javascript:
