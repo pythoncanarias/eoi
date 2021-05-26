@@ -11,3 +11,4 @@ title: Tema 5: Librerías
 - [`datetime`](standard/04-datetime/datetime.md) Gestión de fechas, horas y *timestamps*
 - [`logging`](standard/05-logging/logging.md) Registro de actividad
 - [`sched`](standard/06-sched/sched.md) Programador de eventos
+- [`hashlib`](standard/07-hashlib/hashlib.md) Hashes y códigos de verificación e integridad
