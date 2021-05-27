@@ -14,6 +14,9 @@ title: Librerías
 - [`hashlib`](standard/07-hashlib/hashlib.md) Hashes y códigos de verificación e integridad
 - [`argparse`](standard/08-argparse/argparse.md) Procesar argumentos
 - [`random`](standard/09-random/random.md) Generación de números pseudo-aleatorios
+- csv
+- [json](standard/11-json/json.md)
+- re
 
 ### Librerías externas (Hay que instalarlas)
 
