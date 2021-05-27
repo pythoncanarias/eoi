@@ -1,5 +1,5 @@
 ---
-title: Tema 5: Librerías
+title: Librerías
 ---
 ## Librerías
 
@@ -12,3 +12,5 @@ title: Tema 5: Librerías
 - [`logging`](standard/05-logging/logging.md) Registro de actividad
 - [`sched`](standard/06-sched/sched.md) Programador de eventos
 - [`hashlib`](standard/07-hashlib/hashlib.md) Hashes y códigos de verificación e integridad
+- [`argparse`](standard/08-argparse/argparse.md) Procesar argumentos
+- [`random`](standard/09-random/random.md) Generación de números pseudo-aleatorios
