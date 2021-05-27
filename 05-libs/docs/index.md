@@ -14,3 +14,7 @@ title: Librerías
 - [`hashlib`](standard/07-hashlib/hashlib.md) Hashes y códigos de verificación e integridad
 - [`argparse`](standard/08-argparse/argparse.md) Procesar argumentos
 - [`random`](standard/09-random/random.md) Generación de números pseudo-aleatorios
+
+### Librerías externas (Hay que instalarlas)
+
+- [`fire`](external/fire/fire.md) - Interfaz de línea de comandos

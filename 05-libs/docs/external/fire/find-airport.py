@@ -1,10 +1,6 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 import csv
 
 import fire
-
 
 class Airport(object):
 
@@ -19,6 +15,7 @@ class Airport(object):
                     self.nombre = items[1]
                     self.latitud = float(items[2])
                     self.longitud = float(items[3])
+                    self.coords = (self.latitud, self.longitud)
                     self.msg = f"{self.code} {self.nombre} ({self.latitud}, {self.longitud})"
                     break
             else:
@@ -26,7 +23,6 @@ class Airport(object):
 
     def __str__(self):
         return self.msg
-
 
 if __name__ == '__main__':
     fire.Fire(Airport)
