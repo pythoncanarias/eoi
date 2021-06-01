@@ -9,6 +9,8 @@ plugins:
   - macros
 
 markdown_extensions:
+    - admonition
+    - pymdownx.details
     - pymdownx.arithmatex:
         generic: true
     - mdx_math:

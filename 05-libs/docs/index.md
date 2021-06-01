@@ -14,10 +14,11 @@ title: Librerías
 - [`hashlib`](standard/07-hashlib/hashlib.md) Hashes y códigos de verificación e integridad
 - [`argparse`](standard/08-argparse/argparse.md) Procesar argumentos
 - [`random`](standard/09-random/random.md) Generación de números pseudo-aleatorios
-- [csv](standard/10-csv/csv.md) Trabajar con ficheros CSV
-- [json](standard/11-json/json.md)
-- re
+- [`csv`](standard/10-csv/csv.md) Trabajar con ficheros CSV
+- [`json`](standard/11-json/json.md) Trabajar con el formato json
+- [`re`](standard/12-re/re.md) Expresiones regulares
 
 ### Librerías externas (Hay que instalarlas)
 
 - [`fire`](external/fire/fire.md) - Interfaz de línea de comandos
+- [`qrcode`](externa/qrcode/qrcode.md) - Códigos QR
