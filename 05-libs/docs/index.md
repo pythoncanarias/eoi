@@ -22,3 +22,7 @@ title: Librerías
 
 - [`fire`](external/fire/fire.md) - Interfaz de línea de comandos
 - [`qrcode`](externa/qrcode/qrcode.md) - Códigos QR
+
+### Anexos
+
+- [Miniproyecto](A1-miniproject.md) Programa de copias de seguridad

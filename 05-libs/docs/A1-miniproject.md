@@ -1,4 +1,6 @@
-## Anexo 1: Miniproyecto Librerías
+---
+title: Anexo 1 - Miniproyecto Librerías
+---
 
 Si realizas este miniproyecto, vale también para la parte web. Es decir, que 
 para estos dos módulos solo necesitas un único proyecto.
