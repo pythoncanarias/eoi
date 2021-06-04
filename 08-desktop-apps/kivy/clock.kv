@@ -1,0 +1,90 @@
+<ClockWidget>:
+    face: face
+    ticks: ticks
+    FloatLayout:
+        id: face
+        size_hint: None, None
+        pos_hint: {"center_x":0.5, "center_y":0.5}
+        size: 0.9*min(root.size), 0.9*min(root.size)
+        canvas:
+            Color:
+                rgb: 0.1, 0.1, 0.1
+            Ellipse:
+                size: self.size     
+                pos: self.pos
+
+
+        Label:
+            text: "1"
+            pos_hint: {"center_x": 0.71, "center_y": 0.864}
+            font_size: self.height/16
+
+
+        Label:
+            text: "2"
+            pos_hint: {"center_x": 0.864, "center_y": 0.71}
+            font_size: self.height/16
+
+
+        Label:
+            text: "3"
+            pos_hint: {"center_x": 0.92, "center_y": 0.5}
+            font_size: self.height/16
+
+
+        Label:
+            text: "4"
+            pos_hint: {"center_x": 0.864, "center_y": 0.29}
+            font_size: self.height/16
+
+
+        Label:
+            text: "5"
+            pos_hint: {"center_x": 0.71, "center_y": 0.136}
+            font_size: self.height/16
+
+
+        Label:
+            text: "6"
+            pos_hint: {"center_x": 0.5, "center_y": 0.08}
+            font_size: self.height/16
+
+
+        Label:
+            text: "7"
+            pos_hint: {"center_x": 0.29, "center_y": 0.136}
+            font_size: self.height/16
+
+
+        Label:
+            text: "8"
+            pos_hint: {"center_x": 0.136, "center_y": 0.29}
+            font_size: self.height/16
+
+
+        Label:
+            text: "9"
+            pos_hint: {"center_x": 0.08, "center_y": 0.5}
+            font_size: self.height/16
+
+
+        Label:
+            text: "10"
+            pos_hint: {"center_x": 0.136, "center_y": 0.71}
+            font_size: self.height/16
+
+
+        Label:
+            text: "11"
+            pos_hint: {"center_x": 0.29, "center_y": 0.864}
+            font_size: self.height/16
+
+
+        Label:
+            text: "12"
+            pos_hint: {"center_x": 0.5, "center_y": 0.92}
+            font_size: self.height/16
+
+    Ticks:
+        id: ticks
+        r: min(root.size)*0.9/2
