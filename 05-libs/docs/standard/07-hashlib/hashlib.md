@@ -53,3 +53,10 @@ eafd88022b53be13af86520a6a221024
 muestra los ficheros dentro de una determinada carpeta. pero que incluya el
 nombre del fichero, el tamaño, el tiempo de la ultima modificación y el hash
 del contenido del fichero.
+
+**Solucion**:
+
+```python
+{% include 'standard/07-hashlib/lsplus.py' %}
+```
+
