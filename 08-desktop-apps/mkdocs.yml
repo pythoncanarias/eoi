@@ -1,0 +1,25 @@
+site_name: Aplicaciones de escritorio
+repo_url: https://github.com/pythoncanarias/eoi/
+theme:
+  name: material
+
+plugins:
+  - search
+  - table-reader
+  - macros
+
+markdown_extensions:
+    - admonition
+    - pymdownx.details
+    - pymdownx.arithmatex:
+        generic: true
+    - mdx_math:
+        enable_dollar_delimiter: True #for use of inline $..$
+    - pymdownx.highlight
+    - pymdownx.superfences
+    - footnotes
+
+extra_javascript:
+
+  - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML    
+  - javascripts/config.js
