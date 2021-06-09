@@ -1,0 +1,33 @@
+BoxLayoutExample:
+
+<BoxLayoutExample>
+    orientation: "horizontal"
+    Button:
+        text: "First button"
+        size_hint: .8, .52
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "8dp"
+        Button:
+            text: "Second button.A"
+        Button:
+            text: "Second button.B"
+        Button:
+            text: "Second button.C"
+        Button:
+            text: "Second button.D"
+    Button:
+        text: "Third button"
+
+<MainWidget>:
+    Button:
+        text: "Hello, world"
+        size: "150dp", "48dp"
+        pos: "100dp", "200dp"
+        color: .4, .4, .97, 0.6
+
+    Label:
+        text: "It's a wonderfull World"
+        size: "220dp", "32dp"
+        pos: "100dp", "300dp"
+        color: .4, .4, .97, 0.6

@@ -13,7 +13,7 @@ class Example(QWidget):
     
     def __init__(self):
         super().__init__()        
-        btn = QPushButton('Button', self)
+        btn = QPushButton('Hello world', self)
         btn.resize(btn.sizeHint())
         btn.move(50, 50)       
         self.setGeometry(300, 300, 300, 200)
