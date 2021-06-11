@@ -5,7 +5,10 @@ class ExampleRV(RecycleView):
 
     def __init__(self, **kwargs):
         super(ExampleRV, self).__init__(**kwargs)
-        self.data = [{'text': str(x)} for x in range(20)]
+        self.data = [
+            {'text': f'Botón {x}'} 
+            for x in range(25)
+        ]
 
 
 class RecycleApp(App):

@@ -1,0 +1,4 @@
+author=Juan Ignacio Rodriguez de Leon
+orientation=portrait
+title=Simple Clock
+
