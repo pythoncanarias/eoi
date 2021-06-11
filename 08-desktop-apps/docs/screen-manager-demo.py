@@ -7,7 +7,10 @@ Builder.load_string("""
     FloatLayout:
         Button:
             text: 'First Screen'
-            on_press: root.manager.current = 'settings'
+            on_press:
+                root.manager.transition.duration = 0.5
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'settings'
             pos_hint: {'right': 1, 'center_y': 0.5}
             size_hint: (None, None)
             size: ("196dp", "24dp")
@@ -16,7 +19,10 @@ Builder.load_string("""
     FloatLayout:
         Button:
             text: 'Second Screen'
-            on_press: root.manager.current = 'menu'
+            on_press:
+                root.manager.transition.duration = 0.5
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
             pos_hint: {'x': 0, 'center_y': 0.5}
             size_hint: (None, None)
             size: ("196dp", "24dp")
