@@ -132,13 +132,13 @@ hacer un reloj digital con muy poco codigo adicional.
 Veamos prrimero el fichero kivy:
 
 ```
-{% include 'simpleclock.kv' %}
+{% include 'simpleclock/simpleclock.kv' %}
 ```
 
 Y el codigo python:
 
 ```
-{% include 'simpleclock.py' %}
+{% include 'simpleclock/main.py' %}
 ```
 
 **Ejercicio:** Usar la fuente incluida
