@@ -4,10 +4,10 @@ from kivy.uix.recycleview import RecycleView
 class ExampleRV(RecycleView):
 
     def __init__(self, **kwargs):
-        super(ExampleRV, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.data = [
             {'text': f'Botón {x}'} 
-            for x in range(25)
+            for x in range(1025)
         ]
 
 

@@ -8,7 +8,6 @@ from PyQt5.QtWidgets import (
     QApplication,
     )
 
-
 class Example(QWidget):
     
     def __init__(self):

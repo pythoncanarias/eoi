@@ -7,7 +7,8 @@ class MainApp(App):
         self.btn = Button(
            text="Hello World",
            size_hint=(0.4,0.05),
-           pos_hint={'x': 0.3, 'y': 0.5}
+           pos_hint={'x': 0.3, 'y': 0.5},
+           background_color = "#FF0000",
            )
         return self.btn
 

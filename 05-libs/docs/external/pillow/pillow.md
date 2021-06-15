@@ -294,8 +294,9 @@ imagen, sino que modifica la imagen original, lo que se suele conocer como
 modificación *in place*. La mayoría de las funciones y métodos **no** funcionan
 así, sino que devuelven una nueva imagen creada a partir de la original.
 
-Otra cosa que conviene saber es que la librería decodifica y carga la imagen __solo__
-cuando no tiene más remedio (Esto se conoce como comportamiento *lazy*).
+Otra cosa que conviene saber es que la librería decodifica y carga la imagen
+__solo__ cuando no tiene más remedio (Esto se conoce como comportamiento
+*lazy*).
 
 Esto significa que, cuando abrimos la imagen con open, le lee la cabecera del
 fichero para determinar el formato y obtener información como el modo, el
@@ -383,7 +384,7 @@ region = leon.crop(box)
 region
 ```
 
-![Partede una imagen](leon-crop.png)
+![Parte de una imagen](leon-crop.png)
 
 Como vemos, el tamaño de la imagen respeta las dimensiones usadas para el
 recorte.
@@ -392,11 +393,11 @@ recorte.
 leon.size, region.size
 ```
 
+salida:
 
-
-
-    ((640, 960), (130, 120))
-
+```shell
+((640, 960), (130, 120))
+```
 
 
 Observa que en este caso no se transforma la imagen original, como en `thumbnail`, sino que
@@ -421,10 +422,7 @@ with Image.open("leon.jpg") as leon:
 region
 ```
 
-
-
-
-![png](output_69_0.png)
+![png](leon-eye.png)
 
 
 
@@ -452,13 +450,16 @@ el tamaño de las dos debe ser el mismo, si no se elevará un error. Además, no
 pegar una imagen de forma que ocupe más que el tamaño de la imagen original.
 
 no tenemos que preocuparnos, sin embargo, si los modos de la imagen pegada y destino
-no coinciden, la libreria hara las conversiones necesarias automaticamente.
+no coinciden, la librería realizará las conversiones necesarias automáticamente.
+
+![Después de pegar la imagen rotada](leon-paste.png)
 
 ### Descomponer una imagen en color en RGB
 
-El método `split` nos permite dividir una imagen en los canales básicos rojo, verde y azul (R, G, B), devolviendos
-tres imagenes, cada una de las cuales contienen los valores para cada banda o color. Podemos
-reunificar esas tres imagenenes de nuevo con la función `merge`.
+El método `split` nos permite dividir una imagen en los canales básicos rojo,
+verde y azul (R, G, B), devolviéndoos tres imágenes, cada una de las cuales
+contienen los valores para cada banda o color. Podemos reunificar esas tres
+imágenes de nuevo con la función `merge`.
 
 
 ```python
@@ -466,23 +467,21 @@ from PIL import Image
 
 leon = Image.open("incredibles.png")
 red, green, blue = leon.split()
-green
+green.show()
 ```
 
+![La capa G](incredibles-green.png)
 
 
+El método `merge` espera dos parámetros, el primero es el modo (es este caso,
+`RGB`) y luego las bandas con las que debe mezclar la imagen, en este caso en
+forma de tupla de tres elementos). Si mezclamos las bandas en el orden
+correcto, obtenemos la misma imagen.
 
-![png](output_74_0.png)
-
-
-
-El metodo `merge` espera dos parámetros, el primero es el modo (es este caso, `RGB`) y luego las
-tres bandas con las que debe remezclar la imagen, en forma de tupla de tres elementos). Si mezclamos las
-bandas en el orden correcto, obtenemos la misma imagen.
-
-**Ejercicio**: Mezcla las tres bandas obtenidas antes (`red`, `green`, `blue`) ejecuntando
-    la siguiente celda, y comprueba que volvemos a tener la imagen original. Despues, cambia el orden
-    de las bandas (`blue`, `green`, `red`, por ejemplo) y observa el efecto
+**Ejercicio**: Mezcla las tres bandas obtenidas antes (`red`, `green`, `blue`)
+ejecutando el siguiente ejemplo, y comprueba que volvemos a tener la imagen
+original. Después, cambia el orden de las bandas (`blue`, `green`, `red`, por
+ejemplo) y observa el efecto:
 
 
 ```python
@@ -497,10 +496,7 @@ rebuild = Image.merge("RGB", (red, green, blue))
 rebuild
 ```
 
-
-
-
-![png](output_77_0.png)
+![Mezclando bandas](incredibles-merge.png)
 
 
 
@@ -515,48 +511,44 @@ im = Image.open("leon.png")
 red, green, blue = im.split()
 rebuild = Image.merge("RGB", (blue, red, green))
 rebuild.thumbnail((550, 550))
-rebuild.save('/tmp/green-lion.png')
+rebuild.show()
 ```
+
+![León green](leon-green.png)
 
 ### Transformaciones geométricas
 
-Podemos realizar algunas transformaciones geométricas sencillas
-incluidas en la propia clase `Image`. Por ejemplo, `resize` nos 
-permite cambiar el tamaño de la imagen. Al contrario que `thumbnail`, no
-respetara las proporciones actuales, si el nuevo tamaño no la hace, y
-no hace el cambio *in place*, sino que crea una nueva imagen con el nuevo tamaño:
+Podemos realizar algunas transformaciones geométricas sencillas incluidas en la
+propia clase `Image`. Por ejemplo, `resize` nos permite cambiar el tamaño de la
+imagen. Al contrario que `thumbnail`, no respetara las proporciones actuales,
+si el nuevo tamaño no la hace, y no hace el cambio *in place*, sino que crea
+una nueva imagen con el nuevo tamaño:
     
-    
-
-
 ```python
 from PIL import Image
 
 leon = Image.open("leon.jpg")
 deformed = leon.resize((560, 220))
-deformed
+deformed.show()
 ```
 
-
-
-
-![png](output_80_0.png)
+![png](leon-resize.png)
 
 
 
 Para rotar las imágenes, podemos usar el método `rotate` o, como hicimos antes, `transpose`. Este
 último puede ser usado también para reflejar la imagen a lo largo de su eje vertical u horizontal.
 
-    out = im.transpose(Image.FLIP_LEFT_RIGHT)
-    out = im.transpose(Image.FLIP_TOP_BOTTOM)
-    out = im.transpose(Image.ROTATE_90)
-    out = im.transpose(Image.ROTATE_180)
-    out = im.transpose(Image.ROTATE_270)
-  
+```python
+out = im.transpose(Image.FLIP_LEFT_RIGHT)
+out = im.transpose(Image.FLIP_TOP_BOTTOM)
+out = im.transpose(Image.ROTATE_90)
+out = im.transpose(Image.ROTATE_180)
+out = im.transpose(Image.ROTATE_270)
+```  
 
-  
 Usando el *flag* `expand` (por defecto a False), podemos indicar si queremos 
-expandir la imagen paa que la rotación se produzca con
+expandir la imagen para que la rotación se produzca con
 o sin perdida.
 
 
@@ -565,35 +557,29 @@ from PIL import Image
 
 leon = Image.open("leon.jpg")
 leon.thumbnail((240, 240))
-rotated = leon.rotate(45, expand= False)
-rotated
+rotated = leon.rotate(45, expand=True)
+rotated.show()
 ```
 
-
-
-
-![png](output_83_0.png)
+![Leó’n rotado 45 grados](leon-rotated.png)
 
 
 
 ### Transformaciones de color
 
-La libreria nos permite convertir imagenes entre diferentes modos.
+La librería nos permite convertir imágenes entre diferentes modos.
 
 
 ```python
 from PIL import Image
 
 leon = Image.open("leon.jpg")
-leon.thumbnail((220, 220))
+leon.thumbnail((440, 440))
 leon = leon.convert("L")
 leon
 ```
 
-
-
-
-![png](output_85_0.png)
+![Leon en modo L o Luminancia (Blanco y negro)](leon-mode-l.png)
 
 
 
@@ -629,30 +615,10 @@ l2 = leon.filter(ImageFilter.SMOOTH)
 l2
 ```
 
+![png](leon-smooth.png)
 
 
-
-![png](output_89_0.png)
-
-
-
-
-```python
-!ls
-```
-
-    Allura-Regular.ttf	 HSV.png	    pillow.ipynb
-    blue-lion.png		 incredibles.png    pillow.md
-    cambia-formato.py	 incredibles.webp   PrimroseDM_1000x390.jpg
-    creditos.md		 leon.jpg	    rectangle.png
-    croma.png		 leon.png	    rectangle.svg
-    cuadricula.py		 lista-imagenes.py  rojo.py
-    DandelionDM_800x665.jpg  mixed.png	    SilverweedDM_800x460.jpg
-    elastigirl.png		 PaperFlowers.ttf
-    fondo.jpg		 payaso.py
-
-
-**Ejercicio** Prueba distintos filtros en la celda anterior.
+**Ejercicio** Prueba distintos filtros con el código anterior.
 
 ### Operaciones puntuales
 
@@ -660,22 +626,21 @@ El metodo `point` se usa para transofmrar los valores de pixels de una
 imagen de manera individulal. Acepta como argumento una funcion que se
 aplicara a todos los pixels de la imagen.
 
-
+Por ejemplo, si miltiplicamos todos los valores de pixels por 1.4, lo que
+estamos haciendo es que todos los valores sean mas luminosos en un 40%:
 ```python
 from PIL import Image
 
 leon = Image.open("leon.jpg")
 leon = leon.crop((0, 340, 550, 440))
-leon.point(lambda x: x*1.2)
+leon = leon.point(lambda x: x*1.2)
+leon.show()
 ```
 
+![png](leon-point-01.png)
 
-
-
-![png](output_93_0.png)
-
-
-
+ Combinando estas operaciones con la sivision por bandas podemos crear efectos
+ curiosos:
 
 ```python
 from PIL import Image
@@ -690,19 +655,18 @@ rebuild = Image.merge("RGB", (r, g, b))
 rebuild
 ```
 
+![png](leon-point-02.png)
 
 
+**Ejercicio** Usa la función `split` para obtener los tres canales RGB de la
+imagen.  Con el método `point` sube un poco (multiplica por $1.2$) el canal de
+rojo), y baja un poco los valores de los canales verde y azul (Por ejemplo,
+multiplícalos por $0.85$). Combina de nueve los canales RGB en una nueva figura
+y muéstrala como resultado de la celda
 
-![png](output_94_0.png)
-
-
-
-**Ejercicio** Usa la función `split` para obtener los tres canales RGB de la imagen. 
-Con el método `point` sube un poco (multiplica por $1.2$) el canal de rojo), y baja un poco los valores de los canales verde y azul (Por ejemplo, multiplícalos por $0.85$). Combina de nueve los canales RGB en una nueva figura y muéstrala como resultado de la celda
-
+**Solución:**
 
 ```python
-# %load rojo.py
 from PIL import Image
 
 leon = Image.open("leon.jpg")
@@ -712,13 +676,10 @@ r = r.point(lambda x: x*1.25)
 g = g.point(lambda x: x*0.85)
 b = b.point(lambda x: x*0.85)
 rebuild = Image.merge("RGB", (r, g, b))
-rebuild
+rebuild.show()
 ```
 
-
-
-
-![png](output_96_0.png)
+![png](leon-pink.png)
 
 
 
@@ -732,17 +693,14 @@ from PIL import Image
 
 leon = Image.open("leon.jpg")
 leon = leon.crop((0, 340, 550, 680))
-leon.point(lambda x: (x // 64) * 64)
+leon = leon.point(lambda x: (x // 64) * 64)
+leon.show()
 ```
 
+![png](leon-poster.png)
 
 
-
-![png](output_98_0.png)
-
-
-
-### El módulo ImageEnhance
+### El módulo `ImageEnhance`
 
 Una forma aun mas avanzada de tratamiento de imágenes se puede encontrar en
 el módulo `ImageEnhance`. Podemos crear  un objeto de tipo `Color`, `Contrast`,
@@ -763,9 +721,7 @@ enhancer.enhance(1.5)
 ```
 
 
-
-
-![png](output_100_0.png)
+![png](leon-enhanced.png)
 
 
 
@@ -773,20 +729,18 @@ enhancer.enhance(1.5)
     imagen final. Cambia tambien si quieres a otro tipo de *enhancer* y varia de nuevo
     el valor.
 
-### El módulo ImageDraw: Dibujar sobre la imagen
+### El módulo `ImageDraw`: Dibujar sobre la imagen
 
 Para dibujar sobre una imagen podemos usar el modulo `ImageDraw`.
 
-
-Es ste modulo nos posibilita hacer dibujos desde cero, o anotar o retocar
-imagenes preexistentes, o incluso generar graficos bajo demanda para la web.
+Este módulo nos posibilita hacer dibujos desde cero, o anotar o retocar
+imágenes preexistentes, o incluso generar gráficos bajo demanda para la web.
 
 Para poder dibujar sobre la imagen, tenemos que crear un objeto, a veces llamado
 *canvas* o lienzo, a partir de la imagen. Dibujamos usando este objeto, y no sobre la
 imagen original, pero este objeto se encargara de reflejar estos cambios en ella.
 
 Veamos un ejemplo:
-
 
 ```python
 from PIL import Image, ImageDraw
@@ -795,61 +749,61 @@ leon = Image.open("leon.jpg")
 leon.thumbnail((400, 400))
 width, height = leon.size
 draw = ImageDraw.Draw(leon)
-draw.line((0, 0, width, height), fill=(255, 120, 120), width=12)
-draw.line((width, 0, 0, height), fill="coral", width=8)
-leon
+draw.line((0, 0, width, height), fill="red", width=12)
+draw.line((width, 0, 0, height), fill="red", width=12)
+leon.show()
 ```
 
+![Ejemplo de draw.line](leon-draw.png)
 
+**Ejercicio:** ¡Pon al león entre barrotes! Pinta una parrilla de líneas
+horizontales y verticales, de color blanco. Deja un hueco entre ellas
+de 100 pixels y pinta cada línea o "barrote" de 12 pixels.
 
-
-![png](output_103_0.png)
-
-
-
+**Solución:**
 
 ```python
+from PIL import Image, ImageDraw
+
 im = Image.open("leon.png")
 max_width, max_height = im.size
 draw = ImageDraw.Draw(im)
 
 for width in range(40, max_width, 100):
-    draw.line((width, 0, width, max_height), fill=(23, 56, 199), width=12)
+    draw.line((width, 0, width, max_height), fill="white", width=12)
 for height in range(60, max_height, 100):
-    draw.line((0, height, max_width, height), fill=(23, 56, 199), width=12)
-im
+    draw.line((0, height, max_width, height), fill=(255, 255, 255), width=12)
+im.show()
 ```
 
-
-
-
-![png](output_104_0.png)
+![png](leon-jail.png)
 
 
 
 ### Colores
 
 Para especificar colores, se pueden usar números o tuplas. Para imágenes
-en modo `1`, `L` e `I` solo valen los enteros. Si el mode es `F` se deben
-usar numeros on coma flotante (*float*). Para RGB se puede usar un numero
+en modo `1`, `L` e `I` solo valen los enteros. Si el `mode` es `F` se deben
+usar números en coma flotante (*float*). Para `RGB` se puede usar un numero
 o un tupla; si se usa un numero se tomara como el valor rojo. Si el modo
-es `P` es que usa un paleta de colores, y se usa un entero cpmo indice de la
+es `P` es que usa un paleta de colores, y se usa un entero cómo indice de la
 paleta.
 
-Desde la version 1.1.4 tambien se pueden usar nombres como `silver` o `navy`
-Puedes ver el estandar de nombres de colores para HTML aqui:
+Desde la versión 1.1.4 también se pueden usar nombres usando el convenio de
+nombres de colores usado en Html, como `silver` o `navy`. Puedes ver el est
+ndar de nombres de colores para HTML aquí:
 
-https://en.wikipedia.org/wiki/Web_colors#HTML_color_names
+<https://en.wikipedia.org/wiki/Web_colors#HTML_color_names>
 
-*Ejercicio*: Cambia los colores y ancho de las lineas en el ejercicio anterior. ¿Cómo
-harias para dibujar una cuadricula?
+*Ejercicio*: Cambia los colores y ancho de las lineas en el ejercicio anterior.
 
-Ademas de dibujar lineas, tenemos las siguientes funciones definidas en el objeto draw.
+
+Además de dibujar líneas, tenemos las siguientes funciones definidas en el objeto `draw`.
 
 - `arc(xy, start, end, fill=None, width=0)`
 
-Dibuja un arco (una porcionde un circulo) entre los angulos indicados `start` y `end`. el
-parametro `xy` es un rectangulo que define el rectangulo que inscribe el arco
+Dibuja un arco (una porción de un circulo) entre los ángulos indicados `start` y `end`. el
+parametro `xy` es un rectángulo que inscribe el arco.
 
 
 ```python
@@ -864,10 +818,7 @@ draw.arc((10, 10, 191, 191), 123, 360, fill=(33, 66, 99), width=18)
 im
 ```
 
-
-
-
-![png](output_108_0.png)
+![Dibujo de un arco](draw-arc.png)
 
 
 
@@ -888,16 +839,12 @@ draw.chord((10, 10, 191, 191), 123, 360, fill="pink", outline="black")
 im
 ```
 
-
-
-
-![png](output_110_0.png)
-
+![Dibujo de cuerdas](draw-chord.png)
 
 
 - `line(xy, fill=None, width=0, joint=None)`
 
-Dibuja una linea entra las cordenadas indicadas por `xy`
+Dibuja una línea entra las coordenadas indicadas por `xy`
 
 El parámetro `joint` es el conector entre una secuencia de lineas, puede
 ser `curve` o `None`.
@@ -909,7 +856,7 @@ from PIL import Image, ImageDraw
 
 im = Image.new("RGB", (400, 200), 'silver')
 draw = ImageDraw.Draw(im)
-for _ in range(10):
+for _ in range(1000):
     x0 = random.randrange(401)
     y0 = random.randrange(201)
     p0 = (x0, y0)
@@ -921,50 +868,20 @@ for _ in range(10):
         fill=random.choice(['red', 'navy', 'yellow', 'green', 'black', 'white', 'blue']),
         width=random.choice([2, 4, 6, 8])
     )
-im
+im.show()
 ```
 
-
-
-
-![png](output_112_0.png)
-
-
-
-**Ejercicio**: Usa un objeto `Draw` para meter al leon en una jaula. O, dicho de otra manera, dibuja con `line` una rejilla de lineas blancas. Tendras que usar
-dos bucles, uno para dibujar las lineas verticales y otro para las horizontales. No te preocupes de que las barras coincidan exactamente con el tamanño de la imagen ni nada de eso, simplmente dibuja las lineas con una separacion fija, 32 pixels, por ejemplo.
-
-
-```python
-# %load cuadricula.py
-from PIL import Image, ImageDraw
-
-leon = Image.open("leon.jpg")
-leon.thumbnail((400, 400))
-width, height = leon.size
-draw = ImageDraw.Draw(leon)
-for x in range(0, width, 32):
-    draw.line((x, 0, x, height), fill="white", width=5)
-for y in range(0, height, 32):
-    draw.line((0, y, width, y), fill="white", width=5)
-leon
-
-```
-
-
-
-
-![png](output_114_0.png)
-
+![png](draw-line.png)
 
 
 - `pieslice(xy, start, end, fill=None, outline=None, width=1)`
 
-Como `arc` pero dibuja todas las líneas exteriores e interiores
-. El parámetro `xy` es una tupla de cuatro elementos indicando la
-posición del recuadro que contendrá el arco. Los parámetros `start` y `end` se especifican en grados. Un valor de $0$ se corresponde con la posición de las $3$ en el reloj (Horisontal apuntando hacia la derecha), así que si queremos hacer nuestro gráfico de tarta empezando en la posición de las 12 tenemos que empezar en $-90$.
-
-
+Como `arc` pero dibuja tanto las líneas interiores como exteriores. El parámetro
+`xy` es una tupla de cuatro elementos indicando la posición del recuadro que
+contendrá el arco. Los parámetros `start` y `end` se especifican en grados. Un
+valor de $0$ se corresponde con la posición de las $3$ en el reloj (Horizontal
+apuntando hacia la derecha), así que si queremos hacer nuestro gráfico de tarta
+empezando en la posición de las 12 tenemos que empezar en $-90$.
 
 
 ```python
@@ -976,17 +893,17 @@ draw = ImageDraw.Draw(im)
 draw.pieslice((10, 10, 191, 191), 0, 45, fill="cyan")
 draw.pieslice((10, 10, 191, 191), 45, 123, fill="coral", outline="white", width=1)
 draw.pieslice((10, 10, 191, 191), 123, 360, fill="pink")
-im
+im.show()
 ```
 
 
+![png](draw-pieslice.png)
 
 
-![png](output_116_0.png)
+**Ejercicio:** Modificar el ejemplo anterior para que el primer gráfico, en
+azul, empiece en la posición de las 12.
 
-
-
-**Ejercicio:** Modificar el ejemplo anterior para que el primer gráfico, en azul, empieze en la posición de las 12.
+**Solucion:**
 
 
 ```python
@@ -998,14 +915,10 @@ draw = ImageDraw.Draw(im)
 draw.pieslice((10, 10, 191, 191), -90, -45, fill="cyan")
 draw.pieslice((10, 10, 191, 191), -45, 23, fill="coral", outline="white", width=1)
 draw.pieslice((10, 10, 191, 191), 23, 270, fill="pink")
-im
+im.show()
 ```
 
-
-
-
-![png](output_118_0.png)
-
+![png](draw-pie.png)
 
 
 - `point(xy, fill=None)`
@@ -1026,22 +939,17 @@ for _ in range(10000):
     x = random.randrange(0, 201)
     y = random.randrange(0, 201)
     draw.point((x, y), random.choice(['red', 'navy', 'yellow', 'green', 'black', 'white', 'blue']))
-im
+im.show()
 ```
 
-
-
-
-![png](output_120_0.png)
+![png](draw-point.png)
 
 
 
 - `polygon(xy, fill=None, outline=None)`
 
-Dibuja un polígono. dibuja las lineas que unen cada dos puntos consecutivos, y luego una
-linea para unir el primero con el ultimo.
-
-
+Dibuja un polígono. Dibuja las líneas que unen cada dos puntos consecutivos, y
+luego una línea final para unir el primero con el último.
 
 
 ```python
@@ -1059,19 +967,16 @@ points = [
     (10, 180),
 ]
 draw.polygon(points, fill='#336699', outline="red")
-im
+im.show()
 ```
 
-
-
-
-![png](output_122_0.png)
+![draw.polygon](draw-polygon.png)
 
 
 
 - `rectangle(xy, fill=None, outline=None, width=1)`
 
-Dibuja un rectangulo.
+Dibuja un rectángulo.
 
 
 ```python
@@ -1081,21 +986,16 @@ from PIL import Image, ImageDraw
 im = Image.new("RGB", (200, 200), 'silver')
 draw = ImageDraw.Draw(im)
 draw.rectangle([10, 10, 190, 40], fill='#336699')
-im
+im.show()
 ```
 
 
-
-
-![png](output_124_0.png)
-
+![draw-rectangle](draw-rectangle.png)
 
 
 - `text(xy, text, fill=None, font=None, anchor=None, spacing=4, align="left", direction=None, ...)`
 
-Dibuja texto
-
-Los parámetros son:
+Dibuja texto. Los parámetros son:
 
 - `xy` Esquina superior izquierda del texto
 - `text` Texto
@@ -1107,39 +1007,18 @@ Los parámetros son:
 
 
 ```python
-!ls
-```
-
-    Allura-Regular.ttf	 HSV.png	    pillow.ipynb
-    blue-lion.png		 incredibles.png    pillow.md
-    cambia-formato.py	 incredibles.webp   PrimroseDM_1000x390.jpg
-    creditos.md		 leon.jpg	    rectangle.png
-    croma.png		 leon.png	    rectangle.svg
-    cuadricula.py		 lista-imagenes.py  rojo.py
-    DandelionDM_800x665.jpg  mixed.png	    SilverweedDM_800x460.jpg
-    elastigirl.png		 PaperFlowers.ttf
-    fondo.jpg		 payaso.py
-
-
-
-```python
 from PIL import Image, ImageDraw, ImageFont
 
 im = Image.open("incredibles.png")
 im.thumbnail((450, 300))
 draw = ImageDraw.Draw(im, "RGBA")
-draw.rectangle([80, 170, 300, 222], fill='#336699')
+draw.rectangle([80, 170, 280, 210], fill='#33669988')
 font = ImageFont.truetype("PaperFlowers.ttf", size=40)
 draw.text((100, 170), "Have a nice Day!", font=font, fill="white")
-im
-
+im.show()
 ```
 
-
-
-
-![png](output_127_0.png)
-
+![png](draw-text.png)
 
 
 - `textsize(text, font=None, spacing=4, direction=None, ...)`
@@ -1159,22 +1038,13 @@ width, height = draw.textsize(txt)
 print(width, height)
 x = (WIDTH // 2) - (width//2)
 y = (HEIGHT // 2) - (height // 2)
-print(x, y)
 rect = (x, y, x+width, y+height)
 draw.rectangle(rect, fill='#336699')
 draw.text((x, y), txt, fill="white")
-im
-
+im.show()
 ```
 
-    84 11
-    183 107
-
-
-
-
-
-![png](output_129_1.png)
+![draw.textsize](draw-textsize.png)
 
 
 
@@ -1189,21 +1059,20 @@ from PIL import Image, ImageDraw, ImageFont
 im = Image.open("incredibles.png")
 lienzo = ImageDraw.Draw(im, "RGBA")
 lienzo.ellipse((260, 50, 330, 120), fill="red", width=2)
-im
+im.show()
 ```
 
+![draw.ellipse](draw-ellipse.png)
 
 
 
-![png](output_131_0.png)
+**Ejercicio**: Usa un objeto `Draw` para dibujar una nariz de payaso (Un
+circulo rojo) en el hocico de león (O, si prefieres, dibuja con `ellipse` un
+circulo completo en una imagen de tu elección)
 
-
-
-**Ejercicio**: Usa un objeto `Draw` para dibujar una nariz de payaso (Un circulo rojo) en el hocico de leon (O, si prefieres, dibuja con `ellipse` un circulo completo en una imagen de tu eleccion)
-
+**Solución:**
 
 ```python
-# %load payaso.py
 from PIL import Image, ImageDraw
 
 leon = Image.open("leon.jpg")
@@ -1215,38 +1084,38 @@ rect = (x-55, y-55, x+55, y+55)
 draw = ImageDraw.Draw(leon)
 draw.ellipse(rect, fill=(255, 0, 0), width=3)
 leon.thumbnail((250, 350))
-leon
+leon.show()
 ```
 
-
-
-
-![png](output_133_0.png)
-
+![png](leon-clown.png)
 
 
 ### Llamadas de bajo nivel
 
-Podemos usar los métodos `getpixel` para obtener el valor de un pixel determinado.
+Podemos usar los métodos `getpixel` y `putpixel` para obtener o modificar 
+el valor de un pixel determinado.
 
-`getpixel` capta un único parámetro, pero este es una tupla de dos elementos, las coordenadas
-x e y del pixel cuyo valor queremos obtener. En una imagen `RGB`, será una tupla de tres
-elementos con las componentes rojo, verde y azul.
+El método `getpixel` acepta un único parámetro, pero este es una tupla de dos
+elementos, las coordenadas $x$ e $y$ del pixel cuyo valor queremos obtener. En una
+imagen `RGB`, será una tupla de tres elementos con las componentes rojo, verde
+y azul.
 
 **Pregunta**: Cuales son los valores R, G, B del pixel en la posicion 100, 100, en el fichero `leon.jpg`
    
-
+**Respuesta**:
 
 ```python
 from PIL import Image
 
 leon = Image.open("leon.jpg")
 print(leon.getpixel((100, 100)))
-
 ```
 
-    (216, 231, 250)
+La salida es:
 
+```
+(216, 231, 250)
+```
 
 Para trabajar a bajo nivel, leyendo y modificando pixels, lo recomendado es usar
 el __método__ `load` de la imagen, que nos da un mapa que nos permite acceder y modificar
@@ -1261,14 +1130,20 @@ mapa = leon.load()
 print(mapa[100,100])
 ```
 
-    (216, 231, 250)
+La salida es, de nuevo:
 
+```
+(216, 231, 250)
+```
 
 Pero este mapa nos deja modificar los valores, simplemente asignando un valor:
     
-    mapa[x,y] = (red, green, blue)
+```python
+mapa[x,y] = (red, green, blue)
+```
 
-**Ejercicio**: Cambiar a cero los valores R, G, B del pixel en la posicion 100, 100, en el fichero `leon.jpg`
+**Ejercicio**: Cambiar a cero los valores R, G, B de los pixeles alrededor
+de la posicion 100, 100, en el fichero `leon.jpg`.
 
 
 ```python
@@ -1290,13 +1165,12 @@ mapa[x, y] = (255, 0, 0)
 mapa[x, y+1] = (255, 0, 0)
 mapa[x+1, y] = (255, 0, 0)
 
-leon.crop((0,0, 500, 300))
+im = leon.crop((0,0, 500, 300))
+im.show()
 ```
 
 
-
-
-![png](output_140_0.png)
+![png](leon-dot.png)
 
 
 
@@ -1319,90 +1193,68 @@ de la imagen (en forma de tupla width, height) y el color de fondo.
 ```python
 from PIL import Image
 
-im = Image.new("L", (90, 90), "red")
+im = Image.new("RGB", (90, 90), (48, 64, 96))
 im
 ```
 
-
-
-
-![png](output_143_0.png)
-
+![png](blue.png)
 
 
 **Pregunta**: Cambiar el modo a "L". ¿Qué color conseguimos? ¿Por qué?
 
-Saber que el metodo `paste` acepta un parametro opcional, una **máscara**. Una mascara es una imagen
-con una sola banda (Tonos de grises, si queremos). Al pegar una imagen sobre otra
-con paste, si incluimos una imagen como mascara, -que tiene que ser del mismo tamaño que la imagen pegada- 
-se sigue el siguiente metodo: si la mascara esta en blanco, se "pega" el pixel, pero si esta en negro, se ignora.
-Si esta en algun tono de gris, se pega pero usando el tono de gris como canal alfa u opcidad.
+También necesitamos saber que el método `paste` acepta un parámetro opcional,
+una **máscara**. Una mascara es una imagen con una sola banda (Tonos de grises,
+si queremos). Al pegar una imagen sobre otra con paste, si incluimos una imagen
+como mascara, -que tiene que ser del mismo tamaño que la imagen pegada- se
+sigue el siguiente proceso: si la mascara está en blanco, se "pega" el pixel,
+pero si está en negro, se ignora.  Si está en algún tono de gris, se pega pero
+usando el tono de gris como canal alfa u opacidad.
 
-Es decir, que con un 50% de gris (128 en nuestra escala de $0..255$), el pixel se pega pero con un 50 por ciento de su valor, y el otro 50 por ciento  se coge de la imagen de fondo
+Es decir, que con un 50% de gris ($128$ en nuestra escala de $0..255$), el
+pixel se pega pero con un 50 por ciento de su valor, y el otro 50 por ciento
+se coge de la imagen de fondo
 
-Asi que vamos a dividir el problema en dos: Primero obtener la mascara:
+Así que vamos a dividir el problema en dos: Primero obtener la mascara:
         
-- Crea una nueva imagen desde cero, la mascara, con modo `L`, del mismo tamano que la imagen del presentador. Podemos obterner la imagen con el metodo `size`. Pon como solor de fondo `white`.
+- Crea una nueva imagen desde cero, la mascara, con modo `L`, del mismo tamaño
+  que la imagen del presentador. Podemos obtener la imagen con el método
+  `size`. Pon como color de fondo `white`.
 
-Examinar cada uno de los pixeles
-de la imagen del presentador. Para cada pixel, si el nivel de verde es superior al de rojo y azul
-sumandos, (El componente verde es, por tanto, muy fuerte), por el pixel equivalente en la mascara
-a negro (esto es, a cero).
+Examinar cada uno de los píxeles de la imagen del presentador. Para cada pixel,
+si el nivel de verde es superior al de rojo y azul sumandos, (El componente
+verde es, por tanto, muy fuerte), por el pixel equivalente en la mascara a
+negro (esto es, a cero).
 
-Recuerda que la mascara solo tiene una banda o canal, no como las imagenes
-RGB que tienen tres. Por lo tanto, se asigna un solo valor, no una tupla). Si no cumple esta condicion, dejalo como estaba (blanco, si pusiste "white" al crearla).
-
-
-```python
-from PIL import Image, ImageFilter
-
-im = Image.open("croma.png")
-(width, height) = im.size
-
-mask = Image.new("L", (width, height), 255)
-mask
-
-```
-
-
-
-
-![png](output_149_0.png)
-
-
+Recuerda que la mascara solo tiene una banda o canal, no como las imágenes
+RGB que tienen tres. Por lo tanto, se asigna un solo valor, no una tupla). Si
+no cumple esta condición, déjalo como estaba (blanco, si pusiste "white" al
+crearla).
 
 
 ```python
 from PIL import Image, ImageFilter
 
-im = Image.open("croma.png")
-source = im.load()
-(width, height) = im.size
-
+croma = Image.open("croma.png")
+(width, height) = croma.size
 mask = Image.new("L", (width, height), 255)
-mask
 
+source = croma.load()
 map_mask = mask.load()
-
 for y in range(height):
     for x in range(width):
         (red, green, blue, _) = source[x,y]
         if green > blue + red:
             map_mask[x,y] = 0
         else:
-            map_mask[x,y] = 128
-mask = mask.filter(ImageFilter.BLUR).filter(ImageFilter.BLUR)        
-mask
+            map_mask[x,y] = 255 
+mask.show()
 ```
 
+![png](mask.png)
 
 
 
-![png](output_150_0.png)
-
-
-
-Con la mascara ya calculada, podemos cortar y pegar usandola para eliminar
+Con la mascara ya calculada, podemos cortar y pegar usándola para eliminar
 todo el verde de la imagen original
 
 
@@ -1414,25 +1266,22 @@ im = Image.open("croma.png")
 fondo = Image.open("fondo.jpg")
 fondo = fondo.resize(im.size)
 fondo.paste(im, mask)
-fondo
+fondo.show()
 ```
 
+![png](compose.png)
 
 
 
-![png](output_152_0.png)
+**Ejercicios:**
 
+- Al crear la máscara, en vez de usar blanco puro para las partes que queremos
+  transparentes, usa un tono de gris y repite el proceso. ¿Por qué pasa eso?
 
+- Cuando creas la máscara, añade un filtro _blur_ a la misma, para que los
+  bordes no sean tan duros. Repite el proceso. ¿Funciona mejor el croma?
 
-**ejercicios**: 
+- Si combinas los dos efectos, obtienes una imagen fantasmal, traslucida y con
+  un brillo verde
 
-- Al crear la máscara, en vez de usar blanco puro para las partes que queremos transparentes, usa un tono de gris y repite el proceso. ¿Por qué pasa eso?
-
-- Cuando creas la mascara, añade un filtro blur a la misma, para que los bordes no sean tan duros. Repite el proceso. Funciona mejor el croma
-
-- Si combinas los dos efectos, obtienes una imagen fantasmal, traslucida y con un brillo verde
-
-
-```python
-
-```
+![Ghostly](ghostly.png)

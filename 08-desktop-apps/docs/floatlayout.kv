@@ -1,17 +1,38 @@
 <FloatLayout>:
+    canvas.before:
+        Color: 
+            rgb: (.2, .3, .5)
+        Rectangle:
+            size: (root.width, root.height)
+            pos: (0, 0)
     Button:
         text: "Top/Left"
         pos_hint: {'x': 0, 'top': 1}
         size_hint: (None, None)
-        size: (75, 75)
+        size: (125, 75)
+    Button:
+        text: "Top/Right"
+        pos_hint: {'right': 1, 'top': 1}
+        size_hint: (None, None)
+        size: (125, 75)
+    Button:
+        text: "Middle/Left"
+        pos_hint: {'x': 0, 'center_y': 0.5}
+        size_hint: (None, None)
+        size: (125, 75)
+    Button:
+        text: "Middle/Right"
+        pos_hint: {'right': 1, 'center_y': 0.5}
+        size_hint: (None, None)
+        size: (125, 75)
     Button:
         text: "Bottom/Right"
         pos_hint: {'right': 1, 'y': 0} 
         size_hint: (None, None)
-        size: (75, 75)
+        size: (125, 75)
 
     Button:
         text: "Middle"
         pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
         size_hint: (None, None)
-        size: (75, 75)
+        size: (125, 75)

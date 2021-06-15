@@ -110,13 +110,13 @@ Ver GridLayout
 cols o rows
 
 ```python
-{% include 'boxlayout.py' %}
+{% include 'gridlayout.py' %}
 ```
 
 Fichero kivy:
 
 ```python
-{% include 'boxlayout.kv' %}
+{% include 'gridlayout.kv' %}
 ```
 
 

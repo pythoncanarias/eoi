@@ -24,7 +24,6 @@ domain.
 '''
 
 import kivy
-kivy.require('1.0.6')
 
 from glob import glob
 from random import randint
@@ -56,7 +55,7 @@ class PicturesApp(App):
 
         # get any files into images directory
         curdir = dirname(__file__)
-        for filename in glob(join(curdir, 'images', '*')):
+        for filename in glob(join(curdir, 'img', '*.png')):
             try:
                 # load the image
                 picture = Picture(source=filename, rotation=randint(-30, 30))
