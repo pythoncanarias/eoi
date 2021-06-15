@@ -1,5 +1,5 @@
 ---
-title: arrow - Gesti de fechas
+title: arrow - Gestión de fechas
 ---
 ## Introduccón a `arrow`
 

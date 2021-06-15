@@ -168,6 +168,32 @@ mezclar los pigmentos en su paleta, los colores se *restan*. En un sistema
 sustractivo, los colores primarios serían Magenta (que absorbe el verde),
 Amarillo (que absorbe el azul) y Cyan (que absorbe el rojo).
 
+Otros seres vivos tienen ojos con células diferentes, por lo que perciben el
+mundo de una forma totalmente diferente a la nuestra. Los perros, por ejemplo,
+ven menos colores que nosotros porque solo tienen dos tipos de conos.
+Básicamente, su gama cromática se reduce al amarillo, azul y gris. Colores que
+nosotros distinguimos perfectamente, como el verde o el naranja, son para ellos
+tonos de amarillo, y confunden el violeta y el azul. Curiosamente, muchos
+juguetes para perros usan rojos y naranjas, que no distinguen bien.  Quizá Para
+compensar, tienen mas bastones, lo que les permite ver mejor en la oscuridad
+que nosotros.
+
+Los pájaros y algunos insectos voladores, por el contrario, tienen cuatro tipos
+de conos, tres de ellos son equivalentes a los nuestros -rojo verde y azulr-
+pero además tiene un cuarto tipo de cono para una frecuencia en el
+ultravioleta. Eso les permite conseguir una gama cromática que solo podemos
+imaginar. Se han realizado estudios usando cámaras sensibles al ultravioleta, y
+se han falseado los colores para simular la visión de los pájaros, encontrado
+en muchas flores patrones invisibles para nosotros, pero perfectamente
+identificables por pajaros e insectos, que son los que realmente le "importan"
+a la planta.
+
+![Ejemplo de visión en ultravioleta](DandelionDM_800x665.jpg)
+![Más ejemplos de colorido ultravioleta](SilverweedDM_800x460.jpg)
+
+
+Fuente: [A bees-eye view: How insects see flowers very differently to us](https://www.dailymail.co.uk/sciencetech/article-473897/A-bees-eye-view-How-insects-flowers-differently-us.html)
+
 #### Modelo RGB
 
 Así tenemos entonces los tres colores primarios del modelo RGB: rojo,
@@ -337,7 +363,6 @@ rectangle.png (450, 643) RGBA
 PrimroseDM_1000x390.jpg (1000, 390) RGB
 SilverweedDM_800x460.jpg (800, 460) RGB
 leon.tn.png (133, 200) RGB
-incredibles.webp (600, 300) RGB
 fondo.jpg (1280, 719) RGB
 mixed.png (341, 512) RGB
 croma.png (640, 360) RGBA
