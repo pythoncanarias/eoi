@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="miniproyecto-layout.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:snap-global="false"
+     inkscape:zoom="0.672594"
+     inkscape:cx="814.01262"
+     inkscape:cy="578.35782"
+     inkscape:window-width="1920"
+     inkscape:window-height="1125"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="TriangleOutS"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="TriangleOutS"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.2)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         id="path31590" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow2Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(1.1) rotate(180) translate(1,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round;"
+         id="path31463" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;stroke:#030101;stroke-width:1.1;stroke-linecap:round;-inkscape-stroke:none;paint-order:markers stroke fill;stop-color:#000000"
+       id="rect846"
+       width="124.75973"
+       height="201.17195"
+       x="44.771061"
+       y="60.758358" />
+    <rect
+       style="fill:none;stroke:#030101;stroke-width:1.1;stroke-linecap:round;-inkscape-stroke:none;paint-order:markers stroke fill;stop-color:#000000"
+       id="rect1962"
+       width="35.2929"
+       height="36.069839"
+       x="49.911259"
+       y="65.155907" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.76111px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="67.041656"
+       y="76.905014"
+       id="text3168"><tspan
+         sodipodi:role="line"
+         id="tspan3166"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="67.041656"
+         y="76.905014">Logo </tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="67.041656"
+         y="86.719139"
+         id="tspan15582">de</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="67.041656"
+         y="96.533272"
+         id="tspan3170">SHIELD</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="19.783413"
+       y="33.219234"
+       id="text19288"><tspan
+         sodipodi:role="line"
+         id="tspan19286"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="19.783413"
+         y="33.219234">Alineado a la</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="19.783413"
+         y="39.464603"
+         id="tspan26210">esquina superior</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="19.783413"
+         y="45.709972"
+         id="tspan26212">izquierda</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutS)"
+       d="M 43.860918,50.110826 54.691666,67.467659"
+       id="path31407" />
+    <rect
+       style="fill:#ffffff;stroke:#030101;stroke-width:2;stroke-linecap:round;-inkscape-stroke:none;paint-order:markers stroke fill;stop-color:#000000;fill-opacity:1"
+       id="rect31820"
+       width="113.23912"
+       height="46.97036"
+       x="50.337429"
+       y="107.38161" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="56.85828"
+       y="116.50357"
+       id="text32010"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="56.85828"
+         y="116.50357"
+         id="tspan32008">Cuadro de texto</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="56.85828"
+         y="122.74894"
+         id="tspan33111">para escribir el texto a cifrar</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="56.85828"
+         y="128.99431"
+         id="tspan33113">o descifrar</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 51.482413,168.30155 H 137.9797"
+       id="path34160" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#030101;stroke-width:1.5;stroke-linecap:round;-inkscape-stroke:none;paint-order:markers stroke fill;stop-color:#000000"
+       id="path34250"
+       cx="95.947304"
+       cy="168.06802"
+       r="5.1172385" />
+    <circle
+       style="fill:#00ff00;fill-opacity:1;stroke:#030101;stroke-width:1.5;stroke-linecap:round;-inkscape-stroke:none;paint-order:markers stroke fill;stop-color:#000000"
+       id="circle34332"
+       cx="95.947304"
+       cy="167.94705"
+       r="2.8511162" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#030101;stroke-width:1.5;stroke-linecap:round;-inkscape-stroke:none;paint-order:markers stroke fill;stop-color:#000000"
+       id="rect34454"
+       width="22.890829"
+       height="15.947106"
+       x="140.51883"
+       y="160.06029" />
+    <text
+       xml:space="preserve"
+       style="font-size:14.1111px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="147.52522"
+       y="170.93712"
+       id="text35822"><tspan
+         sodipodi:role="line"
+         id="tspan35820"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;font-family:Delicious;-inkscape-font-specification:Delicious;stroke-width:0.264583"
+         x="147.52522"
+         y="170.93712">3</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#030101;stroke-width:2;stroke-linecap:round;-inkscape-stroke:none;paint-order:markers stroke fill;stop-color:#000000"
+       id="rect47752"
+       width="113.23912"
+       height="46.97036"
+       x="50.337429"
+       y="181.99699" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="56.85828"
+       y="191.11896"
+       id="text47760"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="56.85828"
+         y="191.11896"
+         id="tspan47754">ETIQUETA O CUADRO de texto</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="56.85828"
+         y="197.36432"
+         id="tspan47756">(QUE EL USUARIO NO PUEDE EDITAR)</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="56.85828"
+         y="203.6097"
+         id="tspan47758">DONDE SE MUESTRA EX texto </tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="56.85828"
+         y="209.85506"
+         id="tspan49036">CIFRADO O DESCIFRADO</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#030101;stroke-width:1.49999;stroke-linecap:round;-inkscape-stroke:none;paint-order:markers stroke fill;stop-color:#000000"
+       id="rect50480"
+       width="113.93491"
+       height="20.177763"
+       x="50.926689"
+       y="236.33493" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#030101;stroke-width:0.750001;stroke-linecap:round;-inkscape-stroke:none;paint-order:markers stroke fill;stop-color:#000000"
+       id="rect50562"
+       width="110.5714"
+       height="16.177889"
+       x="52.789467"
+       y="238.33487" />
+    <text
+       xml:space="preserve"
+       style="font-size:14.1111px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="56.706303"
+       y="250.99492"
+       id="text55842"><tspan
+         sodipodi:role="line"
+         id="tspan55840"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;font-family:Delicious;-inkscape-font-specification:Delicious;stroke-width:0.264583"
+         x="56.706303"
+         y="250.99492">CIFRAR/DESCIFRAR</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="172.97813"
+       y="196.88792"
+       id="text60178"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="172.97813"
+         y="196.88792"
+         id="tspan60176">BOTÓN DE</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="172.97813"
+         y="203.13329"
+         id="tspan61105">ACCIÓN.</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="172.97813"
+         y="209.37866"
+         id="tspan61107">AL PULSAR</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="172.97813"
+         y="215.62402"
+         id="tspan61109">REALIZA</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="172.97813"
+         y="221.8694"
+         id="tspan61111">EL CIFRADO</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
+         x="172.97813"
+         y="228.11476"
+         id="tspan61113">CESAR</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutS)"
+       d="M 178.40913,232.0228 162.5066,245.26537"
+       id="path60180"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="106.64233"
+       y="271.31339"
+       id="text62360"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="106.64233"
+         y="271.31339"
+         id="tspan62358">El boton Y LOS CUADROS</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="106.64233"
+         y="277.55875"
+         id="tspan63896">DE TEXTO OCUPAN TODO EL ANCHO</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="106.64233"
+         y="283.80411"
+         id="tspan75916">(DESCONTANDO SI QUIERES UN POCO A DERENCHA</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="106.64233"
+         y="290.0495"
+         id="tspan75918">E IzQUIERDA POR ESTETICA)</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="106.64233"
+         y="296.29486"
+         id="tspan69290" /></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutS)"
+       d="m 65.979197,269.54065 5.524622,-13.06527"
+       id="path67598"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="23.317513"
+       y="132.67313"
+       id="text77023"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="23.317513"
+         y="132.67313"
+         id="tspan77021">LOS VALORES</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="23.317513"
+         y="138.91849"
+         id="tspan77804">DEL SLIDER</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="23.317513"
+         y="145.16386"
+         id="tspan77806">VAN DESDE </tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="23.317513"
+         y="151.40923"
+         id="tspan77808">-26 a 26</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutS)"
+       d="M 29.868908,157.04984 46.84401,167.92052"
+       id="path81806"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="189.30276"
+       y="93.279045"
+       id="text81953"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="189.30276"
+         y="93.279045"
+         id="tspan81951">ESTA</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="189.30276"
+         y="99.524406"
+         id="tspan82878">ETIQUETA</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="189.30276"
+         y="105.76978"
+         id="tspan82880">DEBE</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="189.30276"
+         y="112.01514"
+         id="tspan82882">MOSTAR EL</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="189.30276"
+         y="118.26052"
+         id="tspan82884">VALOR</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="189.30276"
+         y="124.50588"
+         id="tspan82886">SELECIONADO</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="189.30276"
+         y="130.75125"
+         id="tspan82888">POR EL</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="189.30276"
+         y="136.99661"
+         id="tspan82890">SLIDER</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="189.30276"
+         y="143.24199"
+         id="tspan83668">(ES LA CLAVE</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
+         x="189.30276"
+         y="149.48735"
+         id="tspan83670">DE CIFRADO)</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#TriangleOutS)"
+       d="M 180.53083,152.73978 164.6283,165.98235"
+       id="path83928"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>
