@@ -3,21 +3,20 @@ title: Miniproyecto aplicaciones de escritorio
 ---
 ## 09-Miniproyecto
 
-En este minirpoyecto haremos una aplicación de escritorio, usando kivy, para
-codificar y decodificar textos usando el [cifrado
+En este miniproyecto haremos una aplicación de escritorio, usando [kivy](https://kivy.org/), para codificar y decodificar textos usando el [cifrado
 Cesar](https://es.wikipedia.org/wiki/Cifrado_C%C3%A9sar)
 
-Debemos realizar una aplicacion de escritorio, que debería funcionar
-igual tanto en Linux como en MacOs o Windows (Pero no hace falta que lo
+Debemos realizar una aplicación de escritorio, que debería funcionar
+igual tanto en Linux como en Mac o Windows (Pero no hace falta que lo
 pruebes en las tres plataformas, basta con que la pruebes y funcione
 en la que uses tú).
 
 Al arrancar la aplicación, debería mostrarnos una ventana (La aplicación
-solo tiene una ventana), con disposicion gráfica que se muestra en la
+solo tiene una ventana), con disposición gráfica que se muestra en la
 última página.
 
 
-El funcionamiento de la aplicación es el siquiente: El usuario
+El funcionamiento de la aplicación es el siguiente: El usuario
 puede escribir texto en el cuadro de texto superior. Con
 el control _slider_ puede elegir un valor entre -26 y 26 que va a ser
 la clave de cifrado. Si elige 0, el cifrado no hace nada.
@@ -41,7 +40,7 @@ def cifra(s, clave=3):
     return ''.join(buff)
 ```
 
-Puedes probar esta función en iPython. Tiene dos parametros de entrada, el
+Puedes probar esta función en Python. Tiene dos parámetros de entrada, el
 primero es el texto a cifrar/descifrar, el segundo es la clave de cifrado. La
 salida es el texto cifrado. Aunque hablemos de cifrar y descifrar, hay que
 tener claro que **no** son dos operaciones diferentes, es la misma, lo que pasa es
@@ -51,13 +50,14 @@ pero pasando $-x$. Es decir:
 ```python
 original = 'Hola, mundo'
 cifrado = cifra(original, 3)
+assert cifrado == 'Krod, pxqgr'
 descifrado = cifra(cifrado, -3)
 assert original == descifrado
 ```
 
 ### Rúbrica de evaluación
 
-- Al ejecutar la aplicacion no da error y crea una ventana gráfica: 20%
+- Al ejecutar la aplicación no da error y crea una ventana gráfica: 20%
 
 - La imagen con el logo de SHIELD esta alineada a la derecha
   y en la parte superior de la ventana: 20%
@@ -66,7 +66,7 @@ assert original == descifrado
   los controles: 10%
 
 - Al mover el _slider_, el valor de la clave de cifrado se muestra en 
-  la etiqueta a la izquierda del slider: 10%
+  la etiqueta a la izquierda del _slider_: 10%
 
 - Al pulsar el botón inferior, se cifra/descifra el texto del
   cuadro de texto superior y se muestra en el inferior. Prueba a
@@ -90,7 +90,7 @@ Posibles ideas para mejoras:
 - Un botón para asignar la clave a un valor
   aleatorio.
 
-- Un boton para intercambiar los textos.
+- Un botón para intercambiar los textos.
 
 - Cualquier otra que se te ocurra. Consúltame antes si quieres estar 100% de que cuenta como mejora.
 

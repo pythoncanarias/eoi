@@ -7,8 +7,11 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   inkscape:version="1.1 (1:1.1+202105261517+ce6663b3b7)"
    sodipodi:docname="miniproyecto-layout.svg"
+   inkscape:export-filename="/home/jileon/workarea/pythoncanarias/eoi/08-desktop-apps/docs/miniproyecto-layout.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,8 +28,8 @@
      showgrid="false"
      inkscape:snap-global="false"
      inkscape:zoom="0.672594"
-     inkscape:cx="814.01262"
-     inkscape:cy="578.35782"
+     inkscape:cx="491.38113"
+     inkscape:cy="577.61443"
      inkscape:window-width="1920"
      inkscape:window-height="1125"
      inkscape:window-x="0"
@@ -217,12 +220,12 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
          x="56.85828"
          y="203.6097"
-         id="tspan47758">DONDE SE MUESTRA EX texto </tspan><tspan
+         id="tspan47758">DONDE SE MUESTRA EL texto </tspan><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
          x="56.85828"
          y="209.85506"
-         id="tspan49036">CIFRADO O DESCIFRADO</tspan></text>
+         id="tspan49036">CIFRADO/DESCIFRADO</tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#030101;stroke-width:1.49999;stroke-linecap:round;-inkscape-stroke:none;paint-order:markers stroke fill;stop-color:#000000"
        id="rect50480"
@@ -268,7 +271,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
          x="172.97813"
          y="209.37866"
-         id="tspan61107">AL PULSAR</tspan><tspan
+         id="tspan61107">AL PULSAR,</tspan><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';fill:#0000ff;stroke-width:0.264583"
          x="172.97813"
@@ -299,7 +302,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
          x="106.64233"
          y="271.31339"
-         id="tspan62358">El boton Y LOS CUADROS</tspan><tspan
+         id="tspan62358">El botÓn Y LOS CUADROS</tspan><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
          x="106.64233"
@@ -309,12 +312,12 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
          x="106.64233"
          y="283.80411"
-         id="tspan75916">(DESCONTANDO SI QUIERES UN POCO A DERENCHA</tspan><tspan
+         id="tspan75916">(DESCONTANDO SI QUIERES UN POCO A DERECHA</tspan><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
          x="106.64233"
          y="290.0495"
-         id="tspan75918">E IzQUIERDA POR ESTETICA)</tspan><tspan
+         id="tspan75918">E IzQUIERDA POR ESTÉTICA)</tspan><tspan
          sodipodi:role="line"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'A.C.M.E. Secret Agent';-inkscape-font-specification:'A.C.M.E. Secret Agent';text-align:center;text-anchor:middle;fill:#0000ff;stroke-width:0.264583"
          x="106.64233"
