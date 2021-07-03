@@ -7,7 +7,8 @@ import math
 led = machine.Pin(2, machine.Pin.OUT)
 led_pwm = machine.PWM(led, freq=1000)
 # led_pwm.freq(1000)  # la frecuencia se puede cambiar en cualquier momento, aunque solemos dejarla fija (cambiamos el duty)
-
+led_pwm.duty(511)  # La resolucion del PWM del ESP32 es de 10 bits, lo que significa que va desde 0 (0%) hasta 1023 (100%)
+utime.sleep_ms(1000)
 
 while True:
     print("aumentando")

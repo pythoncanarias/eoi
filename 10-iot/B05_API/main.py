@@ -34,4 +34,4 @@ with open("datos_api.json", 'r') as f:
 temperatura_manana = datos_dict["consolidated_weather"][1]['the_temp']
 humedad_manana = datos_dict["consolidated_weather"][1]['humidity']
 print("La previsión para mañana es: ", end='')
-print("Temperatura {}ºC Humedad {}%".format(temperatura, humedad))
+print("Temperatura {}ºC Humedad {}%".format(temperatura_manana, humedad_manana))
