@@ -9,7 +9,7 @@ class Pad (pygame.sprite.Sprite):
         self.game = game
         self.groups = game.all_sprites
         pygame.sprite.Sprite.__init__(self, self.groups)
-        # self.image = pygame.Surface((PAD_WIDTH, PAD_HEIGHT))
+        #self.image = pygame.Surface((PAD_WIDTH, PAD_HEIGHT))
         # self.image.fill(BLUE)
         self.image = game.pad_image
         self.rect = self.image.get_rect()
@@ -50,13 +50,23 @@ class Pad (pygame.sprite.Sprite):
         v = abs(self.velocity.x * self.game.dt)
         self.hitbox = self.rect.inflate(v, 0)
 
+    def hit_ball(self, ball):
+        if ball.position.y < self.position.y:
+            offset = (ball.position.x - self.position.x) / \
+                (self.rect.width / 2)
+            ball.velocity.x = offset
+            ball.position.y = self.position.y - self.hitbox.height/2 - ball.hitbox.height/2
+            ball.velocity.y *= -1
+            ball.push = 200
+            self.game.bounce_fx.play()
+
 
 class Ball (pygame.sprite.Sprite):
     def __init__(self, game, x, y):
         self.game = game
         self.groups = game.all_sprites, game.balls
         pygame.sprite.Sprite.__init__(self, self.groups)
-        # self.image = pygame.Surface((BALL_RADIUS, BALL_RADIUS))
+        #self.image = pygame.Surface((BALL_RADIUS, BALL_RADIUS))
         # self.image.fill(YELLOW)
         self.image = game.ball_image
         self.rect = self.image.get_rect()
@@ -90,13 +100,7 @@ class Ball (pygame.sprite.Sprite):
             self.position.y = ball_radius
             self.velocity.y *= -1
 
-        collide_group = self.game.bricks.copy()
-        collide_group.add(self.game.player)
-
-        self.rect.x = self.position.x
-        self.collide_with('x', collide_group)
-        self.rect.y = self.position.y
-        self.collide_with('y', collide_group)
+        self.rect.center = self.position
 
         v = BALL_SPEED * self.game.dt
         self.hitbox = self.rect.inflate(v, v)
@@ -104,31 +108,6 @@ class Ball (pygame.sprite.Sprite):
         if self.position.y > HEIGHT + ball_radius:
             self.kill()
             self.game.ball_lost()
-
-    def collide_with(self, dir, group):
-        hits = pygame.sprite.spritecollide(self, group, False)
-        if len(hits) == 0:
-            return
-        if dir == 'x':
-            if self.velocity.x > 0:
-                self.position.x = hits[0].rect.left - self.rect.width
-            if self.velocity.x < 0:
-                self.position.x = hits[0].rect.right
-            self.velocity.x *= -1
-            self.rect.x = self.position.x
-
-        if dir == 'y':
-            if self.velocity.y > 0:
-                self.position.y = hits[0].rect.top - self.rect.height
-            if self.velocity.y < 0:
-                self.position.y = hits[0].rect.bottom
-            self.velocity.y *= -1
-            self.rect.y = self.position.y
-
-        if (type(hits[0]) == Brick):
-            hits[0].hit()
-
-        self.push = 400
 
     def bounce(self, thing):
         total_width = (self.hitbox.width + thing.hitbox.width) / 2
@@ -162,8 +141,8 @@ class Brick (pygame.sprite.Sprite):
         self.game = game
         self.groups = game.all_sprites, game.bricks
         pygame.sprite.Sprite.__init__(self, self.groups)
-        # self.image = pygame.Surface((BRICK_WIDTH, BRICK_HEIGHT))
-        # colors = [RED, GREEN, BLUE, YELLOW, ORANGE]
+        #self.image = pygame.Surface((BRICK_WIDTH, BRICK_HEIGHT))
+        #colors = [RED, GREEN, BLUE, YELLOW, ORANGE]
         # self.image.fill(random.choice(colors))
         self.image = random.choice(game.brick_images)
         self.rect = self.image.get_rect()

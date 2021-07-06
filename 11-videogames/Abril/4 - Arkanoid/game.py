@@ -75,10 +75,26 @@ class Game:
                     self.multi_ball_powerup()
 
     def update(self):
+        self.update_collisions()
         self.all_sprites.update()
 
     def hitbox_collide(self, sprite, other):
         return sprite.hitbox.colliderect(other.hitbox)
+
+    def update_collisions(self):
+        hits = pygame.sprite.spritecollide(
+            self.player, self.balls, False, self.hitbox_collide)
+        for ball in hits:
+            self.player.hit_ball(ball)
+
+        brick_hits = pygame.sprite.groupcollide(
+            self.balls, self.bricks, False, False, self.hitbox_collide)
+
+        # hits -> [(ball, [brick, brick1, brick2]), (ball2, [brick2])...]
+        for ball, bricks in brick_hits.items():
+            the_brick = bricks[0]
+            ball.bounce(the_brick)
+            the_brick.hit()
 
     def multi_ball_powerup(self):
         if len(self.balls.sprites()) == 0:
