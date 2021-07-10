@@ -14,7 +14,7 @@ color_sensor.integration_cycles(tcs34725.INTEG_CYCLES_42)
 color_sensor.active(True)
 utime.sleep_ms(100)
 
-# Usa este codigo para ver los valorese del sensor y calibar el umbral
+# Usa este codigo para ver los valorese del sensor y calibrar el umbral
 # while True:
 #     temperature, lux = color_sensor.read_temperature_and_lux()
 #     print("temperature {}\tlux {}".format(temperature, lux))
