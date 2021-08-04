@@ -23,6 +23,9 @@ title: Librerías
 - [`zlib`](standard/16-zlib/zlib.md) - Compresión con `zip`
 - [`gzip`](standard/17-gzip/gzip.md) - Compresión con `gzip`
 - [`zipfile`](standard/18-zipfile/zipfile.md) - Trabajar con ficheros ZIP
+- [`traceback`](standard/19-traceback/traceback.md) - El módulo traceback
+- [`itertools`](standard/20-itertools/itertools.md) - Utilidades para trabajar
+  con iteradores
 
 ### Librerías externas (Hay que instalarlas)
 
