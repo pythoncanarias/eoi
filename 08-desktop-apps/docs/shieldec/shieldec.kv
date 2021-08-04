@@ -1,0 +1,41 @@
+MainLayout:
+
+<MainLayout>:
+    orientation: "vertical"
+    padding: [10, 10, 10, 10]
+    spacing: 10
+    FloatLayout:
+        Image:
+            size_hint: (None, None)
+            size: (self.parent.height, self.parent.height)
+            pos_hint: {"x": 0, "center_y": 0.5}
+            source:"img/logo.png"
+    TextInput:
+        id: txt_input
+        multiline: False
+        font_size: "32dp"
+        text: "Iholflgdghv, qrydwr, ho ghfrglilfdgru gh VKLHOG ixqflrqd."
+        size_hint_y: None
+        height: "48dp"
+    BoxLayout:
+        size_hint_y: None
+        height: "64dp"
+        orientation: "horizontal"
+        Slider:
+            size_hint: (.75, 1)
+            id: keycode
+            min: -26
+            max: 26
+            value: 3
+        Label:
+            size_hint: (.25, 1)
+            font_size: "56dp"
+            text: str(int(keycode.value))
+    Label:
+        id: txt_output   
+        font_size: "16dp"
+    Button:
+        text: "Cifra / Descifra"
+        font_size: "32dp"
+
+        on_press: root.do_cifra()
