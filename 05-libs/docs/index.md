@@ -20,6 +20,7 @@ title: Librerías
 - [`base64`](standard/13-base64/base64.md) - Codificación/Decodificación Base 64
 - [`collections`](standard/14-collections/collections.md) - Otras colecciones de datos
 - [`heapq`](standard/15-heapq/heapq.md) - Implementación de Montículo (heap)
+- [`gzip`](standard/16-gzip/gzip.md) - Compresión con `gzip`
 
 ### Librerías externas (Hay que instalarlas)
 
