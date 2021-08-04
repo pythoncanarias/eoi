@@ -19,6 +19,7 @@ title: Librerías
 - [`re`](standard/12-re/re.md) - Expresiones regulares
 - [`base64`](standard/13-base64/base64.md) - Codificación/Decodificación Base 64
 - [`collections`](standard/14-collections/collections.md) - Otras colecciones de datos
+- [`heapq`](standard/15-heapq/heapq.md) - Implementación de Montículo (heap)
 
 ### Librerías externas (Hay que instalarlas)
 
