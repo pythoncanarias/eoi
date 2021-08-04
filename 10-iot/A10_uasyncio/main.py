@@ -1,7 +1,7 @@
 import uasyncio
 from machine import Pin
 # Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
-
+# https://docs.micropython.org/en/latest/library/uasyncio.html
 
 async def blink(pin):
     led = Pin(pin, Pin.OUT)

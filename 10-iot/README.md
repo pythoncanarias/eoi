@@ -23,6 +23,7 @@ Para el desarrollo de este modulo, utilizaremos `Micropython`. Micropython es un
 
 
 Utilizaremos la placa de desarrollo [Atom Lite](https://m5stack.com/products/atom-lite-esp32-development-kit), de [M5Stack](https://m5stack.com), basada en el chip [ESP32-Pico](https://www.espressif.com/en/products/socs/esp32) de [espressif](https://www.espressif.com/)
+El propio ESP32 es un microcontrolador muy potente, con dos nucleos a 240MUZ, 520KB SRAM y tiene incorporado wifi y bluetooth. La placa añade una antena 3D de 2.4 GHz (tanto para wifi como para bluetooth) 4MB de memoria flash, un led RGB (SK6812), led infrarojo, boton, tira de conectores para interactuar con los GPIO y un conector HY2.0 (Grove) para conectar sensores o actuadores.
 
 
 <table><rd>
@@ -39,11 +40,12 @@ pip install esptool
 ```
 Ahora necesitamos el interprete de micropython para el chip de nuestra placa (ESP8266 o ESP32) aqui: [micropython.org](https://micropython.org/download/)
 
+Descargamos la ultima version estable con el firmware ESP-IDF v4.x y con SPIRAM (ya que la placa incluye 4MB de RAM externos)
 La ultima version estable a dia de hoy para la placa Atom Lite (ESP32) es 
 
-[esp32-idf3-20200902-v1.13](https://micropython.org/resources/firmware/esp32-idf3-20200902-v1.13.bin)
+[esp32spiram-20210623-v1.16.bin](https://micropython.org/resources/firmware/esp32spiram-20210623-v1.16.bin)
 
-Y por subiremos el interprete a la placa. Esto dependerá de tu sistema operativo:
+Y para subir el interprete a la placa, dependerá de tu sistema operativo:
 
 
 ## Linux

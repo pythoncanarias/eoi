@@ -3,12 +3,29 @@
 
 
 
+# Salida digital
+# Osciloscopio 400us Y -T - 2v DC x1
+from machine import Pin
+import utime
+pin = Pin(33, Pin.OUT)
+# Trigger Sweep Auto
+pin.value(0)
+pin.value(1)
+# Trigger Sweep Single
+while True:
+    pin.value(1)
+    utime.sleep_us(100)
+    pin.value(0)
+    utime.sleep_us(300)
+
 # PWM
 # Osciloscopio 400us Y -T - 2v DC x1
 from machine import Pin, PWM
 pin_pwm = PWM(Pin(33, Pin.OUT), freq=1000)
-pin_pwm.duty(512)
-
+pin_pwm.duty(1023)  # 100%
+pin_pwm.duty(511)  # 50%
+pin_pwm.duty(768)  # 75%
+pin_pwm.duty(255)  # 25%
 
 
 # RMT pulsos microsegundos
