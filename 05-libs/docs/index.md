@@ -26,6 +26,7 @@ title: Librerías
 - [`traceback`](standard/19-traceback/traceback.md) - El módulo traceback
 - [`itertools`](standard/20-itertools/itertools.md) - Utilidades para trabajar
   con iteradores
+- [`difflib`](standard/21-difflib/difflib.md) - Trabajar con diferencias entre secuencias 
 
 ### Librerías externas (Hay que instalarlas)
 

@@ -7,10 +7,23 @@ plugins:
   - search
   - table-reader
   - macros
+  - with-pdf:
+      author: Juan Ignacio Rodríguez de León
+      copyright: Python Canarias
+      cover_title: "Tema 6: Desarrollo Web"
+      output_path: ./tema-06-web.pdf
+      cover_subtitle: "Curso Python EOI"
+      toc_title: Sumario
+      toc_level: 4
+      render_js: true
+      headless_chrome_path: /usr/bin/chromium
+      enabled_if_env: ENABLE_PDF_EXPORT
+      verbose: true
 
 markdown_extensions:
     - admonition
     - pymdownx.details
+    - pymdownx.keys
     - pymdownx.arithmatex:
         generic: true
     - mdx_math:
