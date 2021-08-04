@@ -17,6 +17,7 @@ title: Librerías
 - [`csv`](standard/10-csv/csv.md) - Trabajar con ficheros CSV
 - [`json`](standard/11-json/json.md) - Trabajar con el formato json
 - [`re`](standard/12-re/re.md) - Expresiones regulares
+- [`base64`](standard/13-base64/base64.md) - Codificación/Decodificación Base 64
 
 ### Librerías externas (Hay que instalarlas)
 

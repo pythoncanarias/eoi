@@ -7,6 +7,18 @@ plugins:
   - search
   - table-reader
   - macros
+  - with-pdf:
+      author: Juan Ignacio Rodríguez de León
+      copyright: Python Canarias
+      cover_title: "Tema 8: Aplicaciones de escritorio"
+      output_path: ./tema-08-desktops-apps.pdf
+      cover_subtitle: "Curso Python EOI"
+      toc_title: Sumario
+      toc_level: 4
+      render_js: true
+      headless_chrome_path: /usr/bin/chromium
+      enabled_if_env: ENABLE_PDF_EXPORT
+      verbose: true
 
 markdown_extensions:
     - admonition

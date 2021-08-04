@@ -2,80 +2,97 @@
 title: Componentes kivy
 ---
 
-## RecicleView
+### La clase `RecicleView`
 
-El proposito de esta clase es proporcinar un sistema para
-visualizar un conjunto de datos grande de forna eficiente, visualizando solo los elementos necesarios para la presentacion.
-De este forma el numero de controles necesarios para presentar
-los datos se mantiene al minimo.
+El propósito de esta clase es proporcionar un sistema para visualizar un
+conjunto de datos grande de forna eficiente, visualizando solo los elementos
+necesarios para la presentación.  De este forma el número de controles
+necesarios para presentar los datos se mantiene al mínimo.
 
-La vista se genera a partir de la propiedad `data`, que debe consistir en una lista de diccionario. Los datos en el dicianario se usaran para crear el widget necesario para su presentacion.
+La vista se genera a partir de la propiedad `data`, que debe consistir en una
+lista de diccionario. Los datos en el diccionario se usarán para crear el *widget*
+necesario para su presentación.
 
-En este componente se utiliza el patron Modelo/Vista/Controlador, donde:
+En este componente se utiliza el patrón Modelo/Vista/Controlador, donde:
 
-- Modelo: En este caso el modelo son los diccionarios que se pasan a la lista `data`.
+- **Modelo**: En este caso el modelo son los diccionarios que se pasan a la lista `data`.
 
+- **Vista**: El código de las vistas está dividido entre los controles
+usados internamente y el propio *layout* del control
 
-- Vista: El codigo de las vistas esta dividido entre los controles
-usados internamente y el propio layout del control
-
-- Controlador: El controlador esta implmentado internamente y se ocupa de
-la logica necesaria para que todo funciones, esta definido en 
+- **Controlador**: El controlador está implementado internamente y se ocupa de
+la lógica necesaria para que todo funciones, esta definido en 
 la clase `RecycleViewBehavior`.
 
-Estas clases son clases abstrabtas y en principio no hay que usarlas directamente, sini que usamos implementaciones ya
-preparadas para trabajar. Por defecto se usa la clase `RecycleDataModel` para el modelo, `RecycleLayout` para la
-vista y `
-RevicleView` para el controlador.
+Estas clases son clases abstractas y en principio no hay que usarlas
+directamente, si no que usamos implementaciones ya preparadas para trabajar.
+Por defecto se usa la clase `RecycleDataModel` para el modelo, `RecycleLayout`
+para la vista y ` RevicleView` para el controlador.
 
-Cuando creamos una instancia de `RecycleView`, se crean automaticamente las clases vista y modelo necesarias. Lo úunico que si tenemos que hacer nosotors en crear el Layout necesario y añadirlo a la clase `RecycleView`.
+Cuando creamos una instancia de `RecycleView`, se crean automáticamente las
+clases vista y modelo necesarias. Lo único que si tenemos que hacer nosotros
+en crear el *layout* necesario y añadirlo a la clase `RecycleView`.
 
 Veamos un ejemplo que muestra 25 botones:
 
-El codigo python:
-```
+El código python:
+
+```python
 {% include 'recycle-view-demo.py' %}
 ```
 
-que usa el fichero kivy `recycle.kv`:
+que usa el fichero *kivy* `recycle.kv`:
 
 ```
 {% include 'recycle.kv' %}
 ```
 
-**Ejercicio**: Cambiar el tamaño de la lista a 1000. Comprueba que aun con un tamaño grande de elemenntos a mostrar, la vista sigue mas o menos igual de agil. Cambiar el control por una etiqueta.
+**Ejercicio**: Cambiar el tamaño de la lista a 1000. Comprueba que aun con un
+tamaño grande de elementos a mostrar, la vista sigue igual de
+ágil. Cambiar el control por una etiqueta.
 
-## Scatter
+### La clase `Scatter`
 
-Un control de tipo Scatter esta diseñado para que puedan
-se puebda mover, cambiar de tamaño, rotat, etc. mediante
-interacciones del usuario (ya sea con un raton o con
-gestos en una dispostivio movil o tablet) o por nuestro
-propio codigo. Ademas, estas transformaciones ton propiedades, que puene ser usadas para porpagar estos cambios a cuaquier 
-otro widget.
+Un control de tipo `Scatter` está diseñado para que los elementos que contenga
+se puedan mover, cambiar de tamaño, rotar, etc. mediante interacciones del
+usuario (ya sea con un ratón o con gestos en una dispositivo móvil o en una
+*tablet*) o por nuestro propio código. Además, estas transformaciones son
+propiedades, que podemos usar para propagar estos cambios a cualquier otro
+*widget*.
 
+Para poder usarlo el primer paso, como siempre, es importarlo:
+
+```python
 from kivy.uix.scatter import Scatter
+```
 
-Vamos a necesitr una par de controles mas: una etiqueta (`Label`)
-para mostrar un texto, que ira anclada al contro scatter , y un `FloatLayout` donde podamos poner nuestras instancias de scatter, como nodo raiz de la ventana.
+Vamos a necesitar una par de controles más: una etiqueta (`Label`) para mostrar
+un texto, que irá anclada al control *scatter* , y un `FloatLayout` donde
+podamos poner nuestras instancias de *scatter*, como nodo raíz de la ventana.
 
-El codigo quedaria mas o menos asi:
+El código quedaría mas o menos así:
 
-
+```python
 from kivy.uix.label import Label
 from kivy.uix.floatlayout import FloatLayout
-Now, instead of making a button we’ll need to instantiate our new widgets.
 
 class TutorialApp(App):
     def build(self):
         f = FloatLayout()
         s = Scatter()
-        l = Label(text='Hello!',
-                  font_size=150)
-Note here that the floatlayout and scatter don’t have any special properties set, but we could do stuff like disable the scatter’s touch interaction at this point if we wanted to.
+        l = Label(text='Hello!', font_size=150)
+```
 
-At this point we have three widgets - different to before where we only had a single button! We can only return one of these widgets to be the application’s root widget, so the others will have to be child widgets added to one of the other ones. We do this by adding each widget to a different widget above it.
+Nótese que no usamos en este ejemplo ninguna de las propiedades del control
+*LoatLayout* ni del *Scatter*, pero podemos usarlas como en cualquier otro
+control, por ejemplo para desactivarlos e impedir la interacción con el
+usuario, por ejemplo.
 
+En este momento disponemos de tres *widgets*. Solo debemos retornar uno de
+ellos para que sea usado como el control raíz por la aplicación.  Así que vamos
+añadiéndolos en forma de árbol:
+
+```python
 class TutorialApp(App):
     def build(self):
         f = FloatLayout()
@@ -86,14 +103,21 @@ class TutorialApp(App):
         f.add_widget(s)
         s.add_widget(l)
         return f
-Now everything is added below the floatlayout, which is returned to become the application’s root widget - it will fill the screen (though it has no visual representation so we won’t be able to see it), but we will be able to see the label that we should be able to move around by interacting with the scatter that contains it.
+```
 
+Ahora el resto de los componentes esta almacenado de forma directa o indirecta
+como descendientes del componente *FloatLayout*, que ahora ya puede actuar como
+el control raíz de la aplicación. Ocupará todo el espacio disponible de la
+ventana, pero lo único que podremos ver es la etiqueta, que deberíamos ser
+capaces de mover, rotar y escalar.
 
-### ScrollView
+### El contrl `ScrollView`
 
-The ScrollView in Kivy provides a scrollable view. Using scrollview, we can scroll through the x-axis as well as the y-axis on the screen.
+El control `ScrollView` proporciona un área para contener otros controles que
+proporciona barras de desplazamiento, en una o en las dos dimensiones posibles.
 
-First, we will import a new function called runTouchApp(). This function will make our scrollview touch-enabled.
+Vamos a importar la función `runTouchApp()`. Con esta función conseguiremos que
+el control e pueda usar con múltiples toques (_Usando más de un dedo_).
 
 ```python
 from kivy.base import runTouchApp
@@ -119,48 +143,44 @@ ScrollView:
 runTouchApp(root)
 ```
 
-## Clock
+### El control `Clock`
 
-Cocn la clase `kivy.clock.Clock` podemos
-programar funciones para que se ejecuten
-en determinados momentos. La clase nos proporciona
-un método  `schedule_interval` con el cual podemos
-indicar que un determinado método o función debe 
-ehecutarse cada cierto tiempo. Con esto podemos
-hacer un reloj digital con muy poco codigo adicional.
+Con la clase `kivy.clock.Clock` podemos programar funciones para que se
+ejecuten en determinados momentos. La clase nos proporciona un método
+`schedule_interval` con el cual podemos indicar que un determinado método o
+función debe ejecutarse cada cierto tiempo. Con esto podemos hacer un reloj
+digital con muy poco código adicional.
 
-Veamos prrimero el fichero kivy:
+Veamos primero el fichero _kivy_:
 
-```
+```kivy
 {% include 'simpleclock/simpleclock.kv' %}
 ```
 
-Y el codigo python:
+Y el código Python:
 
-```
+```python
 {% include 'simpleclock/main.py' %}
 ```
 
-**Ejercicio:** Usar la fuente incluida
- en [fonts/LED.ttf](./fonts/LEF.ttf)
- para la etiqueta de la hora. Cambiar el codigo 
- para que sea una cuenta atras desde las
- '23:59:29'.
+**Ejercicio:** Usar la fuente incluida en [fonts/LCD.ttf](./fonts/LCD.ttf) para
+la etiqueta de la hora. Cambiar el código para que sea una cuenta atras desde
+las '23:59:29'.
 
-Si devolvemos `False` dentro de la funcion llamada
-por el reloj, el mecanismo de llamada automatico
-se desactiva, de forma que ya no se repetiora mas.
+Si devolvemos `False` dentro de la función llamada por el reloj, el mecanismo
+de llamada automático se desactiva, de forma que ya no se repite más.
 
-En principio el callback solo acepta un unico parámetro, que es la diferencia de tiempo en segundos entre la llamada actual y la anterios. Si queremos agregar más parámetros, eresulta muy coveniente el uso de `functools.partial`.
+En principio el _callback_ acepta un único parámetro, que es la diferencia de
+tiempo en segundos entre la llamada actual y la anterior. Si queremos agregar
+más parámetros, resulta muy conveniente el uso de `functools.partial`.
 
-Igualemente, podemos usar lambda para recubrir una funcion
-que no acepte ningun parámetro, o escribir una recubrimiento
-para ella.
+Igualmente, podemos usar lambda para recubrir una función que no acepte ningún
+parámetro, o escribir un recubrimiento para ella.
 
 
-### ScreenManagar
+### El control `ScreenManagar`
 
-El control `ScreenMananer` esta disenañado para gestionar multiples pantallas.
+El control `ScreenMananer` esta diseñado para gestionar múltiples pantallas.
 Por defecto, se muestra una pantalla completa cada vez y se usan unas
 transiciones o animaciones básicas para pasar de una pantalla a otra. Las
 animaciones básicas pueden ser sustituidas por nuestras propias animaciones, si
@@ -172,18 +192,18 @@ pantalla**, ya que se usará ese nombre para identificarlas a la hora de
 pasar de una pantalla a otra.
 
 La transición por defecto está definida en la clase `SlideTransition` y tiene
-opciones para determinar tanto la direción de la transición como la duración.
+opciones para determinar tanto la dirección de la transición como la duración.
 
 Una cosa a tener en cuenta es que la clase `Screen` no muestra nada en la
 pantalla, es internamente una subclase de `RelativeView`. Es el control que va
-dentro del screen el que se debe encargar de esto, normalmente (pero no
-necesariamente) algún tipo de Layout Manager.
+dentro del _screen_ el que se debe encargar de esto, normalmente (pero no
+necesariamente) algún tipo de _Layout Manager_.
 
 En el siguiente ejemplo, creamos un gestor para dos pantallas, la primera
-pantalla tiene un boton a la derecha quen os permite pasar a la segunda
-pantalla. En esta hay un boton a la izquienrda que realiza la función inversa,
+pantalla tiene un botón a la derecha que nos permite pasar a la segunda
+pantalla. En esta hay un botón a la izquierda que realiza la función inversa;
 nos permite regresar a la primera pantalla. En cada objeto de tipo `Screen` hay
-una referencia al ScreenManager que lo contiene, en el atributo `manager`.
+una referencia al `ScreenManager` que lo contiene, en el atributo `manager`.
 
 Usamos en este código el método `load_string` para cargar la definición de las
 pantallas internamente, sin necesidad de usar un fichero externo:
