@@ -18,6 +18,7 @@ title: Librerías
 - [`json`](standard/11-json/json.md) - Trabajar con el formato json
 - [`re`](standard/12-re/re.md) - Expresiones regulares
 - [`base64`](standard/13-base64/base64.md) - Codificación/Decodificación Base 64
+- [`collections`](standard/14-collections/collections.md) - Otras colecciones de datos
 
 ### Librerías externas (Hay que instalarlas)
 
