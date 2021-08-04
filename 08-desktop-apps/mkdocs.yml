@@ -23,6 +23,7 @@ plugins:
 markdown_extensions:
     - admonition
     - pymdownx.details
+    - pymdownx.keys
     - pymdownx.arithmatex:
         generic: true
     - mdx_math:

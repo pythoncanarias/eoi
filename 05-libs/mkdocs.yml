@@ -6,6 +6,7 @@ theme:
 plugins:
   - search
   - table-reader
+  - macros
   - with-pdf:
       author: Juan Ignacio Rodríguez de León
       copyright: Python Canarias
@@ -22,6 +23,7 @@ plugins:
 markdown_extensions:
     - admonition
     - pymdownx.details
+    - pymdownx.keys
     - pymdownx.arithmatex:
         generic: true
     - mdx_math:

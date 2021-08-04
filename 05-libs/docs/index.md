@@ -33,6 +33,9 @@ title: Librerías
 - [`fire`](external/fire/fire.md) - Interfaz de línea de comandos
 - [`qrcode`](external/qrcode/qrcode.md) - Códigos QR
 - [`pillow`](external/pillow/pillow.md) - Pillow Tratemiento de imágenes
+- [`requests`](external/requests/requests.md) - Peticiones Web
+- [`watchdog`](external/watchdog/watchdog.md) - Monitorizar cambios en el sistema de ficheros
+
 
 ### Anexos
 
