@@ -1,4 +1,8 @@
-## Introducción al desarrollo de aplicaciones de escritorio
+---
+title:  Introducción al desarrollo de aplicaciones de escritorio
+---
+
+## Aplicaciones de escritorio
 
 Una aplicación de escritorio es aquella que se encuentra 
 instalado localmente en el ordenador, y que presentan al usuario

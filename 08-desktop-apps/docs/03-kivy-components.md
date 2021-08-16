@@ -10,19 +10,20 @@ necesarios para la presentación.  De este forma el número de controles
 necesarios para presentar los datos se mantiene al mínimo.
 
 La vista se genera a partir de la propiedad `data`, que debe consistir en una
-lista de diccionario. Los datos en el diccionario se usarán para crear el *widget*
-necesario para su presentación.
+lista de diccionario. Los datos en el diccionario se usarán para crear el
+*widget* necesario para su presentación.
 
 En este componente se utiliza el patrón Modelo/Vista/Controlador, donde:
 
-- **Modelo**: En este caso el modelo son los diccionarios que se pasan a la lista `data`.
+- **Modelo**: En este caso el modelo son los diccionarios que se pasan a la
+  lista `data`.
 
-- **Vista**: El código de las vistas está dividido entre los controles
-usados internamente y el propio *layout* del control
+- **Vista**: El código de las vistas está dividido entre los controles usados
+  internamente y el propio *layout* del control
 
 - **Controlador**: El controlador está implementado internamente y se ocupa de
-la lógica necesaria para que todo funciones, esta definido en 
-la clase `RecycleViewBehavior`.
+  la lógica necesaria para que todo funciones, esta definido en la clase
+  `RecycleViewBehavior`.
 
 Estas clases son clases abstractas y en principio no hay que usarlas
 directamente, si no que usamos implementaciones ya preparadas para trabajar.
@@ -30,26 +31,26 @@ Por defecto se usa la clase `RecycleDataModel` para el modelo, `RecycleLayout`
 para la vista y ` RevicleView` para el controlador.
 
 Cuando creamos una instancia de `RecycleView`, se crean automáticamente las
-clases vista y modelo necesarias. Lo único que si tenemos que hacer nosotros
-en crear el *layout* necesario y añadirlo a la clase `RecycleView`.
+clases vista y modelo necesarias. Lo único que si tenemos que hacer nosotros en
+crear el *layout* necesario y añadirlo a la clase `RecycleView`.
 
 Veamos un ejemplo que muestra 25 botones:
 
-El código python:
+El código Python:
 
 ```python
 {% include 'recycle-view-demo.py' %}
 ```
 
-que usa el fichero *kivy* `recycle.kv`:
+Que usa el fichero Kivy `recycle.kv`:
 
 ```
 {% include 'recycle.kv' %}
 ```
 
 **Ejercicio**: Cambiar el tamaño de la lista a 1000. Comprueba que aun con un
-tamaño grande de elementos a mostrar, la vista sigue igual de
-ágil. Cambiar el control por una etiqueta.
+tamaño grande de elementos a mostrar, la vista sigue igual de ágil. Cambiar el
+control por una etiqueta.
 
 ### La clase `Scatter`
 
@@ -111,7 +112,7 @@ el control raíz de la aplicación. Ocupará todo el espacio disponible de la
 ventana, pero lo único que podremos ver es la etiqueta, que deberíamos ser
 capaces de mover, rotar y escalar.
 
-### El contrl `ScrollView`
+### El control `ScrollView`
 
 El control `ScrollView` proporciona un área para contener otros controles que
 proporciona barras de desplazamiento, en una o en las dos dimensiones posibles.
@@ -164,7 +165,7 @@ Y el código Python:
 ```
 
 **Ejercicio:** Usar la fuente incluida en [fonts/LCD.ttf](./fonts/LCD.ttf) para
-la etiqueta de la hora. Cambiar el código para que sea una cuenta atras desde
+la etiqueta de la hora. Cambiar el código para que sea una cuenta atrás desde
 las '23:59:29'.
 
 Si devolvemos `False` dentro de la función llamada por el reloj, el mecanismo
@@ -187,7 +188,7 @@ animaciones básicas pueden ser sustituidas por nuestras propias animaciones, si
 lo necesitamos.
 
 Vamos a construir un `ScreenManager` con dos pantallas, a las que asignaremos
-un nombre diferente a cada una. **Es obligatorio asignarla  un nombre a cada
+un nombre diferente a cada una. **Es obligatorio asignarle un nombre a cada
 pantalla**, ya que se usará ese nombre para identificarlas a la hora de
 pasar de una pantalla a otra.
 

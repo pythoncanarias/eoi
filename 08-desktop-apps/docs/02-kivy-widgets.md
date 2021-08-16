@@ -1,9 +1,14 @@
+---
+title: Controles (_Widgets_) Kivi
+---
+
 ## Widgets
 
-Vamos a empezar viendo los controles mas basicos: el boton y la etiqueta.
-Vamos a hacer primero un simpleprograma con un boton y una etiqueta, y quen o haga nada.
-Emepezaremos con en fichero `.kv` para definir nuestro _layout_. En este caso usaremos 
-una clase derivada de 
+Vamos a empezar viendo los controles más básicos: el botón y la etiqueta.
+
+Vamos a hacer primero un simple programa con un botón y una etiqueta, y que no haga nada.
+Empezaremos con en fichero `.kv` para definir nuestro _layout_. En este caso usaremos 
+una clase derivada de:
 
 ```kivy
 WidgetExample:
@@ -16,25 +21,25 @@ WidgetExample:
         text: "Hola, mundo"
 ```
 
-en kivy las reglas pueden ser referidas a objetos (instancias) o a clases. Si son objetos
-se usa el nombre de la clase, sin mas, seguido de dos puntos. PAra las clases, se usa
+En Kivy las reglas pueden ser referidas a objetos (instancias) o a clases. Si son objetos
+se usa el nombre de la clase, sin mas, seguido de dos puntos. Para las clases, se usa
 la forma `<NombreDeLaClase>` o incluso `<NombreDeLaClase@ClasePadre>` si queremos indicar
-de que clase deriva. Es decir, que lo que en kivy seria:
+de que clase deriva. Es decir, que lo que en Kivy sería:
 
 ```kivy
 <WidgetExample@BoxLayout>:
 ```
 
-Es equivalente al siguiente codigo de Python:
+Es equivalente al siguiente código de Python:
 
 ```python
 class WidgetExample(BoxLayout)
 ```
 
-Es decir, que podemos definir las clases o bien en el fichero kivy
+Es decir, que podemos definir las clases o bien en el fichero Kivy
 o en el de Python, pero no en los dos.
 
-Para este ejemplo, necesitalos los siguientes ficheros:
+Para este ejemplo, necesitamos los siguientes ficheros:
 
 `sample.kv`:
 
@@ -68,22 +73,30 @@ if __name__ == "__main__":
     main()
 ```
 
-En el codigo Python no necesitamos definir la clase `WidgetExample`, ya que 
-se define en el fichero `.kv`. La clase de la App se llama `SampleApp`, asi
-que si dejamos a kivy que se encarge él mismo de cargar el fichero .kv, lo que hace es eliminar el sufijo App de la clase (si lo hubiera), pasar el resto a minusculas y cargar el fichero con la extensión .kv, que en este caso seria `sample.kv`. En ese fichero, la raiz es la primera
-regla definida a con nivel 0 de identacion, en este caso `WidgetExamle`. De donde sale el código
-de la clase `WidgetExample`? Lo genera automaticamente kivy desde el fichero
-`sample.kv`, con la información contenida en la líneas tres y siguientes.
+En el código Python no necesitamos definir la clase `WidgetExample`, ya que se
+define en el fichero `.kv`. La clase de la App se llama `SampleApp`, así que si
+dejamos a Kivy que se encargue él mismo de cargar el fichero `.kv`.
 
-Si ejecutamos ahora el programa `sampleApp.py`, deberiamos obtener una ventana
-con dos componentes, el primero es un boton, que podemos pulsar (aunque qhora no haga nada)
-y una etiqueta que tampovo hace nada.
+Lo que hace es eliminar el sufijo `App` de la clase (si lo hubiera), pasar el
+resto a minúsculas y cargar el fichero con la extensión `.kv`, que en este caso
+sería, por tanto, `sample.kv`. En ese fichero, la raíz es la primera regla
+definida con nivel 0 de indentación, en este caso `WidgetExamle`.
+
+¿De donde sale el código de la clase `WidgetExample`? Lo genera de forma
+automática Kivy usando la información contenida en el fichero `sample.kv`.
+
+Si ejecutamos ahora el programa `sampleApp.py`, deberíamos obtener una ventana
+con dos componentes, el primero es un botón, que podemos pulsar (aunque ahora
+no haga nada) y una etiqueta, que tampoco hace nada.
 
 ![Boton y etiqueta](widgets-01.png)
 
-Vamos a hecer que el boton haga algo. Pero lo primero que vamos a hacer es sacar
-la defincion de la clase del fichero kivy y nos lo vamos a a traer al fichero python.
-Hecho este cambio, todo deberia funcioan igual, pero los ficheros quedarian:
+### Asignar acciones a controles
+
+Vamos a hacer que el botón haga algo. Para ello lo primero que vamos a hacer es
+sacar la definición de la clase del fichero Kivy y nos lo vamos a a traer al
+fichero Python.  Hecho este cambio, todo debería funcionan igual, pero los
+ficheros quedarían así:
 
 `sample.kv`
 ```kivy
@@ -120,15 +133,13 @@ if __name__ == "__main__":
     main()
 ```
 
-Ahora, con la clase definida en Python, podemos implmentar
-en primer lugar el método que queramos para realizar la accion
-que queremos que haga el boton, y en el fichero kivy realizamos
-el vínculo entre el botón y el método. fijate que el método
-se va a definir en la clase `WidgetExample`, no en el boton. Esto será
-importante después, a la hora de vincularlos.
+Ahora, con la clase definida en Python, podemos implementar en primer lugar el
+método que queramos para realizar la acción que queremos que haga el botón, y
+en el fichero Kivy realizamos el vínculo entre el botón y el método. Es
+importante resaltar que el método se va a definir en la clase `WidgetExample`,
+no en el botón. Esto será importante después, a la hora de vincularlos.
 
-Podemos llamar a este método como queramos, vamos a usar el
-nombre `do_click`.
+Podemos llamar a este método como queramos, vamos a usar el nombre `do_click`.
 
 El fichero `sample.kv`:
 
@@ -170,32 +181,32 @@ if __name__ == "__main__":
     main()
 ```
 
-si todo ha hido bien, veremos que al pulsar el botón, se imprime el mensaje.
+si todo ha ido bien, veremos que al pulsar el botón, se imprime el mensaje.
 
-Conviene resaltar dos cosas: La primera es que hemos escrito la
-llamada `do_click()` usando los paréntesis, como si fuera
-directamente código Python. La segunda es que no hemos usado
-`self` para realizar la llamada (de hacerlo así, estariamos
-llamando al método `on_click` del boton, que no es lo que queremos) sino a una 
-variable predefinica `root`, que siempre esta referenciando al *Widget* padre
-de toda esta jerarquia, en este caso `WidgetExample`.
+Conviene resaltar dos cosas: La primera es que hemos escrito la llamada
+`do_click()` usando los paréntesis, como si fuera directamente código Python.
+La segunda es que no hemos usado `self` para realizar la llamada (de hacerlo
+así, estaríamos llamando al método `on_click` del botón, que no es lo que
+queremos) sino a una variable predefinida `root`, que siempre será una
+referencia al *Widget* padre de toda esta jerarquía, en este caso,
+`WidgetExample`.
 
-## Propiedades
+### Propiedades
 
-Vamos a hacer ahora que al pulsar el boton se modifique el
-texto de la etiqueta. Para eso vamos a usar unas lo que kivy 
-llama **Propiedades** o **Properties**. Las propiedades
-son clases definidas en kivy que tiene la particularidad de que
-emiten eventos cuando cambia de valor. las propiedades estan definidas en
-`kivy.properties` y en general hay un tipo diferente para cada tipo de dato
-que queremos usar como propiedad. Por ejemplo, tendriamos `NumericProperty`
-para valores, numéricos, o `BooleanProperty` para valores booleanos.
+Vamos a hacer ahora que al pulsar el botón se modifique el texto de la
+etiqueta. Para eso vamos a usar unas lo que kivy llama **Propiedades** o
+**Properties**. Las propiedades son clases definidas en Kivy que tiene la
+particularidad de que emiten eventos cuando cambia de valor. 
 
-Vamos a crear una propiedad para guardar el texto de la
-etiqueta. Para propiedades de tipo textos usamos la clase
-`kivy.properties.StringProperty`. La definiremos en la
-propia clase, como si fuera una variable de clase (solo se incluye la
-parte cambiada del fichero python, la importacion y la declaracion
+Las propiedades están definidas en el módulo `kivy.properties` y en general
+usamos un tipo diferente para cada tipo de dato que queremos usar como
+propiedad. Por ejemplo, tendríamos `NumericProperty` para valores numéricos, o
+`BooleanProperty` para valores booleanos.
+
+Vamos a crear una propiedad para guardar el texto de la etiqueta. Para
+propiedades de tipo textos usamos la clase `kivy.properties.StringProperty`. La
+definiremos en la propia clase, como si fuera una variable de clase (solo se
+incluye la parte cambiada del fichero Python, la importación y la declaración
 de `label_text` como `StringProperty`):
 
 ```python
@@ -209,22 +220,22 @@ class WidgetExample(BoxLayout):
         print("Botón pulsado")
 ...
 ```
-Aparentemente seria lo mismo que si hubieramos creado simpleente
-la cadena de texto "Hola, mundo", pero internamente han pasado
-mas cosas:
+Aparentemente sería lo mismo que si hubiéramos creado 
+una cadena de texto "Hola, mundo", pero internamente han pasado
+más cosas:
 
-1) se ha creado un evento, en este caso `on_label_text`, que se emitira
-  cada vez que el texto de `label_text` cambie.
+1) se ha creado un evento, en este caso `on_label_text`, que se emitirá cada
+   vez que el texto de `label_text` cambie.
 
-2) Internamente se ha implementedo un patron conocido como Observedor
- o *Observer*, que basicamente nos permite vincular (*bind*) los cambios
-en esta propiedad a los metodos o funciones que queramos, usando el método
-`bind`.  Cuando se produzcan cualquier cambio de su valor, se ejecutaran los
-procedimientos vinculados a ese cambio, utilizando el evento definido
-anteriomente.
+2) Internamente se ha implementado un patrón conocido como Observador
+   o *Observer*, que básicamente nos permite vincular (*bind*) los cambios en
+   esta propiedad a los métodos o funciones que queramos, usando el método
+   `bind`.  Cuando se produzcan cualquier cambio de su valor, se ejecutaran los
+   procedimientos vinculados a ese cambio, utilizando el evento definido
+   antes.
 
 Seguimos ahora con los cambios en el programa. Una vez definida la propiedad,
-modificamos el fichero kivy, y cambiamos el atributo `text` de la
+modificamos el fichero Kivy, y cambiamos el atributo `text` de la
 etiqueta para que use la nueva propiedad 'label_text`:
 
 ```kivy
@@ -239,12 +250,11 @@ WidgetExample:
         text: root.label_text
 ```
 
-Con esto le estamos diciendo a kivy que el texto de la etiqueta
-debe ser el contendo de la propiedad `label_test`, **incluso si
-este cambia**. Esto es la ventaja (y el propósito) de que las propiedades emitan
-eventos cuando sus valores cambian; permitir a kivy enterarse
-de esos cambios y reflejarlo en el texto de la etiqueta
-de forma automática para nosotros.
+Con esto le estamos diciendo a kivy que el texto de la etiqueta debe ser el
+contendo de la propiedad `label_text`, **incluso si este cambia en el futuro**.
+Esto es la gran ventaja (y el propósito) de que las propiedades emitan eventos
+cuando sus valores cambian; permitir a Kivy enterarse de esos cambios y
+reflejarlo en el texto de la etiqueta de forma automática.
 
 Vamos a cambiar ahora el código del método `on_click`:
 
@@ -253,19 +263,21 @@ Vamos a cambiar ahora el código del método `on_click`:
         self.label_text = "Alguien ha pulsado el botón!" 
 ```
 
-La característica de que estos dos valores esten relacionados de forma
-que cuando se cambia el valor en la propiedad, el cambio se propaga o se refleja
-en la otra, se llama *binding* o *vínculo*. Los dos valores están ahora **vinculados**.
+La característica de que estos dos valores esten relacionados de forma que
+cuando se cambia el valor en la propiedad, el cambio se propaga o se refleja en
+la otra, se llama *binding* o *vínculo*. Se die que los dos valores están ahora
+**vinculados**.
 
-Aunque es la primera vez que hablamos de propiedades, en realidad ya las
-habiamos usado antes. Por ejemplo, cuando usamos el evento `on_press`, este
-evetno esta disponible porque en el boton se ha definido una propiedad `press`.
-Al crear una propiedad, se cera automaticamente el evento encargado de notificr
-que el valor de la propiedad ha cambiado.
+Aunque es la primera vez que hablamos de propiedades, en realidad ya las hemos
+usado antes. Por ejemplo, cuando usamos el evento `on_press`, este evento está
+disponible porque en el botón se ha definido una propiedad `press`.  Al crear
+una propiedad, se cera automaticamente el evento encargado de notificr que el
+valor de la propiedad ha cambiado.
 
-Otro ejemplo podría ser el texto de las etiquetas. el atributo `text` esta
-definido como una propiedad, asi que cualquier cambio en el texto
-de una etiqueta origina un evento on_text, que nosotros podemos utilizar, por ejemplo, desde python, ligandolo a algun metodo o funcion nuestro que actuara
+Otro ejemplo podría ser el texto de las etiquetas. el atributo `text` está
+definido como una propiedad, así que cualquier cambio en el texto de una
+etiqueta origina un evento `on_text`, que nosotros podemos utilizar, por
+ejemplo, desde python, ligandolo a algun metodo o funcion nuestro que actuara
 cuando el texto de la etiqueta cambie.
 
 ![Eran propiedades todo el tiempo](scooby-doo-properties.png)
@@ -275,9 +287,10 @@ etiqueta el número de veces que se ha pulsado el botón.
 
 ### Cambiar tipografía, color y tamaño de los controles
 
-Podemos cambiar varios aspectos visuales de los controles, y el sitio
-más cómodo es el fichero `.kv`. Vamos a cambiar la tipografía, el color y el tamaño
-de la fuente de la etiqueta. Descarga un fichero `.ttf` y guardalo en una carpeta que llamaremos `fonts`. en mi caso voy a usar la fuente LCD.ttf.
+Podemos cambiar varios aspectos visuales de los controles, y el sitio más
+cómodo es el fichero `.kv`. Vamos a cambiar la tipografía, el color y el tamaño
+de la fuente de la etiqueta. Descarga un fichero `.ttf` y guardalo en una
+carpeta que llamaremos `fonts`. en mi caso voy a usar la fuente LCD.ttf.
 
 Ahora, editamos el fichero kivy (solo se muestran las lineas cambiadas):
 
@@ -294,7 +307,7 @@ nuestro contador con los cambios estéticos que hemos indicado:
 
 ![Contador](widgets-02.png)
 
-El código por el momento esta asi:
+El código por el momento está así:
 
 Fichero `sampleApp.py`:
 
@@ -343,48 +356,47 @@ WidgetExample:
         color: "#88FF88"
 ```
 
-### Cambiera el color del boton
+### Cambiar el color del botón
 
-Los botones en kivy son grises por defecto, pero podemos ajustar el color
+Los botones en Kivy son grises por defecto, pero podemos ajustar el color
 especificando la propiedad `background_color`, usando una tupla de tres valores
-para expecificar un color, indicando los valores de rojo, verde y azul como
-numeros entre 0 y 1, o una tupla de cuatro valores si queremos añadir 
+para especificar un color, indicando los valores de rojo, verde y azul como
+números entre 0 y 1, o una tupla de cuatro valores si queremos añadir
 transparencia.
 
-Pero hay que tener encuenta que `Button.background_color` en realidad es más
-bien cono una iluminación o un titnado que se hace sobre el botn, mas que un
-colo solido. Como el color por defecto es gris, por ejemplo, si definimos un colo rojo lo que obtendremos será
-un colo rojo oscuro, mezcla del gris original y del nuevo color.
+Pero hay que tener en cuenta que `Button.background_color` en realidad es más
+bien cono una iluminación o un tintado que se hace sobre el botón, más que un
+colo solido. Como el color por defecto es gris, por ejemplo, si definimos un
+colo rojo lo que obtendremos será un colo rojo oscuro, mezcla del gris original
+y del nuevo color.
 
-Podemos conseguir un boton del color exacto que deseamos de dos formas, o bien remmeplazamos la imagen de fondo del botón
-por una imagen que sea blanco puro (basta con un bitmap de unos pocos pixeles),
-usando las  propiedades `background_normal` y `background_down`, que son los
-colores a usan para el boton normal y pulsado respectivamente.
+Podemos conseguir un botón del color exacto que deseamos de dos formas, o bien
+reemplazamos la imagen de fondo del botón por una imagen que sea blanco puro
+(basta con un _bitmap_ de unos pocos píxeles), usando las  propiedades
+`background_normal` y `background_down`, que son los colores a usan para el
+botón normal y pulsado respectivamente.
 
 ### La propiedad `disabled`
 
-Esta propiedad nos permite actiassert isinstance(w, Widget)
-var o desactivar rápidamente cuanlquier
-*widget*. Normalemente el aspencto del widget se modifica para incicar este
-estado desactivado, y cualquier interaccion con el usuario queda anulada. 
+Esta propiedad nos permite activar o desactivar rápidamente cualquier control.
+Normalmente el aspecto del _widget_ se modifica para indicar este estado
+desactivado, y cualquier interacción con el usuario queda anulada. 
 
-El valor por defecto de esta propedad es, logicamente, `False`, es decir, que
-por defecassert isinstance(w, Widget)
-to cualquier *widget* que creemos estara activo.
-
+El valor por defecto de esta propiedad es, lógicamente, `False`, es decir, que
+por defecto cualquier *widget* que creemos estará activo.
 
 ### Uso de la funcion `builder`
 
 Hasta ahora hemos visto dos maneras de definir la interfaz del programa, bien
-usando un fiechro `.kv` con un nombre predeterminado, o creando la interfaz
-directamente desde python. Pero hay una clase `kivy.lang.builder.Builder` que
-nos permite dos opciones intermedias: Unsar ficheros `.kv` con cualquier nombre
-que queramos, o usando on valor de acadena de texto en python con código
-`kvlang`.
+usando un fichero `.kv` con un nombre predeterminado, o creando la interfaz
+directamente desde Python. Pero hay una clase `kivy.lang.builder.Builder` que
+nos permite dos opciones intermedias: Usar ficheros `.kv` con cualquier nombre
+que queramos, o usando un valor de cadena de texto en Python que contenga
+código `kvlang`.
 
-El método load_string nos proporciona la capacidad de interpretar un contenido
-en formto kvlang, como el que podriamos encontrar en un fichero `.kv`, pero
-desde una strind. Por ejemplo:
+El método `load_string` nos proporciona la capacidad de interpretar un contenido
+en formato _kvlang_, como el que podríamos encontrar en un fichero `.kv`, pero
+desde una _string_. Por ejemplo:
 
 ```python
 import kivy.lang.builder
@@ -400,20 +412,18 @@ assert isinstance(w, Widget)
 ```
 
 El otro método es `load_file(filename, ...)`: Procesa un fichero
-con el constructor y devuelve el widget raiz (si hay alguno definido)
-del mismo:
-
+con el constructor y devuelve el _widget_ raíz.
 
 ### ToogleButton o botón de estado
 
-El siguiente *widget* o control que vamos a ver es el **tootleButton**. En principio
-es igual a un botón cualquiera, pero cuando se pulsa la primera vez se queda
-en esado "pulsado", y cuando lo pulsamos otra vez se vueleve a poner en
-estado normal.
+El siguiente *widget* o control que vamos a ver es el **tootleButton**. En
+principio es igual a un botón cualquiera, pero cuando se pulsa la primera vez
+se queda en estado "pulsado", y cuando lo pulsamos otra vez se vuelve a poner
+en estado normal.
 
-Vaamoslo con un ejemplo. Nada más ráfipo y fácil que añadir un `ToogleButton`
-a lo que ya tenemos y ver que pasa. Vamos a modificar el fichero kivy para que la clase
-root o principal, `widgetExample`:
+Veamos un ejemplo. Nada más rápido y fácil que añadir un `ToogleButton` a lo
+que ya tenemos y ver que pasa. Vamos a modificar el fichero Kivy para que la
+clase raíz, `root` o principal, `widgetExample`, incluya un `ToogleButton`:
 
 ```kivy
 WidgetExample:
@@ -432,27 +442,50 @@ WidgetExample:
         color: "#88FF88" 
 ```
 
-ejecutemos ahora el programa y veamos el resultado.
+Ejecutemos ahora el programa y veamos el resultado.
 
-metodo do_state. truco pasar el propio widget. Cambiar textos
+metodo `do_state`. truco pasar el propio widget. Cambiar textos
 ON y OFF. Usar size?hit y width para fijar el tamaño del widget
 
-**Ejercicio:** Podemos habilitar y desabilitar un boton
+**Ejercicio:** Podemos habilitar y desabilitar un botón
 con el atributo `disabled`
 
-## Switch
+### El control _Switch_
 
-The Switch widget is active or inactive, like a mechanical light switch. The user can swipe to the left/right to activate/deactivate it:
-## El atribito Canvas
+El control `Switch` puede estar en dos estados, activo o inactivo, como si
+fuera un interruptor mecánico. El usuario puede desplazarlo a la
+derecha/izquierda para activarlo/desactivarlo.
 
-La clase `Canvas` nos permite dibujar, definiendo varios
-métodos para pintar lineas, circulos, etc. Todos los contorles
-incluyen su prpio canvas, que usan internamente para
-representarse a si mismos. Podemos tambien crear nuestro porpios
-objejos canvas, si lo necesitamos.
+La propiedad `active` es un valor lógico que podemos leer o modificar para
+trabajar con el control.
 
-El siguiente codigo crea un canvez dentro de un `boxLayout`
-y dibuja un rectangulo dentro:
+Nótese que este _widget_ espera un gesto de desplazamiento para cambiar de
+estado. Si preferimos que el cambio se haga simplemente con un toque, sería
+mejor usar el control `ToogleButton`.
+
+### El atributo _Canvas_
+
+Todos los controles o _widgets_ se representan internamente usando un objeto
+`canvas` (Instancia de `kivy.graphics.Canvas`), objeto que podemos interpretar
+o bien como un área de dibujo o como un conjunto de instrucciones de dibujo.
+Son numerosas las instrucciones que podemos aplicar o añadir a un _canvas_,
+pero podemos agruparles en dos tipos principales:
+
+- Instrucciones de contexto
+
+- Instrucciones de vértices
+
+Las instrucciones de contexto no dibujan nada, pero su efecto es modificar los
+resultados que se obtienen con las instrucciones de vértices. Entre las
+instrucciones de vértices podemos encontrar las órdenes típicas como líneas,
+rectángulos, círculos, etc.
+
+Todos los controles incluyen su propio _canvas_, que usan internamente para
+representarse a si mismos. Podemos también crear nuestro propios objetos
+_canvas_, si lo necesitamos.
+
+El siguiente código accede al `canvas` del control `MyWidget` y dibuja un
+rectángulo dentro:
 
 ```python
 import kivy
@@ -482,8 +515,10 @@ class CanvasApp(App):
 CanvasApp().run()
 ```
 
-Canvas es una lista: El orden importa. Ciertas operaciones, como el cambio de color, escala, etc. son globales y fectan
-a las ordenes posteriores.
+El atributo `canvas` funciona como una lista: se compone de una secuencia de
+ordenes que se ejecutan una detrás de la otra. Por lo tanto, el orden de las
+instrucciones importa. Ciertas operaciones, como el cambio de color, escala, etc. son
+globales y afectan a las ordenes posteriores.
 
 ```
 with self.canvas:
@@ -493,20 +528,30 @@ with self.canvas:
     Rectangle Ellipse
 ```
 
-*Ejercicio* : Pintar lineas horizontal/vertical en mediode la ventana
+*Ejercicio* : Pintar lineas horizontal/vertical en medio de la ventana
 
-canves.before
+#### Las propiedades ´canvas.before´ y ´canvas.after´
+
+Además de las instrucciones contenidas en un objeto _canvas_, estos objetos
+contiene dos subconjuntos adicionales, `canvas.before` y `canvas.after`, que
+también están organizados en forma de listas de instrucciones.
+
+Las instrucciones en `canvas.before` se ejecutan, como su nombre indica, justo
+antes de las instrucciones principales. De forma equivalente, las instrucciones
+contenidas en `canvas.after` se ejecutan justo después de las principales.
+Teniendo esto en cuenta, es fácil ver que todo lo dibujado por instrucciones en
+`canvas.before` se representará en pantalla en un segundo plano o plano de
+fondo, mientras que aquellas en `canvas.after` so mostrarán en un plano
+superior, encima de todo lo dibujado anteriormente.
 
 
-canvas.after
+### El control _CheckBox_
 
+El control _CheckBox_ es un botón de dos estados, que puede estar marcado o desmarcado,
+Si el control _CheckBox_ está incluido en un grupo (_Group_) se convierte de forma
+automática en un _RadioButton_. De forma similar al control `ToogleButton`, solo un _RadioButton_ de los incluidos en el grupo puede estar marcado.
 
-
-### CheckBox
-
-CheckBox is a specific two-state button that can be either checked or unchecked. If the CheckBox is in a Group, it becomes a Radio button. As with the ToggleButton, only one Radio button at a time can be selected when the CheckBox.group is set.
-
-An example usage:
+Un ejemplo de uso:
 
 ```
 from kivy.uix.checkbox import CheckBox
