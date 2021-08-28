@@ -43,25 +43,82 @@ modulo = math.sqrt(p[0] ** 2 + p[1] ** 2)
 
 ### Doble cola (`deque`)
 
-Un objeto de la clase ``deque`` implementa una doble lista encadenada
-especializada en realizar operaciones de añadir o quitar de los extremos con
-gran rapidez.
+Un objeto de la clase ``deque`` implementa una doble lista encadenada, que es
+una estructura de datos similar a una lista pero especializada en añadir o quitar
+de los extremos con gran rapidez. En contra, las operaciones que no trabajen
+con los extremos serán normalmente más lentas que con una lista normal.
 
+Las dobles colas se crean con la función `deque`, a la que le debemos pasar una
+secuencia inicial de elementos (Aunque puede estar vacía, simplemente le
+pasamos una lista vacía, por ejemplo).
 
 ```python
-q = collections.deque([1,2, 3])
-print(q)
-print(q.insert(0, 4))
-print(q)
-print(q[1000])
+import collection
+
+q = collections.deque([1, 2, 3])
+assert len(q) == 3
+assert q.pop() == 3
+assert len(q) == 2
 ```
 
+Los métodos `pop` y `append` funcionan en una doble cola igual que en las
+listas, pero mucho más rápido. Vamos a usar el módulo `timeit` para poder
+apreciar bien la diferencia de velocidad. Evidentemente, con poco elementos el
+rendimiento es similar, la diferencia empieza a notarse con mucha actividad o
+muchos elementos. Vamos a crear una lista de un millón de elementos, y luego
+vamos a retirar el último elemento, con `pop()`, y a continuación lo insertamos
+al principio: Vamos a ver el efecto de estas dos operaciones con pocos
+elementos:
+
+```python
+l = list(range(10))
+assert l == [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+l.insert(0, l.pop())
+assert l == [9, 0, 1, 2, 3, 4, 5, 6, 7, 8]
+l.insert(0, l.pop())
+assert l == [8, 9, 0, 1, 2, 3, 4, 5, 6, 7]
 ```
-    deque([1, 2, 3])
-    None
-    deque([4, 1, 2, 3])
-    1
+
+Esta operación se denomina **rotación**.
+
+Vamos a realizar esta operación sobre una lista de 1 millón de elementos, y
+vamos a repetirlo 1.000 veces, para poder tener una estimación relativamente 
+bueno del tiempo que total que le lleva a Python realizar todo este trabajo
+usando una lista normal:
+
+```python
+import timeit
+
+l = list(range(1000000))
+timeit.timeit("l.insert(0, l.pop())", number=1000, globals={'l': l})
 ```
+
+A mi ordenador le ha tomado aproximadamente $1,8384$ segundos realizar todo el
+trabajo.
+
+Ahora, si hacemos lo mismo pero usando una doble cola:
+
+```python
+import timeit
+import collections
+
+q = collections.deque(range(1000000))
+timeit.timeit("q.insert(0, q)", number=1000, globals={'q': q})
+```
+
+Ahora, en el mismo ordenador y con la misma carga de trabajo, todo el trabajo se
+ha realizado en solo $0.0001$ segundos. Una diezmilésima de segundo. La
+diferencia es abismal.
+
+En realidad el rendimiento de las listas normales es bastante bueno, el
+problema ocurre cuando añadimos elementos a la lista y llega un momento en
+tiene que expandirse para poder alojar más elementos. Este proceso se realiza
+de forma automática pero consume tiempo, lo que hace que el rendimiento baja. 
+
+Una gran ventaja de las `deque` es que puede ser usadas por diferentes
+_threads_ sin ningún problema, ya que están diseñadas especialmente para eso.
+
+Ver ejemplo _threads_.
 
 ### Contador (`Counter`)
 
@@ -247,3 +304,7 @@ assert d['osaga'] == 2
 assert d['kansas'] == 1
 assert d['pawne'] == 0
 ```
+
+### Referencias
+
+- [Python's deque: Implement Efficient Queues and Stacks](https://realpython.com/python-deque/)
