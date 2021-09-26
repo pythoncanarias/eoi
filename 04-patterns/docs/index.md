@@ -3,7 +3,7 @@
 - [Introdución](00-introduction.md)
 - [Singleton](01-singleton.md)
 - [Prototype](02-prototype.md)
-- 03-Factory
+- [Factory](03-factory.md)
 - 04-Builder
 - 05-Adapter
 - 06-Bridge
