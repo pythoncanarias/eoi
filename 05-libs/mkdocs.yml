@@ -6,7 +6,6 @@ theme:
 plugins:
   - search
   - table-reader
-  - macros
 
 markdown_extensions:
     - admonition

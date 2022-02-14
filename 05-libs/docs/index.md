@@ -21,7 +21,8 @@ title: Librerías
 ### Librerías externas (Hay que instalarlas)
 
 - [`fire`](external/fire/fire.md) - Interfaz de línea de comandos
-- [`qrcode`](externa/qrcode/qrcode.md) - Códigos QR
+- [`qrcode`](external/qrcode/qrcode.md) - Códigos QR
+- [`watchdog`](external/watchdog/watchdog.md) - Watchdog
 
 ### Anexos
 

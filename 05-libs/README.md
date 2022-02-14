@@ -88,7 +88,7 @@
  - Requests
  - SQLAlchemy
  
- - [Watchdog](https://pythonhosted.org/watchdog/) Python API library and shell utilities to monitor file system events.
+ - [Watchdog](./watchdog/watchdog.md) Python API library and shell utilities to monitor file system events.
 
  - [ZeroMQ](https://zeromq.org/)
 
