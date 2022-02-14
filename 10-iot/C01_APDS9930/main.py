@@ -3,8 +3,7 @@ import utime
 # Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
 
 
-i2c=I2C(sda=Pin(4), scl=Pin(5))  # instanciamos y configuramos bus I2C en los pines sda y scl
-# i2c=I2C( sda=Pin(26), scl=Pin(32) )  # El conector grove de la placa Atom Lite utiliza estos pines
+i2c=I2C(1, sda=Pin(26), scl=Pin(32), freq=400000 )  # instanciamos y configuramos bus I2C en los pines sda y scl
 
 dispositivos_conectado = i2c.scan()  # manda mensajes por el bus i2c a todas las direcciones para ver que dispositivos contestan
 # devuelve un listado de dispositivos conectados

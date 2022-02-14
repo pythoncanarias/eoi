@@ -1,0 +1,18 @@
+WidgetExample:
+
+<WidgetExample>:
+    cols: 3
+    ToggleButton:
+        text: "OFF"
+        size_hint: None, 1
+        width: "96dp"
+        on_state: root.do_state(self)
+    Button:
+        text: "Púlsame"
+        on_press: root.do_click()
+    Label:
+        text: root.label_text
+        font_name: "fonts/LCD.ttf"
+        font_size: "72dp"
+        color: "#88FF88" 
+    

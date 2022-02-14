@@ -15,7 +15,7 @@ while True:  # bucle infinito
     blue = random.randint(0,255)
     np[0] = (red, green, blue)
     np.write()
-    print("Color aleatorio {}, {}. {}".format(red, green, blue))
+    print("Color aleatorio ({}, {}, {})".format(red, green, blue))
     time.sleep_ms(2000)
 
     np[0] = (0,0,0)

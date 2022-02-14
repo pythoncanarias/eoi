@@ -1,7 +1,11 @@
-## Watchdog - Monitorizar cambios en el sistema de archivos
+---
+title: "Watchdog - Monitorizar cambios en el sistema de ficheros"
+---
+
+### Contenido y objetivos del módulo Watchdog
 
 **Watchdog** es una librería y un conjunto de utilidades para monitorizar
-enventos del sistema de ficheros.
+eventos del sistema de ficheros.
 
 ### Instalar watchdog
 
@@ -26,7 +30,8 @@ chequear que no hay errores, enviarsela al router y reiniciarlo.
 
 Vamos a ver un ejemplo
 
-``` {.sourceCode .ipython3}
+```python
+>>>>>>> 084676b6bdf6f3e2e3dac0360db3035b6189e98a
 import time
 from watchdog.observers import Observer
 from watchdog.events import PatternMatchingEventHandler
@@ -38,7 +43,7 @@ la clase `PatternMatchingEventHandler`. Al crear el objeto podemos
 decirle en que clase de eventos estamos interesados. En este caso vamos
 a estar intereasados en todos.
 
-``` {.sourceCode .ipython3}
+```python
 patterns = "*"
 ignore_patterns = ""
 ignore_directories = False
@@ -64,7 +69,7 @@ def on_created(event):
 
 Ahora podemos asignar el evento a esta funcion:
 
-```python3
+```python
 my_event_handler.on_created = on_created
 ```
 
@@ -78,7 +83,6 @@ path = "."
 go_recursively = True
 
 my_observer = Observer()
-
 my_observer.schedule(my_event_handler, path, recursive=go_recursively)
 ```
 
@@ -86,11 +90,13 @@ Ya hemos creado el observador, y le hemos pasado nuestro manejador de
 eventos. Lo hemos puesto vigilando el directorio actual (`.`). Indicamos
 que estamos interesados tambien en los subdirectorios.
 
-Ahora ya podemos iniciar el observador. Veras que el kernel de jupyter
-se pone como un circulo negro, eso es porque esta dentro dell while true
-y no ha podido retornar
+Ahora ya podemos iniciar el observador. Este proceso inicia un ciclo
+infinito, ya que la condición de salida del _while_ es la constante
+`True`, que obviamente nunca va a cambiar de valor. La única manera
+de salir de ese bucle infinito es provocando una interrupción en el nivel
+superior del sistema operativo, con la combinación ++ctrl+c++.
 
-```ipython3
+```python
 my_observer.start()
 try:
     while True:
@@ -104,11 +110,18 @@ Ahora podemos abrir otra terminal, y crear un archivo desde el sistema
 operativo. Con linux/mac, lo mas fácil es usar el comando `touch`, en
 Windows:
 
+```shell
     touch hola.txt
+```
 
 Para Windows una forma podria ser:
 
+```shell
     fsutil file createnew hola.txt 0
+```
 
 En la primera terminal, la que está ejecutando nuestro código watchdog,
 deberiamos ver el mensaje indicando la creación del fichero.
+
+En la primera terminal, la que está ejecutando nuestro código `watchdog`,
+deberíamos ver el mensaje indicando la creación del fichero.

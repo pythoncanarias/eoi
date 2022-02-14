@@ -1,0 +1,49 @@
+WidgetExample:
+
+<WidgetExample>
+    cols: 3
+    ToggleButton:
+        text: "OFF"
+        on_state: root.ver_estado(self)
+
+    Button:
+        id: count_button
+        text: "Púlsame"
+        on_press: root.print_hola()
+        disabled: True
+    Label:
+        id: count_label
+        text: root.label_text
+        font_name: "fonts/LCD.ttf"
+        font_size: "12dp"
+        color: "#88FF88"
+    Switch:
+        id: switch1
+        on_active: root.show_active(self)
+    Slider:
+        id: slider1 
+        min: 0
+        max: 100
+        orientation: "vertical"
+        value: 50
+        on_value: root.show_slider(self)
+        disabled: not switch1.active
+    ProgressBar:
+        max: 100
+        value: slider1.value
+    CheckBox:
+        group: "Opción 1"
+    CheckBox:
+        group: "Opción 1"
+    CheckBox:
+        group: "Opción 1"
+    TextInput:
+        on_text: root.cambio_texto(self)
+    TextInput:
+        multiline: False
+        on_text: root.cambio_texto(self)
+    Image:
+        source: "img/hulk.png"
+        color: (1, 0, 0)
+        keep_ratio: False
+        allow_strech: False

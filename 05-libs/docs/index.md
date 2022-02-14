@@ -17,12 +17,26 @@ title: Librerías
 - [`csv`](standard/10-csv/csv.md) - Trabajar con ficheros CSV
 - [`json`](standard/11-json/json.md) - Trabajar con el formato json
 - [`re`](standard/12-re/re.md) - Expresiones regulares
+- [`base64`](standard/13-base64/base64.md) - Codificación/Decodificación Base 64
+- [`collections`](standard/14-collections/collections.md) - Otras colecciones de datos
+- [`heapq`](standard/15-heapq/heapq.md) - Implementación de Montículo (heap)
+- [`zlib`](standard/16-zlib/zlib.md) - Compresión con `zip`
+- [`gzip`](standard/17-gzip/gzip.md) - Compresión con `gzip`
+- [`zipfile`](standard/18-zipfile/zipfile.md) - Trabajar con ficheros ZIP
+- [`traceback`](standard/19-traceback/traceback.md) - El módulo traceback
+- [`itertools`](standard/20-itertools/itertools.md) - Utilidades para trabajar
+  con iteradores
+- [`difflib`](standard/21-difflib/difflib.md) - Trabajar con diferencias entre secuencias 
 
 ### Librerías externas (Hay que instalarlas)
 
+- [`arrow`](external/arrow/arrow.md) - Fechas internacionales
 - [`fire`](external/fire/fire.md) - Interfaz de línea de comandos
 - [`qrcode`](external/qrcode/qrcode.md) - Códigos QR
-- [`watchdog`](external/watchdog/watchdog.md) - Watchdog
+- [`pillow`](external/pillow/pillow.md) - Pillow Tratemiento de imágenes
+- [`requests`](external/requests/requests.md) - Peticiones Web
+- [`watchdog`](external/watchdog/watchdog.md) - Monitorizar cambios en el sistema de ficheros
+
 
 ### Anexos
 
