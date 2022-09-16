@@ -1,22 +1,47 @@
-**Flujo de trabajo de un proyecto de ML**
+# Flujo de trabajo de un proyecto de ML
 
-1. Conseguir los datos
-2. Análisis exploratorio
-3. Preparar los datos
-4. Elegir un modelo
-5. Entrenar el modelo
-6. Evaluar el modelo
-7. Poner en producción el modelo
+- [Flujo de trabajo de un proyecto de ML](#flujo-de-trabajo-de-un-proyecto-de-ml)
+  - [1. Conseguir los datos](#1-conseguir-los-datos)
+    - [Origen de los datos](#origen-de-los-datos)
+    - [Cargar los datos](#cargar-los-datos)
+  - [2. Análisis exploratorio](#2-análisis-exploratorio)
+    - [Librerías importantes](#librerías-importantes)
+    - [Tipos de datos](#tipos-de-datos)
+    - [Medidas de tendencia central](#medidas-de-tendencia-central)
+    - [Medidas de simetría y curtosis](#medidas-de-simetría-y-curtosis)
+    - [Distribución de los datos](#distribución-de-los-datos)
+    - [Medidas de posición no central](#medidas-de-posición-no-central)
+    - [Medidas de dispersión](#medidas-de-dispersión)
+  - [3. Preparar los datos](#3-preparar-los-datos)
+    - [Valores nulos](#valores-nulos)
+    - [Valores atípicos (outliers)](#valores-atípicos-outliers)
+    - [Distintos órdenes de magnitud](#distintos-órdenes-de-magnitud)
+    - [Selección de variables](#selección-de-variables)
+    - [Desbalanceo de los datos](#desbalanceo-de-los-datos)
+    - [Gestión de datos categóricos](#gestión-de-datos-categóricos)
+  - [4. Elegir un modelo](#4-elegir-un-modelo)
+    - [Tipos de aprendizaje del modelo](#tipos-de-aprendizaje-del-modelo)
+    - [Consideraciones al elegir un algoritmo](#consideraciones-al-elegir-un-algoritmo)
+  - [5. Entrenar el modelo](#5-entrenar-el-modelo)
+    - [Preparación del dataset de entrenamiento](#preparación-del-dataset-de-entrenamiento)
+    - [Validación cruzada](#validación-cruzada)
+  - [6. Evaluar el modelo](#6-evaluar-el-modelo)
+    - [Ajuste del modelo: overfitting vs underfitting](#ajuste-del-modelo-overfitting-vs-underfitting)
+    - [Modelos de regresión](#modelos-de-regresión)
+    - [Modelos de clasificación](#modelos-de-clasificación)
+  - [7. Poner en producción el modelo](#7-poner-en-producción-el-modelo)
 
-# 1. Conseguir los datos
+---
 
-## Origen de los datos
+## 1. Conseguir los datos
+
+### Origen de los datos
 1. Alguien nos entrega los datos :tada:
 2. Datasets públicos: , [scikit learn](https://scikit-learn.org/stable/datasets.html), [tensorflow](https://www.tensorflow.org/datasets?hl=es-419), [Kaggle](https://www.kaggle.com/), [UCI Machine learning Repository](https://archive.ics.uci.edu/ml/datasets.php), [Datos Gobierno de España](https://datos.gob.es/), [Datos Madrid](https://datos.madrid.es/portal/site/egob), [Datos Castilla la Mancha](https://datosabiertos.castillalamancha.es/), [Datos BOE (Civio)](https://datos.civio.es/datasets/)
 3. Internet of Things
 4. [Web crawling & APIs: Scrapy](https://scrapy.org/)
 
-## Cargar los datos
+### Cargar los datos
 - Texto
   * CSV
   * JSON
@@ -39,9 +64,9 @@
 
 **PyAudio**
 
-# 2. Análisis exploratorio
+## 2. Análisis exploratorio
 
-## Librerías importantes
+### Librerías importantes
 - Numpy
 - Pandas
 - Scipy
@@ -81,7 +106,7 @@ La idea de Seaborn es que los data scientists dispongan de unainterfaz para hace
 Recomendaciones sobre buenas visualizaciones
 [The python graph gallery](https://python-graph-gallery.com/)
 
-## Tipos de datos
+### Tipos de datos
 
 - **Variables cuantitativas**
     - Variables discretas: Toma valores aislados
@@ -94,7 +119,7 @@ Recomendaciones sobre buenas visualizaciones
     - Variable cualitativa ordinal o cuasi-cuantitativa (existe un orden)
         - `Nivel: bajo, medio, alto`
 
-## Medidas de tendencia central
+### Medidas de tendencia central
 Un conjunto N de observaciones puede que por sí solo no nos diganada. En cambio, si se conoce que están situados alrededor de uno o varios valores centrales ya tenemos una referencia que sintetiza la información
 
 - Media
@@ -124,7 +149,7 @@ from scipy import stats
 stats.mode(ages)
 ```
 
-## Medidas de simetría y curtosis
+### Medidas de simetría y curtosis
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -147,7 +172,7 @@ print(f'Skew:     skew(data_gamma)}')
 print(f'Kurtosis: kurtosis(data_gamma)}') 
 ```
 
-## Distribución de los datos
+### Distribución de los datos
 
 **Distribución de probabilidad**
 - Una distribución de probabilidad permite conocer elcomportamiento de la variable, describir y entender cómo varían los valores de la característica estudiada en los individuos.
@@ -175,7 +200,7 @@ plt.hist(values, 50)
 plt.show()
 ```
 
-## Medidas de posición no central
+### Medidas de posición no central
 
 - __Cuartiles (Q)__
     - Encuentran el valor acumulado al 25%, 50% y 75%,respectivamente.
@@ -197,7 +222,7 @@ np.percentile(vals, 90)
 np.percentile(vals, 20)
 ```
 
-## Medidas de dispersión
+### Medidas de dispersión
 
 Varianza y  Desviación típica
 - Es la raíz cuadrada positiva de la varianza
@@ -219,7 +244,7 @@ incomes.std()
 incomes.var()
 ```
 
-# 3. Preparar los datos
+## 3. Preparar los datos
 _En Machine Learning, hay una regla de 80/20. Cada data scientist suele dedicar un 80% de tiempo al preprocesamiento de datos y un 20% a realizar el análisis_
 
 
@@ -232,7 +257,7 @@ Los problemas más comunes a resolver en el preprocesamiento de datos son:
     6. Gestión de datos categóricos
 
 
-## Valores nulos
+### Valores nulos
 
 Tipos de valores nulos
 1. **Missing completely at random (MCAR)**: el hecho que falte una observación no está relacionado con el o los valores faltantes ni con los valores existentes. Por ejemplo, fallos en el equipamiento de medida, fallos humanos o que el mal tiempo haga que el equipo no funcione
@@ -299,7 +324,7 @@ imp = SimpleImputer(strategy='most_frequent')
 df_nuevo = imp.fit_transform(df)
 ```
 
-## Valores atípicos (outliers)
+### Valores atípicos (outliers)
 
 Un valor atípico (outlier) es un valor de una variable muy distante a otras observaciones de la misma variable
 
@@ -377,7 +402,7 @@ q1, q3= np.percentile(dataset,[25,75])
         - Interesante cuando los valores atípicos no provienen de medidas erróneas
 
 
-## Distintos órdenes de magnitud
+### Distintos órdenes de magnitud
 
 - Normalización vs. Estandarización
     Estos dos términos se usan muchas veces de manera intercambiable
@@ -420,7 +445,7 @@ n_l2 = Normalizer(norm='l2')
 ```
 
 
-## Selección de variables
+### Selección de variables
 
 Algunos conjuntos de datos pueden tener un gran número de variables
 - Difícil representación gráfica (si es necesaria)
@@ -452,7 +477,7 @@ sns.heatmap(correlation, annot=True, cbar=True, cmap=\RdYlGn\)
 # Fare -> Tarifa del pasaje
 ```
 
-## Desbalanceo de los datos
+### Desbalanceo de los datos
 
 - Algunos datasets presentan grandes diferencias en el número de instancias de cada una de las clases
     - Ejemplo: clasificador que reconozca terroristas puede tener un 99.99% de precisión prediciendo la clase mayoritaria 
@@ -467,7 +492,7 @@ sns.heatmap(correlation, annot=True, cbar=True, cmap=\RdYlGn\)
 
 
 
-## Gestión de datos categóricos
+### Gestión de datos categóricos
 
 En muchos problemas de clasificación, el conjunto de datos de destino está formado por etiquetas categóricas que no pueden procesarse inmediatamente con ningún algoritmo. 
 
@@ -511,7 +536,7 @@ print()
 print(lb.inverse_transform(Yb))
 ```
 
-# 4. Elegir un modelo
+## 4. Elegir un modelo
 
 Para categorizar tu problema tienes que llevar a cabo 2 pasos:
 
@@ -530,7 +555,7 @@ Para categorizar tu problema tienes que llevar a cabo 2 pasos:
 - Si la salida de tu modelo es una clase, es un problema de **clasificación**
 - Si la salida de tu modelo es una serie de grupos, es un problema de **clustering**
 
-## Tipos de aprendizaje del modelo
+### Tipos de aprendizaje del modelo
 
 **Aprendizaje supervisado**
 
@@ -552,7 +577,7 @@ Esta es una técnica de prueba y error, y de utilizar una función de premio que
 
 image.png
 
-## Consideraciones al elegir un algoritmo
+### Consideraciones al elegir un algoritmo
 
 **Precisión**
 
@@ -581,7 +606,7 @@ image.png
 - El tiempo de entrenamiento y la precisión del algoritmo a veces pueden ser muy sensibles y requerir solo la configuración correcta. Normalmente, los algoritmos con un gran número de parámetros requieren más prueba y error para encontrar una buena combinación.
 
 
-# 5. Entrenar el modelo
+## 5. Entrenar el modelo
 
 Cuando trabajamos en un problema de clasificación debemos prevenir problemas como el overfitting
 Para ello, muchos investigadores dividen su conjunto de datos en dos subconjuntos: entrenamiento y validación
@@ -589,7 +614,7 @@ Para ello, muchos investigadores dividen su conjunto de datos en dos subconjunto
 Sin embargo, esto es, en general, insuficiente para ajustar los parámetros del algoritmo de aprendizaje
 Una mejor aproximación sería dividir el conjunto de datos en: entrenamiento, validación y test
 
-## Preparación del dataset de entrenamiento
+### Preparación del dataset de entrenamiento
 
 Aprender los parámetros de una función de predicción y probarla con los mismos datos es un error metodológico: un modelo que simplemente repetiría las etiquetas de las muestras que acaba de ver tendría una puntuación perfecta pero no podría predecir nada en datos que no haya visto.
 
@@ -740,9 +765,9 @@ for train, test in loo.split(X):
 [0 1 2] [3]
 ```
 
-# 6. Evaluar el modelo
+## 6. Evaluar el modelo
 
-## Ajuste del modelo: overfitting vs underfitting
+### Ajuste del modelo: overfitting vs underfitting
 
 Comprender el ajuste del modelo es importante para comprender la causa raíz para una precisión deficiente del modelo.
 Esta información le ayudará a tomar medidas correctivas.
@@ -794,7 +819,7 @@ Cómo evitarlo:
 bias_variance.png ref
 
 
-## Modelos de regresión
+### Modelos de regresión
 
 **Mean absolute error**
 
@@ -835,7 +860,7 @@ y_pred = [[0, 2], [-1, 2], [8, -5]]
 print(f'MAE 2: {mean_squared_error(y_true, y_pred)}')
 ```
 
-## Modelos de clasificación
+### Modelos de clasificación
 
 **Matriz de confusión**
 
@@ -951,5 +976,5 @@ roc_auc_score(y_true, y_scores)
 ```
 
 
-# 7. Poner en producción el modelo
+## 7. Poner en producción el modelo
 
