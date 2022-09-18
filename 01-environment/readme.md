@@ -1,9 +1,10 @@
+- [Instalación de WSL (Windows Subsistem for Linux)](#instalación-de-wsl-windows-subsistem-for-linux)
+- [Instalación de Visual Studio Code](#instalación-de-visual-studio-code)
+- [Instalación de Python](#instalación-de-python)
+- [Instalación de la extensión de Microsoft Python](#instalación-de-la-extensión-de-microsoft-python)
 
 
-
-# Instalación de componentes en Windows
-
-## Instalación de WSL (Windows Subsistem for Linux)
+# Instalación de WSL (Windows Subsistem for Linux)
 
 > https://learn.microsoft.com/es-es/windows/wsl/install
 
@@ -99,7 +100,7 @@
     /home/alicia/.hushlogin file.
     ```
 
-## Instalación de Visual Studio Code
+# Instalación de Visual Studio Code
 
 > https://learn.microsoft.com/es-es/windows/wsl/tutorials/wsl-vscode#install-vs-code-and-the-remote-wsl-extension
 
@@ -109,7 +110,7 @@
 
 3. Instale el [paquete de extensión desarrollo remoto](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). Este paquete de extensión incluye la extensión Remote - WSL, además de las extensiones Remote - SSH y Remote - Containers, lo que permite abrir cualquier carpeta en un contenedor, en un equipo remoto o en WSL.
 
-## Instalación de Python
+# Instalación de Python
 
 > https://learn.microsoft.com/es-es/windows/python/web-frameworks#install-python-pip-and-venv
 
@@ -154,7 +155,7 @@ Para ello, escribe `sudo apt update && sudo apt upgrade` y, luego, actualiza Pyt
     (.venv) alicia@DESKTOP-7BGOCSQ:~/workspace/HelloWorld$ python                                                           Python 3.8.10 (default, Jun 22 2022, 20:18:18)                                                                          [GCC 9.4.0] on linux                                                                                                    Type "help", "copyright", "credits" or "license" for more information.                                                  >>>            
     ```
 
-## Instalación de la extensión de Microsoft Python
+# Instalación de la extensión de Microsoft Python
 > https://learn.microsoft.com/es-es/windows/python/web-frameworks#install-the-microsoft-python-extension
 
 Tendrás que instalar las extensiones de VS Code para tu extensión de Remote-WSL. Las extensiones que ya estén instaladas localmente en VS Code no estarán disponibles automáticamente. Más información.
