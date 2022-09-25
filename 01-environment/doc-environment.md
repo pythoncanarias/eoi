@@ -20,11 +20,11 @@
 
 > https://learn.microsoft.com/es-es/windows/wsl/install
 
-0. **Prerrequisitos**
+**Prerrequisitos**
 
-   Debe ejecutar Windows 10 versión 2004 y posteriores (compilación 19041 y posteriores) o Windows 11.
+Debe ejecutar Windows 10 versión 2004 y posteriores (compilación 19041 y posteriores) o Windows 11.
 
-   Si está ejecutando una compilación anterior o simplemente prefiere no usar el comando install y desea instrucciones paso a paso, consulte [Pasos de instalación manual de WSL para versiones anteriores](https://learn.microsoft.com/es-es/windows/wsl/install-manual).
+Si está ejecutando una compilación anterior o simplemente prefiere no usar el comando install y desea instrucciones paso a paso, consulte [Pasos de instalación manual de WSL para versiones anteriores](https://learn.microsoft.com/es-es/windows/wsl/install-manual).
 
 1. **Lanzamos Powershell con permisos de administrador:**
 
@@ -32,7 +32,7 @@
 
 2. **Comando de instalación de WSL**
 
-    Ahora puede instalar todo lo que necesita para ejecutar el Subsistema de Windows para Linux (WSL) si escribe este comando en PowerShell o el símbolo del sistema de Windows del administrador y, a continuación, reinicia la máquina.
+    Escribe este comando en PowerShell o el símbolo del sistema de Windows del administrador y, a continuación, reinicia la máquina.
 
     ```bash
     wsl --install
@@ -114,6 +114,12 @@ This message is shown once once a day. To disable it please create the
 
 # 1. Instalación de Python
 
+> https://linuxize.com/post/how-to-install-python-3-8-on-ubuntu-18-04/#installing-python-38-on-ubuntu-with-apt
+
+
+> NOTA: Primero comprueba que Python 3.8 no está instalado en tu máquina, ejecutando `python3.8 --version`
+
+
 1. Ejecuta el siguiente comando en la consola de linux:
 
 ```bash
@@ -145,15 +151,38 @@ sudo apt install python3.8
 python3.8 --version
 ```
 
-5. Para instalar PIP, escribe `sudo apt install python3-pip`. PIP te permite instalar y administrar paquetes adicionales que no forman parte de la biblioteca estándar de Python.
-
-6. Para instalar venv, escribe `sudo apt install python3-venv`.
-
 # 2. Administración de librerías
 
 ## pip
 
+> https://pip.pypa.io/en/stable/getting-started/
+
+Python viene con varios módulos integrados, pero existeng muchas más librerías desarrolladas por la comunidad de Pythonque añaden mucha más funcionalidad al core de Python. 
+
+La forma más sencilla de instalar estos módulos para que podamos usarlos en nuestros programas es utilizar `pip`.
+
+Para instalar módulos localmente, necesitas crear y activar lo que se llama un entorno virtual (lo haremos en el siguiente apartado), por lo que `pip install` se instalá en la carpeta donde se encuentra ese entorno virtual, en lugar de globalmente (que puede requerir privilegios de administrador).
+
+Antes de usar pip, deberás instalarlo:
+
+```
+sudo apt install python3-pip
+```
+
+El repositorio de librerías que usa pip por defecto es [PyPI](https://pypi.org/)
+
 ## pipenv
+
+> https://pipenv-es.readthedocs.io/es/latest/
+
+Pipenv es una herramienta que apunta a traer todo lo mejor del mundo de empaquetado (bundler, composer, npm, cargo, yarn, etc.) al mundo de Python.
+
+Automáticamente crea y maneja un entorno virtual para tus proyectos, también como agregar/remover paquetes desde tu Pipfile como instalar/desisntalar paquetes. También genera el más importante Pipfile.lock, que es usado para producir determinado build.
+
+Para instalarlo:
+```bash
+pip install pipenv
+```
 
 # 3. Entornos virtuales
 
@@ -163,101 +192,95 @@ El módulo venv proporciona soporte para crear «entornos virtuales» ligeros co
 
 Cada entorno virtual tiene su propio binario Python (que coincide con la versión del binario que se utilizó para crear este entorno) y puede tener su propio conjunto independiente de paquetes Python instalados en sus directorios de ubicación.
 
-**Creación de entornos virtuales**
+1. Para instalar venv, escribe:
+```bash
+sudo apt install python3-venv
+```
 
-La creación de entornos virtuales se realiza al ejecutar el comando venv:
+2. Para crear un entorno virtual:
 
 ```bash
 python3.8 -m venv /path/to/new/virtual/environment
 ```
 
-Es muy común llamar al virtualenv `.venv` y situarlo en la misma carpeta donde crearemos el proyecto, por lo que es muy común ejecutar el comando de creación de entornos virtuales de la siguiente forma:
+> Es muy común llamar al virtualenv `.venv` y situarlo en la misma carpeta donde crearemos el proyecto, por lo que es muy común ejecutar el comando de creación de entornos virtuales de la siguiente forma:
 
-```bash
-python3.8 -m venv .venv
-```
+  ```bash
+  python3.8 -m venv .venv
+  ```
 
-**Activación de entornos virtuales**
-
-Para activar el entorno virtual, debemos escribir (en el caso de haber llamado el entorno virtual `.venv`):
+3. Para activar el entorno virtual, debemos escribir (en el caso de haber llamado el entorno virtual `.venv`):
 
 ```bash
 source .venv/bin/activate
 ```
 
-Después de este comando, el nombre de nuestro entorno virtual aparecerá en la consola al principio de la línea y entre paréntesis:
+> Después de este comando, el nombre de nuestro entorno virtual aparecerá en la consola al principio de la línea y entre paréntesis:
 
 ```bash
 (.venv) usuario@host:~
 ```
 
-**Ejercicio**
-
- 1. En la línea de comandos de Ubuntu, navega a la ubicación en la que quieras colocar el proyecto y crea un directorio para este (`mkdir HelloWorld`). A continuación, entra en la carpeta (`cd HelloWorld`)
- 
- 2. Use el siguiente comando para crear un entorno virtual denominado .venv: 
- ```bash
- python3 -m venv .venv
- ```
-
- Si visualizas los ficheros de la carpeta, verás que se ha creado una nueva carpeta con el nombre del virtual env, en este caso `.venv`
-
- ```bash
- alicia@DESKTOP-7BGOCSQ:~/workspace/HelloWorld$ ll                                                                       total 12                                                                                                                drwxr-xr-x 3 alicia alicia 4096 Sep 18 22:06 ./                                                                         drwxr-xr-x 3 alicia alicia 4096 Sep 18 22:06 ../                                                                        drwxr-xr-x 6 alicia alicia 4096 Sep 18 22:06 .venv/
- ```
-
- 3. Activa el entorno virtual con el siguiente comando:
- 
- ```
- source .venv/bin/activate
- ```
- 
- Si todo va bien, verás que al principio de la línea de la consola aparece el nombre del virtual env entre paréntesis:
-
- ```
- alicia@DESKTOP-7BGOCSQ:~/workspace/HelloWorld$ source .venv/bin/activate                                                (.venv) alicia@DESKTOP-7BGOCSQ:~/workspace/HelloWorld$ python            
- ```
-
- 4. Arranca la consola de python escribiendo `python`
-
- ```bash
- (.venv) alicia@DESKTOP-7BGOCSQ:~/workspace/HelloWorld$ python
- Python 3.8.10 (default, Jun 22 2022, 20:18:18)
- [GCC 9.4.0] on linux
- Type "help", "copyright","credits" or "license" for more information.
- >>> 
- ```
-
 # 4. Editores / IDEs / REPLs
 
 ## IPython
 
+> https://ipython.readthedocs.io/en/stable/
+
+IPython es un shell interactivo que añade funcionalidades extra al modo interactivo incluido con Python, como resaltado de líneas y errores mediante colores, una sintaxis adicional para el shell, autocompletado mediante tabulador de variables, módulos y atributos; entre otras funcionalidades.
+
+![screenshot de la consola de ipython](https://ipython.readthedocs.io/en/stable/_images/ipython-6-screenshot.png)
+
+Para instalarlo (idealmente, en un entorno virtual):
+```bash
+pip install ipython
+```
 
 ## Atom
 
+> https://atom.io/
+
+Atom es un editor de código fuente de código abierto para macOS, Linux, y Windows​ con soporte para múltiples plug-in escritos en Node.js y control de versiones Git integrado, desarrollado por GitHub.
+
+![screenshot of atom](https://upload.wikimedia.org/wikipedia/commons/6/64/Atom-editor.png)
+
+Para instalarlo:
+```bash
+sudo apt install atom
+```
 
 ## Sublime
 
+> https://www.sublimetext.com/
+
+Sublime Text es un editor de texto y editor de código fuente. Está escrito en C++ y Python para los plugins.​ Desarrollado originalmente como una extensión de Vim, con el tiempo fue creando una identidad propia.
+
+![screenshot de sublime-text](https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,w_819,h_478/https://dashboard.snapcraft.io/site_media/appmedia/2018/03/linux.png)
+
+Para instalarlo:
+```bash
+sudo snap install sublime-text --classic
+```
 
 ## Visual Studio Code
 
-> https://learn.microsoft.com/es-es/windows/wsl/tutorials/wsl-vscode#install-vs-code-and-the-remote-wsl-extension
+> https://code.visualstudio.com/
 
-1. Visite la [página VS Code instalación](https://code.visualstudio.com/download) y seleccione el instalador de 32 o 64 bits. Instale Visual Studio Code en Windows (no en el sistema de archivos WSL).
+Visual Studio Code es un editor de código fuente desarrollado por Microsoft para Windows, Linux, macOS y Web.
 
-2. Cuando se le pida que seleccione Tareas adicionales durante la instalación, asegúrese de activar la opción Agregar a PATH para que pueda abrir fácilmente una carpeta en WSL mediante el comando de código.
+Incluye soporte para la depuración, control integrado de Git, resaltado de sintaxis, finalización inteligente de código, fragmentos y refactorización de código.
 
-3. Instale el [paquete de extensión desarrollo remoto](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack). Este paquete de extensión incluye la extensión Remote - WSL, además de las extensiones Remote - SSH y Remote - Containers, lo que permite abrir cualquier carpeta en un contenedor, en un equipo remoto o en WSL.
+![screenshot de vscode](https://code.visualstudio.com/assets/home/home-screenshot-linux-lg.png)
 
-**Instalación de la extensión de Microsoft Python**
-> https://learn.microsoft.com/es-es/windows/python/web-frameworks#install-the-microsoft-python-extension
+Para instalarlo:
+```bash
+sudo snap install --classic code
+```
 
-Tendrás que instalar las extensiones de VS Code para tu extensión de Remote-WSL. Las extensiones que ya estén instaladas localmente en VS Code no estarán disponibles automáticamente. Más información.
 
-1. Para abrir la ventana Extensiones de VS Code, escribe Control + Mayús + X (o usa el menú para desplazarte a Ver>Extensiones).
-2. En el cuadro Search Extensions in Marketplace (Buscar extensiones en Marketplace) de la parte superior, escriba: Python.
-3. Busca la extensión Python (ms-python.python) de Microsoft y selecciona el botón Instalar de color verde.
-4. Una vez finalizada la instalación de la extensión, deberás seleccionar el botón Reload required (Recarga necesaria) de color azul. Se volverá a cargar VS Code y se mostrara la sección WSL: UBUNTU-18.04 - Installed (WSL: UBUNTU-18.04 [instalado]) en la ventana VS Code Extensions (Extensiones de VS Code), que mostrará que ha instalado la extensión de Python.
+> Para WSL existe un tutorial desarrollado por microsoft para instalar e integrar correctamente Visual Studio Code: \
+https://learn.microsoft.com/es-es/windows/wsl/tutorials/wsl-vscode#install-vs-code-and-the-remote-wsl-extension
+
 
 # 5. Linters
 
@@ -270,6 +293,8 @@ Los linters suelen buscar:
 - Cálculos cuyos resultados probablemente caigan fuera del rango permitido por la variable.
 
 ## Flake8
+
+> https://flake8.pycqa.org/en/latest/
 
 Es un gran conjunto de herramientas para verificar su código fuente contra el PEP8, errores de programación (como “library imported but unused” y “Undefined name”) y para verificar la complejidad ciclomática (es una métrica de software para medir el número de rutas independientes a través del código fuente - a mayor número de ifs dentro de una función, mayor número de caminos tendrá).
 
