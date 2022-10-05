@@ -26,20 +26,6 @@ country_dates$ python country_dates.py
 
 > ¿Has recibido un error como este? No te preocupes, es normal. El error es debido a que no tienes la librería `pytz` instalada. A continuación vamos a crear un entorno virtual para instalarla
 
-# Crear un entorno virtual
-
-1. Crea un entorno virtual para este nuevo proyecto:
-
-```bash
-python3.8 -m venv .venv
-```
-
-2. Activa el entorno virtual:
-
-```bash
-source .venv/bin/activate
-```
-
 3. Comprueba las librerías que tienes instaladas en el entorno virtual:
 
 ```bash
