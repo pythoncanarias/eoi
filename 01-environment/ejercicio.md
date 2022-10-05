@@ -8,7 +8,7 @@ import pytz
 
 if __name__ == '__main__':
     places_tz = [
-        'Asia/Tokyo', 'Europe/Madrid', 'America/Argentina Buenos_Aires', 'US/eastern', 'US/Pacific', 'UTC'
+        'Asia/Tokyo', 'Europe/Madrid', 'America/Argentina/Buenos_Aires', 'US/eastern', 'US/Pacific', 'UTC'
     ]
     
     cities_name = ['Tokyo', 'Madrid', 'Buenos Aires', 'New York', 'California', 'UTC']    
