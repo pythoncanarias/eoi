@@ -1,17 +1,6 @@
-Crea una carpeta llamada `country_dates` en tu sistema operativo
+Crea un fichero llamado `country_dates.py`
 
-```bash
-mkdir country_dates
-```
-
-Entra a la carpeta y crea un fichero que se llame `country_dates.py`
-
-```bash
-cd country_dates
-touch country_dates.py
-```
-
-Edita el fichero (con el editor que prefieras) y añade el siguiente código en Python:
+Edita el fichero con Visual Studio Code y añade el siguiente código en Python:
 
 ```python
 from datetime import datetime
