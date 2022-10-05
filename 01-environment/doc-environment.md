@@ -199,10 +199,6 @@ sudo apt install python3-venv
 
 2. Para crear un entorno virtual:
 
-```bash
-python3.8 -m venv /path/to/new/virtual/environment
-```
-
 > Es muy común llamar al virtualenv `.venv` y situarlo en la misma carpeta donde crearemos el proyecto, por lo que es muy común ejecutar el comando de creación de entornos virtuales de la siguiente forma:
 
   ```bash
