@@ -1,17 +1,6 @@
-Crea una carpeta llamada `country_dates` en tu sistema operativo
+Crea un fichero llamado `country_dates.py`
 
-```bash
-mkdir country_dates
-```
-
-Entra a la carpeta y crea un fichero que se llame `country_dates.py`
-
-```bash
-cd country_dates
-touch country_dates.py
-```
-
-Edita el fichero (con el editor que prefieras) y añade el siguiente código en Python:
+Edita el fichero con Visual Studio Code y añade el siguiente código en Python:
 
 ```python
 from datetime import datetime
@@ -19,7 +8,7 @@ import pytz
 
 if __name__ == '__main__':
     places_tz = [
-        'Asia/Tokyo', 'Europe/Madrid', 'America/Argentina Buenos_Aires', 'US/eastern', 'US/Pacific', 'UTC'
+        'Asia/Tokyo', 'Europe/Madrid', 'America/Argentina/Buenos_Aires', 'US/eastern', 'US/Pacific', 'UTC'
     ]
     
     cities_name = ['Tokyo', 'Madrid', 'Buenos Aires', 'New York', 'California', 'UTC']    
@@ -36,20 +25,6 @@ country_dates$ python country_dates.py
 ```
 
 > ¿Has recibido un error como este? No te preocupes, es normal. El error es debido a que no tienes la librería `pytz` instalada. A continuación vamos a crear un entorno virtual para instalarla
-
-# Crear un entorno virtual
-
-1. Crea un entorno virtual para este nuevo proyecto:
-
-```bash
-python3.8 -m venv .venv
-```
-
-2. Activa el entorno virtual:
-
-```bash
-source .venv/bin/activate
-```
 
 3. Comprueba las librerías que tienes instaladas en el entorno virtual:
 
