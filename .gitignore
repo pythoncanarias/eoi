@@ -128,3 +128,6 @@ pymakr.conf
 
 # local configs VSCODE
 .vscode
+
+# soluciones
+*-sol.py
