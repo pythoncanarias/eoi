@@ -1,0 +1,4 @@
+jupyter==1.0.0
+fabric==2.7.1
+gunicorn==20.1.0
+psutil==5.9.2
