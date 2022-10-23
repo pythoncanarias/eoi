@@ -1,0 +1,64 @@
+$ mkdir alfa
+$ cd alfa
+$ git init -b main
+Initialized empty Git repository in /home/jileon/temp/alfa/.git/
+
+# git status
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+$ vim hola.txt
+$ git add hola.txt
+$ git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   hola.txt
+
+
+nova in alfa on  main [+] 
+$ cp hola.txt adios.txt
+$ git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   hola.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	adios.txt
+$ git add adios.txt 
+$ git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   adios.txt
+	new file:   hola.txt
+$ git commit -vm"Carga inicial"
+[main (root-commit) 810e808] Carga inicial
+ 2 files changed, 2 insertions(+)
+ create mode 100644 adios.txt
+ create mode 100644 hola.txt
+
+$  git status
+On branch main
+nothing to commit, working tree clean
+
+▶ git log
+commit 810e808e0d30885658f9979606c8c5aa7f54ddef (HEAD -> main)
+Author: Juan Ignacio Rodriguez de Leon <euribates@gmail.com>
+Date:   Sat Oct 22 13:32:49 2022 +0100
+
+    Carga inicial
