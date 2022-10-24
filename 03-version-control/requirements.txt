@@ -1,0 +1,6 @@
+mkdocs
+mkdocs-material
+mkdocs-table-reader-plugin
+pymdown-extensions
+mkdocs-with-pdf
+python-markdown-math
