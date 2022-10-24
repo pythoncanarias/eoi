@@ -1,0 +1,3 @@
+# Servir los contenidos en un web server local
+serve:
+    mkdocs serve -a localhost:3456
