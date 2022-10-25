@@ -21,6 +21,7 @@ plugins:
 
 markdown_extensions:
     - admonition
+    - mkdocs_graphviz
     - pymdownx.details
     - pymdownx.keys
     - pymdownx.arithmatex:
@@ -32,6 +33,6 @@ markdown_extensions:
     - footnotes
 
 extra_javascript:
-
+  - https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js
   - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML    
   - javascripts/config.js
