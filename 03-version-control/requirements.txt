@@ -5,3 +5,4 @@ pymdown-extensions
 mkdocs-with-pdf
 python-markdown-math
 mkdocs-graphviz
+mkdocstrings[python]
