@@ -6,31 +6,31 @@ title: El módulo itertools
 
 **`itertools`** implementa una serie de funciones para trabajar con iteradores
 o secuencias como elementos básicos. Muchas de estas funciones están inspiradas
-por distintas construcciones que podemos encontrar en otros lenguajes como APL,
-Haskell o SML.
+por distintas construcciones que podemos encontrar en otros lenguajes como _APL_,
+_Haskell_ o _SML_.
 
 Estas utilidades cuentan con la ventaja de ser parte de la librería estándar,
 además de ser eficientes y rápidas, al estar implementadas a bajo nivel. Con
-estas utilidades se puede formar una especie de *algebra de iteradores* que
+estas utilidades se puede formar una especie de *álgebra de iteradores* que
 permite construir herramientas más especializadas de forma concisa y eficiente.
 
 Algunas de las funciones de este módulo son:
 
-- count
-- cycle
-- chain
-- groupby
-- product
-- combinations
-- tee
+- `count`
+- `cycle`
+- `chain`
+- `groupby`
+- `product`
+- `combinations`
+- `tee`
 
 ### La función `count`
 
 - `count(start, [step])`
 
-Iterador infinito. Devuelve una cuenta, empezando por `start` en la
-primera llamada y cada siguiente invocación con el valor
-incrementado por el parámetro opcional `step` (por omisión, 1):
+La función **count** produce un iterador infinito. Devuelve una cuenta,
+empezando por `start` en la primera llamada y cada siguiente invocación con el
+valor incrementado por el parámetro opcional `step` (por omisión, 1):
 
 
 ```python
@@ -42,12 +42,11 @@ for i in itertools.count(10, -1):
         break
 ```
 
-### La funcion `cycle`
+### La función `cycle`
 
-- `cycle(s)`
-
-Iterador infinito. Empieza devolviendo los elementos de la secuencia
-`s`, y cuando termina, vuelve a empezar:
+La función **cycle** (`cycle(s)`) es otro iterador infinito. Empieza
+devolviendo los elementos de la secuencia `s`, y cuando termina, vuelve a
+empezar:
 
 
 ```python
@@ -62,7 +61,7 @@ for i in range(7):
 
 - `chain(s1, s2, ... ,sn)`
 
-Encadena una secuencia detrás de otra:
+**`chain`** Encadena una secuencia detrás de otra:
 
 
 ```python
@@ -85,7 +84,7 @@ El resultado es otro iterador, que retorna **duplas** (tuplas de dos
 elementos). El primer elemento es el resultado de la función, el segundo, un
 iterador de elementos correspondientes a ese resultado / grupo.
 
-Si la secuencia no viene ordenada segun el criterio de agrupación, es posible
+Si la secuencia no viene ordenada según el criterio de agrupación, es posible
 que se devuelvan varias duplas para un mismo valor del resultado de la función.
 En el siguiente ejemplo se puede ver más claro:
 
@@ -107,7 +106,7 @@ for is_even, sublist in itertools.groupby(numeros, is_even):
     print(*sublist, sep=', ')
 ```
 
-**Ejercicio**: Dada la lista, `nombres`, con los nombres de las tortugas ninja,
+**Ejercicio**: Dada la lista, `nombres`, con los nombres de las tortugas Ninja,
 el siguiente programa las muestra agrupados por la primera letra de su nombre.
 Cambia el programa para que los agrupe por la **última** letra de su nombre.
 
@@ -132,7 +131,7 @@ for (letra, sublist) in itertools.groupby(nombres, ultima_letra):
 - `product(p, q, ...)`
   
 Devuelve el producto cartesiano de las secuencias que se la pasen como
-parámetros. Es equivalente a varios bucles for anidados.
+parámetros. Es equivalente a varios bucles `for` anidados.
   
 
 Por ejemplo:
@@ -141,13 +140,13 @@ Por ejemplo:
 list(product(A, B))
 ```
 
-Es equivalente:
+Es equivalente a:
 
 ```python
 [(x,y) for x in A for y in B]
 ```
 
-Ejemplo de uso: Lstar las combinaciones de las letras `A` y `B` con los
+Ejemplo de uso: Listar las combinaciones de las letras `A` y `B` con los
 dígitos $1$ al $2$
 
 
@@ -178,7 +177,7 @@ palos = ['♠', '♥', '♦', '♣']
 
 Devuelve todas las combinaciones de longitud `n` que se pueden obtener a partir
 de los elementos de `s`. Los elementos serán considerados únicos en base a su
-posición, no por su valor, así que si cada elemento es único, no habra
+posición, no por su valor, así que si cada elemento es único, no habrá
 repeticiones dentro de cada combinación. 
  
 El número de combinaciones retornadas será de:
@@ -257,13 +256,13 @@ def tee(iterable, n=2):
         return tuple(gen(d) for d in deques)
 ```
 
-Una vez que `tee` ha empezado, el iterador original no deberia
-usarse más, porque se corre el riesgo de que el iterador avanze sin
+Una vez que `tee` ha empezado, el iterador original no debería
+usarse más, porque se corre el riesgo de que el iterador avance sin
 que los iteradores derivados sean informados.
 
 Los iteradores devueltos por `tee` no son seguros para ser usados
 por diferentes *threads*, incluso aunque el iterador original si lo
-fuera. Si intentamos usarlos desde diferentes *threads*, es posible+
+fuera. Si intentamos usarlos desde diferentes _threads_, es posible
 que se eleve una excepción del tipo `RuntimeError`.
 
 Este función puede que use una cantidad significativa de
@@ -271,12 +270,12 @@ almacenamiento, dependiendo de la cantidad de datos temporales
 que necesite almacenar.
   
 En general, si un iterador hijo va a leer la mayoría de los datos antes
-de que otro iterador hijo empiece, resultaria más eficaz usar una lista
+de que otro iterador hijo empiece, resultaría más eficaz usar una lista
 en vez de `tee`.
 
 **Ejercicio**: calcular la suma de los tres números sucesivos, desde el cero
 hasta el 99, es decir, el primer termino es $0+1+2 = 3$, el segundo es
-$1 + 2 + 3 = 6$, \... hasta el ultimo $97 + 98 + 99 = 294$:
+$1 + 2 + 3 = 6$, ... Y así hasta el último $97 + 98 + 99 = 294$:
 
 
 ```python
@@ -295,10 +294,10 @@ for a,b,c in zip(i0, i1, i2):
 - `itertools.zip_longest(*iterables, fillvalue=None)`
 
 Retorna un iterador que agrega los elementos de cada uno de los iterables.
-Funciona igual que `zip`, pero con la diferencia de que zip termina tan pronto
+Funciona igual que `zip`, pero con la diferencia de que `zip` termina tan pronto
 como alguno de sus iteradores termina, mientras que `zip_longest` continua
 hasta que el último iterador acaba. Usa el valor definido en `fillvalue` como
-sustituto de los valores que ya no pueden suminitrar los iteradores agotados.
+sustituto de los valores que ya no pueden suministrar los iteradores agotados.
 
 
 ```python
