@@ -1,35 +1,36 @@
 ---
 title: Pillow - Tratamiento de imágenes
 ---
+
 ## Introducción a Pillow
 
 La librería **Pillow** es un *fork* de la libreria **PIL** (*Python Image
-Library*). Con __pillow__ añadimos a Python la capacidad de procesar imágenes.  
+Library*). Con _pillow_ añadimos a Python la capacidad de procesar imágenes.  
 
 
-###  Instalacion de Pillow
+##  Instalacion de Pillow
 
 Se instala con pip.
 
 ```shell
-!pip install pillow
+pip install pillow
 ```
 
-Y se importa ocon el nombre `PIL`, para mantenre retrocompatibilidad con la
+Pero ojo, que se importa con el nombre `PIL`, para mantener retrocompatibilidad con la
 librería orginal.
 
 ```python
 import PIL
 ```
 
-### Características más importantes
+## Características más importantes
 
 - **Acepta múltiples formatos**: Pillow soporta muchos formatos de archivos
-usados para almacenaminto de imágenes, entre otros BMP (*Windows Bitmaps*),
-EPS (*Encapsulated Postscript*), GIF (*Graphics Interchange Format*),
-ICO (*Windows Icons*), JPEG (*Joint Photographic Experts Group*), PNG
-(*Portable Network Graphic*), TGA (*Truevision Graphics Adapter*),
-TIFF (*Tagged Image File Format*)...
+  usados para almacenaminto de imágenes, entre otros BMP (*Windows Bitmaps*),
+  EPS (*Encapsulated Postscript*), GIF (*Graphics Interchange Format*), ICO
+  (*Windows Icons*), JPEG (*Joint Photographic Experts Group*), PNG (*Portable
+  Network Graphic*), TGA (*Truevision Graphics Adapter*), TIFF (*Tagged Image
+  File Format*)...
 
 - **Un sistema muy eficiente** para representar las imágenes en memoria. La
   librería está diseñada para permitir un acceso rápido y eficiente a los
@@ -37,50 +38,38 @@ TIFF (*Tagged Image File Format*)...
   para procesar imágenes.
 
 - **Varios algoritmos** habituales del procesamiento de imágenes ya vienen
-incluidos en la librería.
+  incluidos en la librería.
 
 Algunos usos posibles de esta librería:
 
 - Archivado y proceso de imágenes por lotes. La librería permite crear
-  *thumbnails*, convertir entre formatos, rotar, cambiar el tamaño, 
-  imprimir imágenes, etc.
+  *thumbnails*, convertir entre formatos, rotar, cambiar el tamaño, imprimir
+  imágenes, etc.
 
-- Presentar imágenes. La versión actual incluye una interfaz Tk, asi 
-  como controles que pueden ser usados en otros sistemas de ventanas
-  como PythonWin.
+- Presentar imágenes. La versión actual incluye una interfaz Tk, asi como
+  controles que pueden ser usados en otros sistemas de ventanas como PythonWin.
 
-- Proceso de imágenes: La librería incluye operaciones básicas de
-  modificación de imagenes, que funciona a nivel de pixels, y operaciones
-  de más alto nivel, como filtros, nucleos de convolución y conversiones
-  del espacio de colores.
+- Proceso de imágenes: La librería incluye operaciones básicas de modificación
+  de imagenes, que funciona a nivel de pixels, y operaciones de más alto nivel,
+  como filtros, nucleos de convolución y conversiones del espacio de colores.
 
 - Análisis y síntesis de imágenes
 
-### Primeros pasos: Usando la clase Image
+## Primeros pasos: Usando la clase Image
 
-La clase más importante dentro de la librería es la clase `Image`, definida
-en el módulo con el mismo nombre. Podemos crear instancias de esta clase de
-diversas formas, bien leyendo las imagenes de un fichero, procesando
-otras imágenes, o creando una imagen desde cero.
+La clase más importante dentro de la librería es la clase `Image`, definida en
+el módulo con el mismo nombre. Podemos crear instancias de esta clase de
+diversas formas, bien leyendo las imagenes de un fichero, procesando otras
+imágenes, o creando una imagen desde cero.
 
-Pare cargar una imagen desde disco, usamos la función `open()` dentro
-del módulo `Image`:
-
-
-```python
-from PIL import Image
-
-im = Image.open("incredibles.png")
-```
-
-En Jupyter notebook, podemos usar directamente la imagen como salida de una celda, solo hay que incluir la instancia al final de una celda.
+Pare cargar una imagen desde disco, usamos la función `open()` dentro del
+módulo `Image`:
 
 
 ```python
 from PIL import Image
 
 im = Image.open("incredibles.png")
-im
 ```
 
 ![png](incredibles.png)
@@ -97,30 +86,30 @@ im = Image.open("incredibles.png")
 print(im.format, im.size, im.mode)
 ```
 
-La salida deberia ser:
+La salida debería ser:
 
 ```
 PNG (600, 300) RGB
 ```
 
-
 - El atributo `format` identifica el formato usado para almacenar la imagen (Si
-la imagen no se ha creado a partir de un fichero, `format` vale `None`). 
+  la imagen no se ha creado a partir de un fichero, `format` vale `None`). 
 
-- El atributo `size` es una dupla que contiene el ancho y alto de la imagen, en _pixels_.
+- El atributo `size` es una dupla que contiene el ancho y alto de la imagen, en
+  _pixels_.
 
-- El atributo `mode` nos permite saber el número y nombre de las
-bandas de la imagen, así como el tipo de pixel y la profundidad. 
+- El atributo `mode` nos permite saber el número y nombre de las bandas de la
+  imagen, así como el tipo de pixel y la profundidad. 
 
-Algunos valores habituales de `mode` son: __`L`__ (De luminancia) para imagenes
-en escala de grises, __`RGB`__ para imagenes en color real, con 24 bits de
-profundidad, y __`CMYK`__, que indica una imagen preparada para usarse en sistemas
+Algunos valores habituales de `mode` son: **`L`** (De luminancia) para imagenes
+en escala de grises, **`RGB`** para imagenes en color real, con 24 bits de
+profundidad, y **`CMYK`**, que indica una imagen preparada para usarse en sistemas
 de impresión.
 
-Una vez que tenemos la instancia de la imagen, podemos usar los diferentes métodos definidos en la clase para procesar y
-manipular las imágenes.
+Una vez que tenemos la instancia de la imagen, podemos usar los diferentes
+métodos definidos en la clase para procesar y manipular las imágenes.
 
-Por ejemplo, podemos mostrar la imagen llamando al métdodo `show`.
+Por ejemplo, podemos mostrar la imagen llamando al método `show`.
 
 
 ```python
@@ -150,21 +139,21 @@ Modo de la imagen: RGB
 ```
 
 
-### Teoría del Color
+## Teoría del Color
 
 El ojo humano dispone de una serie de células especializadas en recibir la luz,
 llamados conos. Hay tres tipos distintos de conos: los sensibles a la luz roja,
 los sensibles a la luz azul y los sensibles a la luz verde.
 
-En realidad, solo vemos esos tres colores, llamados __colores primarios__. En
+En realidad, solo vemos esos tres colores, llamados **colores primarios**. En
 resto de colores se obtiene como combinación de dos o más colores primarios.
-Por ejemplo, el violeta sería un __color secundario__, resultado de detectar a
+Por ejemplo, el violeta sería un **color secundario**, resultado de detectar a
 la vez tanto rojo como azul. Sumando el rojo y el verde obtenemos el amarillo.
 
 Los colores primarios rojo, verde y azul funcionan como tales en un sistema
-aditivo, es decir, un sistema que *suma* los colores, como la pantalla de
+aditivo, es decir, un sistema que _suma_ los colores, como la pantalla de
 ordenador. En un sistema sustractivo, como el que utilizan los pintores al
-mezclar los pigmentos en su paleta, los colores se *restan*. En un sistema
+mezclar los pigmentos en su paleta, los colores se _restan_. En un sistema
 sustractivo, los colores primarios serían Magenta (que absorbe el verde),
 Amarillo (que absorbe el azul) y Cyan (que absorbe el rojo).
 
@@ -179,7 +168,7 @@ compensar, tienen mas bastones, lo que les permite ver mejor en la oscuridad
 que nosotros.
 
 Los pájaros y algunos insectos voladores, por el contrario, tienen cuatro tipos
-de conos, tres de ellos son equivalentes a los nuestros -rojo verde y azulr-
+de conos, tres de ellos son equivalentes a los nuestros -rojo verde y azul-
 pero además tiene un cuarto tipo de cono para una frecuencia en el
 ultravioleta. Eso les permite conseguir una gama cromática que solo podemos
 imaginar. Se han realizado estudios usando cámaras sensibles al ultravioleta, y
@@ -189,36 +178,36 @@ identificables por pajaros e insectos, que son los que realmente le "importan"
 a la planta.
 
 ![Ejemplo de visión en ultravioleta](DandelionDM_800x665.jpg)
-![Más ejemplos de colorido ultravioleta](SilverweedDM_800x460.jpg)
 
+![Más ejemplos de colorido ultravioleta](SilverweedDM_800x460.jpg)
 
 Fuente: [A bees-eye view: How insects see flowers very differently to us](https://www.dailymail.co.uk/sciencetech/article-473897/A-bees-eye-view-How-insects-flowers-differently-us.html)
 
-#### Modelo RGB
+### Modelo RGB
 
-Así tenemos entonces los tres colores primarios del modelo RGB: rojo,
+Así tenemos entonces los tres colores primarios del modelo **RGB**: rojo,
 verde y azul o lo que es lo mismo con sus nombres en inglés; _Red_,
 _Green_, _Blue_. Este sistema se basa en sumar la luz, de forma que la
 composición de los tres colores daría el blanco.
 
-#### Modelo CMYK
+### Modelo CMYK
 
-En el modelo CYM los tres colores primarios son Cián (*Cyan*), Amarillo
+En el modelo **CMYK** los tres colores primarios son Cián (*Cyan*), Amarillo
 (*Yellow*) y Magenta (*Magenta*) y la mezcla de estos tres colores a partes
 iguales da como resultado el color negro, debido a que cada adición sustrae
 luz. Este modelo es el utilizado en la industria gráfica y las artes visuales.
 
 Pero conseguir el color negro, el más barato, a base de mezclar las tintas de
 colores, mucho mas caras, es de genero tonto. Así que lo que se hace en este
-mdelo es añadir el negro como color aparte, que se representa con la K final,
+mdelo es añadir el negro como color aparte, que se representa con la `K` final,
 aunque estrictamente hablando no es necesario.
  
 
-#### Modelo HSV
+### Modelo HSV
 
-Por completar, veremos el modelo HSV (del inglés *Hue*, *Saturation*, *Value* –
-Matiz, Saturación, Valor), también llamado HSB (*Hue*, *Saturation*,
-*Brightness* – Matiz, Saturación, Brillo), define un modelo de color en
+Por completar, veremos el modelo **HSV** (del inglés _Hue_, _Saturation_,
+_Value_ – Matiz, Saturación, Valor), también llamado HSB (_Hue_, _Saturation_,
+_Brightness_ – Matiz, Saturación, Brillo), define un modelo de color en
 términos de sus componentes.
 
 ![Modelo HSV](./HSV.png)
@@ -249,13 +238,19 @@ color, lo que nos da 256 tonalidades de rojo, 256 tonalidades de verde y 256
 tonalidades de azul, y todas sus combinaciones, que son 256x256x255 o, lo que
 es lo mismo:
 
-$$ 2^{24} = 16777216 $$
+$$ 2^{8} \times 2^{8} \times 2^{8} = 2^{24} = 16777216 $$
 
 16.777.216 colores diferentes son muchos colores. En la práctica, esto es muchisimo más preciso de lo que el ojo humano puede percibir, por lo que a veces se llama a este esquema *True Color*.
 
-También podemos definir colores usando una cuadrupla, una tupla de cuatro valores. Los tres primeros valores corresponden a los componentes RGB del color, en el cuarto se especifica la opacidad (lo contrario de transparencia) del color, también llamada __*alfa*__, __*valor alfa*__ o __*canal alfa*__.
+También podemos definir colores usando una cuadrupla, una tupla de cuatro
+valores. Los tres primeros valores corresponden a los componentes RGB del
+color, en el cuarto se especifica la opacidad (lo contrario de transparencia)
+del color, también llamada __*alfa*__, __*valor alfa*__ o __*canal alfa*__.
 
-Esto nos permite crear colores traslúcidos, que pueden dejar pasar parte de la luz que emiten los objetos que están detras de ellos. Un valor alfa de 255 se entiendo como totalmente opaco, una alfa de 0 es totalmente transparente; en la práctica, invisible.
+Esto nos permite crear colores traslúcidos, que pueden dejar pasar parte de la
+luz que emiten los objetos que están detras de ellos. Un valor alfa de 255 se
+entiendo como totalmente opaco, una alfa de 0 es totalmente transparente; en la
+práctica, invisible.
 
 ### Leer imagenes desde un fichero
 
@@ -268,9 +263,9 @@ determina automáticamente basandose en el propio contenido del fichero.
 
 ### Guardar una imagen a fichero
 
-Para guardar un fichero, usamos el método `save` de la propia imagen. Al
-salvar la imagen, es importante el nombre del fichero, porque la librería determinará
-el tipo del fichero a partir de la extensión del mismo, asi que si se usa el 
+Para guardar un fichero, usamos el método `save` de la propia imagen. Al salvar
+la imagen, es importante el nombre del fichero, porque la librería determinará
+el tipo del fichero a partir de la extensión del mismo, asi que si se usa el
 nombre `imagen.jpg` se usará un formato diferente que si usamos `imagen.png`.
 
 **Ejecicio**: Convertir la imagen `leon.jpg` a un fichero de tipo PNG.
@@ -290,7 +285,7 @@ img.save("leon.png")
 tenemos en una carpeta a PNG? No hace falta escribir el programa, solo
 describir lo que haríamos
 
-### Crear *thumbnails* o (Para aficionados a la fotografia, copias de contacto)
+## Crear *thumbnails* o (Para aficionados a la fotografia, copias de contacto)
 
 Podemos usar el método `thumbnail` de la imagen para hacer una versión escalada
 y más pequeña. El método acepta como parámetro una dupla o tupla de dos
@@ -299,7 +294,7 @@ elementos, que especifican el tamaño máximo de ancho y alto, respectivamente.
 El escalado se hace manteniendo la proporción original de la imagen, así que
 probablemente el _thumbnail_ solo tendrá el tamaño indicado en la tupla para el
 ancho o para el alto. El otro valor se calculará automáticamente. Eso si,
-tenemos la garantía de que el ancho y alto del *thumbnail* siempre será menores o
+tenemos la garantía de que el ancho y alto del _thumbnail_ siempre será menores o
 iguales que los máximos indicados.
 
 
@@ -321,10 +316,10 @@ modificación *in place*. La mayoría de las funciones y métodos **no** funcion
 así, sino que devuelven una nueva imagen creada a partir de la original.
 
 Otra cosa que conviene saber es que la librería decodifica y carga la imagen
-__solo__ cuando no tiene más remedio (Esto se conoce como comportamiento
+**solo cuando no tiene más remedio** (Esto se conoce como comportamiento
 *lazy*).
 
-Esto significa que, cuando abrimos la imagen con open, le lee la cabecera del
+Esto significa que, cuando abrimos la imagen con open, lee la cabecera del
 fichero para determinar el formato y obtener información como el modo, el
 tamaño y demás propiedades, pero el resto de los datos no se leen a no ser que
 alguna operación de procesamiento lo requiera (como el método `thumbnail` que
@@ -374,7 +369,7 @@ Puedes filtrar el tipo de ficheros que puedes listar, usando `os.path.splitext(f
 y comprobando que la extensión esté en una lista predeterminada, como esta:
 
 ```python
-    IMAGE_EXTENSIONS = [".png", ".jpg", ".gif", ".webp"]
+IMAGE_EXTENSIONS = [".png", ".jpg", ".gif", ".webp"]
 ```
 
 O puedes utilizar las excepciones. Para usar las excepciones, necesitas saber que si se
@@ -384,10 +379,12 @@ este fichero y pasar al siguiente.
 
 
 ```python
-{% include 'external/pillow/lista-imagenes.py' %}
+--8<--
+./docs/external/pillow/lista-imagenes.py
+--8<--
 ```
 
-### Cortar, pegar y mezclar imágenes
+## Cortar, pegar y mezclar imágenes
 
 La clase `Image` contiene métodos que te permiten manipular partes de una
 imagen. Podemos, por ejemplo, extraer un sub-rectangulo de una imagen, usando
@@ -451,7 +448,7 @@ region
 
 
 
-### Procesar la imagen y pegarla de nuevo
+## Procesar la imagen y pegarla de nuevo
 
 Vamos a realizar algun cambio en esta nueva imagen. En este caso vamos
 a usar el método `transpose` para rotar la imagen 180 grados. Después, 
@@ -479,7 +476,7 @@ no coinciden, la librería realizará las conversiones necesarias automáticamen
 
 ![Después de pegar la imagen rotada](leon-paste.png)
 
-### Descomponer una imagen en color en RGB
+## Descomponer una imagen en color en RGB
 
 El método `split` nos permite dividir una imagen en los canales básicos rojo,
 verde y azul (R, G, B), devolviéndoos tres imágenes, cada una de las cuales
@@ -541,7 +538,7 @@ rebuild.show()
 
 ![León green](leon-green.png)
 
-### Transformaciones geométricas
+## Transformaciones geométricas
 
 Podemos realizar algunas transformaciones geométricas sencillas incluidas en la
 propia clase `Image`. Por ejemplo, `resize` nos permite cambiar el tamaño de la
@@ -586,11 +583,11 @@ rotated = leon.rotate(45, expand=True)
 rotated.show()
 ```
 
-![Leó’n rotado 45 grados](leon-rotated.png)
+![León rotado 45 grados](leon-rotated.png)
 
 
 
-### Transformaciones de color
+## Transformaciones de color
 
 La librería nos permite convertir imágenes entre diferentes modos.
 
@@ -608,11 +605,11 @@ leon
 
 
 
-### Mejora de las imágenes
+## Mejora de las imágenes
 
 Hay varioas métodos y módulos que nos permites mejorar las imágenes.
 
-#### Filters
+### Filters
 
 En el módulo `ImageFilter` vienen una serie de filtros predefinidos, que
 se pueden usar directamente como parámetros del método filter.
@@ -647,7 +644,7 @@ l2
 
 ### Operaciones puntuales
 
-El metodo `point` se usa para transofmrar los valores de pixels de una 
+El metodo `point` se usa para transformar los valores de pixels de una 
 imagen de manera individulal. Acepta como argumento una funcion que se
 aplicara a todos los pixels de la imagen.
 
@@ -706,12 +703,9 @@ rebuild.show()
 
 ![png](leon-pink.png)
 
-
-
 Podemos conseguir una imagen en colores planos usando una funcion que agrupe
 les valores, por ejemplo, de 0 a 64 se convierten en 0, de 65 a 128 serían 65, 
 de 129 a 193 serían 125, de 194 para arriba serian 255.
-
 
 ```python
 from PIL import Image
@@ -749,12 +743,11 @@ enhancer.enhance(1.5)
 ![png](leon-enhanced.png)
 
 
-
 **Ejercicio**: Cambia el valor de 2.2 a otros a ti criterio para que veas el efecto en la
     imagen final. Cambia tambien si quieres a otro tipo de *enhancer* y varia de nuevo
     el valor.
 
-### El módulo `ImageDraw`: Dibujar sobre la imagen
+## El módulo `ImageDraw`: Dibujar sobre la imagen
 
 Para dibujar sobre una imagen podemos usar el modulo `ImageDraw`.
 
@@ -802,7 +795,6 @@ im.show()
 ```
 
 ![png](leon-jail.png)
-
 
 
 ### Colores
@@ -952,8 +944,6 @@ Dibuja un punto (un pixel individual) o puntos en las coordenadas `xy` (Que pued
 ser una tupla para indicar un punto o una tupla o lista de tuplas para multiples puntos)
 
 
-
-
 ```python
 import random
 from PIL import Image, ImageDraw
@@ -968,7 +958,6 @@ im.show()
 ```
 
 ![png](draw-point.png)
-
 
 
 - `polygon(xy, fill=None, outline=None)`
@@ -998,7 +987,6 @@ im.show()
 ![draw.polygon](draw-polygon.png)
 
 
-
 - `rectangle(xy, fill=None, outline=None, width=1)`
 
 Dibuja un rectángulo.
@@ -1014,9 +1002,7 @@ draw.rectangle([10, 10, 190, 40], fill='#336699')
 im.show()
 ```
 
-
 ![draw-rectangle](draw-rectangle.png)
-
 
 - `text(xy, text, fill=None, font=None, anchor=None, spacing=4, align="left", direction=None, ...)`
 
@@ -1050,7 +1036,6 @@ im.show()
 
 Devuelve el tamaño que ocupará el texto pasado como parámetro si se dibuja en la imagen.
 
-
 ```python
 from PIL import Image, ImageDraw, ImageFont
 
@@ -1071,12 +1056,9 @@ im.show()
 
 ![draw.textsize](draw-textsize.png)
 
-
-
 - `ellipse(xy, fill=None, outline=None, width=1)`
 
 Dibuja una elipse dentro del rectangulo `xy`
-
 
 ```python
 from PIL import Image, ImageDraw, ImageFont
@@ -1088,7 +1070,6 @@ im.show()
 ```
 
 ![draw.ellipse](draw-ellipse.png)
-
 
 
 **Ejercicio**: Usa un objeto `Draw` para dibujar una nariz de payaso (Un
@@ -1115,7 +1096,7 @@ leon.show()
 ![png](leon-clown.png)
 
 
-### Llamadas de bajo nivel
+## Llamadas de bajo nivel
 
 Podemos usar los métodos `getpixel` y `putpixel` para obtener o modificar 
 el valor de un pixel determinado.
@@ -1125,7 +1106,8 @@ elementos, las coordenadas $x$ e $y$ del pixel cuyo valor queremos obtener. En u
 imagen `RGB`, será una tupla de tres elementos con las componentes rojo, verde
 y azul.
 
-**Pregunta**: Cuales son los valores R, G, B del pixel en la posicion 100, 100, en el fichero `leon.jpg`
+**Pregunta**: Cuales son los valores R, G, B del pixel en la posicion 100, 100,
+en el fichero `leon.jpg`
    
 **Respuesta**:
 
@@ -1196,7 +1178,6 @@ im.show()
 
 
 ![png](leon-dot.png)
-
 
 
 **Miniproyecto**: Usar la siguiente foto y pegar la imagen del presentador
