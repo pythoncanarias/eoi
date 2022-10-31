@@ -16,18 +16,19 @@ objeto Python. Alguna de sus características más notables son:
 
 - Facilita pasar código de *Bash* a Python
 
-### Instalación
+## Instalación de fire
 
-Podemos instalar la librería con Pip:
+Podemos instalar la librería con `pip`:
 
     pip install fire
 
-### Ejemplo de uso.
 
-Para usar esla tibrería solo necesitamos instanciar un objeto de la clase
+## Ejemplo de uso de fire
+
+Para usar esta librería solo necesitamos instanciar un objeto de la clase
 `Fire`.  Le podemos pasar como parámetro cualquier objeto de Python, como por
 ejemplo una función, pero si no le pasamos nada intentará convertir en una
-opción cualquier *callable* definido en el programa:
+opción cualquier _callable_ definido en el programa:
 
 Por ejemplo, para convertir este código:
 
@@ -40,7 +41,9 @@ En un [CLI](https://es.wikipedia.org/wiki/Interfaz_de_l%C3%ADnea_de_comandos),
 solo hay que hacer estos cambios:
 
 ```python
-{% include 'external/fire/hola.py' %}
+--8<--
+./docs/external/fire/hola.py
+--8<--
 ```
 
 Ahora, **desde la línea de comandos**, podemos ejecutar:
@@ -54,7 +57,9 @@ python hola.py hola Sam
 Si incluimos un *docstring* en la función, también se usará en la ayuda:
 
 ```python
-{% include 'external/fire/hola-docs.py' %}
+--8<--
+./docs/external/fire/hola-docs.py
+--8<--
 ```
 
 Es realmente impresionante lo sencillo que es de usar comparado con `argparse`.
@@ -69,7 +74,7 @@ def add(a, b):
     return a + b
 ```
 
-### Exponer múltiples comandos
+## Exponer múltiples comandos
 
 Un problema con llamar a `Fire` sin parámetros es que este convertirá cualquier
 objeto *callable* que encuentre en una opción, pero esto es algo que
@@ -79,28 +84,32 @@ algunos puntos de entrada.
 Esto se puede lograr de varias formas. Vamos a ver en detalle cada una de
 ellas, desde la más sencilla (exporta todo) a las más elaboradas.
 
-#### Primera opción: exportar todo
+### Primera opción: exportar todo
 
 La forma más simple de exponer múltiples comandos es, como ya hemos
 visto, definir múltiples funciones y luego instanciar `Fire` sin ningún
 parámetro,
 
 ```python
-{% include 'external/fire/02-simple-calc.py' %}
+--8<--
+./docs/external/fire/02-simple-calc.py
+--8<--
 ```
 
 Observa que `Fire` ha interpretado correctamente los valores $10$ y $20$
 como números y no como cadenas de textos. Explicaremos porqué pasa esto
 más adelante.
 
-#### Segunda opción: usar un diccionario
+### Segunda opción: usar un diccionario
 
 Podemos seleccionar las funciones que queremos exponer a la línea de comando,
 instanciando de la clase `Fire` pasando como parámetro un diccionario con las
 funciones deseadas.
 
 ```python
-{% include 'external/fire/03-simple-calc.py' %}
+--8<--
+./docs/external/fire/03-simple-calc.py
+--8<--
 ```
 
 #### Tercera opción: Usar una clase
@@ -110,7 +119,9 @@ ambos casos, todos los métodos definidos en la clase serán accesibles desde la
 línea de comandos.
 
 ```python
-{% include 'external/fire/04-simple-calc.py' %}
+--8<--
+./docs/external/fire/04-simple-calc.py
+--8<--
 ```
 
 En general es preferible pasar como parámetro a la clase `Fire` otra clase, en
@@ -119,10 +130,10 @@ comandos para el constructor de la clase.
 
 **Ejercicio**: Hacer un pequeño programa para imprimir una tabla de
 multiplicación. El programa debe aceptar un argumento que seria el
-numero de la tabla que queremos imprimir (hicimos un programa similar
+número de la tabla que queremos imprimir (hicimos un programa similar
 cuando vimos la librería `argparse`).
 
-### Acceder a propiedades
+## Acceder a propiedades
 
 Hasta ahora solo hemos accedido a funciones pero también podemos acceder a las
 propiedades de las clases.
@@ -132,7 +143,9 @@ mostrar información de aeropuertos internacionales usando el código del
 aeropuerto (La información fue obtenida de <https://github.com/trendct-data/airports.py>).
 
 ```python
-{% include 'external/fire/find-airport.py' %}
+--8<--
+./docs/external/fire/find-airport.py
+--8<--
 ```
 
 Podemos usar este programa pasándole el código internacional del aeropuerto, y
@@ -161,14 +174,16 @@ $ python ./find-airport.py --code=LAX coords
 [-118.4079971, 33.94250107]
 ```
 
-### Encadenando llamadas de funciones
+## Encadenando llamadas de funciones
 
 Podemos encadenar llamadas de una forma sencilla, todo lo que tenemos
 que hacer es escribir una clase cuyo métodos siempre devuelvan `self`,
 como en el siguiente ejemplo:
 
 ```python
-{% include 'external/fire/canvas.py' %}
+--8<--
+./docs/external/fire/canvas.py
+--8<--
 ```
 
 **Ejercicio**: Probar desde la shell:
@@ -177,7 +192,7 @@ como en el siguiente ejemplo:
 python canvas.py move 3 3 on move 3 6 on move 6 3 on move 6 6 on move 7 4 on move 7 5 on
 ```
 
-### Salidas personalizada
+## Salidas personalizada
 
 En el ejemplo anterior hemos pintado en pantalla el resultado de nuestra
 órdenes encadenadas con el formato que definimos en el método `__str__`.
@@ -186,7 +201,7 @@ Si se define un método `__str__` propios serán este método el que se
 usará para mostrar como salida. Si no se define, se usará la pantalla de
 ayuda.
 
-### Llamando a funciones y métodos
+## Llamando a funciones y métodos
 
 Los argumentos para los constructores siempre deben pasarse por nombre y
 usar la sintaxis `--name=value`.
@@ -199,7 +214,7 @@ intercambiables tanto en los nombres de las funciones como en los
 argumentos de la línea de comandos. De igual manera el signo de `=`
 entre el nombre de la opción y el valor es opcional.
 
-### Interpretación de los argumentos.
+## Interpretación de los argumentos.
 
 Los tipos de los argumentos vienen determinados por su valor y no por la
 signatura de la función o método que se vaya a usar. Se puede pasar como
@@ -215,7 +230,9 @@ A modo de demostración, el siguiente programa nos dice de qué tipo
 Python es el argumento que le pasamos.
 
 ```python
-{% include 'external/fire/arguments.py' %}
+--8<--
+./docs/external/fire/arguments.py
+--8<--
 ```
 
 Que podemos usar de la siguiente manera:
@@ -250,7 +267,7 @@ de comandos. El CLI de *git* funciona así, usando sub-ordenes dentro de
 git.
 
 
-### Otras librerías similares o relacionadas
+## Otras librerías similares o relacionadas
 
 - [`Typer`](https://github.com/tiangolo/typer) es una librería para
   aplicaciones CLI basada en el sistema de anotaciones incorporado en Python
@@ -261,21 +278,22 @@ git.
   representar tablas, barras de progreso, markdown, código fuente resaltado por
   sintaxis, trazas y más.
 
-- [`docopt`](https://pypi.org/project/alive-progress/) también está orientado a facilitar el procesado de las opciones de
-  línea de comando, pero toma una aproximación muy interesante: Se escribe en
-  texto plano la documentación que deseamos para las opciones (con ciertas
-  restricciones) y `docopt` genera automáticamente un parser para esas
-  opciones.
+- [`docopt`](https://pypi.org/project/alive-progress/) también está orientado a
+  facilitar el procesado de las opciones de línea de comando, pero toma una
+  aproximación muy interesante: Se escribe en texto plano la documentación que
+  deseamos para las opciones (con ciertas restricciones) y `docopt` genera
+  automáticamente un parser para esas opciones.
 
 - [`cement`](https://builtoncement.com/) es un *framework* orientado a la
   creación de aplicaciones CLI en Python.
 
-- [`click`](https://click.palletsprojects.com/en/8.0.x/) es un paquete
-  para la creación de interfaces de línea de comandos en forma de
-  elementos que podemos combinar a nuestro gusto.
+- [`click`](https://click.palletsprojects.com/en/8.0.x/) es un paquete para la
+  creación de interfaces de línea de comandos en forma de elementos que podemos
+  combinar a nuestro gusto.
 
-- [`cliff`](https://docs.openstack.org/cliff/latest/) es otro framework para la cración deaplicaciones CLI, especialmente
-  para la creación de multiples niveles de comandos.
+- [`cliff`](https://docs.openstack.org/cliff/latest/) es otro framework para la
+  cración de aplicaciones CLI, especialmente para la creación de multiples
+  niveles de comandos.
 
 - [`python-prompt-toolkit`](https://python-prompt-toolkit.readthedocs.io/en/master/)
   es una librería para construir aplicaciones de línea de comandos poderosas e
@@ -284,17 +302,17 @@ git.
   reemplazo en aplicaciones de pantalla completa.
 
 - [`alive-progress`](https://pypi.org/project/alive-progress/) una bara de
-  progreso con animaciones, tiempo estimado y algunas características más
-  muy interesantes.
+  progreso con animaciones, tiempo estimado y algunas características más muy
+  interesantes.
 
 - [`Asciimatics`](https://github.com/peterbrittain/asciimatics) permite crear
-  aplicaciones a pantalla completa en modo texto, incluyendo animaciones
-  o formularios, en varias plataformas.
+  aplicaciones a pantalla completa en modo texto, incluyendo animaciones o
+  formularios, en varias plataformas.
 
 - [`Colorama`](https://github.com/tartley/colorama) permite usar colores en la
   terminal, sobre varias plataformas.
 
-- [Tqdm](https://github.com/tqdm/tqdm) es un añadido que nos permite
+- [`tqdm`](https://github.com/tqdm/tqdm) es un añadido que nos permite
   incluir una barra de progreso en nuestros programas de línea de comandos.
   Su nombre deriva de la palabra árabe *taqaddum (تقدّم)* que
   significa «progreso», y tabmién es la abreviación de la frase en Español "Te
