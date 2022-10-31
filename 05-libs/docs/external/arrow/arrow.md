@@ -126,11 +126,15 @@ horaria `Europe/Madrid`), Alemania (zona horaria `Europe/Berlin` e Italia
 **Soluciones:**
 
 ```python
-{% include 'external/arrow/diferencia-horaria-turquia.py' %}
+--8<--
+./docs/external/arrow/diferencia-horaria-turquia.py
+--8<--
 ```
 
 ```python
-{% include 'external/arrow/diferencia-madrid-berlin-roma.py' %}
+--8<--
+./docs/external/arrow/diferencia-madrid-berlin-roma.py
+--8<--
 ```
 
     Diferencias horarias respecto a España peninsular:
@@ -282,7 +286,9 @@ dos fechas te dará el número de días hasta Navidad.
 **Solución:**
 
 ```python
-{% include 'external/arrow/dias-hasta-navidad.py' %}
+--8<--
+./docs/external/arrow/dias-hasta-navidad.py
+--8<--
 ```
 
 ### El método `shift` (desplazar)
@@ -307,7 +313,9 @@ correspondiente al día actual, pero dentro de 8 años, 3 meses y 9 días.
 **Solución:**
 
 ```python
-{% include 'external/arrow/fecha-futura.py' %}
+--8<--
+./docs/external/arrow/fecha-futura.py
+--8<--
 ```
 
 ### El método `for_json`
@@ -398,7 +406,9 @@ Si es así, imprímelo.
 
 
 ```python
-{% include 'external/arrow/viernes-trece.py' %}
+--8<--
+./docs/external/arrow/viernes-trece.py
+--8<--
 ```
 
 Solo hubo uno, el 13 de mayo.
