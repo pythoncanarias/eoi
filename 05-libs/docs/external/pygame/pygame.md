@@ -480,9 +480,11 @@ a este método
 
 El listado completo del programa puede verse a continuación:
 
-::: {.literalinclude language="python" lines="3-"}
-starfield\_01.py
-:::
+```python
+--8<--
+./docs/external/pygame/starfield_01.py
+--8<--
+```
 
 Los Frames Por Segundo o FPS
 ----------------------------
@@ -541,9 +543,11 @@ definición de una constante para almacenar los *frames* por segundo,
 `pygame.time.Clock` (línea 29) y la llamada al método `tick` del reloj
 (línea 47):
 
-::: {.literalinclude language="python" lines="3-" emphasize-lines="13, 27, 45"}
-star\_field\_02.py
-:::
+```python
+--8<--
+./docs/external/pygame/star_field_02.py
+--8<--
+```
 
 Eventos
 -------
