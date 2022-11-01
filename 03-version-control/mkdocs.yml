@@ -1,0 +1,38 @@
+site_name: Aplicaciones de escritorio
+repo_url: https://github.com/pythoncanarias/eoi/
+theme:
+  name: material
+
+plugins:
+  - search
+  - table-reader
+  - with-pdf:
+      author: Juan Ignacio Rodríguez de León
+      copyright: Python Canarias
+      cover_title: "Tema 8: Aplicaciones de escritorio"
+      output_path: ./tema-08-desktops-apps.pdf
+      cover_subtitle: "Curso Python EOI"
+      toc_title: Sumario
+      toc_level: 4
+      render_js: true
+      headless_chrome_path: /usr/bin/chromium
+      enabled_if_env: ENABLE_PDF_EXPORT
+      verbose: true
+
+markdown_extensions:
+    - admonition
+    - mkdocs_graphviz
+    - pymdownx.details
+    - pymdownx.keys
+    - pymdownx.arithmatex:
+        generic: true
+    - mdx_math:
+        enable_dollar_delimiter: True #for use of inline $..$
+    - pymdownx.highlight
+    - pymdownx.superfences
+    - footnotes
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js
+  - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML    
+  - javascripts/config.js

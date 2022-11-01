@@ -1,6 +1,7 @@
 ---
 title: Librerías
 ---
+
 ## Librerías
 
 ### Librerías estándar (incluidas junto con Python)
@@ -24,19 +25,20 @@ title: Librerías
 - [`gzip`](standard/17-gzip/gzip.md) - Compresión con `gzip`
 - [`zipfile`](standard/18-zipfile/zipfile.md) - Trabajar con ficheros ZIP
 - [`traceback`](standard/19-traceback/traceback.md) - El módulo traceback
-- [`itertools`](standard/20-itertools/itertools.md) - Utilidades para trabajar
-  con iteradores
-- [`difflib`](standard/21-difflib/difflib.md) - Trabajar con diferencias entre secuencias 
+- [`itertools`](standard/20-itertools/itertools.md) - Utilidades para trabajar con iteradores
+- [`difflib`](standard/21-difflib/difflib.md) - Trabajar con diferencias entre secuencias
 
 ### Librerías externas (Hay que instalarlas)
 
 - [`arrow`](external/arrow/arrow.md) - Fechas internacionales
 - [`fire`](external/fire/fire.md) - Interfaz de línea de comandos
-- [`qrcode`](external/qrcode/qrcode.md) - Códigos QR
+- [`icecream`](external/icecream/icecream.md) - Un `print` mejoradao para desarrollo
 - [`pillow`](external/pillow/pillow.md) - Pillow Tratemiento de imágenes
+- [`pygame`](external/pygame/pygame.md) - Mojor de videojuegos
+- [`qrcode`](external/qrcode/qrcode.md) - Códigos QR
 - [`requests`](external/requests/requests.md) - Peticiones Web
+- [`tqdm`](external/tqdm/tqdm.md) - Barras de progreso
 - [`watchdog`](external/watchdog/watchdog.md) - Monitorizar cambios en el sistema de ficheros
-
 
 ### Anexos
 

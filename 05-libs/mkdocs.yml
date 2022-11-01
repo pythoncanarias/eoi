@@ -29,6 +29,7 @@ markdown_extensions:
         enable_dollar_delimiter: True #for use of inline $..$
     - pymdownx.highlight
     - pymdownx.superfences
+    - pymdownx.snippets
     - footnotes
 
 extra_javascript:
