@@ -1,57 +1,65 @@
-Migraciones en Django
-=====================
+---
+title: Migraciones en Django
+tags:
+  - web
+  - database
+---
+
+## Migración
+
+Las **migraciones** es el sistema que usa Django para mantener la
+correspondencia entre los modelos definínidos en las _apps_ y las tablas en la
+base de datos. De esta forma podemos cambiar un modelo y reflejar de forma
+controlada esos mismos cambios en el esquema de la base de datos.
 
 Cada migración es en realidad un programa en Python. Normalmente
 contiene una lista de operaciones que modifican el esquema de la base de
 datos para que los modelos se mantengan en sintonía con dicho esquema.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+!!! note "Cuando usa Django las migraciones"
 
-Cuando usa Django las migraciones
+    Para que una *app* de django pueda hacer uso de las migraciones, se tiene
+    que cumplir dos condiciones, la primera que la *app* esté listada dentro de
+    la variable `INSTALLED_APPS` de la configuración.
 
-Para que una *app* de django pueda hacer uso de las migraciones, se
-tiene que cumplir dos condiciones, la primera que la *app* esté listada
-dentro de la variable `INSTALLED_APPS` de la configuración, y segundo,
-que exista un directorio dentro de la *app* llamado `migrations`, que
-contega además un fichero `__init__.py`. Tanto la carpeta como el
-archivo son creados automáticamente cuando usamos la orden `startapp`,
-pero hay que tener cuidado de no olvidarse de crearlos si creamos la
-*app* manualmente.
+    En segundo lugar, que exista un directorio dentro de la *app* llamado
+    `migrations`, que contega además un fichero `__init__.py`. Tanto la carpeta
+    como el archivo son creados automáticamente cuando usamos la orden
+    `startapp`, pero hay que tener cuidado de no olvidarse de crearlos si
+    creamos la *app* manualmente.
 
-Si no se cumple alguna de estas condiciones, las migraciones no estarán
-activas para la *app*.
-:::
+    Si no se cumple alguna de estas condiciones, las migraciones no estarán
+    activas para la *app*.
 
 Echemos un vistazo a uno de estos ficheros de migración:
 
-    from django.db import models, migrations
+```python
+from django.db import models, migrations
 
-    class Migration(migrations.Migration):
-        dependencies = []
-        operations = [
-            migrations.CreateModel(
-                name='PriceHistory',
-                fields=[
-                    ('id', models.AutoField(
-                        verbose_name='ID',
-                        serialize=False,
-                        primary_key=True,
-                        auto_created=True)),
-                    ('date', models.DateTimeField(auto_now_add=True)),
-                    ('price', models.DecimalField(decimal_places=2, max_digits=5)),
-                    ('volume', models.PositiveIntegerField()),
-                    ('total_btc', models.PositiveIntegerField()),
-                ],
-                options={
-                },
-                bases=(models.Model,),
-            ),
-        ]
+class Migration(migrations.Migration):
+    dependencies = []
+    operations = [
+        migrations.CreateModel(
+            name='PriceHistory',
+            fields=[
+                ('id', models.AutoField(
+                    verbose_name='ID',
+                    serialize=False,
+                    primary_key=True,
+                    auto_created=True)),
+                ('date', models.DateTimeField(auto_now_add=True)),
+                ('price', models.DecimalField(decimal_places=2, max_digits=5)),
+                ('volume', models.PositiveIntegerField()),
+                ('total_btc', models.PositiveIntegerField()),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+    ]
+```
 
-Hay dos cosas a destacar en este *script*, porque son constantes en
+Hay dos cosas a destacar en este _script_, porque son constantes en
 todas las migraciones.
 
 En primer lugar, hay una clase llamada `Migration`, derivada de
@@ -60,8 +68,8 @@ es la clase que se buscará y ejecutará.
 
 La clase contiene, entre otras cosas, dos listas:
 
--   `dependencies`
--   `operations`
+- `dependencies`
+- `operations`
 
 La lista `dependencies`, de dependencias, como su nombre indica, sirve
 para indicar que migración o migraciones deben ser ejecutadas
@@ -73,46 +81,26 @@ ejecutar para aplicar la migración. Todas las operaciones son subclases
 de `django.db.migrations.operations.base.Operation`. En la siguiente
 tabla veremos las operaciones ya definidas en Django:
 
-  ---------------------------------------------------------------------------------
-  Operacion                   Descripción
-  --------------------------- -----------------------------------------------------
-  `CreateModel`               Crea la tabla correspondiente a un modelo
+Operaciones disponibles en las migraciones de Django
+ 
+| Operación                 | Descripción |
+|---------------------------|-------------------------------------------------|
+| `CreateModel`             | Crea la tabla correspondiente a un modelo |
+| `DeleteModel`             | Borra un modelo y la tabla asociada |
+| `RenameModel`             | Cambia el nombre de un modelo y su tabla asociada |
+| `AlterModelTable`         | Cambia el nombre de la tabla asociada |
+| `AlterUniqueTogether`     | Modifica restricciones de tipo único |
+| `AlterIndexTogether`      | Modifica el índice de un modelo |
+| `AlterOrderWithRespectTo` | Crea o borra la columna `_orden` para un modelo |
+| `AlterModelOptions`       | Modifica varias opciones del modelo sin afectar la BD |
+| `AlterModelManagers`      | Cambia los gestores (*managers*) disponibles durante las migraciones |
+| `AddField`                | Añade un campo al modelo |
+| `RemoveField`             | Borra un campo del modelo |
+| `AlterField`              | Modifica la definición de un campo |
+| `RenameField`             | Borra un campo |
+| `AddIndex`                | Crea un índice en la tabla de un modelo |
+| `RemoveIndex`             | Borra un índice de la tabla de un modelo |
 
-  `DeleteModel`               Borra un modelo y la tabla asociada
-
-  `RenameModel`               Cambia el nombre de un modelo y su tabla asociada
-
-  `AlterModelTable`           Cambia el nombre de la tabla asociada
-
-  `AlterUniqueTogether`       Modifica las restricciones de tipo único de un modelo
-
-  `AlterIndexTogether`        Modifica el índice de un modelo
-
-  `AlterOrderWithRespectTo`   Crea o borra la columna `_orden` para un modelo
-
-  `AlterModelOptions`         Modifica varias opciones del modelo sin afectar la
-                              base de datos
-
-  `AlterModelManagers`        Cambia los gestores (*managers*) disponibles durante
-                              las migraciones
-
-  `AddField`                  Añade un campo al modelo y la columna correspondiente
-                              en la tabla
-
-  `RemoveField`               Borra un campo del modelo y la columna
-                              correspondiente de la tabla
-
-  `AlterField`                Modifica la definición de un campo y la columna
-                              correspondiente en la tabla, si procede
-
-  `RenameField`               Borra un campo, y su columna en la tabla, si procede
-
-  `AddIndex`                  Crea un índice en la tabla de un modelo
-
-  `RemoveIndex`               Borra un índice de la tabla de un modelo
-  ---------------------------------------------------------------------------------
-
-  : Operaciones disponibles en las migraciones de Django
 
 Los nombres de las operaciones se basan en el tipo de cambio que se
 desea ejecutar en la definición de los modelos, no en los cambios que
@@ -151,11 +139,11 @@ base de datos antes de ejecutarlas en la base de datos real.
 Django proporciona además tres tipos más de operaciones, para usos
 especiales:
 
--   `RunSQL` permite ejecutar sentencias SQL personalizadas en la base
-    de datos.
--   `RunPython` permite ejecutar cualquier código Python.
--   `SeparateDatabaseAndState` es una operación aun más especializada,
-    para usuarios avanzados.
+- `RunSQL` permite ejecutar sentencias SQL personalizadas en la base de datos.
+
+- `RunPython` permite ejecutar cualquier código Python.
+
+- `SeparateDatabaseAndState` es una operación aun más especializada, para usuarios avanzados.
 
 Con todas estas operaciones a nuestra disposición, podemos hacer
 básicamente cualquier tipo de cambio en nuestra base de datos. Sin

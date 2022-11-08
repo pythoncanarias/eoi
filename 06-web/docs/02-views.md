@@ -29,19 +29,20 @@ La siguiente vista, `fecha_actual`, devuelve un documento HTML muy
 simplificado en el que mostramos la fecha y hora actuales, es decir, la
 fecha y hora en la que se ejecutó la vista:
 
-    import datetime
-    from django.http import HttpResponse
+```python
+import datetime
+from django.http import HttpResponse
 
-    def fecha_actual(request):
-
-        now = datetime.datetime.now()
-        page = f"""<html>
+def fecha_actual(request):
+    now = datetime.datetime.now()
+    page = f"""<html>
 <body>
 <h1>Qué hora es</h1>
 <p>Las {now}</p>
 </body>
 </html>"""
-        return HttpResponse(page)
+    return HttpResponse(page)
+```
 
 Vamos a comentar esta vista por partes:
 
@@ -60,7 +61,7 @@ Vamos a comentar esta vista por partes:
 - El cuerpo de la vista obtiene la fecha/hora actual, formatea el
   resultado en un HTML simplificado, y finalmente devuelve un objeto
   `HttpRequest` generado a partir del HTML. Cumple así con la segunda
-  de las condiciones que pediamos para que fuera
+  de las condiciones que pedíamos para que fuera
   una vista.
 
 Recordemos que para poder ver el resultado de la vista, tenemos que

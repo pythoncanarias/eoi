@@ -242,17 +242,17 @@ $$ 2^{8} \times 2^{8} \times 2^{8} = 2^{24} = 16777216 $$
 
 16.777.216 colores diferentes son muchos colores. En la práctica, esto es muchisimo más preciso de lo que el ojo humano puede percibir, por lo que a veces se llama a este esquema *True Color*.
 
-También podemos definir colores usando una cuadrupla, una tupla de cuatro
+También podemos definir colores usando una _cuadrupla_, una tupla de cuatro
 valores. Los tres primeros valores corresponden a los componentes RGB del
 color, en el cuarto se especifica la opacidad (lo contrario de transparencia)
 del color, también llamada __*alfa*__, __*valor alfa*__ o __*canal alfa*__.
 
 Esto nos permite crear colores traslúcidos, que pueden dejar pasar parte de la
-luz que emiten los objetos que están detras de ellos. Un valor alfa de 255 se
+luz que emiten los objetos que están detrás de ellos. Un valor alfa de 255 se
 entiendo como totalmente opaco, una alfa de 0 es totalmente transparente; en la
 práctica, invisible.
 
-### Leer imagenes desde un fichero
+### Leer imágenes desde un fichero
 
 La librería soporta, como vimos antes, muchos formatos diferentes. Para leer y
 obtener una imagen desde cualquiera de estos tipos de fichero, solo tenemos que
