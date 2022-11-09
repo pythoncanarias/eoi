@@ -1,12 +1,13 @@
 ---
 title: Vistas de Django
 ---
+
 ## Vistas de Django
 
 Django define una **vista** o **view** como la forma de encapsular la
 lógica responsable de procesar una petición de usuario y de devolver un
 resultado. Desde un punto de vista de desarrollo, una vista es una
-función o una clase de python normal, pero que debe cumplir estos dos
+función o una clase de Python normal, pero que debe cumplir estos dos
 requisitos:
 
 - Tiene que admitir como primer parámetro una variable de tipo
@@ -23,7 +24,7 @@ JSON, una imagen, o cualquier otro contenido.
 Aunque el código de las vistas puede estar en cualquier parte, la
 práctica recomendada es ponerlas en un fichero `views.py`.
 
-### Nuestra primera vista dinámica
+## Nuestra primera vista dinámica
 
 La siguiente vista, `fecha_actual`, devuelve un documento HTML muy
 simplificado en el que mostramos la fecha y hora actuales, es decir, la
@@ -68,7 +69,6 @@ Recordemos que para poder ver el resultado de la vista, tenemos que
 tener una ruta en el fichero `urls.py` apuntando a la misma.
 
 **Ejercicio**: Mapear la ruta 'ahora/' a la vista `fecha_actual`.
-
 
 ### Devolver errores
 

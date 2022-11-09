@@ -26,7 +26,7 @@ Ya dentro de la aplicación, usaremos ``manage.py`` para crear una nueva ``app``
 Para realizar la práctica, debes crear dos modelos (En el fichero ``factura/models.py``), un modelo para
 la factura en si (clase ``Factura``), donde guardaremos los datos de la cabecera, y otro modelo para
 las líneas de la factura (clase ``LineaFactura``), ya que normalmente las facturas tienen más
-de una línea, y por tanto debemos deflejar esa relacion N:1.
+de una línea, y por tanto debemos reflejar esa relacion N:1.
 
 En el modelo de la factura, hay que incluir al menos los siguientes atributos:
 
@@ -44,47 +44,61 @@ En la línea de factura, necesitamos al menos:
 
 Recuerda que:
 
-- En Django las claves primaria solo pueden constar de un único campo. En el caso de la factura, la combinacion
-de número y año podría ser una clave primaria válida, pero al ser dos campos, no podemos usarla. En tus modelos
-puedes crear una clave primaria de forma explícita o no declarar ninguna y dejar que Django cree automáticamente
-una clave primaria, numérica y autoincremental, con el nombre de `id`, lo que prefieras.
+- En Django las claves primaria solo pueden constar de un único campo. En el
+  caso de la factura, la combinacion de número y año podría ser una clave
+  primaria válida, pero al ser dos campos, no podemos usarla. En tus modelos
+  puedes crear una clave primaria de forma explícita o no declarar ninguna y
+  dejar que Django cree automáticamente una clave primaria, numérica y
+  autoincremental, con el nombre de `id`, lo que prefieras.
 
-- La linea de factura necesita estar vinculada con la factura de la que forma parte, así que necesitarás
-un _foreign key_ en la linea, apuntando hacia la factura, de forma similar a como las tareas en el curso
-apuntaban a un proyecto.
+- La linea de factura necesita estar vinculada con la factura de la que forma
+  parte, así que necesitarás un _foreign key_ en la linea, apuntando hacía la
+  factura, de forma similar a como las tareas en el curso apuntaban a un
+  proyecto.
 
-- Cuando usamos un campo ``ForeignKey`` es obligatorio definir el parametro ``on_delete``, con el
-que le indicamos que debe hacer el sistema para evitar la ruptura de la **integridad referencial** si
-se borrara la entidad referenciada; en este caso, que hacemos con las líneas de factura si se borra
-la factura a la que corresponden. En el curso vimos que habia varias opciones, entre ellas:
+- Cuando usamos un campo ``ForeignKey`` es obligatorio definir el parametro
+  ``on_delete``, con el que le indicamos que debe hacer el sistema para evitar
+  la ruptura de la **integridad referencial** si se borrara la entidad
+  referenciada; en este caso, que hacemos con las líneas de factura si se borra
+  la factura a la que corresponden. En el curso vimos que habia varias
+  opciones, entre ellas:
 
-  - ``models.PROTECT`` evitaba que se borrara la factura si hubiera todavía líneas referenciandolo (Es decir, que para borrar la factuara previamente habriamos de borrar todas las líneas que tuviera).
+  - ``models.PROTECT`` evitaba que se borrara la factura si hubiera todavía
+    líneas referenciandolo (Es decir, que para borrar la factuara previamente
+    habriamos de borrar todas las líneas que tuviera).
   
-  - ``models.DELETE`` borraba todas las líneas de factura, si se borra la factura.
+  - ``models.DELETE`` borraba todas las líneas de factura, si se borra la
+    factura.
   
-Ambos métodos son válidos a nivel de integridad, en los dos casos nunca terminamos con una linea de factura
-apuntando a una factura que ya no existe. ¿Cuál de los dos sistemas crees que se podría aplicar en este caso? Justifica la respuesta.
+Ambos métodos son válidos a nivel de integridad, en los dos casos nunca
+terminamos con una linea de factura apuntando a una factura que ya no existe.
+¿Cuál de los dos sistemas crees que se podría aplicar en este caso? Justifica
+la respuesta.
 
 #### Segunda parte
 
-Una vez creados los modelos, añadelos al admin para que puedas crear una factura de prueba.
+Una vez creados los modelos, añadelos al admin para que puedas crear una
+factura de prueba.
 
 Crea una vista  para ver la factura y vincula en el fichero ``urls.py`` el path ``/factura/<int:pk>`` a esa vista.
     
-En la vista de las facturas deberas incluir, toda la información de la factura, y además, para cada línea
-de factura deberias incluir la información de la línea: nombre del producto, precio unitario, unidades servidas, 
-pero también el precio real (Es decir, el producto del precio unitario por el número de unidades).
-Ademas, al final de la factura deberias incluir la suma total de la factura (No es preciso tener en cuenta los
-calculos de impuestos, pero si quieres hacer el proyecto más interesante, añadele un tanto por ciento a la suma 
-como si fuera el IVA para obtener el precio final).
+En la vista de las facturas deberas incluir, toda la información de la factura,
+y además, para cada línea de factura deberias incluir la información de la
+línea: nombre del producto, precio unitario, unidades servidas, pero también el
+precio real (Es decir, el producto del precio unitario por el número de
+unidades).  Ademas, al final de la factura deberias incluir la suma total de la
+factura (No es preciso tener en cuenta los calculos de impuestos, pero si
+quieres hacer el proyecto más interesante, añadele un tanto por ciento a la
+suma como si fuera el IVA para obtener el precio final).
 
 Recuerda que:
     
-- El sistema de plantillas es deliberadamente sencillo. Si ves que se complica, cálcula los datos como 
-el total de la factura en la vista
+- El sistema de plantillas es deliberadamente sencillo. Si ves que se complica,
+  cálcula los datos como el total de la factura en la vista
 
-- Las clases modelo son clases normales, asi que puedes definir sin problema un metodo ``precio_real`` en la
-  clase ``LineaFactura`` que devuelva el cálculo de precio unitario $\times$ el número de unidades.
+- Las clases modelo son clases normales, asi que puedes definir sin problema un
+  metodo ``precio_real`` en la clase ``LineaFactura`` que devuelva el cálculo
+  de precio unitario $\times$ el número de unidades.
 
 ### Rúbrica de evaluación
 
