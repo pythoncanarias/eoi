@@ -93,7 +93,7 @@ represente la fecha, como por ejemplo `2022-10-07`.
 
 ## Ayuda a Luke
 
-En la siguiente foto (`luke.png`) podemos ver a nuestro héroe Luke Skywalker a
+En la siguiente foto ([`luke.png`](https://raw.githubusercontent.com/pythoncanarias/eoi/master/05-libs/docs/luke.png)) podemos ver a nuestro héroe Luke Skywalker a
 punto de atacar a los malvados sicarios de Jabba el Hutt.
 
 ![Use the force!](luke.png)
