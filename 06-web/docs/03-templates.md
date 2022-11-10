@@ -1,6 +1,8 @@
 ---
 title: Plantillas de Django
-topic: web
+tags: 
+    - web
+    - html
 ---
 
 ## Plantillas en Django
@@ -116,20 +118,50 @@ def render(request, template, data):
     return HttpResponse(t.render(ctx))
 ```
 
-Usando ``render`` evitamos duplicar código similar en cada
-vista.
+Usando `render` evitamos duplicar código similar en cada vista.
 
 Vamos a realizar un par de ejercicios de ejemplo
 
-1)  Mostrar una lista de superheroes.
+1.-  Mostrar una lista de tareas.
 
-2\) Mostrar una lista de superheroes, pero que se vean los nombres en
-negrita o de color rojo (o cualquier otra cosa que sirva para
-destacarlos) si su nivel es de 5 o superior y verde si es 4 o inferior
-
-Vamos a sacar la lista del fichero [superheroes.csv](superheroes.csv)
+2.- Mostrar una lista de tareas, pero que se vean los nombres en
+negrita y de color rojo (o cualquier otra cosa que sirva para
+destacarlos) si su prioridad es alta.
 
 Para ello vamos a necesitar dos etiquetas nuevas: `for` e `if`.
+
+### La etiqueta `for`
+
+La etiqueta `for` es el equivalente al `for` de Python. A diferencia de este,
+no podemos basarnos en la indentación del código, porque en general los
+espacios, tabuladores y saltos de línea no son significativos en Html, así que
+tiene una etiqueta, `endfor`m asociada que usamos para indicar el final del
+`for`. Al igual que Python, necesita trabajar sobre una secuencia, como una
+lista, tupla, diccionario, cadena de texto, etc...
+
+Por ejemplo, si desde la vista hemos pasado a la plantilla una lista de
+elementos, con el nombre `lista`:
+
+```python
+    return render(request, 'ruta/plantilla.html', {
+        ...
+        'lista': list(range(5)),
+        ...
+        })
+```
+
+En la plantilla, podemos mostrar el contenido de la lista
+con:
+
+```html
+{% raw %}
+<ul>
+{% for n in lista %}
+    <li> {{ n }} </li>
+{% endfor %}
+</ul>
+{% endraw %}
+```
 
 ## Herencia de plantillas
 
