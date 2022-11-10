@@ -42,4 +42,4 @@ title: Librerías
 
 ### Anexos
 
-- [Miniproyecto](A1-miniproject.md) Programa de copias de seguridad
+- [Miniproyectos](miniprojects.md) Mini proyectos
