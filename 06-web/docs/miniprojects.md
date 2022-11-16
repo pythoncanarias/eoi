@@ -175,14 +175,14 @@ hasta el lugar, y pondremos como valor por defecto `0`. Este valor por defecto
 hará que la migración asigne a todas las tareas ya existentes en la base de
 datos a `"En cualquier lugar"`.
 
-Por último, crear una vista con la url `/lugares/' que muestro los distintos
-lugares posibles, y que cada lugar sea una enlace a '/lugares/<pk>/', que es
+Por último, crear una vista con la ruta `/lugares/` que muestro los distintos
+lugares posibles, y que cada lugar sea una enlace a `/lugares/&lt;pk&gt;/`, que es
 otra vista que hay que hacer, para mostrar las tareas que esten asociadas con
 ese lugar.
 
 Date cuenta que si accedo a `/lugares/3/`, tiene que mostrarme todas las tareas
-que puedo hacer en la oficina, (`id` de place iqual a $3$), pero también todas
-las tareas con `id` de place a $0$, porque estas tareas se pueden hacer en
-cualquier lugar, y eso incluye a la oficina.
+que puedo hacer en la oficina, (`id` de place iqual a $3$), pero **también todas
+las tareas con `id` de place a $0$**, porque estas tareas se pueden hacer en
+cualquier lugar, y eso incluye en la oficina.
 
 
