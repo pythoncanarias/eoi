@@ -93,14 +93,28 @@ entorno:
 #### En tkinter:
 
 ```python
-{% include 'hola-tkinter.py' %}
+--8<--
+docs/hola-tkinter.py
+--8<--
 ```
+
+Debería producir esta ventana:
+
+![Hello, world en TK](./hello-tk.png)
+
 
 #### En Qt5:
 
 ```python
-{% include 'hola-qt5.py' %}
+--8<--
+docs/hola-qt5.py
+--8<--
 ```
+
+Debería producir algo parecido a:
+
+![Hello, world en QT5](./hello-qt5.png)
+
 
 #### En WxPython:
 
