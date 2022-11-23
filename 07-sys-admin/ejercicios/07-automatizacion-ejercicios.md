@@ -8,17 +8,7 @@ Podéis encontrar la documentación de la API aquí: https://www.mediawiki.org/w
 
 Un ejemplo de url: 'http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=carol shaw&format=json'
 
-## 1. Copia de seguridad de una carpeta en un archivo ZIP
-
-Digamos que está trabajando en un proyecto cuyos archivos guarda en una carpeta llamada `/tmp/python-files/`. 
-
-Le preocupa perder su trabajo, por lo que le gustaría crear "instantáneas" de archivos ZIP de toda la carpeta. 
-
-Además te gustaría mantener diferentes versiones, por lo que desea que el nombre de archivo del archivo ZIP aumente cada vez que se crea; por ejemplo, python-files_1.zip, python-files_2.zip, python-files_3.zip, etc.
-
-Puede hacer esto a mano, pero es bastante molesto y podría equivocarse en la numeración accidental de los nombres de los archivos ZIP. Sería mucho más sencillo ejecutar un programa que haga esta aburrida tarea por ti.
-
-## 2. Descargar los comics de XKCD
+## Descargar los comics de XKCD
 Los blogs y otros sitios web que se actualizan periódicamente suelen tener una página principal con la publicación más reciente, así como un botón Anterior en la página que lo lleva a la publicación anterior: esa publicación anterior también tendrá un botón Anterior, y así sucesivamente, creando un rastro desde la página más reciente hasta la primera publicación en el sitio.
 
 Imagina que queremos hacer una copia del contenido del blog para leer cuando no está en línea, o simplemente una copia de seguridad por si algún día la web no está disponible. Este trabajo puede ser bastante tedioso, así que vamos a escribir un programa para hacerlo.
@@ -40,8 +30,17 @@ Here’s what your program does:
   * para esto prueba con algo como `soup.select('a[rel="prev"]')[0]`
 - Realizar todo el proceso anterior con esa nueva URL
 
+## Copia de seguridad de una carpeta en un archivo ZIP
 
-## 3. Generación de archivos de cuestionarios aleatorios
+Digamos que está trabajando en un proyecto cuyos archivos guarda en una carpeta llamada `/tmp/python-files/`. 
+
+Le preocupa perder su trabajo, por lo que le gustaría crear "instantáneas" de archivos ZIP de toda la carpeta. 
+
+Además te gustaría mantener diferentes versiones, por lo que desea que el nombre de archivo del archivo ZIP aumente cada vez que se crea; por ejemplo, python-files_1.zip, python-files_2.zip, python-files_3.zip, etc.
+
+Puede hacer esto a mano, pero es bastante molesto y podría equivocarse en la numeración accidental de los nombres de los archivos ZIP. Sería mucho más sencillo ejecutar un programa que haga esta aburrida tarea por ti.
+
+## Generación de archivos de cuestionarios aleatorios
 
 Supongamos que es profesor de geografía con 35 estudiantes en su clase y desea realizar un examen sorpresa sobre las capitales de los estados de EE.UU. Por desgracia, su clase tiene algunos alumnos avispados y no puede confiar en que los estudiantes no hagan trampa. Le gustaría aleatorizar el orden de las preguntas para que cada prueba sea única, lo que hace imposible que alguien pueda copiar las respuestas de otra persona. Por supuesto, hacer esto a mano sería un asunto largo y aburrido. Afortunadamente, conoces algo de Python.
 
