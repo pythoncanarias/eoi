@@ -9,7 +9,7 @@ Podéis encontrar la documentación de la API aquí: https://www.mediawiki.org/w
 Un ejemplo de urls: 
 - https://en.wikipedia.org/w/api.php?action=opensearch&search=Carol%20Shawn&limit=10&namespace=0&format=json
 - http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=carol%20shaw&format=json
-- https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=Carol_Shaw&rvslots=*&rvprop=content&formatversion=2
+- https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=Carol_Shaw&rvslots=*&rvprop=content&formatversion=2&format=json
 - https://en.wikipedia.org/w/api.php?action=query&list=random&format=json
 
 ## Descargar los comics de XKCD
