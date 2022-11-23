@@ -6,7 +6,11 @@ Crear una api con FastApi a la cual le puedas pasar un término de búsqueda por
 
 Podéis encontrar la documentación de la API aquí: https://www.mediawiki.org/wiki/API:Tutorial
 
-Un ejemplo de url: 'http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=carol%20shaw&format=json'
+Un ejemplo de urls: 
+- https://en.wikipedia.org/w/api.php?action=opensearch&search=Carol%20Shawn&limit=10&namespace=0&format=json
+- http://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=carol%20shaw&format=json
+- https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=Carol_Shaw&rvslots=*&rvprop=content&formatversion=2
+- https://en.wikipedia.org/w/api.php?action=query&list=random&format=json
 
 ## Descargar los comics de XKCD
 Los blogs y otros sitios web que se actualizan periódicamente suelen tener una página principal con la publicación más reciente, así como un botón Anterior en la página que lo lleva a la publicación anterior: esa publicación anterior también tendrá un botón Anterior, y así sucesivamente, creando un rastro desde la página más reciente hasta la primera publicación en el sitio.
