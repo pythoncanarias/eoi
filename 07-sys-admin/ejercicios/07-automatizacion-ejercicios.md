@@ -22,8 +22,8 @@ XKCD es un popular webcomic publicado en una web que se ajusta a esta estructura
 Lo que hará el script es:
 Here’s what your program does:
 - Cargar la página de XKCD usando la librería requests
-- Parsear el hml que devuelve con la librería `beautifulsoup` (`pip install beautifulsoup4`)
-  * para encontrar el elemento con la imagen, puedes probar `soup.select('#comic img')` y `comic_element[0].get('src')` para obtener la url del comic actual
+- Parsear el hml que devuelve con la librería [beautifulsoup](https://beautiful-soup-4.readthedocs.io/en/latest/) (`pip install beautifulsoup4`)
+  * para encontrar la url de la imagen, puedes probar `f"http:{soup.select('#comic img')[0].get('src')}"`
 - Guardar el contenido de la url del comic en un fichero
   * para esto puedes probar algo como:
     ```python
@@ -31,7 +31,7 @@ Here’s what your program does:
         f.write(res.content)
     ```
 - Buscar el enlace del botón "Previous"
-  * para esto prueba con algo como `soup.select('a[rel="prev"]')[0]`
+  * para encontrar la url de la imagen, puedes probar `soup.select('a[rel="prev"]')[0].get('href')`
 - Realizar todo el proceso anterior con esa nueva URL
 
 ## Copia de seguridad de una carpeta en un archivo ZIP
