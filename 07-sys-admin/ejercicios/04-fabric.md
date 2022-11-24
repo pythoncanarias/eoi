@@ -1,5 +1,10 @@
 # Fabric
 
+```
+pip install fabric3
+```
+
+
 1. Crea un fichero llamado `fabfile.py` con el siguiente contenido
 
 ```python
