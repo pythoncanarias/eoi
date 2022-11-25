@@ -56,7 +56,7 @@ def clone():
 ```
 
     Y ahora añadimos la tarea al proceso de deploy:
-    
+
 ```python
 def deploy():
     clone()
@@ -401,4 +401,51 @@ def deploy():
     django_migrate()
     django_loaddata()
     django_runserver()
+```
+
+## Desplegar en el servidor remoto
+
+1. Cambia las llamadas
+
+```python
+from fabric.api import local
+
+local(do-something)
+```
+
+por
+```python
+from fabric.api import run
+
+run(do-something)
+```
+
+2. Cambia los
+```python
+from fabric.context_managers import lcd
+
+with lcd(PROJECT_PATH):
+```
+
+por
+
+```python
+from fabric.api import cd
+
+
+with cd(PROJECT_PATH):
+```
+
+3. Define los hosts de destino con
+
+```python
+from fabric.api import env
+
+env.hosts = ['3.15.38.15']
+```
+
+4. Para comprobar si un fichero existe en el servidor, usa
+
+```python
+from fabric.contrib.files import exists
 ```
