@@ -1,95 +1,54 @@
 # Fabric
 
-```
-pip install fabric3
-```
+En este ejercicio vamos a automatizar el despliegue de la aplicación `django_polls` en nuestro propio ordenador, usando fabric y su paquete `local`
+
+El repositorio de django_polls lo podéis encontrar aquí: https://github.com/aliciapj/django_polls
+
+Es muy importante que hagáis un fork del repositorio en vuestra propia cuenta de Github y hagáis el resto del ejercicio utilizando vuestra propia URL del proyecto.
+
+En el readme del repositorio tenemos los pasos que hay que seguir para instalar el repositorio. A continuación vamos a reproducir esos mismos pasos utilizando al librería de Fabric.
+
+0. Pasos previos a la instalación que indica en el repositorio:
+    - Activa el virtual environment e instala fabric:
+    ```
+    pip install fabric3
+    ```
+
+    - Crea un fichero `fabfile.py` y añade los primeros imports y constantes de nuestro script. Sustituye las rutas del proyecto y la url del repositorio por las de tu repositorio y tu máquina local
+
+    ```python
+    from fabric.api import local
+
+    PROJECT_NAME = "django_polls"
+    PROJECT_PATH = f"/home/<pon_tu_usuario_aqui>/{PROJECT_NAME}"
+    REPO_URL = "https://github.com/aliciapj/django_polls.git"
+    VENV_PYTHON = f'{PROJECT_PATH}/.venv/bin/python'
+    VENV_PIP = f'{PROJECT_PATH}/.venv/bin/pip'
 
 
-1. Crea un fichero llamado `fabfile.py` con el siguiente contenido
+    def deploy():
+    local('echo "hello world"')
+    ```
 
-```python
-from fabric.api import local
+    - Comprueba que todo funciona correctamente ejecutando `fab deploy`. Deberías obtener algo como esto:
+    ```
+    [localhost] local: echo "hello world"
+    hello world
 
-def deploy():
-    local("uname")
-    local("ls /")
-```
-
-2. Activa el entorno virtual y ejecuta el siguiente comando de Fabric en la consola:
-
-```
-source .venv/bin/activate
-fab deploy
-```  
-
-Output:
-```
-[localhost] local: uname
-Linux
-[localhost] local: ls /
-bin  boot  dev  etc  home  init  lib  lib32  lib64  libx32  lost+found  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var
-```
-
-
-# Despliegue de una aplicación Django con Fabric
-
-A continuacion vamos a desplegar una aplicación Django con Fabric en el servidor de vagrant
-
----------------
-1. Vamos a añadir algunos import más que nos serán útiles a la hora de definir las siguientes tareas:
-
-```
-import os
-import sys
-
-from fabric.api import local
-```
-
--------------------
-2. Vamos a definir una serie de variables que nos servirán como constantes en el despliegue de la aplicación:
-
-```python
-PROJECT_NAME = "django_polls"
-PROJECT_PATH = f"~/{PROJECT_NAME}"
-REPO_URL = "https://github.com/aliciapj/django_polls.git"
-VENV_PYTHON = f'{PROJECT_PATH}/.venv/bin/python'
-VENV_PIP = f'{PROJECT_PATH}/.venv/bin/pip'
-```
-
-
-------------------
-3. Ahora deberíamos tener el fichero con algo como esto:
-    
-```python
-import os
-import sys
-
-from fabric.api import local
-
-PROJECT_NAME = "django_polls"
-PROJECT_PATH = f"/home/<pon_tu_usuario_aqui>/{PROJECT_NAME}"
-REPO_URL = "https://github.com/aliciapj/django_polls.git"
-VENV_PYTHON = f'{PROJECT_PATH}/.venv/bin/python'
-VENV_PIP = f'{PROJECT_PATH}/.venv/bin/pip'
-
-
-def deploy():
-    local("uname")
-    local("ls /")
-```
+    Done.
+    ```
 
 --------------
-4. Cambiamos el método de deploy para hacer un git clone del repositorio de nuestro proyecto django
-A partir de ahora vamos a añadir tareas a nuestro proceso de deploy, definiendo una nueva función para cada paso y añadiéndola al método de deploy. Empezaremos por la de hacer un `git clone` del repo que hemos definido en la constante `REPO_URL`.  
-En todas las tareas empezaremos obteniendo la conexión por parámetro y a continuación, ejecutando los comandos correspondientes.
+> 1. Descarga el código con el siguiente comando: \
+    `git clone https://github.com/aliciapj/django_polls.git`
+
 
 ```python
-@task
+import os
+
 def clone(): 
     print(f"clone repo {REPO_URL}...")   
 
-    # si el nombre del proyecto ya está en la lista de carpetas
-    # no es necesario hacer el clone 
     if os.path.exists(PROJECT_PATH):
         print("project already exists")
     else:
@@ -99,119 +58,39 @@ def clone():
     Y ahora añadimos la tarea al proceso de deploy:
     
 ```python
-@task
 def deploy():
     clone()
 ```
 
-> Prueba la tarea con `fab development deploy`, comprueba que el resultado es algo como lo siguiente y comprueba que la operación se ha ejecutado correctamente en el servidor  
+> Prueba la tarea con `fab deploy`, comprueba que el resultado es algo como lo siguiente y comprueba que la operación se ha ejecutado correctamente en el servidor
 ```
 clone repo https://github.com/aliciapj/django_polls.git...
-Cloning into 'django_polls'...
-```
+[localhost] local: git clone https://github.com/aliciapj/django_polls.git /tmp/django_polls
+Cloning into '/tmp/django_polls'...
+remote: Enumerating objects: 143, done.
+remote: Counting objects: 100% (143/143), done.
+remote: Compressing objects: 100% (99/99), done.
+remote: Total 143 (delta 59), reused 116 (delta 33), pack-reused 0
+Receiving objects: 100% (143/143), 718.35 KiB | 3.31 MiB/s, done.
+Resolving deltas: 100% (59/59), done.
 
------------------------------
-1. Vamos a hacer un checkout de la rama `main` del repositorio:
-
-```python
-@task
-def checkout(ctx, branch=None):
-    print(f"checkout to branch {branch}...")
-
-    if branch is None:
-        sys.exit("branch name is not specified")
-    
-    if isinstance(ctx, Connection):
-        conn = ctx
-    else:
-        conn = get_connection(ctx)
-    
-    with conn.cd(PROJECT_PATH):
-        conn.run(f"git checkout {branch}")
-```
-
-Y añade la nueva tarea a la función de deploy
-
-```python
-@task
-def deploy(ctx):
-    conn = get_connection(ctx)
-    if conn is None:
-        sys.exit("Failed to get connection")
-    
-    clone(conn)
-    checkout(conn, branch="main")
-```
-
-> Prueba la tarea con `fab development deploy`, comprueba que el resultado es algo como lo siguiente y comprueba que la operación se ha ejecutado correctamente en el servidor  
-```
-clone repo https://github.com/aliciapj/django_polls.git...
-django_polls
-project already exists
-checkout to branch main...
-Already on 'main'
-Your branch is up to date with 'origin/main'.
+Done.
 ```
 
 ----------------
-7. Crea una tarea para hacer un git pull de la rama:
+
+> 2. Entramos en la carpeta descargada django_polls y creamos el entorno virtual con el comando: \
+    `python3 -m venv .venv`
+
+Para trabajar en la carpeta que hemos creado en el paso anterior, tenemos que importar `lcd`
 
 ```python
-@task
-def pull(ctx, branch="main"):
+from fabric.context_managers import lcd
 
-    print(f"pulling latest code from {branch} branch...")
-
-    if branch is None:
-        sys.exit("branch name is not specified")
-
-    if isinstance(ctx, Connection):
-        conn = ctx
-    else:
-        conn = get_connection(ctx)
-
-    with conn.cd(PROJECT_PATH):
-        conn.run(f"git pull origin {branch}")
-```
-
-Y añade la nueva tarea a la función de deploy
-
-```python
-@task
-def deploy(ctx):
-    conn = get_connection(ctx)
-    if conn is None:
-        sys.exit("Failed to get connection")
-
-    clone(conn)
-    checkout(conn, branch="main")
-    pull(conn, branch="main")
-```
-
-> Prueba la tarea con `fab development deploy`, comprueba que el resultado es algo como lo siguiente y comprueba que la operación se ha ejecutado correctamente en el servidor  
-
-```
-clone repo https://github.com/aliciapj/django_polls.git...
-project already exists
-checkout to branch main...
-[localhost] local: ls 
-README.md  __pycache__  django_polls  fabfile.py  fixtures  manage.py  polls  requirements.txt
-[localhost] local: git checkout main
-Already on 'main'
-Your branch is up to date with 'origin/main'.
-
-Done.
-```
-
-------------------
-8. Crea una tarea para crear un virtual environment con Python 3 (recuerda que el comando en linux para un entorno llamado `.venv` es `python3 -m venv .venv`.  
-Además, instala a través del pip del virtualenv creado la librería de django
-
-```python
 def create_venv():
-    
+
     print("creating venv....")
-    
+
     with lcd(PROJECT_PATH):
         local("python3 -m venv .venv")
         local(f"{VENV_PIP} install django")
@@ -222,80 +101,102 @@ Y añade la nueva tarea a la función de deploy
 ```python
 def deploy():
     clone()
-    checkout('main')
     create_venv()
 ```
 
-> Prueba la tarea con `fab development deploy`, comprueba que el resultado es algo como lo siguiente y comprueba que la operación se ha ejecutado correctamente en el servidor  
+> Prueba la tarea con `fab deploy`
 
 ```
 clone repo https://github.com/aliciapj/django_polls.git...
 project already exists
-checkout to branch main...
-[localhost] local: git checkout main
-Already on 'main'
-Your branch is up to date with 'origin/main'.
 creating venv....
 [localhost] local: python3 -m venv .venv
-[localhost] local: /home/alicia/django_polls//.venv/bin/pip install django
-Collecting django
-  Downloading Django-4.1.3-py3-none-any.whl (8.1 MB)
-     |████████████████████████████████| 8.1 MB 6.3 MB/s 
-Collecting sqlparse>=0.2.2
-  Downloading sqlparse-0.4.3-py3-none-any.whl (42 kB)
-     |████████████████████████████████| 42 kB 2.7 MB/s 
-Collecting asgiref<4,>=3.5.2
-  Downloading asgiref-3.5.2-py3-none-any.whl (22 kB)
-Collecting backports.zoneinfo; python_version < "3.9"
-  Downloading backports.zoneinfo-0.2.1-cp38-cp38-manylinux1_x86_64.whl (74 kB)
-     |████████████████████████████████| 74 kB 7.5 MB/s 
-Installing collected packages: sqlparse, asgiref, backports.zoneinfo, django
-Successfully installed asgiref-3.5.2 backports.zoneinfo-0.2.1 django-4.1.3 sqlparse-0.4.3
 
 Done.
 ```
 
---------------
-9. Crea una tarea para ejecutar las migraciones de django
+> 3. Activamos el entorno virtual \
+    `source .venv/bin/activate`
+
+Este paso no se puede hacer porque en Fabric no trabajamos con la consola. En su lugar, en vez de usar el comando `python` y `pip` vamos a usar el python y pip que está en el entorno virtual que acabamos de crear, y cuya ruta tenemos guardada en el parámetro `VENV_PYTHON` y `VENV_PIP`
+
+> 4. Instalamos las librerías necesarias que se encuentran en el fichero requirements.txt \
+    `pip install -r requirements.txt`
 
 ```python
-def create_venv():
-    
-    print("creating venv....")
-    
+def install_requirements():
+
+    print("installing requirements.txt....")
+
     with lcd(PROJECT_PATH):
-        local("python3 -m venv .venv")
-        local(f"{VENV_PIP} install django")
-```
+        local(f"{VENV_PIP} install -r requirements.txt ")
 
-Y añade la nueva tarea a la función de deploy
 
-```python
 def deploy():
     clone()
-    checkout('main')
     create_venv()
-    migrate()
+    install_requirements()
 ```
 
-> Prueba la tarea con `fab development deploy`, comprueba que el resultado es algo como lo siguiente y comprueba que la operación se ha ejecutado correctamente en el servidor  
+Debería salir algo como esto:
+```
+clone repo https://github.com/aliciapj/django_polls.git...
+project already exists
+creating venv....
+[localhost] local: python3 -m venv .venv
+installing requirements.txt....
+[localhost] local: /tmp/django_polls/.venv/bin/pip install -r requirements.txt
+Collecting asgiref==3.3.4
+  Downloading asgiref-3.3.4-py3-none-any.whl (22 kB)
+Collecting Django==3.2.3
+  Downloading Django-3.2.3-py3-none-any.whl (7.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.9/7.9 MB 48.7 MB/s eta 0:00:00
+Collecting pytz==2021.1
+  Downloading pytz-2021.1-py2.py3-none-any.whl (510 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 510.8/510.8 KB 103.1 MB/s eta 0:00:00
+Collecting sqlparse==0.4.1
+  Downloading sqlparse-0.4.1-py3-none-any.whl (42 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.2/42.2 KB 12.6 MB/s eta 0:00:00
+Installing collected packages: pytz, sqlparse, asgiref, Django
+Successfully installed Django-3.2.3 asgiref-3.3.4 pytz-2021.1 sqlparse-0.4.1
+```
+
+> 5. Ejecutamos las migraciones \
+    `python manage.py migrate`
+
+```python
+def django_migrate():
+
+    print("executing django migrations....")
+
+    with lcd(PROJECT_PATH):
+        local(f"{VENV_PYTHON} manage.py migrate ")
+
+
+def deploy():
+    clone()
+    create_venv()
+    install_requirements()
+    django_migrate()
+```
+
+Debería salir algo como esto:
 
 ```
 clone repo https://github.com/aliciapj/django_polls.git...
 project already exists
-checkout to branch main...
-[localhost] local: git checkout main
-Already on 'main'
-Your branch is up to date with 'origin/main'.
 creating venv....
 [localhost] local: python3 -m venv .venv
-[localhost] local: /home/alicia/django_polls//.venv/bin/pip install django
-Requirement already satisfied: django in ./.venv/lib/python3.8/site-packages (4.1.3)
-Requirement already satisfied: sqlparse>=0.2.2 in ./.venv/lib/python3.8/site-packages (from django) (0.4.3)
-Requirement already satisfied: asgiref<4,>=3.5.2 in ./.venv/lib/python3.8/site-packages (from django) (3.5.2)
-Requirement already satisfied: backports.zoneinfo; python_version < "3.9" in ./.venv/lib/python3.8/site-packages (from django) (0.2.1)
-checking for django db migrations...
-[localhost] local: /home/alicia/django_polls//.venv/bin/python manage.py migrate
+installing requirements.txt....
+[localhost] local: /tmp/django_polls/.venv/bin/pip install -r requirements.txt
+Requirement already satisfied: asgiref==3.3.4 in ./.venv/lib/python3.9/site-packages (from -r requirements.txt (line 1)) (3.3.4)
+Requirement already satisfied: Django==3.2.3 in ./.venv/lib/python3.9/site-packages (from -r requirements.txt (line 2)) (3.2.3)
+Requirement already satisfied: pytz==2021.1 in ./.venv/lib/python3.9/site-packages (from -r requirements.txt (line 3)) (2021.1)
+Requirement already satisfied: sqlparse==0.4.1 in ./.venv/lib/python3.9/site-packages (from -r requirements.txt (line 4)) (0.4.1)
+WARNING: You are using pip version 22.0.4; however, version 22.3.1 is available.
+You should consider upgrading via the '/tmp/django_polls/.venv/bin/python3 -m pip install --upgrade pip' command.
+executing django migrations....
+[localhost] local: /tmp/django_polls/.venv/bin/python manage.py migrate
 Operations to perform:
   Apply all migrations: admin, auth, contenttypes, polls, sessions
 Running migrations:
@@ -322,5 +223,182 @@ Running migrations:
 Done.
 ```
 
-### Con esto nuestra aplicación Django ya estaría lista para arrancar
---------------
+> 6. Cargamos los datos iniciales: \
+    `python manage.py loaddata fixtures/polls_data.json`
+
+```python
+def django_loaddata():
+
+    print("loading initial data...")
+
+    with lcd(PROJECT_PATH):
+        local(f"{VENV_PYTHON} manage.py loaddata fixtures/polls_data.json ")
+
+
+def deploy():
+    clone()
+    create_venv()
+    install_requirements()
+    django_migrate()
+    django_loaddata()
+```
+
+Debería salir algo como esto:
+
+```
+clone repo https://github.com/aliciapj/django_polls.git...
+project already exists
+creating venv....
+[localhost] local: python3 -m venv .venv
+installing requirements.txt...
+[localhost] local: /tmp/django_polls/.venv/bin/pip install -r requirements.txt
+Requirement already satisfied: asgiref==3.3.4 in ./.venv/lib/python3.9/site-packages (from -r requirements.txt (line 1)) (3.3.4)
+Requirement already satisfied: Django==3.2.3 in ./.venv/lib/python3.9/site-packages (from -r requirements.txt (line 2)) (3.2.3)
+Requirement already satisfied: pytz==2021.1 in ./.venv/lib/python3.9/site-packages (from -r requirements.txt (line 3)) (2021.1)
+Requirement already satisfied: sqlparse==0.4.1 in ./.venv/lib/python3.9/site-packages (from -r requirements.txt (line 4)) (0.4.1)
+WARNING: You are using pip version 22.0.4; however, version 22.3.1 is available.
+You should consider upgrading via the '/tmp/django_polls/.venv/bin/python3 -m pip install --upgrade pip' command.
+executing django migrations...
+[localhost] local: /tmp/django_polls/.venv/bin/python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, polls, sessions
+Running migrations:
+  No migrations to apply.
+loading initial data...
+[localhost] local: /tmp/django_polls/.venv/bin/python manage.py loaddata fixtures/polls_data.json
+Installed 51 object(s) from 1 fixture(s)
+
+Done.
+```
+
+> 7. Arrancamos el servidor \
+    `python manage.py runserver`
+
+```python
+def django_runserver():
+
+    print("runing server...")
+
+    with lcd(PROJECT_PATH):
+        local(f"{VENV_PYTHON} manage.py runserver")
+
+
+def deploy():
+    clone()
+    create_venv()
+    install_requirements()
+    django_migrate()
+    django_loaddata()
+    django_runserver()
+```
+
+Y debería salirte algo como esto y en la consola se te quedará arrancado el servidor de django:
+
+```
+clone repo https://github.com/aliciapj/django_polls.git...
+project already exists
+creating venv....
+[localhost] local: python3 -m venv .venv
+installing requirements.txt...
+[localhost] local: /tmp/django_polls/.venv/bin/pip install -r requirements.txt
+Requirement already satisfied: asgiref==3.3.4 in ./.venv/lib/python3.9/site-packages (from -r requirements.txt (line 1)) (3.3.4)
+Requirement already satisfied: Django==3.2.3 in ./.venv/lib/python3.9/site-packages (from -r requirements.txt (line 2)) (3.2.3)
+Requirement already satisfied: pytz==2021.1 in ./.venv/lib/python3.9/site-packages (from -r requirements.txt (line 3)) (2021.1)
+Requirement already satisfied: sqlparse==0.4.1 in ./.venv/lib/python3.9/site-packages (from -r requirements.txt (line 4)) (0.4.1)
+WARNING: You are using pip version 22.0.4; however, version 22.3.1 is available.
+You should consider upgrading via the '/tmp/django_polls/.venv/bin/python3 -m pip install --upgrade pip' command.
+executing django migrations...
+[localhost] local: /tmp/django_polls/.venv/bin/python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, polls, sessions
+Running migrations:
+  No migrations to apply.
+loading initial data...
+[localhost] local: /tmp/django_polls/.venv/bin/python manage.py loaddata fixtures/polls_data.json
+Installed 51 object(s) from 1 fixture(s)
+runing server...
+[localhost] local: /tmp/django_polls/.venv/bin/python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 25, 2022 - 14:02:06
+Django version 3.2.3, using settings 'django_polls.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+```
+
+------
+
+El resultado final del fichero sería el siguiente:
+
+```python
+import os
+
+from fabric.api import local
+from fabric.context_managers import lcd
+
+PROJECT_NAME = "django_polls"
+PROJECT_PATH = f"/tmp/{PROJECT_NAME}"
+REPO_URL = "https://github.com/aliciapj/django_polls.git"
+VENV_PYTHON = f'{PROJECT_PATH}/.venv/bin/python'
+VENV_PIP = f'{PROJECT_PATH}/.venv/bin/pip'
+
+
+def clone():
+    print(f"clone repo {REPO_URL}...")
+
+    if os.path.exists(PROJECT_PATH):
+        print("project already exists")
+    else:
+        local(f"git clone {REPO_URL} {PROJECT_PATH}")
+
+
+def create_venv():
+
+    print("creating venv....")
+
+    with lcd(PROJECT_PATH):
+        local("python3 -m venv .venv")
+
+
+def install_requirements():
+
+    print("installing requirements.txt...")
+
+    with lcd(PROJECT_PATH):
+        local(f"{VENV_PIP} install -r requirements.txt ")
+
+
+def django_migrate():
+
+    print("executing django migrations...")
+
+    with lcd(PROJECT_PATH):
+        local(f"{VENV_PYTHON} manage.py migrate ")
+
+
+def django_loaddata():
+
+    print("loading initial data...")
+
+    with lcd(PROJECT_PATH):
+        local(f"{VENV_PYTHON} manage.py loaddata fixtures/polls_data.json ")
+
+
+def django_runserver():
+
+    print("runing server...")
+
+    with lcd(PROJECT_PATH):
+        local(f"{VENV_PYTHON} manage.py runserver")
+
+
+def deploy():
+    clone()
+    create_venv()
+    install_requirements()
+    django_migrate()
+    django_loaddata()
+    django_runserver()
+```
