@@ -77,8 +77,6 @@ Resolving deltas: 100% (59/59), done.
 Done.
 ```
 
-----------------
-
 > 2. Entramos en la carpeta descargada django_polls y creamos el entorno virtual con el comando: \
     `python3 -m venv .venv`
 
