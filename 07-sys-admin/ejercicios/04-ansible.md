@@ -14,7 +14,8 @@ $ ansible --list-hosts all
 
 2. Crear un fichero que se llame `inventario.txt` con el siguiente contenido:  
 ```
-eoi-server ansible_user=3.15.38.15
+eoi-server1 ansible_host=3.15.38.15 ansible_user=alicia
+eoi-server2 ansible_host=18.217.241.86 ansible_user=alicia
 ```
 
 3. Mostrar el inventario según el fichero que acabamos de crear:
@@ -60,7 +61,7 @@ eoi-server | SUCCESS => {
 
 7. Lanzar una tarea a todos los servidores del inventario pasando por parámetro que nos pida la contraseña ssh:
 ```bash
-$ ansible -m ping all --ask-pass
+$ ansible -m ping all
 ```
    Salida:
 ```
@@ -98,7 +99,7 @@ $ cd playbooks
 
 3. Ejecutar el playbook con el siguiente comando:
 ```
-$ ansible-playbook playbooks/basics.yml --ask-pass
+$ ansible-playbook playbooks/basics.yml 
 ```
    Salida:
 ```
