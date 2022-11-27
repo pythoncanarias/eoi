@@ -4,11 +4,10 @@ title:  Introducción al desarrollo de aplicaciones de escritorio
 
 ## Aplicaciones de escritorio
 
-Una aplicación de escritorio es aquella que se encuentra 
-instalado localmente en el ordenador, y que presentan al usuario
-una interfaz gráfica que suele usar metáforas comunes en todos
-los sistemas operativos modernos, como ventanas, menús, controles,
-barras de desplazamiento, iconos, etc.
+Una aplicación de escritorio es aquella que se encuentra instalado localmente
+en el ordenador, y que presentan al usuario una interfaz gráfica que suele usar
+metáforas comunes en todos los sistemas operativos modernos, como ventanas,
+menús, controles, barras de desplazamiento, iconos, etc.
 
 Una ventaja de las aplicaciones de escritorio es que, al estar instaladas
 localmente, no requieren acceso a Internet para funcionar, y pueden aprovechar
@@ -17,25 +16,22 @@ inconvenientes, habría que destacar:
 
 - Normalmente son **más complicadas de desarrollar**.
 
-- Dependiendo de la tecnología usada, **puede que solo funcionen
-  en una plataforma** determinada.
+- Dependiendo de la tecnología usada, **puede que solo funcionen en una
+  plataforma** determinada.
 
-- No es fácil propagar Los cambios en el programa, normalmente implican **volver
-  a instalarlo**.
+- No es fácil propagar Los cambios en el programa, normalmente implican
+  **volver a instalarlo**.
 
 Se pueden escribir aplicaciones de escritorio con cualquier lenguaje moderno,
 lo que incluye por supuesto a Python. Además, al ser Python multiplataforma,
-los *frameworks* y librerías para desarrollos de escritorio también suelen ser
+los _frameworks_ y librerías para desarrollos de escritorio también suelen ser
 multiplataforma, lo que nos permite tener la misma aplicación, o con pequeñas
-diferencias, funcionando en *Windows*, *Linux* o *Mac*. En ese aspecto una de las más
-potentes es *Kivy*, que es sobre la que vamos a trabajar mas en profundidad, ya
-que nos permite escribir aplicaciones que funcionen en Linux, Windows, OS/X,
-Android, iOS y Raspberry Pi
+diferencias, funcionando en Windows, Linux o Mac.
 
 
-### Opciones para el desarrollo de aplicaciones de escritorio en Python
+## Opciones para el desarrollo de aplicaciones de escritorio en Python
 
-En Python existen muchas librerías y *frameworks* de desarrollo de aplicaciones
+En Python existen muchas librerías y _frameworks_ de desarrollo de aplicaciones
 de escritorio, cada una con sus ventajas e inconvenientes. En el siguiente
 listado podemos ver algunas de las más habituales, y comentaremos ventajas e
 inconvenientes de cada una de ellas.  Entre los factores que consideraremos
@@ -44,53 +40,15 @@ controles incorporados y la integración con el sistema operativo, es decir, si
 la aplicación tiene el comportamiento y el aspecto de aplicación normal en ese
 entorno:
 
-- [**TK/tkinter**](https://docs.python.org/es/3/library/tkinter.html) Es la
-  opción mas básica, y tiene la gran virtud de que viene instalada de serie, es
-  una de las librerías estándar de Python (Excepto en Mac, ero eso es por sus
-  historias). No es muy buena en el aspecto de estética ni de integración con
-  el sistema operativo
+## TK/TKInter
 
-- [**Qt5**](https://pygobject.readthedocs.io/en/latest/index.html) (PyQt5,
-  pyQt6, PySide) es un _binding_ de la biblioteca gráfica Qt para Python.  La
-  biblioteca está desarrollada por la firma británica _Riverbank Computing_ y
-  está disponible para _Windows_, _GNU/Linux_ y _Mac OS/X_ bajo diferentes
-  licencias.  [PYQT5](). Entre sus muchas ventajas destaca su potencia y amplio
-  número de controles, así como una integración muy buena con el sistema
-  operativo. Antes era un poco más complicado de instalar en _Windows_ pero se
-  ha mejorado mucho en ese aspecto. Es una instalación algo pesada, pero es un
-  _framework_ de muchisima calidad, muy probado y muy potente.
+[**TK/tkinter**](https://docs.python.org/es/3/library/tkinter.html) Es la
+opción mas básica, y tiene la gran virtud de que viene instalada de serie, es
+una de las librerías estándar de Python (Excepto en Mac, pero eso es por sus
+historias). Pero no es muy buena en el aspecto estético ni en la integración con
+el sistema operativo.
 
-- [**Kivy**](https://kivy.org/) es un marco Python gratuito y de código abierto
-  para desarrollar aplicaciones móviles y otro software de aplicación
-  multitáctil con una interfaz de usuario natural. Se distribuye según los
-  términos de la licencia _MIT_ y se puede ejecutar en _Android_, _iOS_, _GNU/Linux_, _Mac OS/X_
-  y _Windows_. Es fácil de instalar, pero la integración con el sistema Operativo
-  subyacente no es la mejor. De hecho, toman la dirección contraria: se pretende
-  que la estética de los aplicaciones hechas en _kivy_ sean idénticas en todas las
-  plataformas.  Sus principales virtudes son el poder desarrollar, además de
-  para las plataformas de PC, para móviles _Andriod_ y _iOS_. Relativamente sencillo
-  de instalar. Define un lenguaje propio para separar la representación del
-  código de la aplicación.
-
-- [**pygtk3**](http://pygtk.org/) GTK o _The GIMP Toolkit_ es una
-  biblioteca de componentes gráficos multiplataforma para desarrollar interfaces
-  gráficas de usuario (_GUI_). Está licenciado bajo los términos de la _GNU LGPL5_,
-  por lo que permite la creación de tanto software libre como software
-  privativo. **PyGTK** es un _binding_ de la biblioteca gráfica _GTK_ para el
-  lenguaje de programación Python. La biblioteca _GTK_ se usa para desarrollar el
-  entorno gráfico _GNOME_, así como sus aplicaciones, a la vez que algunos otros
-  entornos gráficos.
-
-- [**wxPython**](https://wxpython.org/) Con _wxPython_ tenemos unas
-  librerías de desarrollo multiplataforma, que nos permiten crear aplicaciones
-  que utilizan realmente las interfaces nativas de cada sistema, de forma que
-  nuestras aplicaciones pueden ejecutarse sobre _Windows_, _MacOS_ o
-  _GNU/Linux_ con pocas o ninguna modificación. Como aspecto negativo, la
-  funcionalidad  está limitada al mínimo común de todas las plataformas
-
-### Ejemplos en cada _framework_
-
-#### En tkinter:
+Este ejemplo en tkinter:
 
 ```python
 --8<--
@@ -103,7 +61,20 @@ Debería producir esta ventana:
 ![Hello, world en TK](./hello-tk.png)
 
 
-#### En Qt5:
+## pyQT
+
+[**Qt5**](https://pygobject.readthedocs.io/en/latest/index.html) (PyQt5, pyQt6,
+PySide) es un _binding_ de la biblioteca gráfica Qt para Python.  La biblioteca
+está desarrollada por la firma británica _Riverbank Computing_ y está
+disponible para _Windows_, _GNU/Linux_ y _Mac OS/X_ bajo diferentes licencias.
+
+Entre sus muchas ventajas destaca su potencia y amplio número de
+controles, así como una integración muy buena con el sistema operativo. Antes
+era un poco más complicado de instalar en _Windows_ pero se ha mejorado mucho
+en ese aspecto. Es una instalación algo pesada, pero es un _framework_ de
+muchísima calidad, muy probado y muy potente.
+
+Ejemplo En Qt5:
 
 ```python
 --8<--
@@ -116,23 +87,80 @@ Debería producir algo parecido a:
 ![Hello, world en QT5](./hello-qt5.png)
 
 
-#### En WxPython:
+## pyGTK
 
-```python
-{% include 'hola-wx.py' %}
-```
+[**pygtk3**](http://pygtk.org/) GTK o _The GIMP Toolkit_ es una
+biblioteca de componentes gráficos multiplataforma para desarrollar interfaces
+gráficas de usuario (_GUI_). Está licenciado bajo los términos de la _GNU
+LGPL5_, por lo que permite la creación de tanto software libre como software
+privativo. **PyGTK** es un _binding_ de la biblioteca gráfica _GTK_ para el
+lenguaje de programación Python. La biblioteca _GTK_ se usa para desarrollar el
+entorno gráfico _GNOME_, así como sus aplicaciones, a la vez que algunos otros
+entornos gráficos.
 
-#### En Gtk:
+
+Ejemplo en Gtk:
 
 ```python
 {% include 'hola-gtk.py' %}
 ```
 
-#### En kivy:
+
+
+## Kivy
+
+[**Kivy**](https://kivy.org/) es un marco Python gratuito y de código abierto
+para desarrollar aplicaciones móviles y otro software de aplicación multitáctil
+con una interfaz de usuario natural. Se distribuye según los términos de la
+licencia _MIT_ y se puede ejecutar en Android, iOS, GNU/Linux, Mac OS/X
+y Windows.
+
+Es fácil de instalar, pero la integración con el sistema Operativo
+subyacente no es la mejor. De hecho, toman la dirección contraria: se pretende
+que la estética de los aplicaciones hechas en Kivy sean idénticas en todas
+las plataformas.  Sus principales virtudes son el poder desarrollar, además de
+para las plataformas de PC, para móviles Android o iOS. Es relativamente
+sencillo de instalar. Define un lenguaje propio para separar la representación
+del código de la aplicación.
+
+Vamos a trabajar con más profundidad en Kivy, por varias razones, la primera la
+facilidad de instalación, y por otra la potencia que nos da el poder realizar
+aplicaciones incluso para el móvil, que es su principal punto fuerte. Perdemos,
+por otro lado, la integración con el sistema operativo; veremos que los
+controles habituales como botones, barras de desplazamiento, menús, etc. son
+diferentes de los nativos de la plataforma.
+
+Ejemplo en kivy:
 
 ```python
-{% include 'hola-kivy.py' %}
+--8<--
+docs/hola-kivy.py
+--8<--
 ```
+
+Debería producir algo similar a:
+
+![Hola, mundo en Kivy](./hello-kivy.png)
+
+## WxPython
+
+Con **[wxPython](https://wxpython.org/)** tenemos unas
+librerías de desarrollo multiplataforma, que nos permiten crear aplicaciones
+que utilizan realmente las interfaces nativas de cada sistema, de forma que
+nuestras aplicaciones pueden ejecutarse sobre Windows, MacOS o GNU/Linux con
+pocas o ninguna modificación. Como aspecto negativo, la funcionalidad  está
+limitada al mínimo común de todas las plataformas.
+
+
+Ejemplo en WxPython:
+
+```python
+{% include 'hola-wx.py' %}
+```
+
+Daría como resultado:
+
+
 
 Como vemos, a pesar de las diferencias, hay mucho en comun en todas las
 versiones:
