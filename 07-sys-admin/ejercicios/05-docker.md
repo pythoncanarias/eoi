@@ -22,7 +22,7 @@ python manage.py loaddata fixtures/polls_data.json
 
 4. Comprueba que la aplicación funciona
 ```bash
-python manage.py runserver 0.0.0.0:8000
+python manage.py runserver
 curl http://localhost:8000/
 ```
 
@@ -89,6 +89,9 @@ CMD [ "python3", "manage.py" , "runserver" , "0.0.0.0:8000"]
 Para construir la imagen a partir del fichero que acabas de crear, ejecuta el siguiente comando en la consola:
 
 ```bash
+docker build --tag djangopolls .
+
+
 Sending build context to Docker daemon  424.5MB
 Step 1/6 : FROM python:3.9-slim-buster
 3.9-slim-buster: Pulling from library/python
@@ -138,10 +141,12 @@ docker images
 ```
 salida:
 ```
-REPOSITORY      TAG               IMAGE ID       CREATED         SIZE
-python-docker   latest            30630b8dcb67   4 minutes ago   536MB
-python          3.9-slim-buster   609da079b03a   7 days ago      115MB
-hello-world     latest            d1165f221234   2 months ago    13.3kB
+REPOSITORY               TAG               IMAGE ID       CREATED          SIZE
+djangopolls              latest            cd736da9e24e   29 seconds ago   195MB
+python                   3.9-slim-buster   70fa42c638b3   12 days ago      117MB
+docker/getting-started   latest            cb90f98fd791   7 months ago     28.8MB
+rabbitmq                 3-management      6c3c2a225947   11 months ago    253MB
+postgres                 13                e6b78109b676   12 months ago    371MB
 ```
 
 **Correr la imagen en un contenedor**
@@ -149,7 +154,7 @@ hello-world     latest            d1165f221234   2 months ago    13.3kB
 Para lanzar el contenedor a partir de la imagen que acabamos de crear, ejecuta el siguiente comando en la consola:
 
 ```bash
-docker run python-docker
+docker run djangopolls
 ```
 
 Si accedes a la url de la aplicación flask en el navegador, comprobarás que no puedes acceder a ella. También puedes comprobarlo con el siguiente comando de `curl`:
@@ -165,12 +170,12 @@ curl: (7) Failed to connect to localhost port 8000: Connection refused
 Esto es porque la aplicación ha sido arrancada en un entorno aislado, fuera de la red local. Para que sea visible en nuestra red local, tenemos que parar el contenedor y lanzalo con el parámetro `--publish`
 
 ```bash
-docker run --publish 8000:8000 python-docker
+docker run --publish 8000:8000 djangopolls
 ```
 
 Ahora debería funcionar:
 ```bash
-curl localhost:8000
+curl localhost:8000/polls
 ```
 
 Pero como puedes ver en la consola, el proceso se queda abierto. Lo ideal sería que se quedase corriendo en segundo plano y pudieramos gestionarlo de forma asíncrona.
@@ -178,7 +183,7 @@ Pero como puedes ver en la consola, el proceso se queda abierto. Lo ideal sería
 Para ello, para el worker y arráncalo en segundo plano con el siguiente comando:
 
 ```bash
-docker run -d -p 8000:8000 python-docker
+docker run -d -p 8000:8000 djangopolls
 ```
 salida:
 ```
@@ -195,7 +200,7 @@ docker ps
 salida:
 ```
 CONTAINER ID   IMAGE           COMMAND                  CREATED         STATUS         PORTS                                       NAMES
-c419f354cbc5   python-docker   "python3 manage.py r…"   5 seconds ago   Up 4 seconds   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp   sharp_mendeleev
+c419f354cbc5   djangopolls   "python3 manage.py r…"   5 seconds ago   Up 4 seconds   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp   sharp_mendeleev
 ```
 
 - Para parar un contenedor activo (utiliza el campo `NAMES` del `docker ps`:
