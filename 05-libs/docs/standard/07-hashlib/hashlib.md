@@ -33,7 +33,9 @@ Durante cualquier momento del proceso se puede pedir el código de
 podemos hacer:
 
 ```python
-{% include 'standard/07-hashlib/partial_hash.py' %}
+--8<--
+./docs/standard/07-hashlib/partial_hash.py
+--8<--
 ```
 
 El código obtenido depende de los datos suministrados, de forma que
@@ -57,6 +59,7 @@ del contenido del fichero.
 **Solucion**:
 
 ```python
-{% include 'standard/07-hashlib/lsplus.py' %}
+--8<--
+./docs/standard/07-hashlib/lsplus.py
+--8<--
 ```
-

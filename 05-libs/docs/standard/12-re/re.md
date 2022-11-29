@@ -250,6 +250,80 @@ caracteres especiales.
 
 Los veremos ahora con más detalle.
 
+### El carácter especial punto `.`
+
+El punto es un carácter especial, por lo que tiene un significado diferente de
+"debe ser un punto". En una expresión regular, el carácter `.` significa
+"cualquier carácter", es decir, es un comodín, para caracteres. Pero atención,
+que solo casa con **un único carácter**.
+
+Por ejemplo, el patrón regular `est.` casa con `este`, `esta`, `estx`, `est8`,
+`est@`, pero no con `est`, porque espera un cuarto carácter, el que sea, pero
+no encuentra ninguno.
+
+**Ejercicio**: Dado el siguiente código:
+
+```python
+import re
+
+pattern = re.compile('te.to')
+text = 'Contiene este texto el patrón?'
+
+match = pattern.search(text)
+if match:
+    print(
+        f"Encontrado <{match.group(0)}>"
+        f" entre las posiciones {match.start()}"
+        f" y {match.end()}"
+    )
+```
+
+1) Cambiar la variable `text` del programa anterior por "Contiene este
+teZto el patrón?". Verificar que sigue encontrado el
+patrón.
+
+2) Cambiar la variable `text` por "Contiene este teZXto el
+patrón?". ¿Encuentra ahora el patrón? ¿Por qué?
+
+### El carácter especial Acento Circunflejo `^` (Principio del texto)
+
+El carácter especial `^` se interpreta como "Al principio del texto". Sirve
+para buscar textos que empiezan por la expresión regular que venga después.
+Por ejemplo, el patrón regular`\^Carthago`solo casaría con un texto que empiece
+con la palabra`Carthago`.
+
+**Pregunta**: ¿Tiene sentido que el carácter especial `^`se use en una
+expresión regular en otro sitio que no sea al principio? ¿Por qué?
+
+### El carácter especial Dolar `$` (Fin del texto)
+
+Es el inverso del anterior, este carácter especial se interpreta como "Al final
+del texto". Sirve para buscar textos que termina por la expresión regular que
+viene justo antes.  Por ejemplo, el patrón regular `Delenda est$` solo casaría
+con un texto que termine con las palabras`Delenda est`.
+
+**Pregunta**: ¿Tiene sentido usar el carácter especial `$` en otro sitio que no
+sea al final? ¿Por qué?
+
+### El carácter especial Barra Vertical o Tubería `|` (Alternancia)
+
+Se usa en la forma `A|B`, donde `A` y `B` representan expresiones regulares, y
+se interpretan como una expresión regular que acepta cualquiera de las dos, es
+decir, que casará con cualquier texto que case con `A` o con `B`. Es muy
+habitual su uso con los grupos, que veremos más adelante.
+
+Se pueden encadenar. Por ejemplo, el siguiente patrón:
+
+```
+este|ese|aquel
+```
+
+Casa con cualquier de esas palabras.  Otro ejemplo:
+
+```
+pat_psoe = re.compile('PSOE|Partido Socialista Obrero Español')
+```
+
 ### Los caracteres especiales Corchetes `[` y `]`
 
 Estos caracteres se usan para definir un conjunto de caracteres, de forma que
@@ -279,48 +353,14 @@ El carácter especial `?` opera de una forma curiosa. Se debe interpretar como
 tanto con la cadena `est` como con la cadena `este`.  Otra forma de leerlo es
 "opcionalmente, puede venir el patrón anterior".
 
-### El carácter especial punto `.`
-
-El punto es un carácter especial, por lo que tiene un significado diferente de
-"debe ser un punto". En una expresión regular, el carácter `.` significa
-"cualquier carácter", es decir, es un comodín, para caracteres. Pero atención,
-que solo casa con un único carácter.
-
-Por ejemplo, el patrón regular `est.` casa con `este`, `esta`, `estx`, `est8`,
-`est@`, pero no con `est`, porque espera un cuarto carácter, el que sea, pero
-no encuentra ninguno.
-
-Podemos combinar las dos expresiones anteriores. Por ejemplo en la expresión
+Obviamente, el significado de lo que busca depende de dicho patrón anterior.
+Un ejemplo muy habitual es la combinación `.?`.  Por ejemplo en la expresión
 `est.?`, la interrogación se refiere siempre, como vimos antes, a la expresión
 regular anterior, que en este caso es el `.` o comodín, de forma que toda la
 expresión debe entenderse como "Una `e`, seguida de una `s`, seguida de una
 `t`, y luego puede que venga, o no, un carácter cualquiera". En este caso
 casaría con `este`, `esta`, `estx`, `est8`, `est@`, etc. pero también con
 `est`.
-
-**Ejercicio**: Dado el siguiente código:
-
-```python
-import re
-
-pattern = re.compile('te.to')
-text = 'Contiene este texto el patrón?'
-
-match = pattern.search(text)
-if match:
-    print(
-        f"Encontrado <{match.group(0)}>"
-        f" entre las posiciones {match.start()}"
-        f" y {match.end()}"
-    )
-```
-
-1) Cambiar la variable `text` del programa anterior por "Contiene este
-teZto el patrón?". Verificar que sigue encontrado el
-patrón.
-
-2) Cambiar la variable `text` por "Contiene este teZXto el
-patrón?". ¿Encuentra ahora el patrón? ¿Por qué?
 
 ### El carácter especial Asterisco `*`
 
@@ -445,45 +485,6 @@ que en este caso es cualquier carácter", o lo que el lo mismo,
 
 De igual forma, por defecto se comporta en modo **greedy** y se puede
 cambiar a **non greedy** con el sufijo ?.
-
-### El carácter especial Barra Vertical o Tubería `|`
-
-Se usa en la forma `A|B`, donde `A` y `B` representan expresiones regulares, y
-se interpretan como una expresión regular que acepta cualquiera de las dos, es
-decir, que casará con cualquier texto que case con `A` o con `B`. Es muy
-habitual su uso con los grupos, que veremos más adelante.
-
-Se pueden encadenar. Por ejemplo, el siguiente patrón:
-
-```
-este|ese|aquel
-```
-
-Casa con cualquier de esas palabras.  Otro ejemplo:
-
-```
-pat_psoe = re.compile('PSOE|Partido Socialista Obrero Español')
-```
-
-### El carácter especial Acento Circunflejo `^`
-
-El carácter especial `^` se interpreta como "Al principio del texto". Sirve
-para buscar textos que empiezan por la expresión regular que venga después.
-Por ejemplo, el patrón regular`\^Carthago`solo casaría con un texto que empiece
-con la palabra`Carthago`.
-
-**Pregunta**: ¿Tiene sentido que el carácter especial `^`se use en una
-expresión regular en otro sitio que no sea al principio? ¿Por qué?
-
-### El carácter especial Dolar `$`
-
-Es el inverso del anterior, este carácter especial se interpreta como "Al final
-del texto". Sirve para buscar textos que termina por la expresión regular que
-viene justo antes.  Por ejemplo, el patrón regular `Delenda est$` solo casaría
-con un texto que termine con las palabras`Delenda est`.
-
-**Pregunta**: ¿Tiene sentido usar el carácter especial `$` en otro sitio que no
-sea al final? ¿Por qué?
 
 ### Los caracteres especiales Llaves `{` y `}`
 

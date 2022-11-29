@@ -1,6 +1,7 @@
 ---
 title: random - Generación de números pseudo-aleatorios
 ---
+
 ## Introducción a `random`
 
 Este módulo implementa generadores de números pseudo-aleatorios para distintas
@@ -18,7 +19,7 @@ previamente para poder usarla:
 import random
 ```
 
-### La función `random`
+## La función `random`
 
 La función `random.random()` devuelve un número al azar en coma flotante cuyo
 valor puede ser mayor o igual que 0 y estrictamente menor que 1, es decir, el
@@ -47,7 +48,7 @@ Normalmente no usaremos directamente esta función -aunque podemos- porque hay
 otras funciones auxiliares, que eventualmente acabarán llamando a esta, pero
 que a nosotros nos resultan más cómodas.
 
-### La función `seed`
+## La función `seed`
 
 La función `random.seed([x])` inicializa el generador de números con un
 determinado valor. Si se omite, se usa un valor obtenido a partir de la fecha y
@@ -99,12 +100,12 @@ producido sea exactamente el mismo en las dos simulaciones, para que el único
 cambio en los dos escenarios sean en los parámetros del modelo, no en los datos
 de entrada.
 
-### La función `randint`
+## La función `randint`
 
 La función `random.randint(a, b)` genera un entero $n$ al azar tal que
 $a <= n <= b$.
 
-### La función `randrange`
+## La función `randrange`
 
 La función `random.randrange(a, b, [step])` es similar a `randint`, pero
 los parámetros son equivalentes a los de la función `range` y, en general,
@@ -264,7 +265,9 @@ Supongamos la siguiente clase, que proporciona un modelo de una carta de
 la baraja francesa:
 
 ```python
-{% include 'standard/09-random/cards.py' %}
+--8<--
+./docs/standard/09-random/cards.py
+--8<--
 ```
 
 Con esa clase, podemos crear un objeto de tipo naipe o `Card`. El siguiente
@@ -299,7 +302,9 @@ El siguiente programa crea una baraja francesa completa, y debería mostrar una
 carta elegida al azar, pero esta incompleto. Arréglalo para que funcione:
 
 ```python
-{% include 'standard/09-random/ejercicio_01.py' %}
+--8x--
+./docs/standard/09-random/ejercicio_01.py
+--8x--
 ```
 
 ### La función `shuffle`
@@ -319,7 +324,9 @@ Tanto la función `sample` como `shuffle` pueden ayudarte con esa tarea.
 Puedes usar como esqueleto el código siguiente:
 
 ```python
-{% include 'standard/09-random/ejercicio_02.py' %}
+--8<--
+./docs/standard/09-random/ejercicio_02.py
+--8<--
 ```
 
 Las siguientes funciones nos permiten generar valores utilizando distribuciones
@@ -369,7 +376,9 @@ con estos parámetros (media=$10$, sigma=$0.0245$)
 **Solución:**
 
 ```python
-{% include 'standard/09-random/tornillos.py' %}
+--8<--
+./docs/standard/09-random/tornillos.py
+--8<--
 ```
 
 Podemos visualizar estos datos para mostrar por qué se llama a esta
