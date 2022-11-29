@@ -1,5 +1,5 @@
 ---
-title: Controles (_Widgets_) Kivi
+title: Mas controles (_Widgets_) de Kivi
 ---
 
 ## Widgets
