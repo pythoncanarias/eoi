@@ -268,7 +268,7 @@ import kivy
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import StringProperty
-
+G
 class WidgetExample(BoxLayout):
 
     counter = 0
@@ -308,38 +308,3 @@ WidgetExample:
         color: "#88FF88"
 ```
 
-### ToogleButton o botón de estado
-
-El siguiente _wdget_ o control que vamos a ver es el **tootleButton**. En principio
-es igual a un botón cualquiera, pero cuando se pulsa la primera vez se queda
-en esado "pulsado", y cuando lo pulsamos otra vez se vueleve a poner en
-estado normal.
-
-Vaamoslo con un ejemplo. Nada más ráfipo y fácil que añadir un `ToogleButton`
-a lo que ya tenemos y ver que pasa. Vamos a modificar el fichero kivy para que la clase
-root o principal, `widgetExample`:
-
-```kivy
-WidgetExample:
-
-<WidgetExample>:
-    cols: 3
-    ToggleButton:
-        text: "Botón de estado"
-    Button:
-        text: "Púlsame"
-        on_press: root.do_click()
-    Label:
-        text: root.label_text
-        font_name: "fonts/LCD.ttf"
-        font_size: "72dp"
-        color: "#88FF88" 
-```
-
-ejecutemos ahora el programa y veamos el resultado.
-
-metodo do_state. truco pasar el propio widget. Cambiar textos
-ON y OFF. Usar size?hit y width para fijar el tamaño del widget
-
-**Ejercicio:** Podemos habilitar y desabilitar un boton
-con el atributo `disabled`

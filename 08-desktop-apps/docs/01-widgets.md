@@ -313,9 +313,58 @@ Algunas de las etiquetas que podemos usar en este marcado son:
 
 - `[sup][/sup]`: Superíndice
 
-Ahi más en la [documentación oficial](https://kivy.org/doc/stable/api-kivy.uix.label.html?highlight=label#markup-text)
+Hay más en la [documentación oficial](https://kivy.org/doc/stable/api-kivy.uix.label.html?highlight=label#markup-text)
+
+## Button
+
+La clase `Button` se define en `kivy.uix.button`. En realidad no deriva de
+`Widget` directamente, sido de `Label`, así que hereda todas las
+caracteristicas definidas alí, como por ejemplo el texto enriquecido.
+
+Pero lo interesante es que añade la posibilidad de asignarle muy facilmente una
+acción a ejecutar en el momento en que se pulsa el boton (Concretamente, se
+genera un evento especial si al recibir un evento de tipo `MOVE_UP`, el cursor
+sigue posicionado sobre el control).
+
+Para asignar la accion del `click`, usamos el método _bind_, asociado al evento `on_press`:
+
+```
+def pulsado(instance):
+    print(f'El botón {instance} ha sido pulsado')
+
+pb = Button(text='Hello')
+pb.bind(on_press=pulsado)
+```
+
+Podemos estar informados de cada vez que cambie el estado del boton 
+vinculado el evento `on_state`:
+
+```
+def cambio_de_estado(instance, value):
+    print(f'Hola el botón {instance} esta en el estado {value}')
+
+pb = Button(text='Hello')
+pb.bind(on_state=cambio_de_estado)
+```
+
+Además, como hemos visto, se define una propiedad `background_color`. Esto, máß
+que un color, es un modificador de la textora del botón. La textura por defecto
+es un tono de gris, asi que normalmente el color resultante será más oscuro del
+esperable. Para que el color no funcionee como un tinte, sino que sea el color
+real que hemos especificado, hay que ajustar `background_normal` a `''`.
+
+## Slider
+
+Un control para variar graficamente un valor numérico. Puede usarse horizontal
+o verticlamente, ajustando el valor de la propiedad `orientation` a `vertical`.
+También se puede definer el incremento con a propiedad `step`, cuyo valor por
+defecto es $1$.
 
 
+
+```python
+s = Slider(min=-100, max=100, value=25)
+```
 
 ### ToogleButton o botón de estado
 
