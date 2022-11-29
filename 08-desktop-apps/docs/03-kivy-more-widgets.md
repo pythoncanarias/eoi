@@ -4,6 +4,77 @@ title: Mas controles (_Widgets_) de Kivi
 
 ## Widgets
 
+La clase **`Widget`** es la clase base de todos los controles. Se diseñó en base
+a unos determinados principios, que conviene conocer:
+
+- **Gestionado por eventos**: Todos los controles están pensados para responder
+  a eventos que le puedan ocurrir. Si una propiedad cambia, el control podrá
+  reaccionar a este cambio sobreescribiendo el método `on_<propiedad>`. 
+
+- **Seperación de responsabilides** (Entre el control y su representación
+  gráfica).  Los controles carecen de un método `draw`, y esto es así a
+  propósito. La idea es permitir la creación de cualquier tipo de representación
+  gráfica externa a la clase del control. Se pueden usar cualquier propiedad
+  definida en el control para reflejar el estado gráficamente. Cada control
+  tiene una propiedad `canvas` que puede usar para dibujar.
+
+- **Colisiones**. Muy a menudo necesitamos saber si un punto en
+  concreto está dentro de los límites del control. Por ejemplo, para poder
+  activar la acción de un botón solo si el cursor está tocándolo. Pare ello se
+  diseño el método `collide_point`, que devuelve `True` si las coordenadas que
+  se le pasan están dentro de la caja contenedora o _bounding box_ definida por
+  el tamaño y posición del control. Si un rectángulo no fuera suficiente, se
+  puede sobreescribir este método para realizar comprobaciones más complejas,
+  como por ejemplo, usando un polígono.
+
+  También se puede comprobar si dos _widgets_ se superponen (Se suele decir que
+  los dos controles _colisionan_) con el método `collide_widget`.
+
+
+También se definen en esta clases ciertos valores y comportamientos que conviene
+conocer:
+
+- Un _Widget_ **no** es un _Layout_. Nunca cambiará el tama¶o o posicion de
+  otros controles que estén dentro de él. Si tienes que controlas la posición o
+  el tamaño de varios controles, hay que usar un _Layout_.
+
+- El tamaño por defecto de un _widget_ es de $100x100$ pixels. Pero puede
+  cambiar si el control está dentro de un _Layout_. No será este el caso si el
+  _widget_ está incluido en otro _widget_. Por ejemplo, si ponemos un _Label_
+  dentro de un _Button_, el primero no va a heredar o modificar el tamañó ni la
+  posición del segundo, porque un _Button_ no es un _Layout_, es solo otro
+  _Widget_.
+
+- La propiedad `size_hint` de un control tiene un valor por defecto de $(1, 1)$.
+  Esto significa que si ponemos el control dentro de un _Layout_, el _widget_
+  ocupara todo el tamaño disponible que le pueda conceder el _Layout_.
+
+- Los métodos `on_touch_down()`, `on_touch_move()` y `on_touch_up()` no realizan
+  ningún cálculo de colisiones. Si necesitas saber si un toque cae dentro de tu
+  control, hay que usar `collide_point()`.
+
+- La propiedad `disabled`, si se pone a `True`, desactiva el control. Por defecto vale
+  `False`, es decir, que el control estará activo.
+
+- El método `get_parent_window()` devuelve la ventana que contiene el control.
+
+
+- las propiedades `width` y `height` siempre devuelven el tamaño actual del
+  control, en pixels. 
+
+- La propiedad `opacity` controla la opacidad del control. Es una propiedad
+  acumulatica, asique la opacidad final sera el producto de las opacidades de
+  todos los contenedores.
+ 
+- La propiedad `parent` siempre es el contenedor del control actual. En el caso de
+  ser el contenedor raíz, devuelve `None`.
+
+- La propiedad `pos` es la posición actual del control, como una dupla de las
+  coordenadas `x` a `y` en pixels. También se pede acceder directamente a cada
+  coordenada con las p[ropiedes `x` e `y`.
+
+
+## Ejemplos de uso de Button/Label
 Vamos a empezar viendo los controles más básicos: el botón y la etiqueta.
 
 Vamos a hacer primero un simple programa con un botón y una etiqueta, y que no haga nada.

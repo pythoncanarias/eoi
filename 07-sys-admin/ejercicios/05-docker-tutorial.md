@@ -657,16 +657,3 @@ Ahora probemos nuestro punto final de API. Abre una nueva terminal y luego haz u
 $ curl http://localhost:8000/initdb
 $ curl http://localhost:8000/widgets
 ```
-
-## Debug con docker
-
-1. Instalar la extensión de docker:
-   ```
-   Name: Docker
-   Id: ms-azuretools.vscode-docker
-   Description: Makes it easy to create, manage, and debug containerized applications.
-   Version: 1.22.1
-   Publisher: Microsoft
-   VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
-   ```
-

@@ -4,20 +4,22 @@ Históricamente la administración de sistemas se ha fundamentado en el “scrip
 
 A continuación se detallan los contenidos a impartir en este módulo:
 
-1. Automatización \
-  1.1. Ansible \
-  1.2. Fabric
+
+1. Introducción a los sistemas\
+    1.1. Gestión de recursos hardware \
+    2.2. Gestión de ficheros y permisos
+ 
 
 2. Programación en redes \
     2.1. Sockets \
-    2.2. Arquitecturas cliente-servidor \
     2.3. Protocolos de red 
 
-3. Despliegue de aplicaciones web en Python \
-    3.1. WSGI / ASGI \
-    3.2. Gunicorn \
-    3.3. Nginx 
+3. Automatización y despliegue \
+  3.1. Ansible \
+  3.2. Fabric \
+  3.3. Docker
 
-4. Virtualización \
-    4.1. Docker \
-    4.2. Kubernetes
+
+Proyecto de fin de módulo:
+> Crear los ficheros para desplegar de forma automática con Fabric, Ansible y Docker la siguiente aplicación: \
+  https://github.com/aliciapj/my-first-blog
