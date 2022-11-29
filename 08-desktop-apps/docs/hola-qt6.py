@@ -2,7 +2,7 @@
 
 import sys
 
-from PyQt5.QtWidgets import (
+from PyQt6.QtWidgets import (
     QWidget, 
     QPushButton,
     QApplication,
@@ -16,14 +16,14 @@ class Example(QWidget):
         btn.resize(btn.sizeHint())
         btn.move(50, 50)       
         self.setGeometry(300, 300, 300, 200)
-        self.setWindowTitle('QT5 - Hola, mundo')    
+        self.setWindowTitle('QT6 - Hola, mundo')    
         self.show()
 
 
 def main():
     app = QApplication(sys.argv)
     ex = Example()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
 
         
 if __name__ == '__main__':
