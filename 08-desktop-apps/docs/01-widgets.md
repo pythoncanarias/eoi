@@ -354,13 +354,15 @@ pb = Button(text='Hello')
 pb.bind(on_state=cambio_de_estado)
 ```
 
-
 ## Slider
 
 Un control para variar gráficamente un valor numérico. Puede usarse horizontal
 o verticalmente, ajustando el valor de la propiedad `orientation` a `vertical`.
-También se puede definer el incremento con la propiedad `step`, cuyo valor por
-defecto es $1$.
+Podemos definir el valor mínimo con el parámetro `min` (Por defecto $0$), el
+valor máximo con el parámetro `max` (Por defecto $100$) y el valor inicial con
+el parámetro `value` (Por defecto a $0$). También se puede definer el
+incremento a utilizar con con la propiedad `step`, cuyo valor por defecto es
+$1$.
 
 ```python
 s = Slider(min=-100, max=100, value=25)
@@ -378,7 +380,7 @@ docs/slider-example.py
 --8<--
 ```
 
-Si llamamos a este código con
+Si llamamos a este código con:
 
 ```shell
 python slider-example.py --size=400x250
@@ -395,7 +397,7 @@ verde, por ejemplo ${0.5, 0.9, 0.6, 1}$.
 Hay varias cosas interesantes de este ejemplo. Vamos por partes, como decía
 Jack el destripador.
 
-En primer lugar, hemos isado el flag `--size` al ejecutar el programa para
+En primer lugar, hemos usado el flag `--size` al ejecutar el programa para
 especificar el tamaño en pixels de la ventana principal de la aplicación.
 Prueba a cambiar los valores en la expresion `<ancho>x<alto>` para comprobar
 como funciona.
@@ -410,33 +412,66 @@ Al estar dentro de un _Layout_, los valores definidos en `pos_hint` o
 queriamos que el control ocupara exactamente $350x32$ pixels, asi que tenemos
 que _desactivar_ el valor de `size_hint`, y esto lo hacemos asignándole una
 tupla con los valores `None, None`. De esta forma, le decimos al layout que
-ignore los ambos valores de `size_hint`, lo que no le deja otra opción que
+ignore ambos valores de `size_hint`, lo que no le deja otra opción que
 recurrir a los valores definidos en `size`.
 
 Recordemos que los valores por defecto de `size_hint` son `(1, 1)`, que viene a
-significar «Ocupa todo el espacio que ocupas, tanto en altura como en anchura».
+significar «Ocupa todo el espacio que puedas, tanto en altura como en anchura».
 Si no los hubieramos cambiado a `(None, None)`, el `AnchorLayout` pasaria de
 los valores definidos en `size` y respetaría el valor por defecto, con lo que
-el slider ocupariía toda la ventana. Haz la prueba comentando la línea que define
+el slider ocuparía toda la ventana. Haz la prueba comentando la línea que define
 `size_hint` y ejecuta de nuevo el programa.
 
+Más sobre `AnchorLayout`. Este _Layout_ en concreto dispone los controles de
+forma que los _anclamos_ a un borde o a un centro. Para ello usa los parámetros
+`anchor_x` y `anchor_y`.
 
-`AnchorLayout` en concreto dispone los controles de forma que los
-_anclamos_ a un borde o a un centro. Para ello usa los parámetros `anchor_x` y
-`anchor_y`. En el ejemplo que estamos mostrando, con ambos valores a `center`,
-lo que hace este _layout_ es poner todo en el centro.
+En el ejemplo que estamos mostrando, con ambos valores a `center`, lo que hace
+este _layout_ es poner todo en el centro.  Los valores posibles de `anchor_x`
+son `left`, `center` o `right` y los valores posibles de `anchor_y` son `top`,
+`conter` o `button`.
 
-Los valores posibles de `anchor_x` son `left`, `center` o `right`. Los valores
-posibles de `anchor_y` son `top`, `conter` o `button`.
+**Ejercicio**: Modifica el programa anterior para que el slider se ubique
+**arriba y centrado**.
 
+## `ToogleButton` o botón de opción
+
+Volvemos a los botones. El siguiente _widget_ o control que vamos a ver es el
+**ToggleButton**. En principio es igual a un botón cualquiera, pero cuando se
+pulsa la primera vez se queda en esado "pulsado", y cuando lo pulsamos otra vez
+vuelve al estado normal.
+
+Un un control derivado de `Button`, por lo que hereda todas las caracterísitcas
+que vimos de este, como el texto, pero añade un estado, de forma que el boton
+queda pulsado en el primer _click_, y vuelve al estado normal en un segundo
+_click_. Este estado se almacena en la propiedad `state`, y puede tener dos
+valores, `normal` y `down`.
+
+Otra forma de verlo es que, con un botón normal, cuando dejamos de pulsarlo
+vuelve automaticamente al estado normal, pero un `ToggleButton` permanece en el
+estado `down` hasta que se vuelva a pulsar. En otras palabras, un boton normal
+solo esta en estado `down` mientras se está pulsando, mientras que un
+`TooggleButton` se queda pulsado.
+
+Es mejor verlo con un ejemplo:
+
+```python
+--8<--
+docs/toggle-button-example.py
+--8<--
+```
+
+Nada más ejecutarlo, debería verse:
+
+![Toggle Button desactivado](toggle-button-example-disabled.png)
+
+Y si hacemos _click_ en el botón, tendriamos:
+
+![Toggle Button activado](toggle-button-example-enabled.png)
 
 
 ## ToogleButton o botón de estado
 
-El siguiente _wdget_ o control que vamos a ver es el **tootleButton**. En principio
-es igual a un botón cualquiera, pero cuando se pulsa la primera vez se queda
-en esado "pulsado", y cuando lo pulsamos otra vez se vueleve a poner en
-estado normal.
 
 Vaamoslo con un ejemplo. Nada más ráfipo y fácil que añadir un `ToogleButton`
 a lo que ya tenemos y ver que pasa. Vamos a modificar el fichero kivy para que la clase
