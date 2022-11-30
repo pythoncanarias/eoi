@@ -300,13 +300,17 @@ Vamos entonces a guardar el fichero de ejemplo como `main.py`. Ahora vamos a
 especificar la disposición de nuestros controles en un fichero,
 
 ```kvlang
-{% include 'main.kv' %}
+--8<--
+docs/main.kv
+--8<--
 ```
 
 y en otro `main.py`:
 
 ```python
-{% include 'main.py' %}
+--8<--
+docs/main.py
+--8<--
 ```
 
 Algunas cosas a tener en cuenta:
