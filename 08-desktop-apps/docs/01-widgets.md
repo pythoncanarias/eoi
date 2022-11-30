@@ -354,6 +354,26 @@ pb = Button(text='Hello')
 pb.bind(on_state=cambio_de_estado)
 ```
 
+Tambien podemos definir las imagenes o texturas a usar en los botones. Como se
+dijo antes, por defecto es un color gris plano, peropodemos definir imágenes a
+usar, definiendo las propiedades `background_normal` y `background_down`, que
+se usaran respectivamente para el boton en estado normal o pulsado. 
+
+El siguiente ejemplo muestra eluso de varias de estas propiedades y de los
+metodos vinculaods con `bind`:
+
+
+```python
+--8<--
+docs/button-example.py
+--8<--
+```
+
+Daria como resultado algoo similar a:
+
+![Ejemplo de botón](button-example.png)
+
+
 ## Slider
 
 Un control para variar gráficamente un valor numérico. Puede usarse horizontal
@@ -469,35 +489,53 @@ Y si hacemos _click_ en el botón, tendriamos:
 
 ![Toggle Button activado](toggle-button-example-enabled.png)
 
+Otra opcion interesante es que podemos agrupar varios botones. Si lo hacemos,
+estamos forzando a que solo una de las opciones sea posible. Es decir, que las
+opciones son mutuamente excluyentes entre si. Para ello, lo unico que tenemos
+que hacer es definir la propiedad `group` en todos los controles que queramos
+agrupar a un mismo valor.
 
-## ToogleButton o botón de estado
+## CheckBox y Radio
 
+El comportamiento del `ToggleButton` es muy similar a un CheckBox. De hecho
+el control `CheckBox` deriva de este, pero en vez de usar una representación de
+tipo botón pulsado/libre, usa la más habitual del checkbox.
 
-Vaamoslo con un ejemplo. Nada más ráfipo y fácil que añadir un `ToogleButton`
-a lo que ya tenemos y ver que pasa. Vamos a modificar el fichero kivy para que la clase
-root o principal, `widgetExample`:
+Además de lap propiedad `state`, añade otra propiedad relacionada `active`, que
+es un booleano que devuelve `True` si el checkbox está seleccionado y `False`
+en caso contrario. Ambas propiedades están vinculadas, asi que el cambio de una
+implica en cambio de la otra.
 
-```kivy
-WidgetExample:
+## TextInput
 
-<WidgetExample>:
-    cols: 3
-    ToggleButton:
-        text: "Botón de estado"
-    Button:
-        text: "Púlsame"
-        on_press: root.do_click()
-    Label:
-        text: root.label_text
-        font_name: "fonts/LCD.ttf"
-        font_size: "72dp"
-        color: "#88FF88" 
+El control `TextIOnput` nos proporciona un sistema para introducir y editar
+texto. Se representa con una caja dentro de la cual podremos escribir y editar.
+El texto en si se almacena en la propiedad `text`.
+
+Por defecto se admite texto con múltiples líneas, peor se puede limitar en ese
+sentido definiendo la propiedad `multiline` a `False`.
+
+Veamos un ejemplo:
+
+```Python
+--8<--
+docs/text-input-example.py
+--8<--
 ```
 
-ejecutemos ahora el programa y veamos el resultado.
+Se puede controlar el texto que se añade al control sobrescribiendo el
+método `insert_text()`. Cada cadena de texto que sea escrita, pegada o
+insesrtada por cualquier medio en el control pasará por esta función de forma
+obligatoria.
 
-metodo do_state. truco pasar el propio widget. Cambiar textos
-ON y OFF. Usar size?hit y width para fijar el tamaño del widget
+Veamos el siguiente ejemplo, en que solo dejamos escribir en mayúsculas.
 
-**Ejercicio:** Podemos habilitar y desabilitar un boton
-con el atributo `disabled`
+```Python
+--8<--
+docs/text-input-capitals-example.py
+--8<--
+```
+
+**Ejercicio:** Modifica el ejemplo anterior para que solo acepte números
+entero. Recuerda que con expresiones regulares puedes hacer el filtrado de
+forma sencilla.
