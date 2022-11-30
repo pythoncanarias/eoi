@@ -295,23 +295,23 @@ porque por defecto viene a `False`.
 
 Algunas de las etiquetas que podemos usar en este marcado son:
 
-- `[b][/b]`: Negritas (_bold_)
+- `[b]...[/b]`: Negritas (_bold_)
 
-- `[i][/i]`: Itálicas (_Italics_)
+- `[i]...[/i]`: Itálicas (_Italics_)
 
-- `[u][/u]`: Subrayado (_Underline_)
+- `[u]...[/u]`: Subrayado (_Underline_)
 
-- `[s][/s]`: Tachado (_Strikethrough_)
+- `[s]...[/s]`: Tachado (_Strikethrough_)
 
-- `[font=<str>][/font]`: Fuente a usar. Debe estar registrada
+- `[font=<str>]...[/font]`: Fuente a usar. Debe estar registrada
 
-- `[size=<integer>][/size]`: Tamaño
+- `[size=<integer>]...[/size]`: Tamaño
 
-- `[color=#<color>][/color]`
+- `[color=#<color>]...[/color]`: Color 
 
-- `[sub][/sub]`: Subíndice
+- `[sub]...[/sub]`: Subíndice
 
-- `[sup][/sup]`: Superíndice
+- `[sup]...[/sup]`: Superíndice
 
 Hay más en la [documentación oficial](https://kivy.org/doc/stable/api-kivy.uix.label.html?highlight=label#markup-text)
 
@@ -319,12 +319,19 @@ Hay más en la [documentación oficial](https://kivy.org/doc/stable/api-kivy.uix
 
 La clase `Button` se define en `kivy.uix.button`. En realidad no deriva de
 `Widget` directamente, sido de `Label`, así que hereda todas las
-caracteristicas definidas alí, como por ejemplo el texto enriquecido.
+caracteristicas definidas allí, como por ejemplo el texto enriquecido que
+acabamos de ver.
 
-Pero lo interesante es que añade la posibilidad de asignarle muy facilmente una
-acción a ejecutar en el momento en que se pulsa el boton (Concretamente, se
-genera un evento especial si al recibir un evento de tipo `MOVE_UP`, el cursor
-sigue posicionado sobre el control).
+Además, como hemos visto, se define una propiedad `background_color`. Esto, más
+que un color, es un modificador de la textura del botón. La textura por defecto
+es un tono de gris, asi que normalmente el color resultante será más oscuro del
+esperable. Para que el color no funcione como un tinte, sino que sea el color
+real que hemos especificado, hay que ajustar `background_normal` a `''`.
+
+Pero lo más interesante es que añade la posibilidad de asignarle muy facilmente una
+acción a ejecutar en el momento en que se pulsa el boton. Concretamente, se
+genera un evento especial `on_press` si al recibir un evento de tipo `MOVE_UP`,
+el cursor sigue posicionado sobre el control.
 
 Para asignar la accion del `click`, usamos el método _bind_, asociado al evento `on_press`:
 
@@ -347,26 +354,84 @@ pb = Button(text='Hello')
 pb.bind(on_state=cambio_de_estado)
 ```
 
-Además, como hemos visto, se define una propiedad `background_color`. Esto, máß
-que un color, es un modificador de la textora del botón. La textura por defecto
-es un tono de gris, asi que normalmente el color resultante será más oscuro del
-esperable. Para que el color no funcionee como un tinte, sino que sea el color
-real que hemos especificado, hay que ajustar `background_normal` a `''`.
 
 ## Slider
 
-Un control para variar graficamente un valor numérico. Puede usarse horizontal
-o verticlamente, ajustando el valor de la propiedad `orientation` a `vertical`.
-También se puede definer el incremento con a propiedad `step`, cuyo valor por
+Un control para variar gráficamente un valor numérico. Puede usarse horizontal
+o verticalmente, ajustando el valor de la propiedad `orientation` a `vertical`.
+También se puede definer el incremento con la propiedad `step`, cuyo valor por
 defecto es $1$.
-
-
 
 ```python
 s = Slider(min=-100, max=100, value=25)
 ```
 
-### ToogleButton o botón de estado
+Si definimos la propiedad `value_track` a  `True`, el control resaltará la
+parte de la bara que ya haya sido superada, con el color que hayamos
+definido en `value_track_color`.
+
+Veamos el control en acción con el siguiente ejemplo:
+
+```python
+--8<--
+docs/slider-example.py
+--8<--
+```
+
+Si llamamos a este código con
+
+```shell
+python slider-example.py --size=400x250
+```
+
+Debería producirse esta ventana:
+
+![Ejemplo de Slider](slider-example.png)
+
+**Ejercicio**: Cambiar el ejemplo anterior del `slider` para que se resalte el
+valor pasado (A la izquierde del manejador) con un color 
+verde, por ejemplo ${0.5, 0.9, 0.6, 1}$.
+
+Hay varias cosas interesantes de este ejemplo. Vamos por partes, como decía
+Jack el destripador.
+
+En primer lugar, hemos isado el flag `--size` al ejecutar el programa para
+especificar el tamaño en pixels de la ventana principal de la aplicación.
+Prueba a cambiar los valores en la expresion `<ancho>x<alto>` para comprobar
+como funciona.
+
+Además, Hemos usado por primera vez un _Layout_, en concreto `AnchorLayout`.
+Como ya dijimos, un _layout_ solo es un tipo especial de Widget, que se
+especializa en colocar y disponer los controles que contenga de una determinada
+manera.
+
+Al estar dentro de un _Layout_, los valores definidos en `pos_hint` o
+`size_hit` toman preferencia a los que haya en `pos` o `size`. En este caso
+queriamos que el control ocupara exactamente $350x32$ pixels, asi que tenemos
+que _desactivar_ el valor de `size_hint`, y esto lo hacemos asignándole una
+tupla con los valores `None, None`. De esta forma, le decimos al layout que
+ignore los ambos valores de `size_hint`, lo que no le deja otra opción que
+recurrir a los valores definidos en `size`.
+
+Recordemos que los valores por defecto de `size_hint` son `(1, 1)`, que viene a
+significar «Ocupa todo el espacio que ocupas, tanto en altura como en anchura».
+Si no los hubieramos cambiado a `(None, None)`, el `AnchorLayout` pasaria de
+los valores definidos en `size` y respetaría el valor por defecto, con lo que
+el slider ocupariía toda la ventana. Haz la prueba comentando la línea que define
+`size_hint` y ejecuta de nuevo el programa.
+
+
+`AnchorLayout` en concreto dispone los controles de forma que los
+_anclamos_ a un borde o a un centro. Para ello usa los parámetros `anchor_x` y
+`anchor_y`. En el ejemplo que estamos mostrando, con ambos valores a `center`,
+lo que hace este _layout_ es poner todo en el centro.
+
+Los valores posibles de `anchor_x` son `left`, `center` o `right`. Los valores
+posibles de `anchor_y` son `top`, `conter` o `button`.
+
+
+
+## ToogleButton o botón de estado
 
 El siguiente _wdget_ o control que vamos a ver es el **tootleButton**. En principio
 es igual a un botón cualquiera, pero cuando se pulsa la primera vez se queda

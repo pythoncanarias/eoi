@@ -262,6 +262,8 @@ mayoría de usuarios esperan encontrar en un programa.
 
 - [Kivy: Cross patform framework for GUI apps development](https://kivy.org/)
 
+- [PYQT5:](https://pygobject.readthedocs.io/en/latest/index.html)
+
 - [wxPython](https://www.wxpython.org/)
 
   - wxPython 2.8 Application Development Cookbook, Cody Precord (Packt
