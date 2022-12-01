@@ -257,13 +257,10 @@ como es lógico. Como cada componente deltro del _layout_ va a ser una página
 completa, es conveniente que sea a su vez un _layout_ copntendor que a su vez
 contenga todos los controles que necesita.
 
+
 **Ejercicio**: Cambia en el programa anterior para unsar `Label` en vez de
 `Button` y comprueba que pasa.
 
 
-Transitions from one page to the next are made by swiping in from the border areas on the right or left hand side. If you wish to display multiple widgets in a page, we suggest you use a containing layout. Ideally, each page should consist of a single layout widget that contains the remaining widgets on that page.
-
-
-
-PageLAyout.Uso. Cambiar color de los botones para poder apreciar mejor el cambio depagina
+**Ejercicio**: Cambiar color de fondo de los botones para poder apreciar mejor el cambio de pagina
 

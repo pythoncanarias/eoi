@@ -1,166 +1,55 @@
 ---
-title: Mas controles (_Widgets_) de Kivi
+title: Mas controles y Layouts de Kivi
 ---
 
-## Widgets
+## PageLayout
 
-La clase **`Widget`** es la clase base de todos los controles. Se diseñó en base
-a unos determinados principios, que conviene conocer:
+La clase `PageLayout` sirve  para crear una disposición de múltiples páginas, añadiendo además una animación para el paso entre las páginas. Todos los _widgets_ que contenga se tratarán como una página, así que ocuparán el máximo de espacio disponible.
+es por esto que `PageLayout` no hace ningún caso a ninguna de las siguientes propiedades: `size_hint`, `size_hint_min`, `size_hint_max` o `pos_hint`.
 
-- **Gestionado por eventos**: Todos los controles están pensados para responder
-  a eventos que le puedan ocurrir. Si una propiedad cambia, el control podrá
-  reaccionar a este cambio sobreescribiendo el método `on_<propiedad>`. 
-
-- **Seperación de responsabilides** (Entre el control y su representación
-  gráfica).  Los controles carecen de un método `draw`, y esto es así a
-  propósito. La idea es permitir la creación de cualquier tipo de representación
-  gráfica externa a la clase del control. Se pueden usar cualquier propiedad
-  definida en el control para reflejar el estado gráficamente. Cada control
-  tiene una propiedad `canvas` que puede usar para dibujar.
-
-- **Colisiones**. Muy a menudo necesitamos saber si un punto en
-  concreto está dentro de los límites del control. Por ejemplo, para poder
-  activar la acción de un botón solo si el cursor está tocándolo. Pare ello se
-  diseño el método `collide_point`, que devuelve `True` si las coordenadas que
-  se le pasan están dentro de la caja contenedora o _bounding box_ definida por
-  el tamaño y posición del control. Si un rectángulo no fuera suficiente, se
-  puede sobreescribir este método para realizar comprobaciones más complejas,
-  como por ejemplo, usando un polígono.
-
-  También se puede comprobar si dos _widgets_ se superponen (Se suele decir que
-  los dos controles _colisionan_) con el método `collide_widget`.
-
-
-También se definen en esta clases ciertos valores y comportamientos que conviene
-conocer:
-
-- Un _Widget_ **no** es un _Layout_. Nunca cambiará el tama¶o o posicion de
-  otros controles que estén dentro de él. Si tienes que controlas la posición o
-  el tamaño de varios controles, hay que usar un _Layout_.
-
-- El tamaño por defecto de un _widget_ es de $100x100$ pixels. Pero puede
-  cambiar si el control está dentro de un _Layout_. No será este el caso si el
-  _widget_ está incluido en otro _widget_. Por ejemplo, si ponemos un _Label_
-  dentro de un _Button_, el primero no va a heredar o modificar el tamañó ni la
-  posición del segundo, porque un _Button_ no es un _Layout_, es solo otro
-  _Widget_.
-
-- La propiedad `size_hint` de un control tiene un valor por defecto de $(1, 1)$.
-  Esto significa que si ponemos el control dentro de un _Layout_, el _widget_
-  ocupara todo el tamaño disponible que le pueda conceder el _Layout_.
-
-- Los métodos `on_touch_down()`, `on_touch_move()` y `on_touch_up()` no realizan
-  ningún cálculo de colisiones. Si necesitas saber si un toque cae dentro de tu
-  control, hay que usar `collide_point()`.
-
-- La propiedad `disabled`, si se pone a `True`, desactiva el control. Por defecto vale
-  `False`, es decir, que el control estará activo.
-
-- El método `get_parent_window()` devuelve la ventana que contiene el control.
-
-
-- las propiedades `width` y `height` siempre devuelven el tamaño actual del
-  control, en pixels. 
-
-- La propiedad `opacity` controla la opacidad del control. Es una propiedad
-  acumulatica, asique la opacidad final sera el producto de las opacidades de
-  todos los contenedores.
- 
-- La propiedad `parent` siempre es el contenedor del control actual. En el caso de
-  ser el contenedor raíz, devuelve `None`.
-
-- La propiedad `pos` es la posición actual del control, como una dupla de las
-  coordenadas `x` a `y` en pixels. También se pede acceder directamente a cada
-  coordenada con las p[ropiedes `x` e `y`.
-
-
-## Ejemplos de uso de Button/Label
-Vamos a empezar viendo los controles más básicos: el botón y la etiqueta.
-
-Vamos a hacer primero un simple programa con un botón y una etiqueta, y que no haga nada.
-Empezaremos con en fichero `.kv` para definir nuestro _layout_. En este caso usaremos 
-una clase derivada de:
-
-```kivy
-WidgetExample:
-
-<WidgetExample@BoxLayout>:
-    cols: 3
-    Button:
-        text: "Pulsame"
-    Label:
-        text: "Hola, mundo"
-```
-
-En Kivy las reglas pueden ser referidas a objetos (instancias) o a clases. Si son objetos
-se usa el nombre de la clase, sin mas, seguido de dos puntos. Para las clases, se usa
-la forma `<NombreDeLaClase>` o incluso `<NombreDeLaClase@ClasePadre>` si queremos indicar
-de que clase deriva. Es decir, que lo que en Kivy sería:
-
-```kivy
-<WidgetExample@BoxLayout>:
-```
-
-Es equivalente al siguiente código de Python:
+Veamos un simple ejemplo con tres páginas
 
 ```python
-class WidgetExample(BoxLayout)
+--8<--
+docs/page-layout-example.py
+--8<--
 ```
 
-Es decir, que podemos definir las clases o bien en el fichero Kivy
-o en el de Python, pero no en los dos.
+Las transiciones entre páginas se realizan con un movimiento de arrastre en los
+laterales de las páginas, enlos casos en los que proceda. Por ejemplo, la
+ultima página no permite seguir avanzando y la primera no permite retroceder,
+como es lógico. Como cada componente deltro del _layout_ va a ser una página
+completa, es conveniente que sea a su vez un _layout_ copntendor que a su vez
+contenga todos los controles que necesita.
 
-Para este ejemplo, necesitamos los siguientes ficheros:
 
-`sample.kv`:
+**Ejercicio**: Cambia en el programa anterior para unsar `Label` en vez de
+`Button` y comprueba que pasa.
+
+
+**Ejercicio**: Cambiar color de fondo de los botones para poder apreciar mejor el cambio de pagina
+
+
+## Ejemplos de uso de Button
+
+Vamos a vincular un boton para que ejecute un método, usando el fichero Kv.
+Partiremos del primer ejempo que estudiamos cunado vimos los _layouts_, los
+ficheros `simple.kv`:
 
 ```kivy
-WidgetExample:
-
-<WidgetExample@BoxLayout>:
-    cols: 3
-    Button:
-        text: "Pulsame"
-    Label:
-        text: "Hola, mundo"
+--8<--
+docs/simple.kv
+--8<--
 ```
 
-`sampleApp.py`:
+Y `simple.py`:
 
-```python
-import kivy
-
-from kivy.app import App
-
-class SampleApp(App):
-    pass
-
-
-def main():
-    app = SampleApp()
-    app.run()
-
-if __name__ == "__main__":
-    main()
+```kivy
+--8<--
+docs/simple.py
+--8<--
 ```
 
-En el código Python no necesitamos definir la clase `WidgetExample`, ya que se
-define en el fichero `.kv`. La clase de la App se llama `SampleApp`, así que si
-dejamos a Kivy que se encargue él mismo de cargar el fichero `.kv`.
-
-Lo que hace es eliminar el sufijo `App` de la clase (si lo hubiera), pasar el
-resto a minúsculas y cargar el fichero con la extensión `.kv`, que en este caso
-sería, por tanto, `sample.kv`. En ese fichero, la raíz es la primera regla
-definida con nivel 0 de indentación, en este caso `WidgetExamle`.
-
-¿De donde sale el código de la clase `WidgetExample`? Lo genera de forma
-automática Kivy usando la información contenida en el fichero `sample.kv`.
-
-Si ejecutamos ahora el programa `sampleApp.py`, deberíamos obtener una ventana
-con dos componentes, el primero es un botón, que podemos pulsar (aunque ahora
-no haga nada) y una etiqueta, que tampoco hace nada.
-
-![Boton y etiqueta](widgets-01.png)
 
 ### Asignar acciones a controles
 
@@ -169,105 +58,51 @@ sacar la definición de la clase del fichero Kivy y nos lo vamos a a traer al
 fichero Python.  Hecho este cambio, todo debería funcionan igual, pero los
 ficheros quedarían así:
 
-`sample.kv`
-```kivy
-WidgetExample:
+`simpleclick.kv`:
 
-<WidgetExample>:
-    cols: 3
-    Button:
-        text: "Pulsame"
-    Label:
-        text: "Hola, mundo"
+```kivy
+--8<--
+docs/simpleclick.kv
+--8<--
 ```
 
-El fichero `sample.py`:
+
+Y `simpleclick.py`:
 
 ```python
-import kivy
- 
-from kivy.app import App
-
-class WidgetExample(BoxLayout):
-    pass
-
-
-class SampleApp(App):
-    pass
-
-
-def main():
-    app = SampleApp()
-    app.run()
-
-if __name__ == "__main__":
-    main()
+--8<--
+docs/simpleclick.py
+--8<--
 ```
 
 Ahora, con la clase definida en Python, podemos implementar en primer lugar el
 método que queramos para realizar la acción que queremos que haga el botón, y
 en el fichero Kivy realizamos el vínculo entre el botón y el método. Es
-importante resaltar que el método se va a definir en la clase `WidgetExample`,
-no en el botón. Esto será importante después, a la hora de vincularlos.
+importante resaltar que el método se va a definir en la clase `MainLayout`, no
+en el botón. Esto será importante después, a la hora de vincularlos.
 
-Podemos llamar a este método como queramos, vamos a usar el nombre `do_click`.
+Podemos llamar a este método como queramos, en este ejemplo hemos sado el
+nombre `click`.  si todo ha ido bien, veremos que al pulsar el botón, se
+imprime el mensaje.
 
-El fichero `sample.kv`:
+Conviene resaltar dos cosas:
 
-```kivy`
-WidgetExample:
+La primera es que hemos escrito la llamada `click()` usando los paréntesis,
+como si fuera directamente código Python.  recordemos que todo lo que va a la
+derecha de `:` debe ser una expresión Python.
 
-<WidgetExample>:
-    cols: 3
-    Button:
-        text: "Púlsame"
-        on_press: root.do_click()
-    Label:
-        text: "Hola, mundo"
-```
-
-Y el fichero `samplaApp.py`:
-
-```python
-import kivy
-
-from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
-
-class WidgetExample(BoxLayout):
-    
-    def do_click(self):
-        print("Botón pulsado")
-
-
-class SampleApp(App):
-    pass
-
-
-def main():
-    app = SampleApp()
-    app.run()
-
-if __name__ == "__main__":
-    main()
-```
-
-si todo ha ido bien, veremos que al pulsar el botón, se imprime el mensaje.
-
-Conviene resaltar dos cosas: La primera es que hemos escrito la llamada
-`do_click()` usando los paréntesis, como si fuera directamente código Python.
 La segunda es que no hemos usado `self` para realizar la llamada (de hacerlo
-así, estaríamos llamando al método `on_click` del botón, que no es lo que
-queremos) sino a una variable predefinida `root`, que siempre será una
-referencia al *Widget* padre de toda esta jerarquía, en este caso,
-`WidgetExample`.
+así, estaríamos llamando al método `click` del botón, que no es lo que queremos
+porque ni siquiera está definido) sino a una variable predefinida `root`, que
+siempre será una referencia al *Widget* padre de toda esta jerarquía, en este
+caso, `MainLayout`.
 
-### Propiedades
+## Propiedades
 
 Vamos a hacer ahora que al pulsar el botón se modifique el texto de la
-etiqueta. Para eso vamos a usar unas lo que kivy llama **Propiedades** o
-**Properties**. Las propiedades son clases definidas en Kivy que tiene la
-particularidad de que emiten eventos cuando cambia de valor. 
+etiqueta. Para eso vamos a usar algo que aun no habiamos visto y que kivy llama
+**Propiedades** o **Properties**. Las propiedades son clases definidas en Kivy
+que tiene la particularidad de que **emiten eventos** cuando cambia de valor. 
 
 Las propiedades están definidas en el módulo `kivy.properties` y en general
 usamos un tipo diferente para cada tipo de dato que queremos usar como
@@ -283,46 +118,41 @@ de `label_text` como `StringProperty`):
 ```python
 ...
 from kivy.properties import StringProperty
+...
 
-class WidgetExample(BoxLayout):
-    label_text = StringProperty("Hola, mundo")
+class MainLayout(BoxLayout):
+    message = StringProperty("Hola, mundo")
 
-    def do_click(self):
-        print("Botón pulsado")
+    def click(self):
+        ...
 ...
 ```
-Aparentemente sería lo mismo que si hubiéramos creado 
-una cadena de texto "Hola, mundo", pero internamente han pasado
-más cosas:
 
-1) se ha creado un evento, en este caso `on_label_text`, que se emitirá cada
-   vez que el texto de `label_text` cambie.
+Aparentemente sería lo mismo que si hubiéramos creado una cadena de texto
+"Hola, mundo", pero internamente han pasado más cosas:
 
-2) Internamente se ha implementado un patrón conocido como Observador
-   o *Observer*, que básicamente nos permite vincular (*bind*) los cambios en
-   esta propiedad a los métodos o funciones que queramos, usando el método
-   `bind`.  Cuando se produzcan cualquier cambio de su valor, se ejecutaran los
-   procedimientos vinculados a ese cambio, utilizando el evento definido
-   antes.
+1) se ha creado automáticamente un evento, en este caso `on_message`, que se
+emitirá cada vez que el texto de `message` cambie.
+
+2) Internamente se ha implementado un patrón conocido como Observador o
+*Observer*, que básicamente nos permite vincular (*bind*) los cambios en esta
+propiedad a los métodos o funciones que queramos, usando el método `bind`.
+Cuando se produzcan cualquier cambio de su valor, se ejecutaran los
+procedimientos vinculados a ese cambio, utilizando el evento definido antes.
 
 Seguimos ahora con los cambios en el programa. Una vez definida la propiedad,
-modificamos el fichero Kivy, y cambiamos el atributo `text` de la
-etiqueta para que use la nueva propiedad 'label_text`:
+modificamos el fichero Kivy, y cambiamos el atributo `text` de la etiqueta para
+que use la nueva propiedad `message`:
 
 ```kivy
-WidgetExample:
-
-<WidgetExample>:
-    cols: 3
-    Button:
-        text: "Púlsame"
-        on_press: root.do_click()
+MainLayout:
+    ...
     Label:
-        text: root.label_text
+        text: root.message
 ```
 
 Con esto le estamos diciendo a kivy que el texto de la etiqueta debe ser el
-contendo de la propiedad `label_text`, **incluso si este cambia en el futuro**.
+contenido de la propiedad `message`, **incluso si este cambia en el futuro**.
 Esto es la gran ventaja (y el propósito) de que las propiedades emitan eventos
 cuando sus valores cambian; permitir a Kivy enterarse de esos cambios y
 reflejarlo en el texto de la etiqueta de forma automática.
@@ -330,8 +160,25 @@ reflejarlo en el texto de la etiqueta de forma automática.
 Vamos a cambiar ahora el código del método `on_click`:
 
 ```python
-    def do_click(self):
-        self.label_text = "Alguien ha pulsado el botón!" 
+    def click(self):
+        self.message = "Alguien ha pulsado el botón!" 
+```
+
+El código final debería quedar asi, el `simpleprop.kv`:
+
+```kivy
+--8<--
+docs/simpleprop.kv
+--8<--
+```
+
+
+Y `simpleprop.py`:
+
+```python
+--8<--
+docs/simpleprop.py
+--8<--
 ```
 
 La característica de que estos dos valores esten relacionados de forma que
@@ -339,16 +186,17 @@ cuando se cambia el valor en la propiedad, el cambio se propaga o se refleja en
 la otra, se llama *binding* o *vínculo*. Se die que los dos valores están ahora
 **vinculados**.
 
-Aunque es la primera vez que hablamos de propiedades, en realidad ya las hemos
-usado antes. Por ejemplo, cuando usamos el evento `on_press`, este evento está
-disponible porque en el botón se ha definido una propiedad `press`.  Al crear
-una propiedad, se cera automaticamente el evento encargado de notificr que el
-valor de la propiedad ha cambiado.
+Dijimos antes que es la primera vez que vemos las propiedades, en realidad esto
+es mentira; ya las hemos usado antes, muchas veces. Por ejemplo, cuando usamos
+el evento `on_press`, este evento está disponible porque en el botón se ha
+definido una propiedad `press`.  Al crear una propiedad, se crea
+automaticamente el evento encargado de notificr que el valor de la propiedad ha
+cambiado.
 
 Otro ejemplo podría ser el texto de las etiquetas. el atributo `text` está
 definido como una propiedad, así que cualquier cambio en el texto de una
 etiqueta origina un evento `on_text`, que nosotros podemos utilizar, por
-ejemplo, desde python, ligandolo a algun metodo o funcion nuestro que actuara
+ejemplo, desde Python, ligandolo a algún método o función nuestro que actue
 cuando el texto de la etiqueta cambie.
 
 ![Eran propiedades todo el tiempo](scooby-doo-properties.png)
@@ -356,7 +204,7 @@ cuando el texto de la etiqueta cambie.
 **Ejercicio:** Cambiar el programa para que se muestre en el texto de la
 etiqueta el número de veces que se ha pulsado el botón.
 
-### Cambiar tipografía, color y tamaño de los controles
+## Cambiar tipografía, color y tamaño de los controles
 
 Podemos cambiar varios aspectos visuales de los controles, y el sitio más
 cómodo es el fichero `.kv`. Vamos a cambiar la tipografía, el color y el tamaño
