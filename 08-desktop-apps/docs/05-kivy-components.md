@@ -2,6 +2,96 @@
 title: Componentes kivy
 ---
 
+## La clase Animation
+
+Las clases `Animation` y `AnimationTransition`, definidas en el módulo
+`kivy.animation`, sirven para animar propiedades de los controles. Es necesario
+especificar el menos el nombre de una propiedad y un valor final u objetivo.
+Para aplicar las animaciones, se realizan dos pasos: Primero se crea y define
+la animación, y luego se aplica a un control o _widget_.
+
+Por ejemplo, para animar las propiedades `x` e `y` de un control, tenemos que
+crear la animación especificando esas propiedades, y los valores finales que
+queremos que tengan después de la animación:
+
+```python
+anim = Animation(x=100, y=100)
+```
+
+Y luego se aplica la animación a un control determinado:
+
+```python
+anim.start(widget)
+```
+
+La animación tiene un tiempo de duración, que podemos definir usando el
+parámetro `duration`. POr defecto, valdrá $1$ segundo.
+
+Veamos el siguiente ejemplo, donde implementamos un botón que se mueve cuando
+lo pulsamos.
+
+```python
+--8<--
+docs/simple-animation.py
+--8<--
+```
+
+Y su fichero kivy corespondiente:
+
+```python
+--8<--
+docs/simple-animation.kv
+--8<--
+```
+
+Otra propiedad de las animaciones es la `transition`. Si no se indica nada, la
+animación se realiza de forma lineal, pero podemos indicar o bien en transición
+personalizada o bien una cadena de texto nombres de transiciones ya
+predefinidas e incluidas en la clase `AnimationTransition`. Como ejercicio,
+hagamos que la transición anterior, en ves de ser lineal, use la transición
+definida como 'in_back',
+
+Las animaciones se puede encadenar, para que se ejecuten una después de otra, o
+solapar, de forma que empiezan todas a la vez (Y, si tienen la misma duración,
+terminar a la vez).
+
+Para encadenar dos animaciones, solo hay que usar el operador `+`. La _suma_ de
+dos o más animaciones es una nueva animación, que ejecuta todas las sumadas de
+forma secuencial.
+
+Para solapar dos animaciones, se hace de forma similar, pero con
+el operador `&`. El resultado es una nueva 
+animación, que ejecuta todas las anteriores de forma secuencial
+
+
+Ejercicio: Cambiar la implementación de `move_it` para que se mueva 
+a lugares al azar, y que cambien el fondo del boton tambien al azar, cada vez
+que se pulsa el boton. Además, que la animación dure medio segundo, en vez de
+uno.
+
+```python
+import random
+
+...
+
+    def move_it(self):
+        pos_hint = {
+            'center_x': random.random(),
+            'center_y': random.random(),
+            }
+        anim_pos = Animation(pos_hint=pos_hint, duration=0.5, transition='out_bounce')
+
+        color = [random.random(), random.random(), random.random(), 1]
+        anim_color = Animation(background_color=color, duration=0.5)
+        
+        anim = anim_pos & anim_color
+        
+        pb_move = self.ids.pb_move
+        anim.start(pb_move)
+```
+
+
+
 ### La clase `RecicleView`
 
 El propósito de esta clase es proporcionar un sistema para visualizar un
@@ -39,13 +129,17 @@ Veamos un ejemplo que muestra 25 botones:
 El código Python:
 
 ```python
-{% include 'recycle-view-demo.py' %}
+--8<--
+docs/recycle-view-demo.py
+--8<--
 ```
 
 Que usa el fichero Kivy `recycle.kv`:
 
 ```
-{% include 'recycle.kv' %}
+--8<--
+docs/recycle.kv
+--8<--
 ```
 
 **Ejercicio**: Cambiar el tamaño de la lista a 1000. Comprueba que aun con un
@@ -112,19 +206,20 @@ el control raíz de la aplicación. Ocupará todo el espacio disponible de la
 ventana, pero lo único que podremos ver es la etiqueta, que deberíamos ser
 capaces de mover, rotar y escalar.
 
+
 ### El control `ScrollView`
 
 El control `ScrollView` proporciona un área para contener otros controles que
 proporciona barras de desplazamiento, en una o en las dos dimensiones posibles.
 
 Vamos a importar la función `runTouchApp()`. Con esta función conseguiremos que
-el control e pueda usar con múltiples toques (_Usando más de un dedo_).
+el control se pueda usar con múltiples toques (_Usando más de un dedo_).
 
 ```python
 from kivy.base import runTouchApp
 ```
 
-We will define the scrollView as follows:
+Definiremos las propiedades de `ScrollView`:
 
 ```python
 from kivy.base import runTouchApp
@@ -155,13 +250,17 @@ digital con muy poco código adicional.
 Veamos primero el fichero _kivy_:
 
 ```kivy
-{% include 'simpleclock/simpleclock.kv' %}
+--8<--
+docs/simpleclock/simpleclock.kv
+--8<--
 ```
 
 Y el código Python:
 
 ```python
-{% include 'simpleclock/main.py' %}
+--8<--
+docs/simpleclock/main.py
+--8<--
 ```
 
 **Ejercicio:** Usar la fuente incluida en [fonts/LCD.ttf](./fonts/LCD.ttf) para

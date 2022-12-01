@@ -7,7 +7,7 @@ class ExampleRV(RecycleView):
         super().__init__(**kwargs)
         self.data = [
             {'text': f'Botón {x}'} 
-            for x in range(1025)
+            for x in range(10)
         ]
 
 

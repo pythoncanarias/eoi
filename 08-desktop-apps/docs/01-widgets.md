@@ -157,8 +157,13 @@ veamos los `Layoyts`.
 
 ### La propiedad `disabled`
 
-La propiedad `disabled`, si se pone a `True`, desactiva el control. Por defecto vale
-`False`, es decir, que el control estará activo.
+Esta propiedad nos permite activar o desactivar rápidamente cualquier control.
+Normalmente el aspecto del _widget_ se modifica para indicar este estado
+desactivado, y cualquier interacción con el usuario queda anulada. La
+propiedad `disabled`, si se pone a `True`, desactiva el control.
+
+El valor por defecto de esta propiedad es, lógicamente, `False`, es decir, que
+por defecto cualquier *widget* que creemos estará activo.
 
 **Ejercicio**: Desactivar el boton del ejempo anterior. Comprobar que ya no se
 puede pulsar.

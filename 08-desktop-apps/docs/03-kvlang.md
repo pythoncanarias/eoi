@@ -428,18 +428,25 @@ instancias sin tener que crearla en la parte Python.
 
 ## Otras formas de cargar KV
 
-Además de usar la regla _mágica_ de los nombres (`algoApp` -> `algo.kv`) para
-asignar automáticamente un fichero `.kv` a un fichero `.py` (Más propiamente
-hablando, a una clase derivada de `kivy.app.App`), existen otras dos formas de
-hacerlo, máß explicitas:
+Hasta ahora hemos visto dos maneras de definir la interfaz del programa, bien
+usando la regla _mágica_ de los nombres (`algoApp` -> `algo.kv`) para asignar
+automáticamente un fichero `.kv` a un fichero `.py` (Más propiamente hablando,
+a una clase derivada de `kivy.app.App`), o creando la interfaz directamente
+desde Python.
+
+Pero hay una clase `kivy.lang.builder.Builder` que nos permite dos opciones
+intermedias, más explíticas: Usar un fichero `.kv` con cualquier nombre que
+queramos, o usar un valor de cadena de texto en Python que contenga el código
+`kvlang`.
+
 
 ### Cargando el contenido desde un fichero .kv arbitrario
 
-Podemos usar el objeto predefinido `Builder` (definido en `kivy.core.builder`
-para llamar al método `load_file()`, al cual le pasaremos la ruta de un fichero
-`.kv` cualquiera. Esta función devuelve el arbol de controles formado a patir
-del fichero, así que solo hay que llamar a esta función en el método `build` y
-devolver su resultado:
+Podemos usar el objeto predefinido `Builder` para llamar al método
+`load_file()`, al cual le pasaremos la ruta de un fichero `.kv` cualquiera.
+Esta función devuelve el arbol de controles formado a patir del fichero, así
+que solo hay que llamar a esta función en el método `build` y devolver su
+resultado:
 
 ```python
 --8<--
@@ -462,9 +469,11 @@ Que debería resultar el algo como:
 
 ### Cargando el contenido desde una variable de texto
 
-Usando igualmente `Builder` podemos llamar a su método `load_string()` con el contenido 
-del fichero `.kv` (quizá obtenido pr medio de algun otro ptroceso, desde una
-bse de datos, etc.) y de forma similar nos devuelve el árbol de controles.
+Usando igualmente `Builder` podemos llamar a su método `load_string()` con el
+contenido del fichero `.kv` como el que podríamos encontrar en un fichero `.kv`
+(quizá obtenido por medio de algún otro proceso, desde una base de datos, etc.)
+y de forma similar a `load_file` nos devuelve el árbol de controles.  Por
+ejemplo:
 
 ```python
 --8<--

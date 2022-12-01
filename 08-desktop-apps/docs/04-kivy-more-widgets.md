@@ -285,8 +285,8 @@ transparencia.
 
 Pero hay que tener en cuenta que `Button.background_color` en realidad es más
 bien cono una iluminación o un tintado que se hace sobre el botón, más que un
-colo solido. Como el color por defecto es gris, por ejemplo, si definimos un
-colo rojo lo que obtendremos será un colo rojo oscuro, mezcla del gris original
+color sólido. Como el color por defecto es gris, si definimos un color rojo
+intenso, lo que obtendremos será un rojo oscuro, mezcla del gris original
 y del nuevo color.
 
 Podemos conseguir un botón del color exacto que deseamos de dos formas, o bien
@@ -295,81 +295,8 @@ reemplazamos la imagen de fondo del botón por una imagen que sea blanco puro
 `background_normal` y `background_down`, que son los colores a usan para el
 botón normal y pulsado respectivamente.
 
-### La propiedad `disabled`
 
-Esta propiedad nos permite activar o desactivar rápidamente cualquier control.
-Normalmente el aspecto del _widget_ se modifica para indicar este estado
-desactivado, y cualquier interacción con el usuario queda anulada. 
-
-El valor por defecto de esta propiedad es, lógicamente, `False`, es decir, que
-por defecto cualquier *widget* que creemos estará activo.
-
-### Uso de la funcion `builder`
-
-Hasta ahora hemos visto dos maneras de definir la interfaz del programa, bien
-usando un fichero `.kv` con un nombre predeterminado, o creando la interfaz
-directamente desde Python. Pero hay una clase `kivy.lang.builder.Builder` que
-nos permite dos opciones intermedias: Usar ficheros `.kv` con cualquier nombre
-que queramos, o usando un valor de cadena de texto en Python que contenga
-código `kvlang`.
-
-El método `load_string` nos proporciona la capacidad de interpretar un contenido
-en formato _kvlang_, como el que podríamos encontrar en un fichero `.kv`, pero
-desde una _string_. Por ejemplo:
-
-```python
-import kivy.lang.builder
-from kivy.uix.widget import Widget
-
-w = kivy.lang.builder.Builder.load_string('''
-Widget:
-    height: self.width / 2. if self.disabled else self.width
-    x: self.y + 50
-''')
-assert w.size == [100, 100]
-assert isinstance(w, Widget)
-```
-
-El otro método es `load_file(filename, ...)`: Procesa un fichero
-con el constructor y devuelve el _widget_ raíz.
-
-### ToogleButton o botón de estado
-
-El siguiente *widget* o control que vamos a ver es el **tootleButton**. En
-principio es igual a un botón cualquiera, pero cuando se pulsa la primera vez
-se queda en estado "pulsado", y cuando lo pulsamos otra vez se vuelve a poner
-en estado normal.
-
-Veamos un ejemplo. Nada más rápido y fácil que añadir un `ToogleButton` a lo
-que ya tenemos y ver que pasa. Vamos a modificar el fichero Kivy para que la
-clase raíz, `root` o principal, `widgetExample`, incluya un `ToogleButton`:
-
-```kivy
-WidgetExample:
-
-<WidgetExample>:
-    cols: 3
-    ToggleButton:
-        text: "Botón de estado"
-    Button:
-        text: "Púlsame"
-        on_press: root.do_click()
-    Label:
-        text: root.label_text
-        font_name: "fonts/LCD.ttf"
-        font_size: "72dp"
-        color: "#88FF88" 
-```
-
-Ejecutemos ahora el programa y veamos el resultado.
-
-metodo `do_state`. truco pasar el propio widget. Cambiar textos
-ON y OFF. Usar size?hit y width para fijar el tamaño del widget
-
-**Ejercicio:** Podemos habilitar y desabilitar un botón
-con el atributo `disabled`
-
-### El control _Switch_
+## El control _Switch_
 
 El control `Switch` puede estar en dos estados, activo o inactivo, como si
 fuera un interruptor mecánico. El usuario puede desplazarlo a la
@@ -382,22 +309,23 @@ Nótese que este _widget_ espera un gesto de desplazamiento para cambiar de
 estado. Si preferimos que el cambio se haga simplemente con un toque, sería
 mejor usar el control `ToogleButton`.
 
-### El atributo _Canvas_
+
+## El atributo _Canvas_
 
 Todos los controles o _widgets_ se representan internamente usando un objeto
 `canvas` (Instancia de `kivy.graphics.Canvas`), objeto que podemos interpretar
 o bien como un área de dibujo o como un conjunto de instrucciones de dibujo.
 Son numerosas las instrucciones que podemos aplicar o añadir a un _canvas_,
-pero podemos agruparles en dos tipos principales:
+pero se agrupan en dos tipos principales:
 
 - Instrucciones de contexto
 
 - Instrucciones de vértices
 
-Las instrucciones de contexto no dibujan nada, pero su efecto es modificar los
-resultados que se obtienen con las instrucciones de vértices. Entre las
-instrucciones de vértices podemos encontrar las órdenes típicas como líneas,
-rectángulos, círculos, etc.
+La diferencia entre los dos grupos es que las instrucciones de contexto no
+dibujan nada, pero su efecto es modificar los resultados que se obtienen con
+las instrucciones de vértices. Entre las instrucciones de vértices podemos
+encontrar las órdenes típicas como líneas, rectángulos, círculos, etc.
 
 Todos los controles incluyen su propio _canvas_, que usan internamente para
 representarse a si mismos. Podemos también crear nuestro propios objetos
@@ -436,8 +364,9 @@ CanvasApp().run()
 
 El atributo `canvas` funciona como una lista: se compone de una secuencia de
 ordenes que se ejecutan una detrás de la otra. Por lo tanto, el orden de las
-instrucciones importa. Ciertas operaciones, como el cambio de color, escala, etc. son
-globales y afectan a las ordenes posteriores.
+instrucciones importa. Ciertas operaciones, como el cambio de color, escala,
+etc. son Instrucciones de contexto y por tanto afectan a las ordenes
+posteriores.
 
 ```
 with self.canvas:
@@ -462,28 +391,4 @@ Teniendo esto en cuenta, es fácil ver que todo lo dibujado por instrucciones en
 `canvas.before` se representará en pantalla en un segundo plano o plano de
 fondo, mientras que aquellas en `canvas.after` so mostrarán en un plano
 superior, encima de todo lo dibujado anteriormente.
-
-
-### El control _CheckBox_
-
-El control _CheckBox_ es un botón de dos estados, que puede estar marcado o desmarcado,
-Si el control _CheckBox_ está incluido en un grupo (_Group_) se convierte de forma
-automática en un _RadioButton_. De forma similar al control `ToogleButton`, solo un _RadioButton_ de los incluidos en el grupo puede estar marcado.
-
-Un ejemplo de uso:
-
-```
-from kivy.uix.checkbox import CheckBox
-
-# ...
-
-def on_checkbox_active(checkbox, value):
-    if value:
-        print('The checkbox', checkbox, 'is active')
-    else:
-        print('The checkbox', checkbox, 'is inactive')
-
-checkbox = CheckBox()
-checkbox.bind(active=on_checkbox_active)
-```
 

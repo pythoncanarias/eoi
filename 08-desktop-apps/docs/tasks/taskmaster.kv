@@ -1,0 +1,41 @@
+MainLayout:
+    padding: "12sp"
+    spacing: "12sp"
+    orientation: 'vertical'
+    Label:
+        text: "TaskMaster graphical interfaz"
+    TextInput:
+        text: "Aqui va el título de la tarea"
+        multiline: False
+    TextInput:
+        text: "Descripción de la tarea"
+        multiline: True
+    BoxLayout:
+        Label:
+            text: str(root.orden)
+            size_hint: (0.2, 1)
+        Slider:
+            min: 0
+            max: 100
+            value: root.orden 
+            value_track: True
+            value_track_color: [.4, .9, .4, 1]
+            on_touch_up: root.orden = int(self.value)
+    BoxLayout:
+        ToggleButton:
+            text: 'Low'
+            group: 'priority'
+        ToggleButton:
+            text: 'Normal'
+            group: 'priority'
+            state: 'down'
+        ToggleButton:
+            text: 'High'
+            group: 'priority'
+    Label:
+        text: "Fecha límite"
+        size_hint: (1, 0.1)
+    TextInput:
+        text: ""
+        multiline: False
+

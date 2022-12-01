@@ -1,15 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import datetime
+
 from kivy.app import App
 from kivy.clock import Clock
 from kivy.properties import StringProperty
 from kivy.uix.floatlayout import FloatLayout
 
-import datetime
 
 
 class ClockLayout(FloatLayout):
+
     status = StringProperty("Initializing")
     hour = StringProperty("00:00:00")
 
@@ -29,10 +31,8 @@ class SimpleClockApp(App):
         self.root.status = "SimpleClock"
 
 
-def main():
+if __name__ == "__main__":
     app = SimpleClockApp()
     app.run()
 
 
-if __name__ == "__main__":
-    main()
