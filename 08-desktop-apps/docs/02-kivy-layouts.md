@@ -239,101 +239,31 @@ para posicionar los widgets. Por ejemplo, `{'x': .85, 'y': 0}` pondria la x del 
 
 ## PageLayout
 
+La clase `PageLayout` sirve  para crear una disposición de múltiples páginas, añadiendo además una animación para el paso entre las páginas. Todos los _widgets_ que contenga se tratarán como una página, así que ocuparán el máximo de espacio disponible.
+es por esto que `PageLayout` no hace ningún caso a ninguna de las siguientes propiedades: `size_hint`, `size_hint_min`, `size_hint_max` o `pos_hint`.
+
+Veamos un simple ejemplo con tres páginas
+
+```python
+--8<--
+docs/page-layout-example.py
+--8<--
+```
+
+Las transiciones entre páginas se realizan con un movimiento de arrastre en los
+laterales de las páginas, enlos casos en los que proceda. Por ejemplo, la
+ultima página no permite seguir avanzando y la primera no permite retroceder,
+como es lógico. Como cada componente deltro del _layout_ va a ser una página
+completa, es conveniente que sea a su vez un _layout_ copntendor que a su vez
+contenga todos los controles que necesita.
+
+**Ejercicio**: Cambia en el programa anterior para unsar `Label` en vez de
+`Button` y comprueba que pasa.
+
+
+Transitions from one page to the next are made by swiping in from the border areas on the right or left hand side. If you wish to display multiple widgets in a page, we suggest you use a containing layout. Ideally, each page should consist of a single layout widget that contains the remaining widgets on that page.
+
+
+
 PageLAyout.Uso. Cambiar color de los botones para poder apreciar mejor el cambio depagina
-
-## Uso del lenguaje Kivy (kvlang)
-
-Kivy define un lenguaje propio, llamado a menudo **kvlang**, con el propósito
-de definir la organización, disposición o *layout* de los controles en las
-pantallas. No es estrictamente necesario usar este lenguaje, pero es verdad que
-en muchos casos se simplifica mucho esta parte.
-
-Podemos organizar la disposión o _layout_ de nuestras ventanas usando Python
-directamente o a traves de este lenguaje. No hay nada que podamos hacer en este
-lenguaje que no podamos hacer con Python, y sin embargo, no es así al reves,
-algunas cosas que podremos hacer en Python no podremos hacerlas en kvlang, por
-ejemplo, la creación dinámioca de controles. Así, es conveniente usarlo, porque
-si que es verdad que algunas cosas son más fáciles de hacer en kvlang que en
-Python.
-
-Vamos a empezar modificando el programa anterior. Vamos a dividirlo en dos, el
-programa en si y un fichero con extensión `.kv` que define la disposición o
-_layout_ de la interfaz:
-
-Este sería el código Python inicial:
-
-```python
-from kivy.app import App
-from kivy.uix.button import Button
-
-class MainApp(App):
-
-    def build(self):
-        self.btn = Button(
-           text="Hello World",
-           size_hint=(0.4,0.05),
-           pos_hint={'x': 0.3, 'y': 0.5}
-           )
-        return self.btn
-
-
-def main():
-    app = MainApp() 
-    app.run()
-```
-
-Lo primero que necesitamos saber es que Kivy tiene una regla por defecto para
-vincular el programa Python con el fichero .kv a utilizar para la disposición
-o *layout*. Tampoco es estrictamente necesario seguir esta regla, solo es una
-ayuda, pero la mayoría de los programas lo hacen así, porque resulta muy
-cómodo.
-
-La regla es la siguiente: Dentro de nuestro programa, habrá un único elemento,
-que representa la aplicación, y que será o bien una instancia de la clase `App`
-directamente o, mas frecuentemente, una instancia de una clase derivada de
-`App` (En el ejemplo, es la clase `MainApp`).  En ese caso, Kivy tomara el
-nombre de la clase, le quitara en sufijo `App` si lo tuviera, pasará el resto a
-minúsculas (En nuestro caso, `main`), y buscará un fichero con ese mismo nombre
-y la extensión '.kv'. En nuestro ejemplo, buscará un fichero llamado `main.kv`.
-
-Vamos entonces a guardar el fichero de ejemplo como `main.py`. Ahora vamos a
-especificar la disposición de nuestros controles en un fichero,
-
-```kvlang
---8<--
-docs/main.kv
---8<--
-```
-
-y en otro `main.py`:
-
-```python
---8<--
-docs/main.py
---8<--
-```
-
-Algunas cosas a tener en cuenta:
-
-1) Ya no hace falta que importemos `Button`, pues será instanciado a partir del
-fichero `.kv`.
-
-2) El método `builder` tampoco hace falta. Normalmente es el encargado de
-construir el _layout_ de la aplicación en el inicio, pero en este caso se
-generará también de forma automática a partir del contenido del fichero
-`main.kv`.
-
-### Estructura de los ficheros `.kv`
-
-Fichero kivy -> reglas
-
-parte izquierda: identificadores
-parte derecha: codigo python
-nunca se usa =
-
-
-**Ejercicio**: Añadir un control de tipo _Label_ con el texto "Que tal"
-
-Añadir Label. Que pasa? Error. Solo es posible tener un único elemento
-raiz.
 

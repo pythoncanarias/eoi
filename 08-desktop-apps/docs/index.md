@@ -2,6 +2,7 @@
 
 - [Introducción](00-intro.md)
 - [Controles básicos](01-widgets.md)
-- [Layouts en Kivy](02-kivy-layouts.md)
-- [Widgets en Kivy](03-kivy-more-widgets.md)
-- [Componentes](04-kivy-components.md)
+- [Layouts](02-kivy-layouts.md)
+- [kvlang o el Lenguaje de Kivy](03-kvlang.md)
+- [Mas controles y layouts en Kivy](04-kivy-more-widgets.md)
+- [Componentes](05-kivy-components.md)
