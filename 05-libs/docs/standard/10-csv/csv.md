@@ -30,7 +30,9 @@ uso particular, que el módulo denomina "dialectos".
 Este sería un ejemplo de fichero CSV:
 
 ```csv
-{% include 'standard/10-csv/ninja-turtles.csv' %}
+--8<--
+./docs/standard/10-csv/ninja-turtles.csv
+--8<--
 ```
 
 Las funciones `reader()` y `writer()` son las más usadas de este módulo y

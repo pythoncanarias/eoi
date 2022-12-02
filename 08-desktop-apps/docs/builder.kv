@@ -1,6 +1,15 @@
-Button:
-    text: "Hello Beast!"
-    Image:
-        source: 'img/beast.png'
-        center_x: self.parent.center_x 
-        center_y: self.parent.center_y
+#:kivy 1.0
+
+BoxLayout:
+    orientation: 'vertical'
+    Label:
+        size_hint: (1, 12)
+        Image:
+            size: root.size
+            source: 'pictures/beast.png'
+            center_x: self.parent.center_x 
+            center_y: self.parent.center_y
+
+    Button:
+        size_hint: (1, 1)
+        text: "Hello Beast!"

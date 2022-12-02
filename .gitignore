@@ -19,6 +19,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 build/
+_build/
 develop-eggs/
 dist/
 downloads/
@@ -130,4 +131,5 @@ pymakr.conf
 
 # local configs VSCODE
 .vscode
+.obsidian
 resueltos/

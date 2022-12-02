@@ -208,7 +208,7 @@ deberías dar si estás interesado en mejorar el rendimiento.
 ## Usar joins en las consultas (El problema de las N+1 consultas)
 
 Cuando accedemos a una instancia de un modelo, Django usa un sistema
-[Lazy Loading](https://es.wikipedia.org/wiki/Lazy_loading) o de carga
+[Lazy Loading](https://es.wikipedia.org/wiki/Lazy_loading) o de carga 
 diferida para acceder a los modelos relacionados. Eso es normalmente
 bueno para el rendimiento. Por ejemplo, podemos obtener un modelo de
 Tarea con:

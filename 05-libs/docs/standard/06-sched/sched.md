@@ -25,7 +25,9 @@ Lo más sencillo es programar una tarea para que se ejecute después de un lapso
 de tiempo:
 
 ``` python
-{% include 'standard/06-sched/ejemplo01.py' %}
+--8<--
+./docs/standard/06-sched/ejemplo01.py
+--8<--
 ```
 
 Los pasos que damos son:
@@ -55,6 +57,7 @@ vamos a usar, y que podría tener perfectamente un valor por omisión. A pesar d
 todo, este módulo puede ser interesante siempre que tengamos procesos que se
 ejecuten de forma periódica o siguiente un esquema temporal predefinido.
 
+
 ### Ejecutar tareas en un momento determinado
 
 Hemos visto la forma habitual de ejecutar una tarea periódicamente, en este
@@ -72,7 +75,9 @@ que se dispare nuestra acción. En el siguiente ejemplo se programa una tarea
 para que se ejecute según el esquema previsto, a las 09:00 y a las 18:30:
 
 ```python
-{% include 'standard/06-sched/ejemplo02.py' %}
+--8<--
+./docs/standard/06-sched/ejemplo02.py
+--8<--
 ```
 
 1. Definimos nuestra función de `backup` (Simulada en este ejemplo)

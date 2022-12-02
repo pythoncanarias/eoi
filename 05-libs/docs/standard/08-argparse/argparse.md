@@ -44,7 +44,9 @@ comandos:
 Empezaremos con un breve ejemplo, que prácticamente no hace nada:
 
 ```python
-{% include 'standard/08-argparse/lab-argparse-01.py' %}
+--8<--
+./docs/standard/08-argparse/lab-argparse-01.py
+--8<--
 ```
 
 Si lo ejecutamos, deberíamos obtener algo parecido a esto:
@@ -83,7 +85,9 @@ mensaje de error bastante claro, también _gratis_.
 Vamos a añadir un parámetro posicional, que llamaremos `target`:
 
 ```python
-{% include 'standard/08-argparse/lab-argparse-02.py' %}
+--8<--
+./docs/standard/08-argparse/lab-argparse-02.py
+--8<--
 ```
 
 Si ejecutamos este código, obtenemos algo como:
@@ -122,7 +126,9 @@ para que sirve ni lo que hace. Podemos mejorar esto usando el parámetro
 
 
 ```python
-{% include 'standard/08-argparse/lab-argparse-03.py' %}
+--8<--
+./docs/standard/08-argparse/lab-argparse-03.py
+--8<--
 ```
 
 Ahora mejor:
@@ -151,14 +157,18 @@ pasamos; por ejemplo, que lo imprima pero en mayúsculas.
 **Solucion**:
 
 ```python
-{% include 'standard/08-argparse/lab-argparse-04.py' %}
+--8<--
+./docs/standard/08-argparse/lab-argparse-04.py
+--8<--
 ```
 
 Vamos con algo un poco más útil. ¿Qué tal un programa que nos devuelva
 el cuadrado del número que la pasamos? Vamos a intentarlo:
 
 ```python
-{% include 'standard/08-argparse/lab-argparse-05.py' %}
+--8<--
+./docs/standard/08-argparse/lab-argparse-05.py
+--8<--
 ```
 
 Desgraciadamente, no funciona:
@@ -177,7 +187,9 @@ transformadora que nos pase del valor en texto del argumento al tipo de
 variable que nosotros queremos. Para esta caso, la función `int` es perfecta:
 
 ```python
-{% include 'standard/08-argparse/lab-argparse-06.py' %}
+--8<--
+./docs/standard/08-argparse/lab-argparse-06.py
+--8<--
 ```
 
 Ahora, incluso si intentamos pasar un argumento incorrecto, el mensaje
@@ -206,7 +218,9 @@ mejor definir el valor por defecto con el parámetro `default` para que
 valga, digamos$0$:
 
 ```python
-{% include 'standard/08-argparse/lab-argparse-07.py' %}
+--8<--
+./docs/standard/08-argparse/lab-argparse-07.py
+--8<--
 ```
 
 Veamos si funciona:
@@ -226,7 +240,9 @@ de tipo lógico, booleano. Podemos modificar esto para que el argumento
 parámetro del método `add_argument` llamado `action`:
 
 ```python
-{% include 'standard/08-argparse/lab-argparse-08.py' %}
+--8<--
+./docs/standard/08-argparse/lab-argparse-08.py
+--8<--
 ```
 
 Veamos si funciona:

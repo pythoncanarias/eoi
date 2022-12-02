@@ -1,13 +1,12 @@
 from kivy.app import App
-from kivy.uix import Button, Label
+from kivy.uix.button import Button
+from kivy.uix.label import Label
 
 class BoxlayoutApp(App):
     pass
-
-def main():
-    app = BoxlayoutApp()
-
         
 
 if __name__ == '__main__':
-    main()
+    app = BoxlayoutApp()
+    app.run()
+
