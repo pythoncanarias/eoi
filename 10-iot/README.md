@@ -38,12 +38,11 @@ Para poder trabajar con microcontrolaores, debemos flashear (instalar) el interp
 ```
 pip install esptool
 ```
-Ahora necesitamos el interprete de micropython para el chip de nuestra placa (ESP8266 o ESP32) aqui: [micropython.org](https://micropython.org/download/)
+Ahora necesitamos el interprete de micropython para el chip de nuestra placa, aqui: [micropython.org](https://micropython.org/download/M5STACK_ATOM/)
 
-Descargamos la ultima version estable con el firmware ESP-IDF v4.x y con SPIRAM (ya que la placa incluye 4MB de RAM externos)
-La ultima version estable a dia de hoy para la placa Atom Lite (ESP32) es 
+Descargamos la ultima version estable. La ultima version estable a dia de hoy para la placa Atom Lite (ESP32) es 
 
-[esp32spiram-20210623-v1.16.bin](https://micropython.org/resources/firmware/esp32spiram-20210623-v1.16.bin)
+[M5STACK_ATOM-20220618-v1.19.1.bin](https://micropython.org/resources/firmware/M5STACK_ATOM-20220618-v1.19.1.bin)
 
 Y para subir el interprete a la placa, dependerá de tu sistema operativo:
 
@@ -54,7 +53,7 @@ Conecta tu placa ESP al ordenador
 ```
 cd Downloads  # o donde hayas descargado el archivo bin
 esptool.py --port /dev/ttyUSB0 erase_flash
-esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 115200 write_flash -z 0x1000 esp32-idf3-20200902-v1.13.bin
+esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 115200 write_flash -z 0x1000 M5STACK_ATOM-20220618-v1.19.1.bin
 ```
 <em>NOTA cambia el nombre del archivo bin por la version que has descargado</em>
 
@@ -73,7 +72,7 @@ Abre `PowerShell`  y escribe:
 ```
 cd Downloads  # o donde hayas descargado el archivo bin
 python -m esptool --chip esp32 --port COM3 erase_flash
-python -m esptool --chip esp32 --port COM3 --baud 115200 write_flash -z 0x1000 esp32-idf3-20200902-v1.13.bin
+python -m esptool --chip esp32 --port COM3 --baud 115200 write_flash -z 0x1000 M5STACK_ATOM-20220618-v1.19.1.bin
 
 ```
 <em>NOTA cambia el numero del puerto COM por el de tu placa, y el nombre del archivo bin por la version que has descargado</em>
