@@ -3,35 +3,29 @@ import utime
 import urequests as requests
 import ujson as json
 # Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
-
-
 # la conexion a wifi la hacemos en boot.py
 
-codigo_cuidad = "773692"  # Codigo con el que metaweather identifica a Santa Cruz
-url = "https://www.metaweather.com/api/location/{}/".format(codigo_cuidad)
+LATITUDE = "28.47"
+LONGITUDE = "-16.25"
+
+url = f"https://api.open-meteo.com/v1/forecast?latitude={LATITUDE}&longitude={LONGITUDE}&current_weather=1"
 r = requests.get(url)
-if r.status_code is not 200:
-    print("Error al acceder a metawether. Codigo de estado {} Contenido:".format(r.status_code))
-    print(r.content)
-    utime.sleep(10)
-    reset()
-# Si llega hasta aqui es por que status code que respondió la API es 200 (OK)
-datos = r.content.decode()  # content es un array de bytes, lo pasamos a cadena de texto normal
-# print(resultado)
-# datos en este punto es un string que contiene la respuesta de la api en formato json
-datos_dict = json.loads(datos)  # lo desserializamos convirtiendolo en un Diccionario
+if r.status_code != 200:
+    print("algo salio mal")
+else:
 
-# Esto es opcional: guardamos la respuesta en un fichero para consultarlo offline
-with open("datos_api.json", 'w') as f:
-    f.write(datos)
+    # print(r.content)  # bytes
+    # print(r.text)  # string
+    # print(r.json())  # dict
 
-# Esto es opcional: si tenemos los datos en un fichero, lo podemos leer asi
-with open("datos_api.json", 'r') as f:
-    datos_dict = json.load(f)
+        # Esto es opcional: guardamos la respuesta en un fichero para consultarlo offline
+    # with open("datos_api.json", 'w') as f:
+    #     f.write(datos)
 
-# miramos como es esa estructura de datos en un navegador o abriendo datos_api.json
-# para saber como llegar a la informacion que buscamos
-temperatura_manana = datos_dict["consolidated_weather"][1]['the_temp']
-humedad_manana = datos_dict["consolidated_weather"][1]['humidity']
-print("La previsión para mañana es: ", end='')
-print("Temperatura {}ºC Humedad {}%".format(temperatura_manana, humedad_manana))
+    # Esto es opcional: si tenemos los datos en un fichero, lo podemos leer asi
+    # with open("datos_api.json", 'r') as f:
+    #     datos_dict = json.load(f)
+
+    # ejemplo de respuesta en datos_api.json
+    temp = r.json()['current_weather']['temperature']
+    print(f"Temperatura {temp}ºC")
