@@ -4,4 +4,4 @@ serve:
 
 # Generar PDF con la documentación
 pdf:
-    ENABLE_PDF_EXPORT=1 mkdocs build
+    cd {{invocation_directory()}} && ENABLE_PDF_EXPORT=1 mkdocs build

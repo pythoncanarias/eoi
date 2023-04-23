@@ -1,4 +1,4 @@
-site_name: Aplicaciones de escritorio
+site_name: Control de versiones
 repo_url: https://github.com/pythoncanarias/eoi/
 theme:
   name: material

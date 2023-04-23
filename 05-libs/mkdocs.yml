@@ -6,23 +6,19 @@ theme:
 plugins:
   - search
   - table-reader
-<<<<<<< Updated upstream
-  #- with-pdf:
-      #author: Juan Ignacio Rodríguez de León
-      #copyright: Python Canarias
-      #cover_title: "Tema 5: Librerías"
-      #output_path: ./tema-05-libs.pdf
-      #cover_subtitle: "Curso Python EOI"
-      #toc_title: Sumario
-      #toc_level: 4
-      #render_js: true
-      #headless_chrome_path: /usr/bin/chromium
-      #enabled_if_env: ENABLE_PDF_EXPORT
-      #verbose: true
+  - with-pdf:
+      author: Juan Ignacio Rodríguez de León
+      copyright: Python Canarias
+      cover_title: "Tema 5: Librerías"
+      output_path: ./tema-05-libs.pdf
+      cover_subtitle: "Curso Python EOI"
+      toc_title: Sumario
+      toc_level: 4
+      render_js: true
+      headless_chrome_path: /usr/bin/chromium
+      enabled_if_env: ENABLE_PDF_EXPORT
+      verbose: true
 
-=======
- 
->>>>>>> Stashed changes
 markdown_extensions:
     - admonition
     - pymdownx.details

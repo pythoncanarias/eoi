@@ -2,7 +2,7 @@
 title: Introducción a Git
 ---
 
-### Historia
+## Historia
 
 Linux Torvlads  -> Linux Kernel
 
@@ -10,10 +10,10 @@ Linux Torvlads  -> Linux Kernel
 - 2002 Empieza a usar Bitkeeper
 - 2005 Fricciones con Bitkeeper
 - A raiz de estos problemas, decide empezar un propio SCVD, que acabaría siendo
-  Git (Casualmente, estos mismos problemas también fueron la causa de la
-  creación de otro SCVD, mercurial
+  Git (Casualmente, estos problemas fueron también la causa de la
+  creación de otro SCVD, [Mercurial](https://www.mercurial-scm.org/))
 
-Carácterísticas que debería tener el nuevo sistema
+## Carácterísticas que debería tener el nuevo sistema
 
 - Rápido (En algunos sistemas, aplicar un parche podía llevar hasta 30
   segundos)
@@ -49,7 +49,7 @@ Evolución del tamaño en líneas de código del núcleo Linux:
 | 2022     | 5.10          | 23.359.556           |
 
 
-### Qué significa Git
+## Qué significa Git
 
 Según a quien le preguntes.
 
@@ -59,7 +59,7 @@ basados en su persona, Linux y Git.
 Si queremos ser más formales: _Global Information Tracker_
 
 
-### Instalación de Git
+## Instalación de Git
 
 Lo primero es descubrir si lo tenemos instalado ya o no:
 
