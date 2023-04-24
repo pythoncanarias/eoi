@@ -481,7 +481,199 @@ partes del proyecto.
 
 [ ] Ejercicio
 
-- Ver el historico de cambios (`status`, `log`)
+
+## Ver el historico de cambios (`status`, `log`)
+
+El comando `status` es muy util, ya quenos da un resumen muy claro del
+estado actual de nuestro sistema de ficheros, del área de _stage_ y del
+repositorio.
+
+el comando `git log` muestra una lista de todos los cambios (_commits_)
+realizados, en orden temporal inverso (es decir, primero los cambios más
+recients) y por defecto muestra:
+
+ - El valor hash SHA1, quenos sirve para identificar de forma univoca
+   cada _commit_.
+
+ - El nombre del autor del _commit_, y la fecha.
+
+ - El comentario hecho en su momento.
+
+Por ejemplo:
+
+```
+$ git log -n 3
+commit bcc090fbfc8c1b2c924b47546ed5c9e48aa2d26e (HEAD -> master, origin/master, origin/HEAD)
+Author: Juan Ignacio Rodriguez de Leon <e**********s@gmail.com>
+Date:   Mon Apr 24 12:51:44 2023 +0100
+
+    Explicación de .gitignore
+
+commit 3dc6af8f66becfcc32d37afc957c12d18e8560f5
+Author: Juan Ignacio Rodriguez de Leon <e**********s@gmail.com>
+Date:   Mon Apr 24 12:51:15 2023 +0100
+
+    Ejemplo de checkbox
+
+commit a7349f910c859b76421814ad1272d321d7a91d03
+Author: Juan Ignacio Rodriguez de Leon <e**********s@gmail.com>
+Date:   Sun Apr 23 22:23:13 2023 +0100
+
+    Mejoras docs. git
+```
+
+Con este comando podemos usar git como una máquina del tiempo. Sabiendo el código
+_hash_ de un _commit_, podemos volver a dejar el código exactamente como estaba
+en ese momento.
+
+[ ] Ejercicio: Obtener el codigo Hash del primer commit. Volver a ese
+estado del repositorio con:
+
+```
+git checkout <hash code>
+```
+
+Verificar que todos los cambios realizados a partir de ese _commit_ ya no están
+ahí. Respirar hondo. Volver al último _commit_ (Al más reciente) y ver que todo
+nuestro trabajo sigue así.
+
+El comando `log` tiene una cantidad ingente de _flags_ y opciones, veremos solo
+algunas de ellas. Una de las más utiles es usar `-1`, `-2` o `-3` par mostrar solo
+uno, dos o tres _commits_, ya que normalmente estamos interesados sobre todo
+en los más recientes. Si queremos números más altos, podemos usar la opción
+`-n <num>`.
+
+Otra opcion interesante es `-p` o `--patch`, que muestra, para cada _commit_,
+las diferencias, o el parche (_patch_) con todos los cambios introducidos en él.
+
+[ ] Ejercicio: Mostrar los cambios realizados en el último _commit_. Puedes
+usar `-1` para que solo sea el último, `-p` para mostrar el parche.
+
+Las diferencias pueden ser muy grandes, puedes usar la opcion `--stat` que
+muestra un resumen más compacto de los cambios. Prueba con `git log -l --stat`.
+
+```
+$ git log -1 --stat
+commit bcc090fbfc8c1b2c924b47546ed5c9e48aa2d26e (HEAD -> master, origin/master, origin/HEAD)
+Author: Juan Ignacio Rodriguez de Leon <e************s@gmail.com>
+Date:   Mon Apr 24 12:51:44 2023 +0100
+
+    Explicación de .gitignore
+
+ 03-version-control/docs/01-git-basis.md | 70 +++++++++++++++++++++++++++++----
+ 1 file changed, 62 insertions(+), 8 deletions(-)
+```
+
+Con la opcion `--stat` obtentemos un listado de cada fichero modificado, y para
+cada uno de ellos, el número de líneas cambiadas/insertadas/borradas. Al final, incluye 
+un resumen de todos estos cambios.
+
+Una opción interesante, aun siendo sobre todo estétia, es `--pretty`, que nos
+deja cambiar el formato de los mensajes. Esto puede ser muy útil cuando tenemos
+muchos mensajes. Una posibilidad es usar `--pretty=oneline`:
+
+```
+▶ git log --pretty=oneline -4
+bcc090fbfc8c1b2c924b47546ed5c9e48aa2d26e (HEAD -> master, origin/master, origin/HEAD) Explicación de .gitignore
+3dc6af8f66becfcc32d37afc957c12d18e8560f5 Ejemplo de checkbox
+a7349f910c859b76421814ad1272d321d7a91d03 Mejoras docs. git
+5a07ecbb8a70cba1ae383965ca50357d72427405 actualizar apis, codigo mpu688
+```
+
+Nos da una única línea por commit, solo el _hash_ y el testo del mensaje.
+Otros posibles valores para `pretty` son `short`, `full` y `fuller`. El valor
+`format` es el más potente, ya que nos permite especificar exactamente los
+campor que queremos mostrar:
+
+```
+▶ git log -3 --pretty=format:"%h - %ae, %ar : %s"
+bcc090f - euribates@gmail.com, 2 hours ago : Explicación de .gitignore
+3dc6af8 - euribates@gmail.com, 2 hours ago : Ejemplo de checkbox
+a7349f9 - euribates@gmail.com, 17 hours ago : Mejoras docs. gi
+```
+
+Aqui hemos usado cuatro especificadores para definir con `format` el
+formato exacto que queremos:
+
+- `h`: La versión abreviada del Hash (con `H` tendriamos la version completa)
+- `ae`: El email del autor (Con `an` tendriamos el nombre del autor)
+- `ar`: La fecha, relativa (con `ad` tendriamos el tiempo absoluto)
+- `s`: El mensaje o `subject` del _commit_
+
+Ejercicio: con git, mostrar el log de los cuatro ultimos _commits_
+con el siguiente formato:
+
+- primero, el email del autor
+- segundo: la fecha, absoluta
+- tercero: El hash completo
+
+Solución:
+
+```
+git log -3 --pretty=format:"%ae %ad %H"
+```
+
+Hay varias opciones más, pero no tenemos tiempo de verlas aquí.
+
+Por ultimo, la opcion `--oneline` o `pretty=onleine` funciona muy bien junto
+con otra opción: `--graph`, que intenta representar gráficamente las ramas
+y reunificaciones (Que veremos más adelante) del proyecto. Cuando estemos
+viendo esa parte seguramente nos ayudará mucho tener esta opción disponible.
+
+### Limitando la salida de log 
+
+Además de las opciones `-2` o `-n 23`, hay otra forma muy inetresante de
+limitar
+el tamaño de la salida del log, con las opciones `--since` y `--until`.
+
+Ademáß, otra cosa buena es que estas opciones entiendes muchos formatos.
+Podemos usar el formato estadar de fecha o fecha y hora:
+
+```
+git log -since 2023-03-22
+```
+
+Pero también otras variantes muy útiles; el siguiente ejemplo
+muestra cambios realizados en las ultimas dos semanas:
+
+```
+git log --since 2.weeks
+```
+
+Ejercicio: Mostrar los logs de los ultimos 91 días.
+
+Este comando lista los _commits_ realizados en tu jornada (suponiendo que
+empiezas despues de las 6 de la mañana):
+
+```
+git log --since 06am --pretty=format:"%s"
+```
+
+Incluso el siguiente formato funciona sin problema:
+
+```
+git log --since "2 years 1 day 3 minutes ago"
+```
+
+Por supuesto, podemos combiar las dos opciones:
+
+```
+git log --since "3 months" --until "yesterday"
+```
+
+Con el _flag_ --author podemos especificar el 
+autor:
+
+```
+git log --since "3 months" --until "yesterday" --author e***********s@gmail.com"
+```
+
+y con `--grep` podemos filtrar por el texto del mensaje.
+
+[ ] Ejercicio: Usar `--grep` para buscar alguno de los mensajes que hay ahora
+mismo en el histórico.
+
+
 
 ### Etiquetas
 
