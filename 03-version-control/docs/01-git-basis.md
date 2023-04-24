@@ -51,12 +51,9 @@ Evolución del tamaño en líneas de código del núcleo Linux:
 
 ## Qué significa Git
 
-Según a quien le preguntes.
-
-Según Linus Torvalds, Git -> Capullo. Según el, siempre le pone nombre a sus proyectos
-basados en su persona, Linux y Git.
-
-Si queremos ser más formales: _Global Information Tracker_
+Según a quien le preguntes. Según Linus Torvalds, Git -> Capullo. Según el,
+siempre le pone nombre a sus proyectos basados en su persona, Linux y Git.  Si
+queremos ser más formales: _Global Information Tracker_.
 
 
 ## Instalación de Git
@@ -136,7 +133,7 @@ choco install git
 
 
 
-### Configuración de Git
+## Configuración de Git
 
 El comando `git config` nos permite configurar la forma de funcionamiento de
 Git. El primer paso que hay que dar es identificarse con Git, ya que este
@@ -171,7 +168,7 @@ git config --global user.email "<nuestra dirección de correo>"
 
 
 
-### Principales conceptos de Git
+## Principales conceptos de Git
 
 El principal concepto para entender como funciona internamente Git es el de
 **snapshot** o instantánea, y es interesante verlo porque es una característica
@@ -422,6 +419,63 @@ línea nueva, ninguna línea borrada, etc.
 - Modificar el fichero.
 - Ver que Git se ha dado cuenta de que el fichero ha cambiado (`status`)
 - Volver a añadirlo. (`add`)
+
+
+## Ignorar archivos
+
+Podemos decirle a git que determinados archivos o tipos de archivos deben
+permanecer fuera del control de versiones, con lo cual git los va a ignorar
+como si no existieran.
+
+Esto es muy normal, por ejemplo, para que git no se ocupe de ficheros
+compilados, temporales, ejecutables, etc. En el caso de Python, el compilador
+genera una serie de directorios y ficheros, como por ejemplo los que usan
+la extensión `.pyc` (Python compilado). Estos ficheros se generan
+automáticamente a partir del fichero `.py` correxpondiente, por lo que **nunca
+deben almacenarse en el repositorio** (como cualquier otro producto derivado,
+por lo general).
+
+La forma de excluir los ficheros `*.pyc`, por ejemplo, es sencillamente 
+con un fichero que se llama `.gitignore` (El punto al principio del nombre
+lo hace invisible, en los sistemas Unix/Linux, para el comando `ls`, así que
+tendremos que llamar a `ls` con el _flag_ `-a` o `--all`. En ese fichero, cada
+línea describe un patrón de ficheros que git ignorará:
+
+En nuestro caso, para que ignore los ficheros con la extension `.pyc`, el
+contenido del archivo `.gitignore` podría ser:
+
+```
+# Ignorar los ficheros compilados de python
+*.pyc
+```
+
+Es recomendable que el fichero `.gitignore` este incluido en el propio
+repositorio.
+
+El formato del fichero es muy sencillo:
+
+- Una línea en blanco no tiene efecto, sirve solo para aumentar la legibilidad.
+
+- Podemos usar comentario empezándolos con el carácter `#`
+
+- El prefijo `!` niega el significado de un patrón. Esto nos permite, por
+  ejemplo, excluir todos los ficheros de tipo `.pdf`, (Con `*.pdf`) excepto el
+  que se llama `handbook.pdf` (Con `!handbook.pdf`).
+
+- El carácter especial `*` sirve para reemplazar a uno o más caracteres
+  cualesquiera.
+
+- El caráter especial `?` sirva para reemplazar un carácter cualquiera.
+
+- Se pueden usar expresiones regulares, como por ejemplo `[0-9]`, que
+  representa un digito cualquiera entre el `0` y el `9`. Veremos más sobre
+  expresiones regulares en temas posteriores.
+
+[ ] Ejercicio: Crear un fichero `.gitignore` y decirle que ignore los archivos
+de tipo `.pyc`. Añadir otra línea para excluir los ficheros `.txt`. Crear un
+fichero con esta extensión para verificar que git no le hace ni caso. Borrar la
+linea de los `.txt` y vrificar que ahora si que los considera como posibles
+partes del proyecto.
 
 ### Revisar los cambios realizados
 
