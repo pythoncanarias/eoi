@@ -1,5 +1,5 @@
 ---
-title: os. Llamadas al sistema operativo
+title: os - Llamadas al sistema operativo
 ---
 
 ## Introducción

@@ -1,5 +1,5 @@
 ---
-title: `sys`: Configuración específica del sistema
+title: sys - Configuración específica del sistema
 ---
 ## `sys`: Configuración específica del sistema
 
