@@ -1,7 +1,8 @@
 ---
 title: sys - Configuración específica del sistema
 ---
-## `sys`: Configuración específica del sistema
+
+## `sys`: Configuración específica del sistema y del entorno de ejecución
 
 Este módulo porporciona acceso a algunas variables usadas o mantenidas
 por el propio interprete de Python. Siempre está disponible:
@@ -52,7 +53,26 @@ importantes de la versión de python instalada:
 
 ### La funcion `sys.exit()`
 
-Salir de Python. Pero ya! Equivale a `raise SystemExit()`
+Salir de Python. Pero ya! Equivale a `raise SystemExit()`. Un uso importante de
+esta función, al menos en Linux/Unix, es devolver un código de estado al sistema
+operativo. En linux/Unix, todos los procesos devuelven un numero entero al
+terminar. Si el número vale 0, indica que todo ha ido bien, mientras que
+**cualquier otro valor distinto de cero incica algún tipo de error**. Que error en
+concreto depende del programa en si, aunque hay algunos valores que son de uso 
+habitual:
+
+|  Exit Code  |  Significado habitual                      |
+|------------:|--------------------------------------------|
+| 0           | Ok                                         |
+| 1           | Error general                              |
+| 2           | Uso incorrecto de opciones o parametros    |
+| 126         | Comando no ejecutable                      |
+| 127         | Comando no encontrado                      |
+| 130 	      | Comando terminado con la señal 2 (SIGINT)  |
+| 143 	      | Comando terminado con la señal 15 (SIGTERM)|
+
+POdemos ver el código de salida de un programa examinado la variable de entorno
+`$?`. 
 
 ### La variable `sys.modules`
 
