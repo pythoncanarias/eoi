@@ -10,34 +10,54 @@ Existen otros dos módulos en la librería estándar que tienen el mismo objetiv
 una es `getopt`, una versión equivalente a la función `getopt()` del lenguaje
 C, y otra la librería ya discontinuada `optparse`.
 
-Conceptos
----------
+## Conceptos sobre entornos de línea de comandos
 
 Unos cuantos conceptos sobre el uso de opciones en entornos de línea de
 comandos:
 
-- Normalmente nos interesa que las opciones tengan unos **valores por defecto**
-  razonables y que hagan el programa útil incluso sin ningún parámetro. Por
-  ejemplo la orden `ls` sin ningún parámetro muestra un listado de
-  los ficheros en el directorio actual.
+!!! note "Moverse de forma cómoda en la terminal"
 
-- Algunas opciones son **argumentos posicionales**. Se llaman así porque el
-  programa espera identificarlos solo por su posición en la línea de comandos.
-  Por ejemplo, la orden `cp` (copiar un fichero) espera dos
-  parámetros posicionales, el primero será el fichero origen y el segundo el
-  fichero o directorio de destino.
+    Los entornos de comandos suelen tener un histórico. Con `bash`, podemos
+    acceder al histórico con las teclas de flechas. Podemos recuperar una línea
+    del histórico y editarla, moviendonos con las teclas de flecha arriba
+    ++arrow-up++ y
+    flecha abajo ++arrow-down++. Si no tenemos un teclado con estas teclas o preferimos esta
+    opción, también podemos movernos por el historial con ++ctrl+p++ (de
+    _prev_) y ++ctrl+n++ (de _next-). Podemos modificar las lineas usando
+    también las teclas de flechas ++arrow-left++ y ++arrow-right++.
 
-- Hay también **argumentos opcionales**, que modifican o condicionan la forma
-  en que el programa hace su trabajo. Estos parámetros opcionales suelen usar
-  el carácter `-` como prefijo. Por ejemplo, la orden `ls -l` muestra un
-  listado más completo del que mostraría la orden `ls` sola.
+    Con ++ctrl+r++ podemos buscar en el histórico.
 
-- Los argumentos opcionales a veces se pueden especificar de dos maneras, la
-  forma abreviada, que vimos antes, usando un solo guión con prefijo y una o
-  dos letras a lo sumo, y la forma extendida, que usa dos guiones y normalmente
-  una o dos palabras. En muchos casos tenemos la opción abreviada `-h` y la
-  opción extendida `--help`, ambas usadas para obtener una descripción del
-  uso de un programa y de las opciones que soporta.
+    Si no hemos cambiado las combinaciones de teclado por defecto, `bash` usa
+    las de `emacs`, así que ++ctrl+a++ nos posiciona al principio de la línea,
+    y ++ctrl+e++ al final. Con ++alt+b++ nos movemos hacia atrás, a
+    la izquierda, pero de palabra en palabra, y con ++alt+f++ nos desplazamos
+    hacia la derecha, también de palabra en palabra. recordar también que con
+    ++tab++ tenemos auto-completado.
+
+Normalmente nos interesa que las opciones tengan unos **valores por defecto**
+razonables y que hagan el programa útil incluso sin ningún parámetro. Por
+ejemplo la orden `ls` sin ningún parámetro muestra un listado de los ficheros
+en el directorio actual.
+
+Algunas opciones son **argumentos posicionales**. Se llaman así porque el
+programa espera identificarlos solo por su posición en la línea de comandos.
+Por ejemplo, la orden `cp` (copiar un fichero) espera dos parámetros
+posicionales, el primero será el fichero origen y el segundo el fichero o
+directorio de destino.
+
+Hay también **argumentos opcionales**, que modifican o condicionan la forma
+en que el programa hace su trabajo. Estos parámetros opcionales suelen usar
+el carácter `-` como prefijo. Por ejemplo, la orden `ls -l` muestra un
+listado más completo del que mostraría la orden `ls` sola.
+
+Los argumentos opcionales a veces se pueden especificar de dos maneras, la
+forma abreviada, que vimos antes, usando un solo guión con prefijo y una o
+dos letras a lo sumo, y la forma extendida, que usa dos guiones y normalmente
+una o dos palabras. En muchos casos tenemos la opción abreviada `-h` y la
+opción extendida `--help`, ambas usadas para obtener una descripción del
+uso de un programa y de las opciones que soporta.
+
 
 ### Uso básico
 
@@ -154,7 +174,7 @@ funciona
 **Ejercicio**: Modificar el programa para que haga algo con el texto que le
 pasamos; por ejemplo, que lo imprima pero en mayúsculas.
 
-**Solucion**:
+**Solución**:
 
 ```python
 --8<--
