@@ -838,6 +838,52 @@ im
 ![Dibujo de un arco](draw-arc.png)
 
 
+- `pieslice(xy, start, end, fill=None, outline=None, width=1)`
+
+Como `arc` pero dibuja tanto las líneas interiores como exteriores. El parámetro
+`xy` es una tupla de cuatro elementos indicando la posición del recuadro que
+contendrá el arco. Los parámetros `start` y `end` se especifican en grados. Un
+valor de $0$ se corresponde con la posición de las $3$ en el reloj (Horizontal
+apuntando hacia la derecha), así que si queremos hacer nuestro gráfico de tarta
+empezando en la posición de las 12 tenemos que empezar en $-90$.
+
+
+```python
+from PIL import Image, ImageDraw
+
+im = Image.new("RGB", (200, 200), 'white')
+draw = ImageDraw.Draw(im)
+
+draw.pieslice((10, 10, 191, 191), 0, 45, fill="cyan")
+draw.pieslice((10, 10, 191, 191), 45, 123, fill="coral", outline="white", width=1)
+draw.pieslice((10, 10, 191, 191), 123, 360, fill="pink")
+im.show()
+```
+
+
+![png](draw-pieslice.png)
+
+
+**Ejercicio:** Modificar el ejemplo anterior para que el primer gráfico, en
+azul, empiece en la posición de las 12.
+
+**Solucion:**
+
+
+```python
+from PIL import Image, ImageDraw
+
+im = Image.new("RGB", (200, 200), 'white')
+draw = ImageDraw.Draw(im)
+
+draw.pieslice((10, 10, 191, 191), -90, -45, fill="cyan")
+draw.pieslice((10, 10, 191, 191), -45, 23, fill="coral", outline="white", width=1)
+draw.pieslice((10, 10, 191, 191), 23, 270, fill="pink")
+im.show()
+```
+
+![png](draw-pie.png)
+
 
 - `chord(xy, start, end, fill=None, outline=None, width=1)`
 
@@ -891,51 +937,6 @@ im.show()
 ![png](draw-line.png)
 
 
-- `pieslice(xy, start, end, fill=None, outline=None, width=1)`
-
-Como `arc` pero dibuja tanto las líneas interiores como exteriores. El parámetro
-`xy` es una tupla de cuatro elementos indicando la posición del recuadro que
-contendrá el arco. Los parámetros `start` y `end` se especifican en grados. Un
-valor de $0$ se corresponde con la posición de las $3$ en el reloj (Horizontal
-apuntando hacia la derecha), así que si queremos hacer nuestro gráfico de tarta
-empezando en la posición de las 12 tenemos que empezar en $-90$.
-
-
-```python
-from PIL import Image, ImageDraw
-
-im = Image.new("RGB", (200, 200), 'white')
-draw = ImageDraw.Draw(im)
-
-draw.pieslice((10, 10, 191, 191), 0, 45, fill="cyan")
-draw.pieslice((10, 10, 191, 191), 45, 123, fill="coral", outline="white", width=1)
-draw.pieslice((10, 10, 191, 191), 123, 360, fill="pink")
-im.show()
-```
-
-
-![png](draw-pieslice.png)
-
-
-**Ejercicio:** Modificar el ejemplo anterior para que el primer gráfico, en
-azul, empiece en la posición de las 12.
-
-**Solucion:**
-
-
-```python
-from PIL import Image, ImageDraw
-
-im = Image.new("RGB", (200, 200), 'white')
-draw = ImageDraw.Draw(im)
-
-draw.pieslice((10, 10, 191, 191), -90, -45, fill="cyan")
-draw.pieslice((10, 10, 191, 191), -45, 23, fill="coral", outline="white", width=1)
-draw.pieslice((10, 10, 191, 191), 23, 270, fill="pink")
-im.show()
-```
-
-![png](draw-pie.png)
 
 
 - `point(xy, fill=None)`
@@ -1032,9 +1033,22 @@ im.show()
 ![png](draw-text.png)
 
 
-- `textsize(text, font=None, spacing=4, direction=None, ...)`
+- `textbbox(xy, text, font=None, ...)`
 
-Devuelve el tamaño que ocupará el texto pasado como parámetro si se dibuja en la imagen.
+Devuelve el rectángulo (_bounding box_) que ocupará el texto pasado como parámetro
+si se dibuja en la imagen.
+
+- `xy`: Las coordenadas de la esquina superior izquierda donde queremos pintar.
+  Si solo estamos interesadeos en el ancho y el alto, lo lógico es pasar aqui la
+  tupla $(0, 0)$
+
+- `text`: Texto a imprimir. Se espera una única línea de texto, si fueran más,
+  hay que uitilizar [multiline_textbbox](https://pillow.readthedocs.io/en/stable/reference/ImageDraw.html#PIL.ImageDraw.ImageDraw.multiline_textbbox).
+
+- `font`: La tipografía a usar. SI no se indica nada, se usará la tipografía
+  por defecto, que es una fuente no escalable y bastante fea.
+
+- 
 
 ```python
 from PIL import Image, ImageDraw, ImageFont
@@ -1044,7 +1058,7 @@ im.thumbnail((450, 300))
 WIDTH, HEIGHT = im.size
 draw = ImageDraw.Draw(im, "RGBA")
 txt = f"{WIDTH}x{HEIGHT} pixels"
-width, height = draw.textsize(txt)
+_, _, width, height = draw.textbbox((0, 0), txt)
 print(width, height)
 x = (WIDTH // 2) - (width//2)
 y = (HEIGHT // 2) - (height // 2)
@@ -1054,9 +1068,14 @@ draw.text((x, y), txt, fill="white")
 im.show()
 ```
 
-![draw.textsize](draw-textsize.png)
+![draw.textbbox](draw-textbbox.png)
+
+[ ] Ejercicio: Usa una fuente más bonita para el ejemplo anterior. Pon de
+paso el texto cerca de la esquina superior izquierda.
+
 
 - `ellipse(xy, fill=None, outline=None, width=1)`
+
 
 Dibuja una elipse dentro del rectangulo `xy`
 

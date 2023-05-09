@@ -15,7 +15,7 @@ trabajar con fechas con menos _imports_ y menos código.
 
 El nombre, *arrow* (Flecha) viene de la expresión *fecha del tiempo*.
 
-### Instalar arrow
+## Instalar arrow
 
 Se instala simplemente con pip:
 
@@ -29,7 +29,7 @@ Y se importa como:
 import arrow
 ```
 
-### Ventajas de usar arrow
+## Ventajas de usar arrow
 
 Se puede trabajar perfectamente con fechas usando la librería estándar,
 pero `arrow` intenta mejorarla en los siguientes aspectos:
@@ -38,10 +38,12 @@ pero `arrow` intenta mejorarla en los siguientes aspectos:
 
 - Demasiados tipos: `date`, `time`, `datetime`, `tzinfo`, `timedelta`, `relativedelta`, etc.
 
-- Trabajar con [husos horarios](https://es.wikipedia.org/wiki/Huso_horario) (*timezone*) y
-    convertir de una zona horaria a otra resulta farragoso y pesado.
+- Trabajar con [husos horarios](https://es.wikipedia.org/wiki/Huso_horario)
+  (*timezone*) y convertir de una zona horaria a otra resulta farragoso y
+  pesado.
     
-- Las marcas de tiempo (*timestamp*) son abiertas o ingenuas (*naive*) por defecto.
+- Las marcas de tiempo (*timestamp*) son abiertas o ingenuas (*naive*) por
+  defecto.
     
 - Falta funcionalidad: Interpretar texto en formato ISO 8601, convertir a
   valores más fáciles de interpretar por humanos...
@@ -49,12 +51,13 @@ pero `arrow` intenta mejorarla en los siguientes aspectos:
 Veremos ejemplos de cada una de estas posibles mejoras tal y como las
 resuelve `arrow`.
 
+
 ### Crear fechas
 
-Usando `datetime` no tenemos muchas opciones para crear fechas, podemos
-crearlas pasando los datos que necesitamos, o obtener la fecha de hoy con
-`datetime.date.today` o el *timestamp* de este momento, con `datetime.datetime.now`
-o `datetime.datetime.utcnow`. 
+Usando `datetime` no tenemos muchas opciones para crear fechas, podemos crearlas
+pasando los datos que necesitamos, o obtener la fecha de hoy con
+`datetime.date.today` o el *timestamp* de este momento, con
+`datetime.datetime.now` o `datetime.datetime.utcnow`. 
 
 ```python
 import datetime
@@ -66,6 +69,7 @@ hoy = datetime.date.today()
 ahora = datetime.datetime.now()
 print(fecha, timestamp, hoy, ahora, sep=",")
 ```
+
 Con `arrow` tenemos las mismas opciones, pero ademas podemos crear una
 fecha `timestamp` a partir del texto en formato ISO 8601. `Arrow` crea casi
 todos las variables con la función `get`. Si se llama a `get` sin
@@ -82,9 +86,9 @@ d2 = arrow.get('2020-03-03')
 assert d1 == d2
 ```
 
-Si queremos ser más explícitos, tenemos las funciones `now` y `utcnow`. Con `now` podemos
-indicar la zona horaria con una `string`, una forma muchos más sencilla que con la librería
-estándar:
+Si queremos ser más explícitos, tenemos las funciones `now` y `utcnow`. Con
+`now` podemos indicar la zona horaria con una `string`, una forma muchos más
+sencilla que con la librería estándar:
 
 
 ```python
@@ -99,11 +103,7 @@ corresponden. Si no se indica nada, por defecto se asigna UTC. Por eso en la
 celda anterior los valores deberían ser prácticamente iguales (La diferencia
 debe estar en la escala de milisegundos).
 
-
-
-
-
-**Ejercicio:** Sabiendo que la zona horaria de Turquía es `Asia/Istanbul`,
+[ ] **Ejercicio:** Sabiendo que la zona horaria de Turquía es `Asia/Istanbul`,
 averiguar cual es la diferencia horaria con respecto a UTC. Este dato esta
 disponible usando el método `utcoffset()`. Puedes ver los [nombres de las zonas
 horarias en Wikipedia](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
@@ -142,9 +142,9 @@ horaria `Europe/Madrid`), Alemania (zona horaria `Europe/Berlin` e Italia
      - Italia: 0:00:00
 
 
-### Otras formas de crear fechas o marcas temporales
+## Otras formas de crear fechas o marcas temporales
 
-#### A partir de tiempos UNIX
+### A partir de tiempos UNIX
 
 Otra posibilidad es crear fechas o marcas temporales a partir de 
 los [tiempos UNIX o Enotch](https://es.wikipedia.org/wiki/Tiempo_Unix):
@@ -166,10 +166,11 @@ Que produce:
 2021-06-15T19:02:29.039913+00:00
 ```
 
-#### A partir de otros objetos `date` o `timestamp`
+### A partir de otros objetos `date` o `timestamp`
 
-Observa que con el siguiente ejemplo se consiguen fechas *arrow* y son, por tanto, completas, con zona
-horaria UTC por defecto, menos en el último ejemplo, que forzamos la zona horaria de Francia.
+Observa que con el siguiente ejemplo se consiguen fechas *arrow* y son, por
+tanto, completas, con zona horaria UTC por defecto, menos en el último ejemplo,
+que forzamos la zona horaria de Francia.
 
 
 ```python
@@ -188,7 +189,7 @@ Salida:
 2021-06-15T20:03:33.645565+02:00
 ```
 
-#### A partir de una cadena de texto
+### A partir de una cadena de texto
 
 Podemos extraer de una texto una fecha o marca temporal, si le indicamos
 a la librería como debe interpretar ese texto:
@@ -217,8 +218,8 @@ d = arrow.get(
 print(d)
 ```
 
-Podemos usar los siguientes códigos para formatear o para interpretar una fecha en un texto. No son
-los mismos valores que usa `datetime`.
+Podemos usar los siguientes códigos para formatear o para interpretar una fecha
+en un texto. **No** son los mismos valores que usa `datetime`.
 
 |               | Token   | Salida                                 |
 |--------------:|---------|----------------------------------------|
@@ -255,7 +256,7 @@ los mismos valores que usa `datetime`.
 | ms or µs (ts) | x       | 1569980330813, 1569980330813221        |
 
 
-#### A partir de una cadena de texto en formato ISO 8601
+### A partir de una cadena de texto en formato ISO 8601
 
 Si tenemos la suerte de que el texto ya viene en formato ISO 8601, se puede
 interpretar directamente, sin necesidad de indicar el formato:
@@ -267,7 +268,7 @@ import arrow
 arrow.get('2013-09-30T15:34:00.000-07:00')
 ```
 
-### El método `replace`
+### Con el método `replace`
 
 Los objetos `Arrow` tienen un método llamado `replace` para cambiar los valores
 de una fecha, y otro llamado `shift` que nos permite *desplazar* una fecha a lo
@@ -318,7 +319,7 @@ correspondiente al día actual, pero dentro de 8 años, 3 meses y 9 días.
 --8<--
 ```
 
-### El método `for_json`
+## El método `for_json`
 
 El método `for_json` devuelve una _string_ en formato ISO, lo que resulta muy cómodo para
 incluir fechas y marcas temporales en JSON, que no tiene un tipo de dato especifico
@@ -331,7 +332,7 @@ import arrow
 print(arrow.get(2019, 12, 6).for_json())
 ```
 
-### El método `span`. Cálculo de rangos
+## El método `span`. Cálculo de rangos
 
 A partir de un objeto `Arrow`, podemos obtener el rango que lo contiene. El
 ancho del rango depende de la unidad que se le pase como parámetro al método
@@ -357,10 +358,10 @@ print(arrow.utcnow().floor('hour'))
 print(arrow.utcnow().ceil('hour'))
 ```
 
-### El metodo `humanize`
+## El metodo `humanize`
 
-**humanize** nos permite obtener una descripción textual, más ambigua pero más cómoda
-para un ser humano. Con un ejemplo lo entenderemos enseguida:
+El método **humanize** nos permite obtener una descripción textual, más ambigua
+pero más cómoda para un ser humano. Con un ejemplo lo entenderemos enseguida:
 
 
 ```python
@@ -416,11 +417,10 @@ Solo hubo uno, el 13 de mayo.
 
 **Ejercicion Extra:** ¿Cuántos viernes y trece hubo en 2015? ¿Y en 1915?
 
-### Librerías alternativas
+## Librerías alternativas
 
 - [Delorean](https://github.com/myusuf3/delorean)
 
 - [Pendulum](https://pendulum.eustace.io/)
 
 - [dateutils](https://dateutil.readthedocs.io/en/stable/)
-
