@@ -229,8 +229,8 @@ En resumen, todos los colores se obtienen como combinación de tres posibles
 valores. Por lo tanto, para representar una imagen en color, solo tenemos que
 almacenar los componentes rojo, verde y azul de cada punto que compone la
 imagen. Al igual que con las coordenadas, que podemos guardar en forma de tupla
-de dos elementos, los colores se pueden expresar en forma de trios o tuplas de
-tres elementos, cada uno indicando, por orden, el componente rojo, verde y azul
+de dos elementos, los colores se pueden expresar en forma de **trios o tuplas de
+tres elementos**, cada uno indicando, por orden, el componente rojo, verde y azul
 del color.
 
 Normalmente se usan un *byte*, o sea, 8 bits, para indicar cada componente del
@@ -1113,6 +1113,15 @@ leon.show()
 ```
 
 ![png](leon-clown.png)
+
+
+## Integracion entre Pillow y numpy
+
+Podemos convertir imagenes en matrices (_arrays_) de numpy, y también la
+operación inversa, convertir una matriz de numpy en una imagen. Claro qe los
+tipos de datos deben ser compatibles. Una imagen RGB de 100x200 pixels, al
+pasarla a numpy se convertirá en un array de $200x100x3$. Una imagen del mismo
+tamaño pero solo con niveles de gris(mode `L`) nos daría una matriz de $100x200$.
 
 
 ## Llamadas de bajo nivel

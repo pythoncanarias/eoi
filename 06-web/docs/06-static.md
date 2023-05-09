@@ -1,4 +1,4 @@
----
+
 title: Gestión de contenidos estáticos
 ---
 
