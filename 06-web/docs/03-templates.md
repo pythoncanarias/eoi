@@ -13,7 +13,9 @@ Las plantillas son simplemente documentos de texto, normalmente en formato
 
 En el texto de las plantillas hay ciertos marcas o etiquetas (**template
 tags**) que indican que en ese sitio falta contenido, el cual será
-incluido más adelante. La operación más sencilla que podemos
+incluido más adelante.
+
+La operación más sencilla que podemos
 hacer con una plantilla es mostrar el valor de una variable, y lo
 hacemos de la siguiente forma:
 
@@ -21,14 +23,15 @@ hacemos de la siguiente forma:
 {{ nombre }}
 ```
 
-Esto indica que, en el resultado final, sustituiremos todo el texto
-comprendido entre las marcas `{% raw %}{{{% endraw %}` y `{% raw %}}}{% endraw %}` (Incluyendo las marcas) por el
-contenido de una variable llamada `nombre`. 
+Esto indica que, en el resultado final, sustituiremos todo el texto comprendido
+entre las marcas `{% raw %}{{{% endraw %}` y `{% raw %}}}{% endraw %}`
+(Incluyendo las marcas) por el contenido de una variable llamada `nombre`. 
 
-Django incluye además en el sistema de plantillas un mini-lenguaje, útil
-para definir parte de las interfaz de la aplicación. De esta forma se
-promueve una clara distinción entre la lógica de negocio y la
-representación.
+Django incluye además en el sistema de plantillas un mini-lenguaje, útil para
+definir parte de las interfaz de la aplicación. De esta forma se promueve una
+clara distinción entre la lógica de negocio y la representación. Las marcas de
+control de las plantillas se llaman etiquetas (No confundir con las etiquetas
+de HTML)
 
 
 ## Ventajas de las plantillas
@@ -122,13 +125,22 @@ Usando `render` evitamos duplicar código similar en cada vista.
 
 Vamos a realizar un par de ejercicios de ejemplo
 
-1.-  Mostrar una lista de tareas.
+Usando el siguiente fichero en formato CSV, [projects.csv](./projects.csv), que incluye un listado
+de proyectos.
 
-2.- Mostrar una lista de tareas, pero que se vean los nombres en
-negrita y de color rojo (o cualquier otra cosa que sirva para
-destacarlos) si su prioridad es alta.
+```
+--8<--
+./docs/projects.csv
+--8<--
+```
 
-Para ello vamos a necesitar dos etiquetas nuevas: `for` e `if`.
+1.-  Mostrar una lista de projectos, que muestren tanto el identificador
+(primera columna) como el nombre del proyecto.
+
+2.- Hacer que el nombre del proyecto se vea en
+negrita.
+
+Para ello vamos a necesitar una etiquetas nueva: `for`.
 
 ### La etiqueta `for`
 
@@ -143,11 +155,11 @@ Por ejemplo, si desde la vista hemos pasado a la plantilla una lista de
 elementos, con el nombre `lista`:
 
 ```python
-    return render(request, 'ruta/plantilla.html', {
-        ...
-        'lista': list(range(5)),
-        ...
-        })
+return render(request, 'ruta/plantilla.html', {
+    ...
+    'lista': list(range(5)),
+    ...
+    })
 ```
 
 En la plantilla, podemos mostrar el contenido de la lista

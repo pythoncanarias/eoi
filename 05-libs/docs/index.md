@@ -27,6 +27,9 @@ title: Librerías
 - [`traceback`](standard/19-traceback/traceback.md) - El módulo traceback
 - [`itertools`](standard/20-itertools/itertools.md) - Utilidades para trabajar con iteradores
 - [`difflib`](standard/21-difflib/difflib.md) - Trabajar con diferencias entre secuencias
+- [`http`](standard/http/http.md) - Librería para trabajar con servidores y
+  clientes web
+- [`pathlib`](standard/pathlib/pathlib.md) - Trabajar con rutas de ficheros
 
 ### Librerías externas (Hay que instalarlas)
 

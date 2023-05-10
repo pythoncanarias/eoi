@@ -1,6 +1,7 @@
 ---
 title: Apéndice 2: Hojas de estilo CSS
-topic: Desarrollo Web
+tags: 
+    - Desarrollo Web
 ---
 
 ## Apéndice 2: CSS

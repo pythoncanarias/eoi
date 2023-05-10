@@ -6,6 +6,7 @@ theme:
 plugins:
   - search
   - table-reader
+  - macros
   - with-pdf:
       author: Juan Ignacio Rodríguez de León
       copyright: Python Canarias
@@ -30,7 +31,6 @@ markdown_extensions:
         enable_dollar_delimiter: True #for use of inline $..$
     - pymdownx.highlight
     - pymdownx.superfences
-    - pymdownx.snippets
     - footnotes
 
 extra_javascript:
