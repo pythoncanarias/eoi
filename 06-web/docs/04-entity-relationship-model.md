@@ -1,7 +1,9 @@
 ---
 title: Modelo de Entidad/Relacion (E/R)
-topic: Desarrollo Web
+topic: 
+    - Desarrollo Web
 ---
+
 ## Modelo de Entidad/Relación
 
 Un modelo entidad-relación es una herramienta para el modelo de datos, la cual
@@ -45,12 +47,17 @@ Por ejemplo, una entidad Persona puede tener como características: Nombre,
 Apellido, Género, Estatura, Peso, Fecha de nacimiento... Nosotros como
 analistas seleccionaremos los atributos que queremos modelar.
 
+> «Todos los modelos son erróneos, pero algunos son útiles»
+> --
+> [George Edward Pelham Box](https://es.wikipedia.org/wiki/George_Edward_Pelham_Box)
+
+
 ### Atributos
 
 Los **atributos** son las características que definen o identifican a una
 entidad. Estas pueden ser muchas, y el diseñador utiliza o implementa las que
 considere relevantes. En un diagrama de E/R se representan con una
-**circunferencia** o una **elipsis**. Los atributos se unen con líneas a las
+**circunferencia** o una **elipse**. Los atributos se unen con líneas a las
 entidades a las que correspondan.
 
 En un conjunto de entidades del mismo tipo, cada entidad tiene valores
@@ -60,11 +67,11 @@ su identificación unívoca.
 Ejemplos:
 
 A la colección de entidades *alumnos*, con el siguiente conjunto de atributos en
-común, (id, nombre, edad, semestre), pertenecen las entidades:
+común, (nombre, edad, semestre), pertenecen las entidades:
 
-    (1, Sophia, 15 años, 2)
-    (2, Josefa, 19 años, 5)
-    (3, Carlos, 20 años, 2)
+    (Sophia, 15 años, 2)
+    (Josefa, 19 años, 5)
+    (Carlos, 20 años, 2)
     ...
 
 Cada una de las entidades pertenecientes a este conjunto se diferencia de las
@@ -88,7 +95,7 @@ existe o porque no se sabe nada al respecto del mismo.
 
 ### Relaciones
 
-Una __relación__ Consiste en una colección, o conjunto, de relaciones de la
+Una **relación** Consiste en una colección, o conjunto, de relaciones de la
 misma naturaleza. las relaciones se representan en los diagramas de E/R con un
 **rombo**.
 
@@ -109,6 +116,8 @@ Es importante hacer notar que todas las relaciones entre modelos deben
 representarse con relaciones, y por tanto nunca sera posible tener una línea
 que una directamente a un modelo con otro, siempre habrá de pasar por una
 relación intermedia.
+
+![E-R No se puede](./img/e-r-nope.png)
 
 ### Restricciones
 

@@ -1,6 +1,9 @@
 ---
 title: Modelos en Django
+tags:
+    - Database
 ---
+
 ## Introducción a los modelos en Django
 
 Cuando queremos almacenar y recuperar imformación sobre nuestras
@@ -452,7 +455,7 @@ diferencia estriba en el tamaño.
 Se espera que `CharField` sea para campos de texto relativamente pequeños (Por
 ejemplo, el nombre del puesto en una oferta de trabajo, algo como `Python
 Developer`), mientras que en `TextField` se espera guardar cantidades de texto
-mayores (De nuevo con el ejemplo de una oerta de empleo, la descripción
+mayores (De nuevo con el ejemplo de una oferta de empleo, la descripción
 completa del puesto, incluyendo deberes y responsabilidades). La app `admin`
 reconoce esta diferencia y usa controles diferentes para cada campo.
 
