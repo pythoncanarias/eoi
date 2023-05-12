@@ -498,7 +498,7 @@ el contenido definida dentro del bloque:
 
 Tiene una clausula opcional, definida con `else`, para mostrar contenido
 en el caso de que la variable no sea "verdadera" (Es decir, si no
-existe, o existe pero esta vacia o evalua a `False`):
+existe, o existe pero esta vacía o evalúa a `False`):
 
 ```python
 {% raw %}
@@ -570,7 +570,7 @@ una lista, permitiendo en cada iteración acceder al elemento
 correspondiente dentro del área o contexto definido entre el `for` y el
 `endfor`.
 
-El siguiente ejemplo muestra una lista de superheroes, si tenemos una
+El siguiente ejemplo muestra una lista de superhéroes, si tenemos una
 lista (o un `queryset`, o cualquier otra secuencia) de los mismos en la
 variable `avengers`:
 
@@ -593,7 +593,7 @@ Se puede recorrer la lista en orden inverso usando la forma:
 ```
 
 Si se va a recorrer una lista de listas o una lista de tuplas, se pueden
-desempaquetar estos valores en variables individuales. Por ejemplom si
+desempaquetar estos valores en variables individuales. Por ejemplo, si
 en `coordinates` tenemos una lista de tuplas con dos elementos,
 representando un punto en dos dimensiones, podemos hacer:
 
@@ -621,11 +621,11 @@ diccionario, podemos hacer:
 ```
 
 Como se explicó antes, esto fallará si hubiera una entrada en el
-diccionario con la clave `items`. Evita siempre usar nombres de metodos
-en el diccionario, porque impide acceder a los metodos desde la
+diccionario con la clave `items`. Evita siempre usar nombres de métodos
+en el diccionario, porque impide acceder a los métodos desde la
 plantilla.
 
-El bucle `for` añade por su cuenta una serie de variables que estaran
+El bucle `for` añade por su cuenta una serie de variables que estarán
 disponibles dentro del contexto del bucle:
 
 | Variable              | Descripción                                    |
@@ -804,6 +804,8 @@ Algunos filtros pueden aceptar un parámetro:
 {% endraw %}
 ```
 
+![filtros](img/filtros.png)
+
 La lista de filtros incluidos en Django es:
 
 - `add`
@@ -864,7 +866,46 @@ La lista de filtros incluidos en Django es:
 - `wordwrap`
 - `yesno`
 
-Veremos alguna de las etiquetas más usadas:
+Veremos alguna de los filtros más usados:
+
+### Los filtros upper/lower
+
+Los filtros `upper`/`lower` pasan el texto de la entrada a
+mayúsculas/minúsculas, respectivamente.
+
+### El filtro capfirst
+
+Convierte la primera letra de la primera palabra del texto de entrada en
+mayúsculas, el resto no se modifica.
+
+### El filtro date
+
+El filtro `date` se usa para dar formato a las fechas. Usa un formato propio,
+copiado de la función del mismo nombre en PHP. 
+
+Los códigos de formato se pueden consultar en la documentación oficial de
+Django, pero a continuación se incluyen algunos de los más usados:
+
+| Código | Descripción                   | Ejemplo de salida |
+|:------:|-------------------------------|-------------------|
+| `d`    | día del mes, con ceros        | '01'..-31'        |
+| `j`    | día del mes, sin ceros        | '1'..'31'         |
+| `D`    | Día de la semana, tres letras | 'Fri'             |
+| `l`    | Día de la semana, completo    | 'Friday'          |
+| `z`    | Día del año                   | 1 a 366           |
+| `m`    | Mes, dos dígitos              | '01' a '12'       |
+| `n`    | Mes, sin rellenar con ceros   | '1' a '12'        |
+| `M`    | Mes, tres letras              | 'Jan'             |
+| `F`    | Mes, completo                 | 'January'         |
+| `y`    | Año, dos dígitos              | '00' to '99'      |
+| `Y`    | Año, cuatro dígitos           | '0001', '2023'    |
+| `H`    | Hora, dos dígitos             | '00' to '23'      |
+| `i`    | Minutos, dos dígitos          | '00' to '59'      |
+| `s`    | Segundos, dosdígitos          | '00' to '59'      |
+| `u`    | Microsegundus.                | 000000 to 999999  |
+| `e`    | Timezone                      | '', 'US/Eastern'  |
+| `U`    | Segundo desde el Unix Epoch   | 1683893078.271404 |
+
 
 ### El filtro add
 
@@ -879,10 +920,34 @@ seria $7$:
 {% endraw %}
 ```
 
-### El filtro default
+También sirve para concatenar cadenas de texto. Si `value` es `"hola"`, la
+salida del siguiente ejemplo será `Hola, mundo`:
 
-Si el valor de entrada evalua a falso o no está definido, se sustituye
-por el valor indicado como parametro:
+```python
+{% raw %}
+{{ value|add:", mundo" }}
+{% endraw %}
+```
+
+### El filtro cut¶
+
+Borra el carácter especificado como parámetro del valor de entrada.
+
+Por ejemplo:
+
+```python
+{% raw %}
+{{ value|cut:" " }}
+{% endraw %}
+```
+
+Si `value` es "Texto con espacios", la salida será "Textoconespacios".
+
+
+### Los filtrod default y default_if_none.
+
+El filtro `default` evalúa el valor de entrada como un booleano, si el resultado es falso o no está definido, se sustituye
+por el valor indicado como parámetro:
 
 Por ejemplo:
 
@@ -891,6 +956,9 @@ Por ejemplo:
 {{ option|default:"nada" }}
 {% endraw %}
 ```
+
+El filtro `default_if_none` funciona igual, pero solo si la
+entrada es `None`.
 
 ### El filtro divisibleby
 
