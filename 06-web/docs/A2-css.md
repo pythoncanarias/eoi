@@ -465,8 +465,8 @@ son la suma de la altura y anchura declarada, mas las componentes del `margin`,
 `border` y `padding`. Pero si usamos `border-box`, tanto las componentes de
 `padding` como `border` se incluyen en las componentes `width` y `height`.
 
-Para elementos de tipo texto, lo normal es usar el mode `content-box`, mientras
-que para componentes de maquetación y ajuste, es más comodo trabajar en el modo
+Para elementos de tipo texto, lo normal es usar el modo `content-box`, mientras
+que para componentes de maquetación y ajuste, es más cómodo trabajar en el modo
 `border-box`.
 
 ## Ajustes de tipografía
@@ -488,10 +488,11 @@ por orden:
 | `line-height`   | Altura de la línea                              |
 | `text-decoration` | Subrayado o no                                |
 
-La especificación para la tipografía sigue una configuración especial: se
-pueden especificar varias fuentes, separadas por coma. Si la primera fuente no
-está disponible o no puede ser presentada por la razón que sea, se intentará
-usar la siguiente, hasta llegar al final. En el siguiente ejemplo:
+La especificación para la fuente o familia de fuentes a usar sigue una
+configuración especial: se pueden especificar varias fuentes, separadas por
+coma. Si la primera fuente no está disponible o no puede ser presentada por la
+razón que sea, se intentará usar la siguiente, hasta llegar al final. En el
+siguiente ejemplo:
 
 ```css
 font-family: "CMU Bright", Arial, Verdana, sans-serif;
@@ -622,4 +623,19 @@ Bulma define 6 colores principales:
 - `is-warning`
 - `is-danger`
 
+También se puede cambiar el tamaño:
+
+- `is-small`
+- `is-medium`
+- `is-large`
+
+
+
+Y el estilo o estado:
+
+- `is-outlined`
+- `is-loading`
+- `[disabled]`
+
+Y todos estos modificadores se pueden cambiarm 
 

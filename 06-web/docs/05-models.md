@@ -102,10 +102,10 @@ aparece `metahumans`, es que nos hemos despistado de incluirlas en la variable
 `INSTALLED_APPS` del fichero de ajustes `settings.py`).
 
 El caso es que hemos creado el modelo, y para que ese cambio se refleje en la
-base de datos, el método más cómodo es usar migraciones (La otra opcion es
+base de datos, el método más cómodo es usar migraciones (La otra opción es
 reflejar el cambio nosotros a mano en la base de datos).
 
-Para que django cree la migración, lo que hace es comprobar la diferencia entre
+Para que Django cree la migración, lo que hace es comprobar la diferencia entre
 el último estado de la base de datos y la configuración actual de los modelos.
 
 Si no coinciden -como es el caso, ya que hay una nueva entidad y por tanto se
@@ -711,11 +711,36 @@ disponibles:
   dejar que la propia base de datos resuelvas el problema con sus propios
   mecanismos.
 
-Un parámetro interesante es la opcion `limit_choices_to`. En nuestro caso, por
-ejemplo, si queremos asignar heroes a un grupo seria deseable que solo me
-dejara seleccionar heroes que actualmente no están asociados a ninguno. Se
-puede usar un diccionario, un modelo `Q` (Que veremos más adelante) o
-directamente un *callable* que devuelva un diccionario o un objeto `Q`.
+En la mayoría de los casos se podría usar `CASCADE`, pero siempre es
+recomendable pensar que caso nos viene mejor para cada clave foránea. Las
+opciones `PROTECT` y `SET NULL` son las dos siguientes más usadas. El problema
+de `CASCADE` es que puede ocasionar un borrado masivo en cascada con un solo
+`DELETE`, si hemos cometido un error en el diseñó.
+
+A modo de explicación adicional para estos casos, podemos representarlos como
+pequeños dramas:
+
+- "¡No, por favor! ¡No lo hagas, te necesito!" (Que se correspondería con la
+  opción `PROTECT`.
+
+- "¡Pues muy bien, si no soy tuyo, no soy de nadie!" (Que se corresponde con
+  `SET_NULL`.
+
+- "¡Adiós, mundo cruel, si tu te vas, me voy contigo!" y a continuación se
+  suicida. Corresponde con el borrado en cascada `DELETE`.
+
+- "¡Pues pírate, me iré con Menganito/a!". Equivale a `SET_DEFAULT`, o `SET(...)`.
+
+- "¡Me niego a aceptar la realidad! ¡Seguirá hablando contigo y actuando
+  como si no hubiera pasado nada!". Claro ejemplo de `DO_NOTHING`.
+
+
+Un parámetro interesante para las claves foraneas es la opcion
+`limit_choices_to`. En nuestro caso, por ejemplo, si queremos asignar heroes a
+un grupo seria deseable que solo me dejara seleccionar heroes que actualmente
+no están asociados a ninguno. Se puede usar un diccionario, un modelo `Q` (Que
+veremos más adelante) o directamente un *callable* que devuelva un diccionario
+o un objeto `Q`.
 
 Una cosa que hay que destacar, especialmente porque tiene asociado una cierta
 _magia_, es que al incluir el campo en el modelo `Metahumano`, haciendo
