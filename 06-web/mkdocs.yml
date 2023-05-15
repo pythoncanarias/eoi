@@ -21,6 +21,7 @@ plugins:
       verbose: true
 
 markdown_extensions:
+    - extra
     - admonition
     - pymdownx.details
     - pymdownx.snippets

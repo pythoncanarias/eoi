@@ -1,4 +1,4 @@
-
+---
 title: Gestión de contenidos estáticos
 ---
 
@@ -23,7 +23,7 @@ Sin embargo, los autores consideraron que sería una complejidad adicional
 excesiva, **para desarrollo**, exigir la incorporación de un servidor web para
 servir los contenidos estáticos, así que incluyeron en Django un servidor de
 contenidos estáticos, que en principio solo se activa si tenemos definido a
-nivel global (es decir en el fichero `settings.py`) la variabla `DEBUG` a
+nivel global (es decir en el fichero `settings.py`) la variable `DEBUG` a
 `True`.
 
 Es importante aclarar que este servidor de estáticos no está pensado para ser

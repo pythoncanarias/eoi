@@ -36,4 +36,5 @@ markdown_extensions:
 extra_javascript:
 
   - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML    
+  - css/bulma.css
   - javascripts/config.js
