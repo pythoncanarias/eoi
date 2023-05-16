@@ -1672,3 +1672,13 @@ The basic requirement of this component are:
 As with buttons, you can choose one of the 8 different colors. 
 For the fullheight hero to work, you will also need a `hero-head` and a `hero-foot`.
 ou can have even more imposing banners by using one of 5 different sizes: `is-small`, `is-medium`, `is-large`, `is-halfheight` y `is-fullheight`.
+
+
+
+#### Section
+
+A simple container to divide your page into sections, like the one you’re currently reading
+
+The section components are simple layout elements with responsive padding. They are best used as direct children of body.
+
+
