@@ -542,4 +542,44 @@ valores numéricos se corresponden a los valores como se muestra en la tabla:
 Con `text-align` podemos alinear el texto dentro de un contenedor. Los valores
 posibles son `left` (Por defecto), `center` y `right`.
 
+## CSS 3
+
+### `box-shadow`
+
+El atributo `box-shadow` permite aplicar un efecto de sombra proyectada a los
+elemento. Requiere varios valores para especificar las características de la
+sombra, como difuminado, separación de la sombra y la propia caja o color. La
+sintaxis es:
+
+```css
+box-shadow: 5px -9px 3px #000;
+```
+
+Por orden, los valores que se indican en box-shadow son:
+
+- **Desplazamiento horizontal** de la sombra: La sombra de un elemento suele
+  estar un poco desplazada con respecto al elemento que la produce y su
+  posición será en función del ángulo con el que llegue la luz. En el caso de
+  este ejemplo el primero de los valores, `5px`, quiere decir que la sombra
+  aparecerá 5 píxeles a la derecha. Si la sombra quisiéramos que apareciera un
+  poco hacia la izquierda del elemento original que la produce, pondríamos un
+  valor negativo a este atributo.  Cuanto más desplazamiento tenga una sombra,
+  el elemento que la produce parecerá que está más separado del lienzo de la
+  página.
+
+- **Desplazamiento vertical** de la sombra: El segundo valor es el
+  desplazamiento vertical de la sombra con respecto a la posición del elemento
+  que la produce. Valores positivos indican que la sombra aparecerá hacia abajo
+  del elemento y valores negativos harán que la sombra aparezca desplazada
+  hacia arriba. En el caso del ejemplo, con `-9px`, la sombra aparecerá
+  desplazada 9 píxeles hacia arriba del elemento.
+
+- **Difuminado**: El tercer valor indica el difuminado el borde de la sombra.
+  Si el difuminado fuera cero, querría decir que la sombra aparece totalmente
+  definida. Si el valor es mayor que cero, como en nuestro ejemplo `3px`,
+  quiere decir que la sombra tendrá un difuminado de esa anchura.
+
+- **Color de la sombra**: El último atributo es el color de la sombra. En el
+  ejemplo indicamos una sombra con color negro.
+
 
