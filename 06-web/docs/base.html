@@ -3,19 +3,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="{% static 'comun/css/bulma.css' %}">
-    <link rel="stylesheet" href="{% static 'comun/css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bulma.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
   </head>
   <body>
   <section class="section">
     <div class="container">
+
       <h1 class="title">
         {{ title }}
       </h1>
       {% if subtitle %}
-      <p class="subtitle">
-        {{ subtitle }} 
-      </p>
+      <h2 class="subtitle"> {{ subtitle }} </h2>
       {% endif %}
 
 {% block content %}
@@ -31,4 +30,3 @@
   </section>
   </body>
 </html>
-

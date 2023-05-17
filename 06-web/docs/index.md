@@ -12,8 +12,9 @@
 - [Microservicios](09-microservices.md)
 - [Rendimiento](10-performance.md)
 - [Flask](11-flask.md)
+- [Miniproyecto](99-miniproject.md)
 - [Anexo 1: HTML](A1-html.md)
-- [Anexo 1: Hojas de estilo CSS](A2-css.md)
-- [Anexo 3: Miniproyecto](A3-miniproject.md)
+- [Anexo 2: Hojas de estilo CSS](A2-css.md)
+- [Anexo 3: Bulma CSS](A3-bulma.md)
 
 

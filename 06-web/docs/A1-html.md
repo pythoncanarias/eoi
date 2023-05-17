@@ -73,6 +73,138 @@ Antes de HTML5, solía ser algo así:
 
 ¡Algo hemos avanzado!
 
+
+## Formularios
+
+Las etiquetas `<form>` y `</form>` delimitan un formulario. Los atributos más
+importantes de `form` son `action` y `method`. Con `action` definimos la ruta
+a la que el formularioenviará los datos. Con `method`, cuyos valores posibles
+son `GET` y `POST`, definimos como se envian los datos. Para formularios, lo
+normal es usar `POST`
+
+Los controles de los formularios son casi todos elementos `<input>` con
+distintos valores del parámetro `type`. En principo HTML define los siguientes
+
+### Botón de envio o de _submit_
+
+La forma de obtener este contro es usando el valor `submit` en el parámetro
+`type`. Un eemplo podria ser:
+
+```html
+<input type="submit" name="ok" value="buscar">
+```
+
+### Contraseña
+
+La forma de obtener este contro es usando el valor `password` en el parámetro
+`type`. Un ejemplo podría ser:
+
+```html
+<input type="password" name="passwd">
+```
+
+Con una caja de texto de tipo `password`, cuando el usuario teclee algo dentro,
+solo apareceran asteríscos, aunque internamente se esté almacenando la
+información para ser enviada pasteriormente. LA idea es impedir que otras
+personas puedan leer esta información mietras se escribe.
+
+### El elemento `textarea`
+
+Este control es específico para aceptar textos grandes, de varias líneas.
+El control acepta cualquier longitud de texto, pero podemos limitar
+esa cantidad con el parámetro `maxlength`. De igual manera, podemos exigir una
+cantidad **m inima** de texto con `minlength`. Dos de los atributos más usados
+con este control son `cols` y `rows`, que nos permiten definir el ancho y alto
+del control, en número de caracteres.
+
+Un ejemplo de `textarea`, con su etiqueta asociada:
+
+```html
+<label for="txt-asunto">Describa su problema
+<textarea name="asunto" id="txt-asunto" cols="60" rows="8">
+</textarea>
+</label>
+```
+
+
+
+
+### Recuadro de texto
+
+### Select
+
+Este control muestra un selector que nos permite elegir entre diferentes
+posibilidades. Se usa la etiqueta `<select>`, con un atributo `name` para poder
+obtener despues el valor, y acaba con el correspondiente `</select>`. En medio,
+podemos poner todas las etiquetas `<option>...</option>` que queramos, cada una
+de ellas proporcionando un valor particular. 
+
+```html
+<p>
+<label for="cb-ninja">Seleccion tu tortuga ninja / artista famoso del renacimiento italiano:
+<select name="ninja" id="cb-ninja">
+<option value="leo">Leonardo</option>
+<option value="mike">Michelangelo</option>
+<option value="don">Donatello</option>
+<option value="ralph">Raphael</option>
+</select>
+</label>
+</p>
+```
+
+Otros componentes de un formulario, que no son estrictamente hablando
+componentes, seria las etiquetas, `label`, y los confuntos de controles o `fieldset`
+
+
+### Etiquetas o `label`
+
+El componente `<label>` esta pensado específicamente para etiquetar los
+distintos componentes de un formulario. Usa un parámetro `for` en el que
+se debe incluir el `id` del control al que la etiqueta está asociado.
+
+```html
+<label for="name">Nombre del usuario:
+<input type=text" name="name" id="name">
+</label>
+```
+
+Los valores del atributo `for` de la etiqueta y el `id` del control deben
+ser iguales. Aunque en este ejemplo los atribiitos `name` e `id` del control
+tienen el mismo valor, `label` solo presta atencion al campo `id`.
+
+Asignar etiquetas descriptivas a los componentes de un formulario es muy
+importante, especialmente como ayuda a personas con visibilidad reducida.
+
+### Fieldset
+
+El elemento `<fieldset>` sirve para agrupar varios controles y etiquetas
+dentro de un formukario, a efectos visuales.
+Dentro puede/debe contener in elemento `legend` que es una descripción
+del tipo de controles que hay en el agrupamiento.
+
+Un ejemplo:
+
+```html
+<form>
+  <fieldset>
+    <legend>Elige tu monstruo favorito</legend>
+
+    <input type="radio" id="kraken" name="monster" value="K">
+    <label for="kraken">Kraken</label><br>
+
+    <input type="radio" id="mummy" name="monster" value="M">
+    <label for="mummy">La momia</label><br>
+
+    <input type="radio" id="vampire" name="monster" value="V">
+    <label for="vampire">Vampiro</label>
+  </fieldset>
+</form>
+```
+
+Como casi todos los controles, puede tener el atributo `disabled`, lo que puede
+resultar muy útil porque desabilita todos los controles dentro del `fieldset`,
+no hay que desabilitarlos uno por uno.
+
 ## Resumen de marcas
 
 | Etiqueta | Descripción |
