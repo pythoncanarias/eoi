@@ -262,7 +262,33 @@ class TaskForm(Form):
 
 Los errores detectados aquí no se pueden asigna a un campo concreto (Si no
 fuera asi, los tendriamos como validaciones de campo), así que estan accesibles
-en `form.non_field_errors`.
+en `form.non_field_errors`. Pero si los queremos vincluara a uno o mas campos,
+podriamos hacerlos. Por ejemplo, vamos a signar el error anterior a ambos
+campos, `dua_date` y `pub_date`, y que el usuario decida cual es el incorrecto.
+
+```
+from django import forms
+
+class TaskForm(forms.Form):
+    ...  # Como ants
+
+    def clean(self):
+        cleaned_data = super().clean()
+        cc_myself = cleaned_data.get("cc_myself")
+        due_date = cleaned_data['due_date']
+        pub_date = cleaned_data['due_date']
+        if due_date <= pub_date:
+            msg = (
+                'La fecha de entraa debe ser'
+                ' posterior a la fecha de publicación'
+                )
+            self.add_error('due_date', msg)
+            self.add_error('pub_date', msg)
+```
+
+El segundo argumento de `add_error` puede ser una cadena o una instancia de la
+clase `ValidationError`. La llamada a `add_error` **automáticamente elimina el
+valor correspondiente que haya en `cleaned_data`.
 
 ## La vista que procesa el formulario
 
