@@ -13,6 +13,7 @@
 - [Microservicios](10-microservices.md)
 - [Rendimiento](11-performance.md)
 - [Flask](12-flask.md)
+- [Enlaces y recursos](links.md)
 - [Miniproyecto](99-miniproject.md)
 - [Anexo 1: HTML](A1-html.md)
 - [Anexo 2: Hojas de estilo CSS](A2-css.md)
