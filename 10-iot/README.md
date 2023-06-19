@@ -108,6 +108,12 @@ Descargamos la última versión de esta placa; que podemos encontrar en:
 
 ## Raspberry Pi Pico
 
+Descargamos la última versión del interprete desde la página oficial:
+
+* [Raspberry Pi Pico](https://micropython.org/download/rp2-pico/)
+
+* [Raspberry Pi Pico W](https://micropython.org/download/rp2-pico-w/)
+
 ## Atom Lite
 
 Descargamos la ultima version estable. La ultima version estable a dia de hoy para la placa Atom Lite (ESP32) es
@@ -130,11 +136,11 @@ esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 115200 write_flash -z 0x1000 
 
 Conecta tu placa ESP al ordenador, toca la tecla de windows para buscar y abre `Administrador de dispositivos`
 
-Despliega `Puertos (COM y LPT)` y te apareceran los puertos COM de los dispositivos conectados a tu ordenador, recuerda el numero asignado (8 en el ejemplo)
+Despliega `Puertos (COM y LPT)` y te aparecerán los puertos COM de los dispositivos conectados a tu ordenador, recuerda el numero asignado (8 en el ejemplo)
   
 <img src="imgs\administrador_dispositivos.png" alt="administrador_dispositivos" title="administrador_dispositivos" />
 
-Si no te aparece este apartado, el equipo no ha reconocido el dispositivo. Esto puede ser normalmente porque te falta el driver [solucionar_problema_driver_Atom_Lite](solucionar_problema_driver_Atom_Lite.md), o por que el cable no sea el adecuado (solo tenga alimentacion y no datos) prueba con otro cable.
+Si no te aparece este apartado, el equipo no ha reconocido el dispositivo. Esto puede ser normalmente porque te falta el driver [solucionar_problema_driver_Atom_Lite](solucionar_problema_driver_Atom_Lite.md), o por que el cable no sea el adecuado (solo tenga alimentación y no datos) prueba con otro cable.
 
 Abre `PowerShell`  y escribe:
 
@@ -148,15 +154,13 @@ python -m esptool --chip esp32 --port COM3 --baud 115200 write_flash -z 0x1000 M
 
 ## Instalación Raspberry Pi Pico
 
-En el caso de Raspberry Pi Pico, su instalación es muy sencilla. En primer lugar, descargaremos la última versión del interprete desde la página oficial de MicroPython:
-
-* [Raspberry Pi Pico](https://micropython.org/download/rp2-pico/)
-
-* [Raspberry Pi Pico W](https://micropython.org/download/rp2-pico-w/)
+En el caso de Raspberry Pi Pico, su instalación es muy sencilla.
 
 Una vez descargado, solo tenemos que conectar nuestra placa al ordenador, manteniendo pulsado el botón _bootSel_ que encontrarás en la placa.
 
 Esto montará una unidad de disco; donde tendremos que copiar el fichero descargado.
+
+Una vez finalizada la copia, expulsa la unidad y vuelve a conectar el microcontrolador.
 
 # Instalar Editor Thonny
 
