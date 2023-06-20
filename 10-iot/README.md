@@ -12,6 +12,7 @@
 - [Instalar Editor Thonny](#instalar-editor-thonny)
 - [Usar Interprete MicroPython](#usar-el-interprete-en-micropython)
 - [Como usar los ejemplos](#como-usar-los-ejemplos)
+- [Entradas/Salidas Digitales](digital.md)
 - [Referencias](#referencias)
 - [Atribuciones](#atribuciones)
 
