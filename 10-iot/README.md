@@ -13,6 +13,7 @@
 - [Usar Interprete MicroPython](#usar-el-interprete-en-micropython)
 - [Como usar los ejemplos](#como-usar-los-ejemplos)
 - [Entradas/Salidas Digitales](digital.md)
+- [Entradas/Salidas Analógicas](analog.md)
 - [Referencias](#referencias)
 - [Atribuciones](#atribuciones)
 
