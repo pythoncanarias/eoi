@@ -14,6 +14,7 @@
 - [Como usar los ejemplos](#como-usar-los-ejemplos)
 - [Entradas/Salidas Digitales](digital.md)
 - [Entradas/Salidas Analógicas](analog.md)
+- [Interrupciones](interrupt.md)
 - [Referencias](#referencias)
 - [Atribuciones](#atribuciones)
 
