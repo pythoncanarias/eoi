@@ -131,4 +131,8 @@ Para este caso, vamos a tratar de unir los dos ejemplos anteriores en uno. Por l
 
 ![AnalogInputOutput](imgs/AnalogInputOutput.png)
 
-Para el código fuente, puedes ver el siguiente enlace.
+Para el código fuente, puedes ver el siguiente [enlace](A04b_salida_entrada-analogica/main.py).
+
+**Ejercicio adicional**
+
+Usar una fotoresistencia para cambiar el valor de intensidad de un Led.
