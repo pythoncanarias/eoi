@@ -18,6 +18,8 @@
 - [Sensores I](sensors1.md)
 - [Ficheros](files.md)
 - [Sensores II](sensors2.md)
+- [Conexión Red](wifi.md)
+- [API](api.md)
 - [Referencias](#referencias)
 - [Atribuciones](#atribuciones)
 
