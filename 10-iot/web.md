@@ -51,3 +51,7 @@ Utilizar un sensor de temperatura DHT11, para leer la temperatura y la humedad r
 **Ejercicio adicional 2**
 
 Utilizando el ejemplo anterior, mostrar en la página de inicio la temperatura local usando la API open Meteo.
+
+**Ejercicio adicional 3**
+
+Crear una web, para controlar un Led RGb pudiendo enviar, R,g y b (valor entre 0 y 255).
