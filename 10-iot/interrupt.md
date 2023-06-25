@@ -4,7 +4,7 @@ Hasta ahora, hemos estado trabajando con el microcontrolador que realizaba todas
 
 Ya que por ejemplo si necesitamos esperar una señal para realizar una acción, siempre se va a comprobar este o no pulsado (lo cual puede ser cientos de veces or segundo); por ello, se pueden utilizar interrupciones por Hardware; de tal forma que podemos solamente realizar una acción, cuando se reciba una señal por una de las patillas.
 
-Esto es lo que se conoce como _interrupcion_; de tal forma que el microprocesador del microcontrolador es capaz de parar lo que este realizando, ejecutar una acción, y volver a la ejecución anterior.
+Esto es lo que se conoce como _interrupción_; de tal forma que el microprocesador del microcontrolador es capaz de parar lo que este realizando, ejecutar una acción, y volver a la ejecución anterior.
 
 Al realizarlo a nivel de hardware, este cambio es mucho más eficiente.
 
@@ -74,7 +74,7 @@ Por ejemplo:
     micropython.schedule(self.post_cb_pulsado, 0)
 ```
 
-Esto nos permitirá poder establecer tareas a ejecutar gracias a los dos nucleos que posee tanto el ESP32, como Raspberry Pi Pico.
+Esto nos permitirá poder establecer tareas a ejecutar gracias a los dos núcleos que posee tanto el ESP32, como Raspberry Pi Pico.
 
 Para ver como funciona, podemos utilizar el montaje anterior, junto al código fuente que encontrarás en el siguiente [enlace](A07_IRQ/main.py).
 

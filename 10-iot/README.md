@@ -15,6 +15,9 @@
 - [Entradas/Salidas Digitales](digital.md)
 - [Entradas/Salidas Analógicas](analog.md)
 - [Interrupciones](interrupt.md)
+- [Sensores I](sensors1.md)
+- [Ficheros](files.md)
+- [Sensores II](sensors2.md)
 - [Referencias](#referencias)
 - [Atribuciones](#atribuciones)
 
@@ -97,7 +100,7 @@ El propio ESP32 es un microcontrolador muy potente, con dos núcleos a 240MUZ, 5
 
 # Instalar MicroPython en el microcontrolador
 
-Para poder trabajar con microcontrolaores, debemos flashear (instalar) el interprete de micropython. Cada familia de microcontroladores tiene sus herramientas para esto (toolkit). En el caso de la familia ESP, utilizaremos esptools. Lo instalamos escribiendo:
+Para poder trabajar con microcontroladores, debemos flashear (instalar) el interprete de micropython. Cada familia de microcontroladores tiene sus herramientas para esto (toolkit). En el caso de la familia ESP, utilizaremos esptools. Lo instalamos escribiendo:
 ```
 pip install esptool
 ```

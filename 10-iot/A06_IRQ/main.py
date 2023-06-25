@@ -6,7 +6,9 @@ import utime
 class Boton:
     def __init__(self, pin):
         self.pulsado = False
+        #Revisar el pin por el correspondiente en la placa
         self.boton = Pin(0, Pin.IN)
+        #interrupcion cuando se pulsa
         self.boton.irq(self.cb, Pin.IRQ_FALLING)
 
     def get_pulsado(self):
