@@ -48,4 +48,4 @@ En este caso se crea un fichero con valores (csv) y se almacena una información
 
 **Ejercicio adicional**
 
-A partir de los sensores HC-SR04 o DHT11, leer cada minuto y que se almacenen los valores en el fichero data.csv. Recuerda que el formato csv (comma separated values) los datos deben dividirse por ','.
+A partir de los sensores HC-SR04 o DHT11, leer cada minuto y que se almacenen los valores en el fichero data.csv. Recuerda que el formato csv (comma separated values) los datos deben dividirse por ','. Lee un solo valor al minuto.
