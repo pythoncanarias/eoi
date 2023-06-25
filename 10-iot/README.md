@@ -20,6 +20,8 @@
 - [Sensores II](sensors2.md)
 - [Conexión Red](wifi.md)
 - [API](api.md)
+- [web](web.md)
+- [mqtt](mqtt.md)
 - [Referencias](#referencias)
 - [Atribuciones](#atribuciones)
 
