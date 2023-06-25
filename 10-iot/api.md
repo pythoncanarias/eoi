@@ -75,4 +75,3 @@ Mostrar no solo la información de temperatura sino también la humedad relativa
 **Ejercicio adicional 2**
 
 Usar la API https://random-d.uk/api/random para obtener una URL de una imagen de patos.
-

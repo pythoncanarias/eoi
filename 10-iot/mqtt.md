@@ -55,5 +55,5 @@ Controlar usando MQTT, los colores de un led RGB; enviando el siguiente json:
     "g":0,
     "b":0
 }
-
+```
 Suscribirse a un tema, y cambiar el color del led.
