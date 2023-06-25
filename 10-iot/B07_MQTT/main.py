@@ -3,7 +3,7 @@ import utime
 from umqtt.simple import MQTTClient
 from ubinascii import hexlify
 # Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
-
+# Modificado por Victor Suarez (suarez.garcia.victor@gmail.com) para curso de Python de EOI
 
 # la conexion a wifi la hacemos en boot.py
 # los pines (led y boton) los configuramos en boot.py
@@ -44,10 +44,6 @@ proximo_envio = utime.ticks_ms() + TIEMPO_ENTRE_ENVIOS  # utilizamos este sistem
 while True:
     client.check_msg()  # comprueba mensajes, llamar frecuentemente pero no de continuo que nos da error
     # client.wait_msg()  # lo mismo que la linea anterior pero bloquea    
-    pulsado = not boton.value()  # estado del boton
-    if pulsado:  # si esta pulsado mandamos un mensaje
-        client.publish(b'clase_eoi', "Soy Dani pulsando el boton")
-        utime.sleep_ms(500)
     if utime.ticks_ms() > proximo_envio:  # periodicamente manda mensajes, pero sin bloquear
         mensaje = "hola mundo, soy Dani"
         client.publish(b'clase_eoi', mensaje)

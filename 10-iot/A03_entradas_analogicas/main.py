@@ -1,9 +1,12 @@
 import machine
 import utime
 # Creado por Daniel Alvarez (danidask@gmail.com) para curso de Python de EOI (eoi.es)
+# Ampliado por Victor Suarez (suarez.garcia.victor@gmail.com) para curso de Python EOI (eoi.es)
 
-
-adc = machine.ADC(machine.Pin(32))
+# Para ESP32 usar los GPIO disponibles
+# Para ATomLite usar GPIO33
+# Para Raspberry Pi usar GPIO28 por ejemplo
+adc = machine.ADC(machine.Pin(28))
 adc.atten(machine.ADC.ATTN_11DB)    # set 11dB input attenuation (voltage range roughly 0.0v - 3.6v)
 # ver https://docs.micropython.org/en/latest/esp32/quickref.html?highlight=timer#adc-analog-to-digital-conversion
 
