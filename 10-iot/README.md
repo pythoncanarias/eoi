@@ -60,6 +60,11 @@ Entre sus características están:
 
 ![ESP32-pinout](https://zerasul.github.io/upythonalm/resources/img/ESP32-pinout.jpg)
 
+**Pinout ESP32 Wrover**
+
+![imagen](https://github.com/pythoncanarias/eoi/assets/6067824/08fc1bb8-24b3-434a-99d3-b1a0be5173cf)
+
+
 ## Raspberry Pi Pico
 
 ![Rpico](https://zerasul.github.io/upythonalm/resources/img/four_picos.jpg)
