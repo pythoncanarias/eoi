@@ -9,6 +9,7 @@
   - [Linux](#linux)
   - [Windows](#windows)
   - [Raspberry Pi Pico](#raspberry-pi-pico-1)
+- [Simulador MicroPython](https://wokwi.com/dashboard/projects)
 - [Instalar Editor Thonny](#instalar-editor-thonny)
 - [Usar Interprete MicroPython](#usar-el-interprete-en-micropython)
 - [Como usar los ejemplos](#como-usar-los-ejemplos)
