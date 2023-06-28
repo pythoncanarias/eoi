@@ -33,7 +33,7 @@ import machine, neopixel
 pin = machine.Pin(22) #pin de datos
 n=8 #Numero de leds
 
-np = neopixel.Neopixel(pin,n) #inicializacion de neopixel
+np = neopixel.NeoPixel(pin,n) #inicializacion de neopixel
 
 np[0] = (255,0,0) #El primer led será Rojo (R,G,B) siempre con valores de 0 a 255.
 
@@ -56,7 +56,7 @@ import time
 pin = machine.Pin(22) #pin de datos
 n=8 #Numero de leds
 
-np = neopixel.Neopixel(pin,n) #inicializacion de neopixel
+np = neopixel.NeoPixel(pin,n) #inicializacion de neopixel
 
 while True:
     #lipiar leds
