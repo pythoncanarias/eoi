@@ -15,9 +15,13 @@ def web_page(estado_led_str):
     return html
 
 print("iniciando modo Access Point...")
-red = network.WLAN(network.AP_IF)  # modo AP, por defecto te crea una red MicroPython-xxxxx password micropythoN
+#Modo AP descomentar y comentar modo STA
+#red = network.WLAN(network.AP_IF)  # modo AP, por defecto te crea una red MicroPython-xxxxx password micropythoN
+#Modo STA
+red=network.WLAN(network.STA_IF)
 red.active(True)  # por algun motivo hay que activar la red antes de cambiar la configuracion ?!?
-red.config(essid="MicroP", password="12345678")  # si el password es corto da error
+#Desconectar en Modo AP
+#red.config(essid="MicroP", password="12345678")  # si el password es corto da error
 
 print(red.ifconfig())  # ('192.168.4.1', '255.255.255.0', '192.168.4.1', '192.168.1.1')
 
