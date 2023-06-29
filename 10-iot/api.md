@@ -13,8 +13,8 @@ Vamos a instalar la libreria _urequest_.
 Para ello, desde el interprete de MicroPython, ejecutamos los siguientes comandos:
 
 ```python
-import upip
-upip.install("urequests")
+import mip
+mip.install("urequests")
 ```
 
 **NOTA:** Recuerda que necesitarás que el microcontrolador este conectado a internet.
