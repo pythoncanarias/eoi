@@ -13,8 +13,8 @@ Normalmente, se utilizan brokers que son los servidores que reciben y envía la 
 En primer lugar, vamos a ver como instalar el cliente mqtt; en este caso usando la utilidad upip.
 
 ```python
-import upip
-upip.install('micropython-umqtt.simple')
+import mip
+mip.install('micropython-umqtt.simple')
 ```
 **NOTA:** Recuerda que tienes que tener conexión a Internet.
 
