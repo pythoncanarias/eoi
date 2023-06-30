@@ -13,4 +13,4 @@ Se pide:
 * Esquema de la solución (montaje), que puede ir en el fichero Readme.md dentro del mismo repositorio.
 
 
-Fecha final Entrega: 14 Julio.
+Fecha final Entrega: **14 Julio**.
