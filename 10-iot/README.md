@@ -24,6 +24,7 @@
 - [web](web.md)
 - [mqtt](mqtt.md)
 - [ESPHome](esphome.md)
+- [Proyecto final](final.md)
 - [Referencias](#referencias)
 - [Atribuciones](#atribuciones)
 
