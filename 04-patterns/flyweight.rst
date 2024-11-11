@@ -1,7 +1,7 @@
-El patrón Flywight (Peso ligero)
+El patrón *Flywight* (Peso ligero)
 ========================================================================
 
-.. index:: Flyweight
+.. index:: Flyweight (Patrón)
 
 Propósito
 ------------------------------------------------------------------------
@@ -9,7 +9,7 @@ Propósito
 Compartir estado para permitir un gran número de objetos de grano fino
 de forma eficiente.
 
-Motivacion
+Motivación
 ------------------------------------------------------------------------
 
 Un peso ligero es un objeto con estado compartido, que puede usarse a la
@@ -31,22 +31,22 @@ pasar al peso ligero su estado extrínseco cuando lo necesite.
 Los pesos ligeros modelan conceptos o entidades que normalmente son
 demasiado numerosos como para ser representados con objetos.
 
-Un ejemplo gráfico podría ser un objeto en un video juego que represente
+Un ejemplo gráfico podría ser un objeto en un videojuego que represente
 a un árbol.
 
 Queremos usar varios de estos objetos para representar un bosque, pero
-en realidad vemos que gran parte de los atributos, como las textures a
-usar para pintar el arbol, el modelo *mesh* para la estructura básica,
+en realidad vemos que gran parte de los atributos, como las texturas a
+usar para pintar el árbol, el modelo *mesh* para la estructura básica,
 etc. son iguales para todos los objetos. Estos serian atributos
 *extrínsecos*.
 
-Otros atributos, como la posicion (x, y, z), efectos de escala, etc.
-son, sin embargo, propios de cada árbol. Son los atributos
-*intrínsecos*.
+Otros atributos, como la posición (``x``, ``y``, ``z``), efectos de
+escala, rotación, etc. son, sin embargo, propios de cada árbol. Son los
+atributos *intrínsecos*.
 
-Con la clase Flyweight, las instancias comparten todos los datos
+Con la clase *Flyweight*, las instancias comparten todos los datos
 comunes, de forma que el tamaño de la instancia es considerablemente
-menor, y el consumo de memoria tambien se reduce drasticamente,
+menor, y el consumo de memoria también se reduce drásticamente,
 
 Aplicabilidad
 ------------------------------------------------------------------------
@@ -62,14 +62,16 @@ Debería aplicarse el patrón cuando se cumpla **todo** lo siguiente:
 
 **Ejercicio**: Volvemos a nuestro juego imaginario. Ahora estamos
 probando otro prototipo para la IA. Esto no tarda prácticamente nada en
-inicializarse, el problema es que ocupa muchisimo espacio. Y la cosa es
+inicializarse, el problema es que ocupa muchísimo espacio. Y la cosa es
 que todos los enemigos usan la misma IA, con lo que cada enemigo ocupa
-muchisima memoria.
+muchísima memoria.
 
-La siguiente celda define una funcion que ayuda a calcular el tamaño en
+La siguiente celda define una función que ayuda a calcular el tamaño en
 bytes que ocupa una variable, en Python. No es una tarea tan sencilla
 como pudiera parecer, pero lo bueno es que puedes usarla sin entender
-todos los detalles::
+todos los detalles:
+
+:: code:: python
 
     import sys
     from types import ModuleType, FunctionType
@@ -98,8 +100,10 @@ todos los detalles::
             objects = get_referents(*need_referents)
         return size
 
-Usando la funcion ``getsize``, vemos que los enemigos realmente ocupan
-demasiado memoria (Mas considerando lo poco que hacen por ahora)::
+Usando la función ``getsize``, vemos que los enemigos realmente ocupan
+demasiado memoria (Mas considerando lo poco que hacen por ahora):
+
+.. python::
 
     class IA: 
         def __init__(self):
@@ -130,15 +134,14 @@ demasiado memoria (Mas considerando lo poco que hacen por ahora)::
 Ejercicios
 ------------------------------------------------------------------------
 
-**Ejercicio**: Resuelve el problema usando el patron *Flyweight*.
+**Ejercicio**: Resuelve el problema usando el patrón *Flyweight*.
 Modifica solo la clase ``Enemy``, la clase ``IA`` no se puede tocar.
 
-**Pista**: Cuales son los atributos extrínsecos de la clase ``Enemy`` y
+**Pregunta**: Cuales son los atributos extrínsecos de la clase ``Enemy`` y
 cuáles son los intrínsecos.
 
-**Pregunta**: Que otro patron podriamos haber usado para garantizar que
-solo tenemos una instancia a la vez de la IA
+**Pregunta**: Que otro patrón podríamos haber usado para garantizar que
+solo tenemos una instancia a la vez de la IA?
 
-.. code:: ipython3
-
-    # %load flyweight.py
+.. literalinclude:: flyweight.py
+  :language: python

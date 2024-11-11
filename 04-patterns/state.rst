@@ -10,7 +10,7 @@ estado interno. Parecerá que cambia la clase del objeto.
 También conocido como
 ^^^^^^^^^^^^^^^^^^^^^
 
-Objects for States (Estados como Objetos)
+Estados como objetos (*Objects for States*)
 
 Motivación
 ^^^^^^^^^^
@@ -19,16 +19,16 @@ Pensemos en una clase ``Conexion`` que representa una conexión entre dos
 ordenadores. Un objeto ``Conexion`` puede encontrarse en uno de los
 siguientes tres estados:
 
--  Establecida
--  Escuchando
--  Cerrada
+- Establecida
+- Escuchando
+- Cerrada
 
 Cuando un objeto ``Conexion`` recibe peticiones de otros objetos, les
 responde de distinta forma dependiendo de su estado actual. Por ejemplo,
 el efecto de una petición ``open`` depende de si la conexión se
 encuentra en su estado ``Cerrada`` o en su estado ``Establecida``.
 
-El patrón State describe cómo puede ``Conexion`` exhibir un
+El patrón **State** describe cómo puede ``Conexion`` exhibir un
 comportamiento diferente en cada estado.
 
 La idea clave de este patrón es introducir una clase abstracta llamada
@@ -47,9 +47,11 @@ instancia de una subclase de ``EstadoConn``. Esto representa el estado
 actual de la conexión. La clase ``Conexion`` delega todas las peticiones
 relativas al estado a este componente.
 
-El siguiente fragmento de codigo implementa el controlador de un
+El siguiente fragmento de código implementa el controlador de un
 personaje de un juego de plataformas. Queremos que al pulsar la tecla
-``B``, el personaje salta::
+``B``, el personaje salte:
+
+.. code:: python
 
     class Hero:
         ...
@@ -65,11 +67,13 @@ Funciona, pero tiene un fallo. ¿Puedes descubrir cual es?
 
    Superman!
 
-Nuestro heroe puede volar! Si pulsa el boton de volar otra vez cuando el
-personaje esta en el aire, vuelve a impulsarse para arriba. No es
-exactemente lo que buscabamos.
+¡Nuestro héroe puede volar! Si pulsa el botón de volar otra vez mientras el
+personaje está en el aire, vuelve a impulsarse para arriba. No es
+exactamente lo que buscábamos.
 
-Pero podemos resolverlo facilmente con un flag booleano::
+Pero podemos resolverlo fácilmente con un flag booleano:
+
+.. code:: python
 
     class Hero:
         ...
@@ -79,8 +83,11 @@ Pero podemos resolverlo facilmente con un flag booleano::
                 self.graphic = Image(HERO_JUMP)
                 self.is_jumping = True
 
+
 Ahora queremos que se pueda agachar con la tecla ``C``, para esquivar un
-ataque, facilisimo::
+ataque, facilísimo:
+
+.. code:: python
 
     class Hero:
         ...
@@ -96,7 +103,9 @@ ataque, facilisimo::
 
 Si pulsamos `C` durante un salto, la imagen cambia a la de agachado.
 
-Hay que arreglarlo con otro ``if``::
+Hay que arreglarlo con otro ``if``:
+
+.. code:: python
 
     class Hero:
         ...
@@ -111,9 +120,11 @@ Hay que arreglarlo con otro ``if``::
                     self.graphic = Image(HERO_DIVE)
 
 Ahora queremos que el personaje no pueda saltar si esta agachado. ¿Qué
-necesitas y como lo implementarias.
+necesitas y como lo implementarías.
 
-Una forma podría ser::
+Una forma podría ser:
+
+.. code:: python
 
     class Hero:
         ...
@@ -127,21 +138,23 @@ Una forma podría ser::
                 self.set_graphic(HERO_DIVE)
                 self.is_diving = True
 
-Ya tenemos un código feo, con un monton de if y ni siquiera hemos
-empezado con cosas como atacar o simplemente moverse. 
+Ya tenemos un código feo, con un montón de sentencias ``if`` y ni
+siquiera hemos empezado con cosas como atacar o simplemente moverse. 
 
 El problema es que tenemos muchos estados diferentes, y controlarlos a
 base de variables booleanas se vuelve muy pronto muy complicado.
 
-Vamos a solucionarlo usando el patron estado. Vamos a crear tres estados
-(los que tenemos por ahora): Sn hacer nada (*idle*), saltando
-(*jumping*) y agachado (*diving*):
+Vamos a solucionarlo usando el patrón estado. Vamos a crear tres estados
+(los que tenemos por ahora): Sin hacer nada (*idle*), saltando
+(*jumping*) y agachado (*diving*).
 
 En otros lenguajes usaremos una clase base `StateBase`. No es
-estrictamnte necesaria, porque tenemos *Dock-Typing* con Python, pero en
+estrictamente necesaria, porque tenemos *Dock-Typing* con Python, pero en
 este caso me interesa tener una clase base que defina los verbos y que
-por defecto no haga nada, y el constructor tambien me vale para todas
-las clases derivadas::
+por defecto no haga nada, y el constructor también me vale para todas
+las clases derivadas:
+
+.. code:: python
 
     class StateBase:
 
@@ -155,7 +168,9 @@ las clases derivadas::
             pass
 
 Definimos el estado *idle*. En este estado podemos saltar o
-agacharnos::
+agacharnos:
+
+.. code:: python
 
     class StateIdle(StateBase):
     
@@ -166,25 +181,32 @@ agacharnos::
         def dive(self):
             self.set_graphic(HERO_DIVE)
 
-Ahora la clase para el estado “Saltando”. Aqui no podemos ni saltar otra
-vez ni agacharnos, asi que con los comportamientos por defecto nos
-vale::
+
+Ahora la clase para el estado "Saltando". Aquí no podemos ni saltar otra
+vez ni agacharnos, así que con los comportamientos por defecto nos
+vale:
+
+.. code:: python
 
     class StateJumping(StateBase):
         pass
 
-Y lo mismo para el estado agachado::
+Y lo mismo para el estado agachado:
+
+.. code:: python
 
     class StateJumping(StateBase):
         pass
 
-Ahora nuestro heroe necesita un atributo para almacenar el objeto
-estado::
+Ahora nuestro héroe necesita un atributo para almacenar el objeto
+estado:
+
+.. code:: python
 
     class Hero:
 
-    def __init__(self):
-        self.state = IdleState(self)
+        def __init__(self):
+            self.state = IdleState(self)
         
     def handle_input(self, key_press):
         if key_press == 'B':

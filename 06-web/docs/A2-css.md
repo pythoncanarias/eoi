@@ -582,4 +582,24 @@ Por orden, los valores que se indican en box-shadow son:
 - **Color de la sombra**: El último atributo es el color de la sombra. En el
   ejemplo indicamos una sombra con color negro.
 
+### Unidades de medida relativas
+
+Las unidades de medida relativas o _viewport units_ son unidades CSS relativas
+al tamaño de la ventana del navegador. Con ellas podemos tener componentes con
+tamaños relativos al ancho y alto de la ventana de contenidos del navegador (La
+parte del navegador donde se muestra la página web en si, también llamada
+`viewport`).
+
+- **`vw`** (_viewport-width_ representa el 1% del ancho. Si especificamos, por
+  tanto, `100vw` equivale a todo el ancho, mientras que `vw50` ocuparía solo la
+  mitad del ancho.
+
+- **`vh`** (_viewport-height_ representa el 1% del alto. Si especificamos, por
+  tanto, `100vw` equivale a todo el ancho, mientras que `vw20` ocuparía solo el
+  20%.
+
+Lo interesante de estas unidades es que, aunque son relativas, siempre son
+relativase al tamaño del la ventana de contenidos. Si usaramos valores
+usando porcentajes directamente (con `%`), estos son siempre referidos a la 
+bloque contenedor.
 

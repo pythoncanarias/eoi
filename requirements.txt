@@ -20,3 +20,8 @@ python-markdown-math
 pygments
 pymdown-extensions
 pyparsing
+sphinx
+furo
+myst-parser
+sphinxcontrib-mermaid
+sphinx-copybutton
