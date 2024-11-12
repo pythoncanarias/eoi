@@ -15,7 +15,7 @@ Temario
    :maxdepth: 1
 
    04-patterns/index.rst
-   databases/index
+   databases/index.rst
 
 
 ************************************************************************

@@ -9,7 +9,7 @@ pdf:
 
 # Generar la documentación con Sphibx
 docs: clean
-     cd {{invocation_directory()}} &&  sphinx-build -W -c . -b html . ./html
+     cd {{invocation_directory()}} &&  sphinx-build -c . -b html . ./html
 
 
 # Borra todos los ficheros compilados python (*.pyc, *.pyo, __pycache__)

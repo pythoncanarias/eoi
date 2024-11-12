@@ -1,29 +1,22 @@
-Introoducción a las bases de datos
+Introducción a las bases de datos
 =======================================================================
 
 Qué son las bases de datos
 -----------------------------------------------------------------------
 
 El término **base de datos** ha sido utilizado para referirse a muchas
-cosas, desde una colección de nombres y direcciones, hasta un complejo
-sistema de recuperación y almacenamiento de datos distribuida en una red
-de computadoras y servidores. 
+cosas (En algunos casos, incluso, para cosas que claramente no son bases
+de datos, cómo por ejemplo un simple fichero de nombres y teléfonos),
+por lo que hay múltiples definiciones del término.
 
-Hay múltiples definiciones para base de datos. Además, los distintos
-proveedores de :term:`DBMS` (*Data Base Management System*) han
-desarrollado diferentes arquitecturas, por lo que no todas las bases de
-datos están diseñadas de la misma manera.
+Además, los distintos proveedores de :term:`DBMS` (*Data Base Management
+System*) han desarrollado diferentes arquitecturas, por lo que no todas
+las bases de datos están diseñadas de la misma manera.
 
-A falta de una definición absoluta, vamos a utilizar aquí la
+A falta de una definición absoluta y consensuada, vamos a utilizar la
 siguiente: Una base de datos es **una colección de datos estructurados,
 que se organiza y almacena de forma que se facilita la recuperación,
 manejo y gestión de los mismos**.
-
-La palabra datos se refiere a los hechos conocidos que se pueden grabar
-y que tienen un significado implícito, también representa algún aspecto
-del mundo real, lo que en ocasiones se denomina minimundo o universo de
-discurso.
-
 
 Antecedentes históricos
 ------------------------------------------------------------------------
@@ -35,6 +28,10 @@ tarjetas perforadas fueron usadas durante los siguientes 65 años como
 sistema de almacenamiento de datos, hasta que fueron reemplazados 
 durante la década de los 50 por las cintas magnéticas y, un poco más
 tarde,por los primeros discos duros.
+
+.. image:: tarjeta_perforada.jpg
+   :width: 600
+   :alt: Tarjeta perforada, aproximadamente de 1895
 
 Hasta ese momento, los datos eran almacenados secuencialmente en una
 cinta, y estaban dedicados en exclusiva para una sola aplicación. Un
@@ -49,8 +46,8 @@ Ya no era necesario procesar los datos secuencialmente, ya que los
 discos duros permiten el acceso a los datos en cualquier orden (Las
 iniciales RAMAC son las iniciales en inglés de Sistema de Contabilidad
 con Memoria de Acceso Aleatorio (*Random Access Memory ACcounting
-System*). Esto llevo a nuevos esfuerzos de innovación en lo que se
-refiere a cómo organizar los datos en el disco.
+System*). Esto llevo a nuevos esfuerzos de innovación en lo referido
+a la organización de los datos en el disco.
 
 Durante la década siguiente, en los años 60 del pasado siglo, un equipo
 de ingenieros que trabajan para la NASA desarrollaron un sistema,
@@ -58,20 +55,20 @@ pensado inicialmente para ser usado en el `programa Apolo`_, que
 almacenada y recuperaba la información desde un disco duro. El sistema,
 llamado *Information Management System* (`IMS`_), pronto demostró ser
 útil también fuera del programa espacial, y fue puesto a disposición de
-los usuarios de sistemas IBM en 1969. Este programa organizaba la
-información en el disco en forma de un sistema jerárquico de registros
-"padres" e "hijos".
+los usuarios de los sistemas IBM en 1969. Este programa organizaba la
+información en el disco en forma de un **sistema jerárquico de
+registros** "padres" e "hijos".
 
-Más o menos al mismo tiempo, en la empresa *General Electric*, uno de sus
-empleados, `Charles Bachman`_, estaba trabajando en un sistema llamado
-`Integrated Data Store` (IDS) con el mismo objetivo de recuperar y
-almacenar información. Como el sistema IMS, IDS almacenaba los datos
+Más o menos al mismo tiempo, en la empresa *General Electric*, uno de
+sus empleados, `Charles Bachman`_, estaba trabajando en un sistema
+llamado `Integrated Data Store` (IDS) con el mismo objetivo de recuperar
+y almacenar información. Como el sistema IMS, IDS almacenaba los datos
 en disco en forma de registros y conexiones entre los mismos. Los
 usuarios podían recuperar la información usando estas conexiones,
-siguiendo las rutas que llevaban de un registro a otro. Pero a diferencia de
-IMS, este sistema no exigía que los registros estuvieran organizadas en
-forma jerárquica, sino que permitía organizaciones en forma de red, de
-mayor complejidad.
+siguiendo las rutas que llevaban de un registro a otro. Pero a
+diferencia de IMS, este sistema no exigía que los registros estuvieran
+organizadas en forma jerárquica, sino que permitía organizaciones en
+forma de red, de mayor complejidad.
 
 Mientras trabaja en su sistema, Bachman tuvo una revelación muy
 importante. Si los datos almacenados en el disco se podían acceder en
@@ -84,49 +81,121 @@ management system*".
 
 Este nuevo *sistema de gestión de bases de datos* podía a la vez
 eliminar redundancias y hacer los datos más consistentes entre las
-aplicaciones. También podría proporcionar control de acceso a los datos
-a diferentes tipos de usuarios. Aprovechando la centralidad de este
-sistema, se facilitaban también las copias de seguridad, la seguridad de
-las transacciones y la seguridad de que las actividades de múltiples
-usuarios no interfirieran entre si.
+aplicaciones. Ofrecía además otras ventajas: podría proporcionar control
+de acceso a los datos a diferentes tipos de usuarios. Aprovechando la
+centralidad de este sistema, se facilitaban también las copias de
+seguridad, la seguridad de las transacciones y la seguridad de que las
+actividades de múltiples usuarios no interfirieran entre si.
 
 Estos dos sistemas definieron los primeros sistemas de bases de datos,
 IMS a las bases de datos jerárquicas e IDS a las sistemas de bases de
-datos en red. (Charlie Bachman recibió el premio ACM A.M. Turing por est y otros
-trabajos en 1973).
+datos en red. (Charlie Bachman recibió el premio ACM A.M. Turing por
+este y otros trabajos en 1973).
 
-COBOL, a popular programming language for business applications, had
-been designed by an organization called the Conference on Data System
-Languages (CODASYL). In the late 1960s, CODASYL created a working group
-called the Data Base Task Group (DBTG) to define a standard sublanguage
-for database applications, to be embedded in COBOL. Charlie Bachman was
-a member of DBTG, and its work was strongly influenced by his ideas and
-experience in designing IDS. DBTG issued a preliminary report in 1969
-and a final report in 1971.9 In the early 1970s, the DBTG report was
-considered the leading candidate for a standard database language.
+El lenguaje de programación COBOL, orientado a aplicaciones de negocios,
+había sido diseñado por una organización conocida como *Conference on
+Data System Languages* (CODASYL). A finales de los 60, se creo un grupo
+de trabajo, llamado *Data Base Task Group* (DBTG), con el objetivo de
+definir un lenguaje estándar para las aplicaciones de bases de datos,
+que pudiera ser embebido en COBOL. Bachman formaba parte de este grupo,
+por lo que sus ideas influyeron decisivamente en el mismo.
 
- E.F. (Ted) Codd was continuing his work on the relational data model at the IBM San Jose Research Laboratory, a sister lab to Yorktown. As part of my work in learning the state of the art in database management, I read Codd’s 1970 paper. On first reading, I was not too impressed. The paper contained a lot of mathematical jargon. It introduced the concepts of data independence and normalization, defined a relation as a subset of the Cartesian product of a set of domains, proposed that the first-order predicate calculus could serve as a standard for measuring the expressive power of query languages, and introduced a set of operators that became known as the “relational algebra.” My impression was that the paper was of some theoretical interest but was not grounded in practical engineering.
+Por otro lado, `Edgar Frank «Ted» Codd`_, un científico informático
+inglés, había estado trabajando en su modelo *relacional* de base de
+datos en IBM. En una publicación de 1970, "Un modelo relacional de datos
+para grandes bancos de datos compartidos" (*A Relational Model of Data
+for Large Shared Data Banks*) definía un modelo fuertemente matemático,
+en el que se introdujeron conceptos fundamentales como independencia de
+datos, normalización, el propio concepto de *relacion* se definía como
+un subconjunto del producto cartesiano de un conjunto de dominios.
+También introdujo la idea de que era posible usar el cálculo de
+predicados de primer orden como una forma ideal de estimar la potencia
+de futuros lenguajes de consulta, y definió un conjunto de operadores,
+mas tarde conocidos como "Álgebra relacional".
 
+Muchos investigadores y empresas del momento no prestaron mucha atención
+a este enfoque, considerándolo como un documento de interés teórico,
+alejado de los requerimientos prácticos de la industria. La idea
+consistía en construir un compilador que tradujera de forma óptima desde
+las descripciones de alto nivel de las consultas, a un plan de ejecución
+que produjera los resultados buscados. Algunos expertos se mostraron
+escépticos de que se consiguiera un nivel de traducción lo
+suficientemente bueno como para competir con el que podría producir un
+programador humano. Las ventajas del sistema relacional eran evidentes,
+pero había dudas acerca de si sería posible conseguir un rendimiento
+aceptable para bases de datos masivas y con múltiples usuarios.
 
- Following the publication of Codd’s 1970 paper, relational databases were getting a good deal of attention, but it still wasn’t clear how practical they were. The whole idea hinged on building an optimizing compiler to translate high-level descriptive queries into efficient access plans. Some people were skeptical that a compiler could do this job as well as an expert human programmer could. The job of optimizing a database query is much more complex than managing registers. The advantages of the relational approach for users were well understood, but the question remained whether a relational system could meet the requirements of large-scale, multi-user database applications.
+En 1973, la división de investigación de IBM decidió a crear un
+nuevo proyecto en sus oficinas de San Jose, en California, donde estaba
+trabajando Ted Codd. El proyecto, más tarde bautizado "System R",
+consistía en crear un prototipo de gestor de base de datos relacional.
 
-In 1973, the IBM Research Division decided to create a new project at their San Jose, CA laboratory, where Ted Codd was working. The project, to be called “System R,” would build an industrial-strength relational database prototype, to gain experience and to influence IBM’s plans for future database products.
+Más o menos al mismo tiempo, en la Universidad de Berkeley, bajo el
+liderazgo de los profesores `Michael Stonebraker`_ y `Gene
+Wong`_
 
-At about the same time, a research project was taking shape at UC Berkeley under the leadership of Professors Michael Stonebraker and Gene Wong. This project was called INGRES, an acronym for Interactive Graphics and Retrieval System (also the name of an 18th century French artist, Jean Auguste Dominique Ingres). Like System R, INGRES intended to explore relational database technology and demonstrate its feasibility for use in a production environment. Funding for INGRES was provided by several federal agencies, including the National Science Foundation. Over its active life from 1973 to 1979, INGRES provided research opportunities and practical experience for about two dozen UC students, many of whom went on to take leading positions at various companies in the rapidly growing database industry.
+.. _Michael Stonebraker: 
+
+At about the same time, a research project was taking shape at UC
+Berkeley under the leadership of Professors Michael Stonebraker and Gene
+Wong. This project was called INGRES, an acronym for Interactive
+Graphics and Retrieval System (also the name of an 18th century French
+artist, Jean Auguste Dominique Ingres). Like System R, INGRES intended
+to explore relational database technology and demonstrate its
+feasibility for use in a production environment. Funding for INGRES was
+provided by several federal agencies, including the National Science
+Foundation. Over its active life from 1973 to 1979, INGRES provided
+research opportunities and practical experience for about two dozen UC
+students, many of whom went on to take leading positions at various
+companies in the rapidly growing database industry.
 
 Modelo Relacional
 
 ------------------------------------------------------------------------
 
 
-The essence of a relational system is that all information is represented by data values, never by explicit connections between records. Queries are framed in a high-level descriptive language based only on data values. An optimizing compiler then translates each query into an efficient plan, using access aids that underlie the data values (B-tree indexes, hash tables, sort-merge join algorithms, and so on). Users do not need to see the access aids—in fact, they can be changed and new ones can be added, without affecting existing applications (except possibly by improving performance). This is basically the same idea found in high-level programming languages, in which mathematical formulas are compiled into procedures for loading registers and performing arithmetic.
+The essence of a relational system is that all information is
+represented by data values, never by explicit connections between
+records. Queries are framed in a high-level descriptive language based
+only on data values. An optimizing compiler then translates each query
+into an efficient plan, using access aids that underlie the data values
+(B-tree indexes, hash tables, sort-merge join algorithms, and so on).
+Users do not need to see the access aids—in fact, they can be changed
+and new ones can be added, without affecting existing applications
+(except possibly by improving performance). This is basically the same
+idea found in high-level programming languages, in which mathematical
+formulas are compiled into procedures for loading registers and
+performing arithmetic.
 
-Both the System R group and the INGRES group had ambitious agendas. They had to develop software techniques for implementing relational data on top of an operating system (VM/CMS in the case of System R; Unix in the case of INGRES). They also had to design a user interface, including a relational query language, and build an optimizing compiler to translate that query language into efficient execution plans. Both System R and INGRES existed in environments that encouraged their members to attend conferences, share experiences with colleagues (including each other), and publish papers in the open technical literature. This open collaborative environment would prove to be crucial to the impact that both projects would have on the software industry. Over the course of their existence, System R and INGRES each published more than 40 technical papers.6,22 In 1988, System R and INGRES jointly received the ACM Software System Award for their contributions to relational database technology.
+Both the System R group and the INGRES group had ambitious agendas.
+They had to develop software techniques for implementing relational data
+on top of an operating system (VM/CMS in the case of System R; Unix in
+the case of INGRES). They also had to design a user interface, including
+a relational query language, and build an optimizing compiler to
+translate that query language into efficient execution plans. Both
+System R and INGRES existed in environments that encouraged their
+members to attend conferences, share experiences with colleagues
+(including each other), and publish papers in the open technical
+literature. This open collaborative environment would prove to be
+crucial to the impact that both projects would have on the software
+industry. Over the course of their existence, System R and INGRES each
+published more than 40 technical papers.6,22 In 1988, System R and
+INGRES jointly received the ACM Software System Award for their
+contributions to relational database technology.
 
-Two more facts about SIGFIDET 1974 may be worth mentioning. The first is that, after this meeting, the participants in the Special Interest Group realized that what they were doing was managing data, and changed the name of the group to SIGMOD, the Special Interest Group on Management of Data. SIGMOD continues to hold annual meetings, which are among the most widely respected conferences in the field of data management. The second fact is that, hidden on page 249 of the Proceedings of SIGFIDET 1974 was a short paper by Don Chamberlin and Ray Boyce, titled “SEQUEL: A Structured English Query Language”.
+Two more facts about SIGFIDET 1974 may be worth mentioning. The first is
+that, after this meeting, the participants in the Special Interest Group
+realized that what they were doing was managing data, and changed the
+name of the group to SIGMOD, the Special Interest Group on Management of
+Data. SIGMOD continues to hold annual meetings, which are among the most
+widely respected conferences in the field of data management. The second
+fact is that, hidden on page 249 of the Proceedings of SIGFIDET 1974 was
+a short paper by Don Chamberlin and Ray Boyce, titled “SEQUEL: A
+Structured English Query Language”.
 
 
-Our specific goals were to design a query language with the following properties:
+Our specific goals were to design a query language with the following
+ properties:
 
     The language should be declarative (non-procedural) and based on Codd’s relational concepts.
 
@@ -215,50 +284,100 @@ Falta
 * Normalización de  base de datos
   * 1 FM
 
-Primera forma normal
+  Primera forma normal
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Una relación (tabla) está en primera forma si:
+
+  * Todos los atributos **son atómicos**. Un atributo es atómico si los
+    elementos del dominio son simples e indivisibles.
+
+  * No debe existir variación en el número de columnas.
+
+  * Los campos no clave deben identificarse por la clave (dependencia
+    funcional).
+
+  * Debe existir una independencia del orden tanto de las filas como de
+    las columnas; es decir, si los datos cambian de orden no deben
+    cambiar sus significados.
+
+  Esta forma normal elimina los valores repetidos dentro de una base de
+  datos. 
+
+  Segunda Forma Normal (2FN)
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  Para entender la segunda forma normal, tnos ayudará definir un
+  concepto conocido como **Dependencia Funcional**. 
+
+
+
+  Una relación está en 2FN si:
+
+  * Está en primera forma normal
+
+  * los atributos que **no** forman parte de ninguna clave, dependen de
+    forma completa de la clave principal. Es decir, que no existen
+    dependencias parciales. Todos los atributos que no son clave
+    principal deben depender únicamente de la clave principal.
+
+  En otras palabras, podríamos decir que la segunda forma normal está
+  basada en el concepto de dependencia completamente funcional. Una
+  dependencia funcional x → y {\displaystyle x\rightarrow y} es
+  completamente funcional si al eliminar los atributos A de X significa
+  que la dependencia no es mantenida, esto es que A ∈ X , X − { A } ↛ Y
+  {\displaystyle A\in X,X-\{A\}\nrightarrow Y}. Una dependencia
+  funcional x → y {\displaystyle x\rightarrow y} es una dependencia
+  parcial si hay algunos atributos A ∈ X {\displaystyle A\in X} que
+  pueden ser eliminados de X y la dependencia todavía se mantiene, esto
+  es A ∈ X , X − { A } → Y {\displaystyle A\in X,X-\{A\}\rightarrow Y}.
+
+  Por ejemplo {DNI, ID_PROYECTO} → {\displaystyle \rightarrow }
+  HORAS_TRABAJO (con el DNI de un empleado y el ID de un proyecto
+  sabemos cuántas horas de trabajo por semana trabaja un empleado en
+  dicho proyecto) es completamente funcional dado que ni DNI →
+  {\displaystyle \rightarrow } HORAS_TRABAJO ni ID_PROYECTO →
+  {\displaystyle \rightarrow } HORAS_TRABAJO mantienen la dependencia.
+  Sin embargo {DNI, ID_PROYECTO} → {\displaystyle \rightarrow }
+  NOMBRE_EMPLEADO es parcialmente dependiente dado que DNI →
+  {\displaystyle \rightarrow } NOMBRE_EMPLEADO mantiene la dependencia.
+  * 3 Fn *   
+
+Forma Normal de Boyce-Codd (FNBC)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Una relación (tabla) está en primera forma si:
+La **Forma Normal de Boyce-Codd** (FNBC) es una forma normal utilizada
+en la normalización de bases de datos. Es una versión ligeramente más
+fuerte de la Tercera forma normal (3FN). La forma normal de Boyce-Codd
+requiere que no existan dependencias funcionales no triviales de los
+atributos que no sean un conjunto de la clave candidata.
 
-* Todos los atributos **son atómicos**. Un atributo es atómico si los
-  elementos del dominio son simples e indivisibles.
+En una tabla en 3FN, todos los atributos dependen de una clave, de la
+clave completa y de ninguna otra cosa excepto de la clave (excluyendo
+dependencias triviales, como A → A. Se dice que una tabla está en FNBC
+si y solo si está en 3FN y cada dependencia funcional no trivial tiene
+una clave candidata como determinante. En términos menos formales, una
+tabla está en FNBC si está en 3FN y los únicos determinantes son
+claves candidatas.
 
-* No debe existir variación en el número de columnas.
+Una forma sencilla de comprobar si una relación se encuentra en FNBC
+consiste en comprobar, además de que esté en 3FN, lo siguiente:
 
-* Los campos no clave deben identificarse por la clave (dependencia
-  funcional).
+(1) Si no existen claves candidatas compuestas (con varios atributos),
+está en FNBC.
 
-* Debe existir una independencia del orden tanto de las filas como de
-  las columnas; es decir, si los datos cambian de orden no deben cambiar
-  sus significados.
-
-Esta forma normal elimina los valores repetidos dentro de una base de datos. 
-
-Segunda Forma Normal (2FN)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Para entender la segunda forma normal, tnos ayudará definir un concepto
-conocido como **Dependencia Funcional**. 
-
+(2) Si existen varias claves candidatas compuestas y éstas tienen un
+elemento común, puede no estar en FNBC. Solo si, para cada dependencia
+funcional en la relación, el determinante es una clave candidata, estará
+en FNBC.
 
 
-Una relación está en 2FN si:
-
-* Está en primera forma normal
-
-* los atributos que **no** forman parte de ninguna clave, dependen 
-  de forma completa de la clave principal. Es decir, que no existen
-  dependencias parciales. Todos los atributos que no son clave 
-  principal deben depender únicamente de la clave principal.
-
-En otras palabras, podríamos decir que la segunda forma normal está basada en el concepto de dependencia completamente funcional. Una dependencia funcional x → y {\displaystyle x\rightarrow y} es completamente funcional si al eliminar los atributos A de X significa que la dependencia no es mantenida, esto es que A ∈ X , X − { A } ↛ Y {\displaystyle A\in X,X-\{A\}\nrightarrow Y}. Una dependencia funcional x → y {\displaystyle x\rightarrow y} es una dependencia parcial si hay algunos atributos A ∈ X {\displaystyle A\in X} que pueden ser eliminados de X y la dependencia todavía se mantiene, esto es A ∈ X , X − { A } → Y {\displaystyle A\in X,X-\{A\}\rightarrow Y}.
-
-Por ejemplo {DNI, ID_PROYECTO} → {\displaystyle \rightarrow } HORAS_TRABAJO (con el DNI de un empleado y el ID de un proyecto sabemos cuántas horas de trabajo por semana trabaja un empleado en dicho proyecto) es completamente funcional dado que ni DNI → {\displaystyle \rightarrow } HORAS_TRABAJO ni ID_PROYECTO → {\displaystyle \rightarrow } HORAS_TRABAJO mantienen la dependencia. Sin embargo {DNI, ID_PROYECTO} → {\displaystyle \rightarrow } NOMBRE_EMPLEADO es parcialmente dependiente dado que DNI → {\displaystyle \rightarrow } NOMBRE_EMPLEADO mantiene la dependencia. 
-  * 3 Fn
-  *   
 
 Transacciones
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ACID
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 NoSQL
 -----------------------------------------------------------------------
@@ -314,3 +433,4 @@ language. That is why NoSQL is sometimes interpreted as **No Solo SQL**.
 .. _Charles Bachman: https://es.wikipedia.org/wiki/Charles_Bachman
 .. _IMS: https://es.wikipedia.org/wiki/IMS_(IBM)
 .. _programa Apolo: https://es.wikipedia.org/wiki/Programa_Apolo
+.. _Edgar Frank «Ted» Codd: https://es.wikipedia.org/wiki/Edgar_Frank_Codd
