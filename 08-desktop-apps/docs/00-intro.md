@@ -196,7 +196,7 @@ Debería producir algo similar a:
 
 ## Cosas en comun entre las distintas soluciones
 
-Como vemos, a pesar de las diferencias, hay mucho en comun en todas las
+Como vemos, a pesar de las diferencias, hay mucho en común en todas las
 versiones:
 
 1) Normalmente tenemos el concepto de **App** que representa la aplicación en
@@ -205,7 +205,7 @@ En los ejemplos mostrados solo se crea una ventana, pero lo normal es tener
 varias ventanas disponibles, de las cuales una es la principal
 
 2) Los componentes dentro de una ventana se agrupan en forma de árbol,
-existiendo un componente raiz.
+existiendo un componente raíz.
 
 3) se usan componentes estándar, como etiquetas o botones, Además de lo visto
 en los ejemplos, tenemos más tipos de controles que podemos encontrarnos:
